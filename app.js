@@ -10,7 +10,7 @@ export class ExpressApp {
     this.setAppRouter();
     
   }
-  //
+  // commit을 위한 주석 수정
   setAppSettings = () => {
     this.app.use(express.json());
     this.app.use(express.urlencoded({ extended: false }));
