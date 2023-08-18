@@ -25,4 +25,4 @@ export class ExpressApp {
       });
     });
   };
-}
+};
