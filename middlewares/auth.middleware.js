@@ -1,8 +1,8 @@
-const jwt = require("jsonwebtoken");
+import jwt from "jsonwebtoken";
 const Users = require("../db/models/user");
 
 async function isAuth(req, res, next) {
-  const token = req.headers.authorization;
+  const token = req.cookies.authorization;
   if (!token) {
     return res.status(400).json({ message: "토큰이 제공되지 않았습니다." });
   }

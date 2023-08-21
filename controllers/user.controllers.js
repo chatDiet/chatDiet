@@ -26,8 +26,7 @@ class UserController {
     try {
       const { token, userId } = await userService.loginUser(email, password);
       console.log(token);
-      res.header("authorization", `Bearer ${token}`);
-      res.header("userId", userId); // user-id라는 헤더에 userId 값을 넣어서 응답합니다.
+      res.cookie("authorization", `Bearer ${token}`);
       res.status(200).json({ message: "로그인 성공" });
     } catch (err) {
       console.error(err);
@@ -45,6 +44,18 @@ class UserController {
       return res.status(500).json({ message: err.message });
     };
   };
+
+  //회원탈퇴
+  async deleteUser(req, res) {
+    const userId = req.params.userId;
+    try {
+      const deleteUserData = await userService.deleteUser(userId);
+      res.status(deleteUserData.status).json({ message: deleteUserData.message })
+    } catch (err) {
+      console.error(err);
+      res.status(500).json({ message: err.message });
+    }
+  }
 };
 
 export default UserController;
