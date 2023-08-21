@@ -33,4 +33,4 @@ const Post = connector.sequelize.define(
   { timestamps: true }
 );
 
-module.exports = Post;
+export default Post;
