@@ -3,16 +3,14 @@ class PostService {
   _postRepository = new PostRepository();
 
   // # 게시글 작성
-  createPost = async (title, content) => {
-    //userId 추가할 것
-    //throw new Error('내용을 입력해주세요.');
+  createPost = async (userId, title, content) => {
     try {
-      // if(!userId){
-      //   return{
-      //   status:401,
-      //   message:'로그인 후 이용할 수 있습니다.',
-      // };
-      // }
+      if (!userId) {
+        return {
+          status: 401,
+          message: '로그인 후 이용할 수 있습니다.',
+        };
+      }
       if (!title) {
         return {
           status: 400,
@@ -25,7 +23,7 @@ class PostService {
           message: '내용을 입력해주세요.',
         };
       }
-      await this._postRepository.createPost(title, content); //userId 추가할 것
+      await this._postRepository.createPost(userId, title, content);
     } catch (error) {
       throw error;
     }
@@ -61,16 +59,15 @@ class PostService {
     }
   };
   //# 게시글 수정
-  updatePost = async (postId, title, content) => { // userId 추가할 것
-    // userId 추가할 것
+  updatePost = async (userId, postId, title, content) => {
     const post = await this._postRepository.getPostId(postId);
     try {
-      // if (userId !== updatedPost.userId) {
-      //   return {
-      //     status: 401,
-      //     message: '수정 권한이 존재하지 않습니다.',
-      //   };
-      // }
+      if (userId !== updatedPost.userId) {
+        return {
+          status: 401,
+          message: '수정 권한이 존재하지 않습니다.',
+        };
+      }
       if (!post) {
         return {
           status: 404,
@@ -89,7 +86,7 @@ class PostService {
           message: '내용을 입력해주세요.',
         };
       }
-      await this._postRepository.updatePost(postId, title, content); // userId 추가할 것
+      await this._postRepository.updatePost(userId, postId, title, content);
     } catch (error) {
       console.log(error);
       throw error;
@@ -97,27 +94,27 @@ class PostService {
   };
 
   //# 게시글 삭제
-  deletePost = async(postId) => { // userId 추가할 것
+  deletePost = async (userId, postId) => {
     const post = await this._postRepository.getPostId(postId);
-    try{
-      if(!post){
+    try {
+      if (!post) {
         return {
           status: 404,
           message: '게시글이 존재하지 않습니다.',
         };
       }
-      // if(userId != this.deletePost.userId){
-      //   return {
-      //     status: 401,
-      //     message: '삭제 권한이 존재하지 않습니다.',
-      //   };
-      // }
+      if (userId != this.deletePost.userId) {
+        return {
+          status: 401,
+          message: '삭제 권한이 존재하지 않습니다.',
+        };
+      }
       await this._postRepository.deletePost(postId);
-    }catch(error){
+    } catch (error) {
       console.log(error);
       throw error;
     }
-  }
+  };
 }
 
 export default PostService;

@@ -2,9 +2,8 @@ import Post from '../db/models/post';
 
 class PostRepository {
   // # 게시글 생성
-  createPost = async (title, content) => {
-    //userId 추가할 것
-    await Post.create({ title, content }); //userId 추가할 것
+  createPost = async (userId, title, content) => {
+    await Post.create({ userId, title, content });
   };
 
   // # 게시글 전체 조회
@@ -20,7 +19,7 @@ class PostRepository {
     const values = {};
     if (title) values.title = title;
     if (content) values.content = content;
-    await Post.update(values, { where: { postId } }); // where : userId 추가할 것
+    await Post.update(values, { where: { postId, userId } });
   };
   // # 게시글 삭제
   deletePost = async postId => {
