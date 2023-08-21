@@ -19,7 +19,6 @@ router.use('/', [
   ContractRoute,
   InquiryRoute,
   PostRoute,
-  PostRoute,
   ReportRoute,
   ReviewRoute,
   ScheduleRoute,
