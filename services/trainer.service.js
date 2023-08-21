@@ -159,7 +159,7 @@ class TrainerService {
     const result = await this._trainerRepository.update(trainerId, trainerName, career, ptContent);
     return {
       code: 200,
-      data: result,
+      data: await this._trainerRepository.detailRead(trainerId),
     };
   };
 }
