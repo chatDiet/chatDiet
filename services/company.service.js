@@ -49,7 +49,7 @@ class CompanyService {
     }
   };
 
-  oneGetpostCompany = async companyId => {
+  oneGetCompany = async companyId => {
     try {
       if (!companyId) {
         return {
@@ -57,7 +57,7 @@ class CompanyService {
           message: '업체 ID 미입력',
         };
       }
-      const result = await this._companyRepository.oneGetpostCompany(companyId);
+      const result = await this._companyRepository.oneGetCompany(companyId);
       if (!result) {
         return {
           status: 400,
