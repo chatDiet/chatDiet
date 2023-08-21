@@ -11,7 +11,7 @@ const Company = connector.sequelize.define(
       autoIncrement: true,
       unique: true,
     },
-    CompanyName: {
+    companyName: {
       type: DataTypes.STRING,
       allowNull: false,
     },
