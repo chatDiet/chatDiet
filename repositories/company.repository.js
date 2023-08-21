@@ -1,4 +1,4 @@
-import Company from '../db';
+import { Company } from '../db';
 
 class CompanyRepository {}
 
