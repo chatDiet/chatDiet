@@ -37,4 +37,4 @@ const Review = connector.sequelize.define(
   { timestamps: true }
 );
 
-module.exports = Review;
+export default Review;

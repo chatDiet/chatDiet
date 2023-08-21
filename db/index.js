@@ -1,4 +1,4 @@
-import { sequelize } from 'sequelize';
+import sequelize from 'sequelize';
 import Calender from './models/calender';
 import Comment from './models/comment';
 import Company from './models/company';
