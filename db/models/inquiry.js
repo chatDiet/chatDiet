@@ -29,4 +29,4 @@ const Inquiry = connector.sequelize.define(
   { timestamps: true }
 );
 
-module.exports = Inquiry;
+export default Inquiry;

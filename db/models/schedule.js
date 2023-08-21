@@ -33,4 +33,4 @@ const Schedule = connector.sequelize.define(
   { timestamps: true }
 );
 
-module.exports = Schedule;
+export default Schedule;
