@@ -24,7 +24,7 @@ class CompanyRepository {
     } catch (err) {}
   };
 
-  oneGetpostCompany = async companyId => {
+  oneGetCompany = async companyId => {
     try {
       const result = await Company.findOne({
         where: { companyId },
