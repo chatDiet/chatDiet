@@ -3,30 +3,59 @@ import Comment from '../db';
 class CommentRepository {
   // 댓글 생성
   createComment = async (userId, postId, content) => {
-    await Comment.create({ userId, postId, content });
+    try {
+      const result = await Comment.create({ userId, postId, content });
+      return result;
+    } catch (error) {
+      console.log(error);
+    }
   };
   // 특정 게시글 댓글 전체 조회
   getPostId = async postId => {
-    return await Post.findByPk(postId);
+    try {
+      const result = await Post.findByPk(postId);
+      return result;
+    } catch (error) {
+      console.log(error);
+    }
   };
   getComment = async postId => {
-    return await Comment.findAll({
-      where: { postId },
-      order: [['createdAt', 'DESC']],
-    });
+    try {
+      const result = await Comment.findAll({
+        where: { postId },
+        order: [['createdAt', 'DESC']],
+      });
+      return result;
+    } catch (error) {
+      console.log(error);
+    }
   };
   // 댓글 수정
   getcommentId = async commentId => {
-    return await Comment.findByPk(commentId);
+    try {
+      const result = await Comment.findByPk(commentId);
+      return result;
+    } catch (error) {
+      console.log(error);
+    }
   };
   updateComment = async (userId, postId, commentId, content) => {
-    const values = {};
-    if (content) values.content = content;
-    await Comment.update(values, { where: { postId, userId, commentId } });
+    try {
+      const result = await Comment.update(content, { where: { postId, userId, commentId } });
+      return result;
+    } catch (error) {
+      console.log(error);
+    }
   };
+
   // 댓글 삭제
   deleteComment = async (userId, postId, commentId) => {
-    await Comment.destroy({ where: { userId, postId, commentId } });
+    try {
+      const result = await Comment.destroy({ where: { userId, postId, commentId } });
+      return result;
+    } catch (error) {
+      console.log(error);
+    }
   };
 }
 

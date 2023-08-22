@@ -24,12 +24,23 @@ class CommentService {
           message: '댓글 내용을 입력해주세요.',
         };
       }
-      await this._commentRepository.createComment(userId, postId, content);
+      const result = await this._commentRepository.createComment(userId, postId, content);
+      if (!result) {
+        return {
+          status: 400,
+          message: '댓글 생성 실패',
+        };
+      }
+      return {
+        status: 201,
+        message: '댓글 생성 성공',
+      };
     } catch (error) {
       console.log(error);
-      throw error;
+      return { status: 500, message: 'Server Error' };
     }
   };
+
   // 특정 게시글 댓글 전체 조회
   getComment = async postId => {
     const post = await this._commentRepository.getPostId(postId);
@@ -40,10 +51,20 @@ class CommentService {
           message: '게시글이 존재하지 않습니다.',
         };
       }
-      return await this._commentRepository.getComment(postId);
+      const result = await this._commentRepository.getComment(postId);
+      if (!result) {
+        return {
+          status: 400,
+          message: '댓글 조회 실패',
+        };
+      }
+      return {
+        status: 200,
+        message: '댓글 조회 성공',
+      };
     } catch (error) {
       console.log(error);
-      throw error;
+      return { status: 500, message: 'Server Error' };
     }
   };
   // 댓글 수정
