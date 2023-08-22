@@ -31,12 +31,12 @@ const Comment = connector.sequelize.define(
   { timestamps: true }
 );
 Comment.belongsTo(user, {
-  foreignKey: 'userId', // userId가 외래키로 사용됨
-  onDelete: 'CASCADE', // 연관된 사용자가 삭제될 경우 연관된 게시물도 삭제
+  foreignKey: 'userId', 
+  onDelete: 'CASCADE', 
 });
 Comment.belongsTo(post, {
-  foreignKey: 'postId', // userId가 외래키로 사용됨
-  onDelete: 'CASCADE', // 연관된 사용자가 삭제될 경우 연관된 게시물도 삭제
+  foreignKey: 'postId', 
+  onDelete: 'CASCADE', 
 });
 
 export default Comment;
