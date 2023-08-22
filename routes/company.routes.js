@@ -6,7 +6,7 @@ const companyController = new CompanyController();
 
 router.post('/company', companyController.postCompany);
 router.get('/company', companyController.allGetCompany);
-router.get('/company/:companyId', companyController.oneGetpostCompany);
+router.get('/company/:companyId', companyController.oneGetCompany);
 router.put('/company/:companyId', companyController.putCompany);
 router.delete('/company/:companyId', companyController.deleteCompany);
 
