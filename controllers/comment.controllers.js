@@ -14,19 +14,19 @@ class CommentController {
   };
 
   // 특정 게시글 댓글 전체 조회
-  getComment = async (res, req) => {
+  getComment = async (req, res) => {
     const { postId } = req.params;
-
+    
     const result = await this._commentService.getComment(postId);
     return res.status(result.status).json(result.message);
   };
 
   // 댓글 수정
-  updateComment = async (res, req) => {
+  updateComment = async (req, res) => {
     const userId = res.locals.userId;
     const { postId, commentId } = req.params;
     const { content } = req.body;
-
+    
     const result = await this._commentService.updateComment(userId, postId, commentId, content);
     return res.status(result.status).json(result.message);
   };

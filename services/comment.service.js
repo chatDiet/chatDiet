@@ -60,7 +60,7 @@ class CommentService {
       }
       return {
         status: 200,
-        message: '댓글 조회 성공',
+        message: result,
       };
     } catch (error) {
       console.log(error);
@@ -93,12 +93,12 @@ class CommentService {
       if (!result) {
         return {
           status: 400,
-          message: '댓글 삭제 실패',
+          message: '댓글 수정 실패',
         };
       }
       return {
         status: 200,
-        message: '댓글 삭제 성공',
+        message: '댓글 수정 성공',
       };
     } catch (error) {
       console.log(error);

@@ -1,4 +1,4 @@
-import {Comment} from '../db';
+import { Comment, Post } from '../db';
 
 class CommentRepository {
   // 댓글 생성
@@ -41,11 +41,12 @@ class CommentRepository {
   };
   updateComment = async (userId, postId, commentId, content) => {
     try {
-      const result = await Comment.update(content, { where: { postId, userId, commentId } });
+      const result = await Comment.update({ content }, { where: { postId, userId, commentId } });
       return result;
     } catch (error) {
       console.log(error);
     }
+    return result;
   };
 
   // 댓글 삭제
