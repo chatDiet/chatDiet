@@ -11,6 +11,10 @@ const Review = connector.sequelize.define(
       autoIncrement: true,
       unique: true,
     },
+    userId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
     content: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -37,4 +41,4 @@ const Review = connector.sequelize.define(
   { timestamps: true }
 );
 
-module.exports = Review;
+export default Review;

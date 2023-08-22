@@ -8,6 +8,7 @@ export class ExpressApp {
   constructor() {
     this.setAppSettings();
     this.setAppRouter();
+    
   }
   //
   setAppSettings = () => {
@@ -25,4 +26,4 @@ export class ExpressApp {
       });
     });
   };
-}
+};
