@@ -19,3 +19,4 @@ router.put('/posts/:postId', isAuth, postController.updatePost);
 router.delete('/posts/:postId', isAuth, postController.deletePost);
 
 export default router;
+
