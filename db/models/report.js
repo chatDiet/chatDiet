@@ -11,6 +11,10 @@ const Report = connector.sequelize.define(
       autoIncrement: true,
       unique: true,
     },
+    userId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
     title: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -19,7 +23,7 @@ const Report = connector.sequelize.define(
       type: DataTypes.STRING,
     },
     type: {
-      type: DataTypes.ENUM('post, comment, review'),
+      type: DataTypes.ENUM('post', 'comment', 'review'),
     },
     createdAt: {
       type: DataTypes.DATE,

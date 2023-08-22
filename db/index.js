@@ -11,8 +11,4 @@ import Schedule from './models/schedule';
 import Trainer from './models/trainer';
 import User from './models/user';
 
-// Object.values(relations).forEach(relationsFunction => {
-//   relationsFunction();
-// });
-
 export { sequelize, Calender, Comment, Company, Contract, Inquiry, Post, Report, Review, Schedule, Trainer, User };
