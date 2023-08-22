@@ -11,6 +11,14 @@ const Comment = connector.sequelize.define(
       autoIncrement: true,
       unique: true,
     },
+    userId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    postId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
     content: {
       type: DataTypes.STRING,
       allowNull: false,
