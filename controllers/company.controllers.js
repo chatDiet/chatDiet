@@ -20,10 +20,10 @@ class CompanyController {
   };
 
   // 업체 상세 조회
-  oneGetpostCompany = async (req, res) => {
+  oneGetCompany = async (req, res) => {
     const { companyId } = req.params;
 
-    const result = await this._companyService.oneGetpostCompany(companyId);
+    const result = await this._companyService.oneGetCompany(companyId);
 
     return res.status(result.status).json(result.message);
   };

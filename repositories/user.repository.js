@@ -6,7 +6,7 @@ class UserRepository {
 
     if (existingUser) {
       return null;
-    }
+    };
 
     return User.create({
       nickname,
@@ -14,7 +14,7 @@ class UserRepository {
       password,
       type,
     });
-  }
+  };
 
   async findUserByEmail(email) {
     return await User.findOne({ where: { email } });
@@ -23,6 +23,14 @@ class UserRepository {
   async logoutUser(req, res) {
     res.cookie("authorization", "", { maxAge: 0 });
   }
+
+  async getUserById(userId) {
+    return await User.findOne({ where: { userId: userId } });
+  };
+
+  async deleteUser(userId) {
+    return await User.destroy({ where: { userId: userId } });
+  };
 };
 
 export default UserRepository;

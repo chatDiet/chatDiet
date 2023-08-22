@@ -1,12 +1,12 @@
 import { UserService } from '../services';
-const userService = new UserService();
 
 class UserController {
+  _userService = new UserService();
   // 회원가입
-  async register(req, res) {
+  register = async (req, res) => {
     const { nickname, email, password, passwordConfirm, type } = req.body;
     try {
-      await userService.registerUser(
+      await this._userService.registerUser(
         nickname,
         email,
         password,
@@ -21,13 +21,12 @@ class UserController {
   };
 
   // 로그인
-  async login(req, res) {
+  login = async (req, res) => {
     const { email, password } = req.body;
     try {
-      const { token, userId } = await userService.loginUser(email, password);
+      const { token, userId } = await this._userService.loginUser(email, password);
       console.log(token);
-      res.header("authorization", `Bearer ${token}`);
-      res.header("userId", userId); // user-id라는 헤더에 userId 값을 넣어서 응답합니다.
+      res.cookie("authorization", `Bearer ${token}`);
       res.status(200).json({ message: "로그인 성공" });
     } catch (err) {
       console.error(err);
@@ -36,15 +35,27 @@ class UserController {
   };
 
   //로그아웃
-  async logoutUser(req, res) {
+  logoutUser = async (req, res) => {
     try {
-      await userService.logoutUser(req, res);
+      await this._userService.logoutUser(req, res);
       return res.status(200).json({ message: "로그아웃 되었습니다." });
     } catch (err) {
       console.error(err);
       return res.status(500).json({ message: err.message });
     };
   };
+
+  //회원탈퇴
+  deleteUser = async (req, res) => {
+    const userId = req.params.userId;
+    try {
+      const deleteUserData = await this._userService.deleteUser(userId);
+      res.status(deleteUserData.status).json({ message: deleteUserData.message })
+    } catch (err) {
+      console.error(err);
+      res.status(500).json({ message: err.message });
+    }
+  }
 };
 
 export default UserController;
