@@ -9,16 +9,15 @@
     <div class="chat-container">
       <div class="chat-messages">
         <div class="message">
-          <div class="message-sender">system</div>
-          <div class="message-text">채팅이 시작됩니다.</div>
         </div>
         <!-- 다른 메시지들도 여기에 추가 -->
       </div>
-      <div class="chat-input">
-        <input type="text" id="message-input" placeholder="메시지를 입력하세요..." />
-        <button id="send-button">전송</button>
+      <button onclick="onclick=joinChatroom(1)">1번입장</button>
+      <button onclick="onclick=joinChatroom(2)">2번입장</button>
+      <button onclick="onclick=joinChatroom(3)">3번입장</button>
+      <button onclick="onclick=joinChatroom(4)">4번입장</button>
       </div>
     </div>
-    <script src="../chat.js"></script>
+    <script src="./js/chatBtn.js" defer></script>
   </body>
 </html>

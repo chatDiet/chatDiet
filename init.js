@@ -2,6 +2,7 @@ import dotenv from 'dotenv';
 import Http from 'node:http';
 import { ExpressApp } from './app';
 import connector from './db/db.js';
+import socket from 'socket.io';
 
 dotenv.config();
 
@@ -12,6 +13,8 @@ export class Server {
   constructor() {
     // HTTP 서버를 생성하고, expressApp을 사용하여 요청을 처리하도록 설정
     this.httpServer = new Http.Server(this.expressApp.app);
+    this.io = socket(this.httpServer);
+    this.chatRomm = {};
   }
 
   // 서버를 실행하는 메서드입니다.
@@ -23,6 +26,41 @@ export class Server {
       // 에러가 발생하면 에러 핸들러를 호출
       return this.serverErrorHandler(e);
     }
+  };
+
+  // socket 연결
+  runSocket = async () => {
+    // 접속
+    this.io.sockets.on('connection', function (socket) {
+      socket.on('newUser', function (data) {
+        socket.join(data.roomName);
+        console.log(data.roomName + '번방에 ' + data.name + '님이 접속하였습니다.');
+
+        socket.name = data.name;
+        socket.roomName = data.roomName;
+
+        socket.to(data.roomName).emit('update', { type: 'connect', name: 'SERVER', message: data.name + '님이 접속함' });
+      });
+
+      // 전송한 메세지 받기
+      socket.on('message', function (data) {
+        // 받은 데이터의 발신자
+        data.name = socket.name;
+
+        console.log(data);
+        // 해당 방에 존재하는 유저한테 보내기
+        socket.to(socket.roomName).emit('update', data);
+      });
+
+      // 접속 종료
+      socket.on('disconnect', function () {
+        console.log(socket.roomName);
+        socket.leave(socket.roomName);
+        console.log(socket.roomName + '번방에서 ' + socket.name + '님이 나가셨습니다.');
+        // 퇴장한 사람을 제외한 나머지 유저에게 메시지 전송
+        socket.to(socket.roomName).emit('update', { type: 'discoonnect', name: 'SERVER', message: socket.name + '님이 나가셨습니다.' });
+      });
+    });
   };
 
   // HTTP 서버를 시작하는 메서드
@@ -46,6 +84,7 @@ export class Server {
 const server = new Server();
 
 // 여기서 실행
+server.runSocket();
 connector.testConnectDB();
 connector.connectDB();
 server.runServer();

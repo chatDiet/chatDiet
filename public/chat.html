@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>채팅창 예제</title>
+  </head>
+  <body>
+    <div class="chat-container">
+      <div class="chat-messages">
+        <div class="message">
+          <div class="message-sender">system</div>
+          <div class="message-text">채팅이 시작됩니다.</div>
+        </div>
+        <!-- 다른 메시지들도 여기에 추가 -->
+      </div>
+      <div class="chat-input">
+        <input type="text" id="messageInput" placeholder="메시지를 입력하세요..." />
+        <button id="messageSend" onclick="test()">전송</button>
+      </div>
+    </div>
+    <script type="module" src="./socket.io/socket.io.js" defer></script>
+    <script src="./js/chat.js" defer></script>
+  </body>
+</html>
