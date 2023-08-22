@@ -24,7 +24,7 @@ class UserController {
   login = async (req, res) => {
     const { email, password } = req.body;
     try {
-      const { token, userId } = await this._userService.loginUser(email, password);
+      const { token } = await this._userService.loginUser(email, password);
       console.log(token);
       res.cookie("authorization", `Bearer ${token}`);
       res.status(200).json({ message: "로그인 성공" });

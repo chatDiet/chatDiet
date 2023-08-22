@@ -30,7 +30,6 @@ class UserService {
   // 로그인
   async loginUser(email, password) {
     const user = await this._userRepository.findUserByEmail(email);
-    console.log(user.userId)
     if (!user) {
       throw new Error("회원정보가 일치하지 않습니다.");
     }

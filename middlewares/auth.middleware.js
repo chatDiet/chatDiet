@@ -1,5 +1,4 @@
 import jwt from "jsonwebtoken";
-const Users = require("../db/models/user");
 
 async function isAuth(req, res, next) {
   const token = req.cookies.authorization;
@@ -28,4 +27,4 @@ async function isAuth(req, res, next) {
   }
 }
 
-module.exports = isAuth;
+export default isAuth;
