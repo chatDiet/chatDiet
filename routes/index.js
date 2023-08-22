@@ -13,7 +13,7 @@ import CompanyRoute from './company.routes';
 
 const router = express.Router();
 
-router.use('/api', [
+router.use('/', [
   CalenderRoute,
   CommentRoute,
   ContractRoute,
