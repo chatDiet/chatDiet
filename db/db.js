@@ -13,7 +13,7 @@ class DBConnector {
   }
   connectDB() {
     this.sequelize
-      .sync()
+      .sync({ alter: false })
       .then(() => {
         console.log('✨'.repeat(40));
         console.log('Datebase is Connected 👍');

@@ -1,6 +1,5 @@
 import { DataTypes } from 'sequelize';
 import connector from '../db.js';
-import User from './user.js';
 
 const Post = connector.sequelize.define(
   'posts',
@@ -11,6 +10,10 @@ const Post = connector.sequelize.define(
       primaryKey: true,
       autoIncrement: true,
       unique: true,
+    },
+    userId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
     },
     title: {
       type: DataTypes.STRING,
@@ -33,10 +36,5 @@ const Post = connector.sequelize.define(
   },
   { timestamps: true }
 );
-
-Post.belongsTo(User, {
-  foreignKey: 'userId',
-  onDelete: 'CASCADE',
-});
 
 export default Post;

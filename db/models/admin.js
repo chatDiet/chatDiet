@@ -1,10 +1,10 @@
 import { DataTypes } from 'sequelize';
 import connector from '../db.js';
 
-const Calender = connector.sequelize.define(
-  'calenders',
+const Admin = connector.sequelize.define(
+  'admin',
   {
-    calenderId: {
+    adminId: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
@@ -15,16 +15,9 @@ const Calender = connector.sequelize.define(
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-    title: {
+    adminName: {
       type: DataTypes.STRING,
       allowNull: false,
-    },
-    content: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    type: {
-      type: DataTypes.ENUM('breakfast', 'lunch', 'dinner', 'exercise'),
     },
     createdAt: {
       type: DataTypes.DATE,
@@ -40,4 +33,4 @@ const Calender = connector.sequelize.define(
   { timestamps: true }
 );
 
-export default Calender;
+export default Admin;
