@@ -6,6 +6,7 @@ const router = Router();
 
 const postController = new PostController();
 
+
 // 게시글 작성
 router.post('/post', isAuth, postController.createPost);
 // 게시글 전체 조회
@@ -17,4 +18,3 @@ router.put('/posts/:postId', isAuth, postController.updatePost);
 // 게시글 삭제
 router.delete('/posts/:postId', isAuth, postController.deletePost);
 
-export default router;
