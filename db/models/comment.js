@@ -1,7 +1,5 @@
 import { DataTypes } from 'sequelize';
 import connector from '../db.js';
-import user from './user.js';
-import post from './post.js';
 
 const Comment = connector.sequelize.define(
   'comments',
@@ -30,13 +28,5 @@ const Comment = connector.sequelize.define(
   },
   { timestamps: true }
 );
-Comment.belongsTo(user, {
-  foreignKey: 'userId', 
-  onDelete: 'CASCADE', 
-});
-Comment.belongsTo(post, {
-  foreignKey: 'postId', 
-  onDelete: 'CASCADE', 
-});
 
 export default Comment;

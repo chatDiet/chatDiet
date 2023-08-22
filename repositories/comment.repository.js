@@ -1,4 +1,4 @@
-import Comment from '../db';
+import {Comment} from '../db';
 
 class CommentRepository {
   // 댓글 생성

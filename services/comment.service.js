@@ -89,10 +89,20 @@ class CommentService {
           message: '댓글 내용을 입력해주세요.',
         };
       }
-      await this._commentRepository.updateComment(userId, postId, commentId, content);
+      const result = await this._commentRepository.updateComment(userId, postId, commentId, content);
+      if (!result) {
+        return {
+          status: 400,
+          message: '댓글 삭제 실패',
+        };
+      }
+      return {
+        status: 200,
+        message: '댓글 삭제 성공',
+      };
     } catch (error) {
       console.log(error);
-      throw error;
+      return { status: 500, message: 'Server Error' };
     }
   };
   // 댓글 삭제
@@ -111,10 +121,20 @@ class CommentService {
           message: '삭제 권한이 존재하지 않습니다.',
         };
       }
-      await this._commentRepository.deleteComment(userId, postId, commentId);
+      const result = await this._commentRepository.deleteComment(userId, postId, commentId);
+      if (!result) {
+        return {
+          status: 400,
+          message: '댓글 삭제 실패',
+        };
+      }
+      return {
+        status: 200,
+        message: '댓글 삭제 성공',
+      };
     } catch (error) {
       console.log(error);
-      throw error;
+      return { status: 500, message: 'Server Error' };
     }
   };
 }
