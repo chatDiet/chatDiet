@@ -54,7 +54,6 @@ export class Server {
 
       // 접속 종료
       socket.on('disconnect', function () {
-        console.log(socket.roomName);
         socket.leave(socket.roomName);
         console.log(socket.roomName + '번방에서 ' + socket.name + '님이 나가셨습니다.');
         // 퇴장한 사람을 제외한 나머지 유저에게 메시지 전송

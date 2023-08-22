@@ -15,16 +15,7 @@ socket.on('connect', function () {
 
 // 서버에 새로운 유저가 왔다고 알림
 socket.on('update', function (data) {
-  console.log(`${data.name}:${data.message}`);
-});
-
-// 접속 종료
-socket.on('disconnect', function (roomName) {
-  console.log(roomName);
-  socket.leave(roomName);
-  console.log(socket.name + '님이 나가셨습니다.');
-  // 퇴장한 사람을 제외한 나머지 유저에게 메시지 전송
-  socket.to(roomName).emit('update', { type: 'discoonnect', name: 'SERVER', message: socket.name + '님이 나가셨습니다.' });
+  console.log(`${data.name} : ${data.message}`);
 });
 
 // 메시지 전송 함수
