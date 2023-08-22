@@ -23,46 +23,63 @@ class PostService {
           message: '내용을 입력해주세요.',
         };
       }
-      await this._postRepository.createPost(userId, title, content);
+      console.log('check service');
+      const result = await this._postRepository.createPost(userId, title, content);
+      if (!result) {
+        return {
+          status: 400,
+          message: '게시글 생성 실패',
+        };
+      }
+      return {
+        status: 201,
+        message: '게시글 작성 성공',
+      };
     } catch (error) {
-      throw error;
+      console.log(error);
+      return { status: 500, message: 'Server Error' };
     }
   };
 
   //# 게시글 전체 조회
   getPosts = async () => {
     try {
-      return await this._postRepository.getPosts();
+      const result = await this._postRepository.getPosts();
+      return {
+        status: 200,
+        message: result,
+      };
     } catch (error) {
-      throw error;
+      console.log(error);
+      return { status: 500, message: 'Server Error' };
     }
   };
 
   //# 특정 게시글 조회
   getPost = async postId => {
-    const post = await this._postRepository.getPostId(postId);
+    const result = await this._postRepository.getPostId(postId);
     try {
-      if (!post) {
+      if (!result) {
         return {
           status: 404,
           message: '게시글이 존재하지 않습니다.',
         };
       }
       return {
-        title: post.title,
-        content: post.content,
-        createdAt: post.createdAt,
-        updatedAt: post.updatedAt,
+        status: 200,
+        message: result,
       };
     } catch (error) {
-      throw error;
+      console.log(error);
+      return { status: 500, message: 'Server Error' };
     }
   };
+
   //# 게시글 수정
   updatePost = async (userId, postId, title, content) => {
     const post = await this._postRepository.getPostId(postId);
     try {
-      if (userId !== updatedPost.userId) {
+      if (userId !== post.userId) {
         return {
           status: 401,
           message: '수정 권한이 존재하지 않습니다.',
@@ -86,10 +103,20 @@ class PostService {
           message: '내용을 입력해주세요.',
         };
       }
-      await this._postRepository.updatePost(userId, postId, title, content);
+      const result = await this._postRepository.updatePost(userId, postId, title, content);
+      if (!result) {
+        return {
+          status: 400,
+          message: '게시글 수정 실패',
+        };
+      }
+      return {
+        status: 201,
+        message: '게시글 수정 성공',
+      };
     } catch (error) {
       console.log(error);
-      throw error;
+      return { status: 500, message: 'Server Error' };
     }
   };
 
@@ -103,18 +130,29 @@ class PostService {
           message: '게시글이 존재하지 않습니다.',
         };
       }
-      if (userId != this.deletePost.userId) {
+      if (userId != post.userId) {
         return {
           status: 401,
           message: '삭제 권한이 존재하지 않습니다.',
         };
       }
-      await this._postRepository.deletePost(postId);
+      const result = await this._postRepository.deletePost(postId);
+      if (!result) {
+        return {
+          status: 400,
+          message: '게시글 삭제 실패',
+        };
+      }
+      return {
+        status: 200,
+        message: '게시글 삭제 성공',
+      };
     } catch (error) {
       console.log(error);
-      throw error;
+      return { status: 500, message: 'Server Error' };
     }
   };
+
 }
 
 export default PostService;
