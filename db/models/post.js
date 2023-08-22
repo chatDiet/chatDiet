@@ -1,6 +1,5 @@
 import { DataTypes } from 'sequelize';
 import connector from '../db.js';
-import User from './user.js';
 
 const Post = connector.sequelize.define(
   'posts',
@@ -33,10 +32,5 @@ const Post = connector.sequelize.define(
   },
   { timestamps: true }
 );
-
-Post.belongsTo(User, {
-  foreignKey: 'userId',
-  onDelete: 'CASCADE',
-});
 
 export default Post;
