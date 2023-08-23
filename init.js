@@ -37,33 +37,38 @@ export class Server {
     // 접속
     this.io.sockets.on('connection', function (socket) {
       socket.on('newUser', function (data) {
-        socket.join(data.roomName);
-        socket.name = data.name;
-        socket.roomName = data.roomName;
+        chatService.findUser(data);
 
-        console.log(socket.roomName + '번방에 ' + socket.name + '님이 접속하였습니다.');
+        socket.join(data.roomId);
+        socket.user = data.user;
+        socket.trainer = data.trainer;
+        socket.roomId = data.roomId;
 
-        socket.to(socket.roomName).emit('update', { type: 'connect', name: 'SERVER', message: socket.name + '님이 접속함' });
+        console.log(socket.roomId + '번방에 ' + socket.user + '님이 접속하였습니다.');
+
+        socket.to(socket.roomId).emit('update', { type: 'connect', name: 'SERVER', message: socket.user + '님이 접속함' });
       });
 
       // 전송한 메세지 받기
       socket.on('message', function (data) {
-        // 받은 데이터의 발신자
-        data.name = socket.name;
-        data.roomName = socket.roomName;
+        // 받은 데이터에 user,trainer,roomId 추가
+        data.user = socket.user;
+        data.trainer = socket.trainer;
+        data.roomId = socket.roomId;
 
+        //mongDb 로직으로 보냄
         chatService.postChat(data);
 
         // 해당 방에 보내기
-        socket.to(socket.roomName).emit('update', data);
+        socket.to(socket.roomId).emit('update', data);
       });
 
       // 접속 종료
       socket.on('disconnect', function () {
-        socket.leave(socket.roomName);
-        console.log(socket.roomName + '번방에서 ' + socket.name + '님이 나가셨습니다.');
+        socket.leave(socket.roomId);
+        console.log(socket.roomId + '번방에서 ' + socket.user + '님이 나가셨습니다.');
         // 퇴장한 사람을 제외한 나머지 유저에게 메시지 전송
-        socket.to(socket.roomName).emit('update', { type: 'discoonnect', name: 'SERVER', message: socket.name + '님이 나가셨습니다.' });
+        socket.to(socket.roomId).emit('update', { type: 'discoonnect', name: 'SERVER', message: socket.user + '님이 나가셨습니다.' });
       });
     });
   };
