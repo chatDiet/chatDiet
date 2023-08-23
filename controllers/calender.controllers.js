@@ -4,30 +4,34 @@ class CalenderController {
   calenderService = new CalenderService();
 
   getCalender = async (req, res) => {
+    const userId = res.locals.userId;
     const { calenderId } = req.params;
 
-    const getCalender = await this.calenderService.getCalender(calenderId);
+    const getCalender = await this.calenderService.getCalender(calenderId, userId);
     return res.status(getCalender.status).json(getCalender.message);
   };
 
   createCalender = async (req, res) => {
+    const userId = res.locals.userId;
     const { title, content, type } = req.body;
 
-    const createCalender = await this.calenderService.createCalender(title, content, type);
+    const createCalender = await this.calenderService.createCalender(title, content, type, userId);
     return res.status(createCalender.status).json(createCalender.message);
   };
 
   updateCalender = async (req, res) => {
+    const userId = res.locals.userId;
     const { calenderId } = req.params;
     const { title, content, type } = req.body;
 
-    const updateCalender = await this.calenderService.updateCalender(calenderId, title, content, type);
+    const updateCalender = await this.calenderService.updateCalender(calenderId, title, content, type, userId);
     return res.status(updateCalender.status).json(updateCalender.message);
   };
   deleteCalender = async (req, res) => {
+    const userId = res.locals.userId;
     const { calenderId } = req.params;
 
-    const deleteCalender = await this.calenderService.deleteCalender(calenderId);
+    const deleteCalender = await this.calenderService.deleteCalender(calenderId, userId);
     return res.status(deleteCalender.status).json(deleteCalender.message);
   };
 }

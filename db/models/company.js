@@ -11,10 +11,6 @@ const Company = connector.sequelize.define(
       autoIncrement: true,
       unique: true,
     },
-    trainerId: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
     userId: {
       type: DataTypes.INTEGER,
       allowNull: false,
@@ -41,6 +37,10 @@ const Company = connector.sequelize.define(
     },
     link: {
       type: DataTypes.INTEGER,
+      allowNull: true,
+    },
+    map: {
+      type: DataTypes.STRING,
       allowNull: true,
     },
     createdAt: {

@@ -53,17 +53,16 @@ class UserController {
   };
 
   kakao = async (req, res) => {
-    const { email, access_token, refresh_token } = req.body;
-    console.log(email, access_token, refresh_token);
+    const { email } = req.body;
     // const { type } = req.body; //원래 받아줘야하는데 프론트에서 넘겨줄거라 지금은 걍 유저로 하겠음
     const type = 'user';
     const loginType = false;
     const password = null;
     const passwordConfirm = null;
-    const { token, userId } = await this._userService.registerUser(email, password, passwordConfirm, type, loginType);
+    const { token } = await this._userService.registerUser(email, password, passwordConfirm, type, loginType);
 
-    console.log('나는 컨트롤러야 토큰 찍을게', token);
-    // res.cookie('authorization', `Bearer ${token}`);
+    console.log('성공적인 토큰 >ㅁ<', token);
+    res.cookie('authorization', `Bearer ${token}`);
   };
 }
 

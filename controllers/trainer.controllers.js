@@ -5,10 +5,10 @@ class TrainerController {
 
   create = async (req, res) => {
     try {
-      // const {userId} = req.user;
+      const userId = res.locals.userId;
       const { companyId } = req.params;
       const { trainerName, career, ptContent } = req.body;
-      const { code, message, data } = await this._trainerService.create(trainerName, career, ptContent, companyId);
+      const { code, message, data } = await this._trainerService.create(trainerName, career, ptContent, companyId, userId);
 
       res.status(code).json({ ...(message && { message }), ...(data && { data }) });
     } catch (error) {
@@ -43,9 +43,9 @@ class TrainerController {
 
   delete = async (req, res) => {
     try {
-      // const {userId} = req.user;
+      const userId = res.locals.userId;
       const { companyId, trainerId } = req.params;
-      const { code, message, data } = await this._trainerService.delete(companyId, trainerId);
+      const { code, message, data } = await this._trainerService.delete(companyId, trainerId, userId);
 
       res.status(code).json({ ...(message && { message }), ...(data && { data }) });
     } catch (error) {
@@ -56,10 +56,10 @@ class TrainerController {
 
   update = async (req, res) => {
     try {
-      // const {userId} = req.user;
+      const userId = res.locals.userId;
       const { companyId, trainerId } = req.params;
       const { trainerName, career, ptContent } = req.body;
-      const { code, message, data } = await this._trainerService.update(companyId, trainerId, trainerName, career, ptContent);
+      const { code, message, data } = await this._trainerService.update(companyId, trainerId, trainerName, career, ptContent, userId);
 
       res.status(code).json({ ...(message && { message }), ...(data && { data }) });
     } catch (error) {

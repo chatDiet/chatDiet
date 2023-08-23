@@ -17,7 +17,6 @@
         window.Kakao.Auth.login({
           scope: 'account_email',
           success: function (authObj) {
-            console.log(authObj);
             window.Kakao.API.request({
               url: '/v2/user/me',
               success: res => {
@@ -27,7 +26,7 @@
                   headers: {
                     'Content-Type': 'application/json',
                   },
-                  body: JSON.stringify({ email: kakao_account.email, access_token: authObj.access_token, refresh_token: authObj.refresh_token }),
+                  body: JSON.stringify({ email: kakao_account.email }),
                 });
               },
             });

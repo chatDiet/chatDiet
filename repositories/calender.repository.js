@@ -1,15 +1,25 @@
+import { User } from '../db';
 import Calender from '../db/models/calender';
 
 class CalenderRepository {
+  isUser = async userId => {
+    return await User.findOne({ where: { userId } });
+  };
+
   getCalender = async calenderId => {
     const getCalender = await Calender.findOne({ where: { calenderId } });
     return getCalender;
   };
 
-  createCalender = async (title, content, type) => {
-    const createCalender = await Calender.create({ title, content, type });
+  createCalender = async (title, content, type, userId) => {
+    const createCalender = await Calender.create({ title, content, type, userId });
     return createCalender;
   };
+  isMe = async (calenderId, userId) => {
+    const a = await Calender.findOne({ where: { userId, calenderId } });
+    return a;
+  };
+
   updateCalender = async (calenderId, title, content, type) => {
     await Calender.update({ title, content, type }, { where: { calenderId } });
     const updateCalender = await Calender.findOne({ where: { calenderId } });

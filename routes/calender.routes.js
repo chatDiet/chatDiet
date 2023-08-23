@@ -1,12 +1,13 @@
 import { Router } from 'express';
 import { CalenderController } from '../controllers';
+import isAuth from '../middlewares/auth.middleware';
 
 const router = Router();
 
 const calenderController = new CalenderController();
 
-router.get('/calender/:calenderId', calenderController.getCalender);
-router.post('/calender', calenderController.createCalender);
-router.put('/calender/:calenderId', calenderController.updateCalender);
-router.delete('/calender/:calenderId', calenderController.deleteCalender);
+router.get('/calenders/:calenderId', isAuth, calenderController.getCalender);
+router.post('/calender', isAuth, calenderController.createCalender);
+router.put('/calenders/:calenderId', isAuth, calenderController.updateCalender);
+router.delete('/calenders/:calenderId', isAuth, calenderController.deleteCalender);
 export default router;
