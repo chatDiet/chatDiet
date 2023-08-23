@@ -8,7 +8,6 @@ import ScheduleRepository from './schedule.repository';
 import TrainerRepository from './trainer.repository';
 import UserRepository from './user.repository';
 import ReportRepository from './report.repository';
-import CompanyRepository from './company.repository';
 
 export {
   CalenderRepository,
@@ -21,5 +20,4 @@ export {
   ScheduleRepository,
   TrainerRepository,
   UserRepository,
-  CompanyRepository,
 };
