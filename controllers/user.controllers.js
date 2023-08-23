@@ -4,20 +4,15 @@ class UserController {
   _userService = new UserService();
   // 회원가입
   register = async (req, res) => {
-    const { nickname, email, password, passwordConfirm, type } = req.body;
+    const loginType = true;
+    const { email, password, passwordConfirm, type } = req.body;
     try {
-      await this._userService.registerUser(
-        nickname,
-        email,
-        password,
-        passwordConfirm,
-        type,
-      );
-      res.status(201).json({ message: "회원가입에 성공했습니다." });
+      await this._userService.registerUser(email, password, passwordConfirm, type, loginType);
+      res.status(201).json({ message: '회원가입에 성공했습니다.' });
     } catch (err) {
       console.error(err);
       res.status(500).json({ message: err.message });
-    };
+    }
   };
 
   // 로그인
@@ -26,23 +21,23 @@ class UserController {
     try {
       const { token, userId } = await this._userService.loginUser(email, password);
       console.log(token);
-      res.cookie("authorization", `Bearer ${token}`);
-      res.status(200).json({ message: "로그인 성공" });
+      res.cookie('authorization', `Bearer ${token}`);
+      res.status(200).json({ message: '로그인 성공' });
     } catch (err) {
       console.error(err);
       res.status(500).json({ message: err.message });
-    };
+    }
   };
 
   //로그아웃
   logoutUser = async (req, res) => {
     try {
       await this._userService.logoutUser(req, res);
-      return res.status(200).json({ message: "로그아웃 되었습니다." });
+      return res.status(200).json({ message: '로그아웃 되었습니다.' });
     } catch (err) {
       console.error(err);
       return res.status(500).json({ message: err.message });
-    };
+    }
   };
 
   //회원탈퇴
@@ -50,12 +45,26 @@ class UserController {
     const userId = req.params.userId;
     try {
       const deleteUserData = await this._userService.deleteUser(userId);
-      res.status(deleteUserData.status).json({ message: deleteUserData.message })
+      res.status(deleteUserData.status).json({ message: deleteUserData.message });
     } catch (err) {
       console.error(err);
       res.status(500).json({ message: err.message });
     }
-  }
-};
+  };
+
+  kakao = async (req, res) => {
+    const { email, access_token, refresh_token } = req.body;
+    console.log(email, access_token, refresh_token);
+    // const { type } = req.body; //원래 받아줘야하는데 프론트에서 넘겨줄거라 지금은 걍 유저로 하겠음
+    const type = 'user';
+    const loginType = false;
+    const password = null;
+    const passwordConfirm = null;
+    const { token, userId } = await this._userService.registerUser(email, password, passwordConfirm, type, loginType);
+
+    console.log('나는 컨트롤러야 토큰 찍을게', token);
+    // res.cookie('authorization', `Bearer ${token}`);
+  };
+}
 
 export default UserController;
