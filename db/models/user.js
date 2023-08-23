@@ -17,7 +17,6 @@ const User = connector.sequelize.define(
     },
     password: {
       type: DataTypes.STRING,
-      allowNull: false,
     },
     type: {
       type: DataTypes.ENUM('user', 'trainer', 'owner', 'admin'),
@@ -25,6 +24,7 @@ const User = connector.sequelize.define(
     },
     loginType: {
       type: DataTypes.BOOLEAN,
+      allowNull: false,
     },
     createdAt: {
       type: DataTypes.DATE,
