@@ -1,15 +1,15 @@
-// import isAuth from '../../middlewares/auth.middleware';
 const urlParams = new URLSearchParams(window.location.search);
 const roomName = urlParams.get('roomname');
-
 const socket = io();
+
 socket.on('connect', function () {
-  const name = prompt('반갑습니다', '');
+  const name = prompt('이름 작성하세요', '');
 
   if (!name) {
     console.log('로그인 필요');
   }
   const data = { name, roomName };
+
   socket.emit('newUser', data);
 });
 

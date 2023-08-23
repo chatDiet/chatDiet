@@ -3,6 +3,11 @@ import Http from 'node:http';
 import { ExpressApp } from './app';
 import connector from './db/db.js';
 import socket from 'socket.io';
+import { mongoDB } from './db/mongdb';
+import { ChatService } from './services';
+
+const a = new mongoDB();
+const chatService = new ChatService();
 
 dotenv.config();
 
@@ -14,7 +19,6 @@ export class Server {
     // HTTP 서버를 생성하고, expressApp을 사용하여 요청을 처리하도록 설정
     this.httpServer = new Http.Server(this.expressApp.app);
     this.io = socket(this.httpServer);
-    this.chatRomm = {};
   }
 
   // 서버를 실행하는 메서드입니다.
@@ -34,21 +38,23 @@ export class Server {
     this.io.sockets.on('connection', function (socket) {
       socket.on('newUser', function (data) {
         socket.join(data.roomName);
-        console.log(data.roomName + '번방에 ' + data.name + '님이 접속하였습니다.');
-
         socket.name = data.name;
         socket.roomName = data.roomName;
 
-        socket.to(data.roomName).emit('update', { type: 'connect', name: 'SERVER', message: data.name + '님이 접속함' });
+        console.log(socket.roomName + '번방에 ' + socket.name + '님이 접속하였습니다.');
+
+        socket.to(socket.roomName).emit('update', { type: 'connect', name: 'SERVER', message: socket.name + '님이 접속함' });
       });
 
       // 전송한 메세지 받기
       socket.on('message', function (data) {
         // 받은 데이터의 발신자
         data.name = socket.name;
+        data.roomName = socket.roomName;
 
-        console.log(data);
-        // 해당 방에 존재하는 유저한테 보내기
+        chatService.postChat(data);
+
+        // 해당 방에 보내기
         socket.to(socket.roomName).emit('update', data);
       });
 
@@ -86,4 +92,5 @@ const server = new Server();
 server.runSocket();
 connector.testConnectDB();
 connector.connectDB();
+a.mongoDBconnect();
 server.runServer();

@@ -1,5 +1,4 @@
 import jwt from 'jsonwebtoken';
-const Users = require('../db/models/user');
 
 async function isAuth(req, res, next) {
   const token = req.cookies.authorization;
@@ -12,7 +11,6 @@ async function isAuth(req, res, next) {
     const decoded = jwt.verify(extractedToken, process.env.JWT_SECRET);
     if (decoded) {
       const userId = decoded.userId;
-      // const foundUser = await Users.findByPk(userId);
       if (userId) {
         res.locals.userId = userId; // 유저 ID를 res.locals.user에 저장
         next();
@@ -28,4 +26,4 @@ async function isAuth(req, res, next) {
   }
 }
 
-module.exports = isAuth;
+export default isAuth;
