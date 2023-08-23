@@ -1,6 +1,7 @@
 import Router from 'express';
 const isAuth = require('../middlewares/auth.middleware');
 import { ContractController } from '../controllers';
+import isAuth from '../middlewares/auth.middleware';
 
 const router = Router();
 

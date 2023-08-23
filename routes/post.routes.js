@@ -1,11 +1,10 @@
 import { Router } from 'express';
 import { PostController } from '../controllers';
-const isAuth = require("../middlewares/auth.middleware");
+import isAuth from '../middlewares/auth.middleware';
 
 const router = Router();
 
 const postController = new PostController();
-
 
 // 게시글 작성
 router.post('/post', isAuth, postController.createPost);
@@ -19,4 +18,3 @@ router.put('/posts/:postId', isAuth, postController.updatePost);
 router.delete('/posts/:postId', isAuth, postController.deletePost);
 
 export default router;
-
