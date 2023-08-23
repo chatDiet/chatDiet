@@ -34,5 +34,9 @@ export class ExpressApp {
     this.app.get('/', (req, res) => {
       res.sendFile(__dirname + '/public/test.html');
     });
+
+    this.app.get('/kakao', (req, res) => {
+      res.sendFile(__dirname + '/public/kakao.html');
+    });
   };
 }

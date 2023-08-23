@@ -7,11 +7,32 @@ class UserService {
   _userRepository = new UserRepository();
 
   //회원가입
-  async registerUser(nickname, email, password, passwordConfirm, type) {
-    const hashedPassword = await bcrypt.hash(password, 10);
-    const newUser = await this._userRepository.registerUser(nickname, email, hashedPassword, type);
+  async registerUser(email, password, passwordConfirm, type, loginType) {
+    const result = await this._userRepository.findUserByEmail(email);
 
-    if (!newUser) {
+    //카카오 회원가입이 이미 존재하면 토큰 새로 발급
+    if (result && loginType === false) {
+      let password = null;
+      return await this.loginUser(email, password, loginType);
+    }
+
+    //카카오로 로그인이면
+    if (!result && loginType === false) {
+      return await this._userRepository.registerUser(email, password, type, loginType);
+    }
+    if (!email) {
+      throw new Error('이메일을 입력해주세요');
+    }
+
+    if (!password) {
+      throw new Error('비밀번호를 입력해주세요');
+    }
+
+    if (!passwordConfirm) {
+      throw new Error('비밀번호가 일치하지 않습니다');
+    }
+
+    if (result) {
       throw new Error('중복된 이메일입니다.');
     }
 
@@ -19,28 +40,31 @@ class UserService {
       throw new Error('비밀번호가 일치하지 않습니다.');
     }
 
+    const hashedPassword = await bcrypt.hash(password, 10);
+    const newUser = await this._userRepository.registerUser(email, hashedPassword, type, loginType);
+
     return newUser;
   }
 
   // 로그인
-  async loginUser(email, password) {
+  async loginUser(email, password, loginType) {
     const user = await this._userRepository.findUserByEmail(email);
-    console.log(user.userId);
+
     if (!user) {
       throw new Error('회원정보가 일치하지 않습니다.');
     }
 
-    const isValidPassword = await bcrypt.compare(password, user.password);
+    if (loginType === null) {
+      const isValidPassword = await bcrypt.compare(password, user.password);
 
-    if (!isValidPassword) {
-      throw new Error('회원정보가 일치하지 않습니다.');
+      if (!isValidPassword) {
+        throw new Error('회원정보가 일치하지 않습니다.');
+      }
     }
 
     const token = jwt.sign({ userId: user.userId }, process.env.JWT_SECRET, {
       expiresIn: process.env.JWT_EXPIREIN,
     });
-
-    console.log('토큰 생성 완료');
 
     return { token, userId: user.userId }; // token과 userId 값을 같이 반환합니다.
   }

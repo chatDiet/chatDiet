@@ -1,5 +1,6 @@
 import CalenderRepository from './calender.repository';
 import CommentRepository from './comment.repository';
+import CompanyRepository from './company.repository';
 import ContractRepository from './contract.repository';
 import InquiryRepository from './inquiry.repository';
 import PostRepository from './post.repository';
@@ -14,6 +15,7 @@ import ChatRepository from './chat.repository';
 export {
   CalenderRepository,
   CommentRepository,
+  CompanyRepository,
   ContractRepository,
   InquiryRepository,
   PostRepository,
