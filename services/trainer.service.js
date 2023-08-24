@@ -4,14 +4,6 @@ class TrainerService {
   _trainerRepository = new TrainerRepository();
 
   create = async (trainerName, career, ptContent, companyId, userId) => {
-    const isOwner = await this._trainerRepository.isOwner(userId);
-    if (isOwner.type != 'owner') {
-      return {
-        code: 401,
-        message: '트레이너 등록 권한이 존재하지 않습니다',
-      };
-    }
-
     if (!trainerName) {
       return {
         code: 400,
@@ -85,6 +77,7 @@ class TrainerService {
   };
 
   delete = async (companyId, trainerId, userId) => {
+    // 본인이 그 트레이너 본인인지 확인하는 로직 추가 필요
     const isOwner = await this._trainerRepository.isOwner(userId);
     if (isOwner.type != 'owner') {
       return {
