@@ -1,10 +1,10 @@
 import { DataTypes } from 'sequelize';
 import connector from '../db.js';
 
-const Trainer = connector.sequelize.define(
-  'trainers',
+const Admin = connector.sequelize.define(
+  'admin',
   {
-    trainerId: {
+    adminId: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
@@ -15,19 +15,7 @@ const Trainer = connector.sequelize.define(
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-    companyId: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
-    trainerName: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    career: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    ptContent: {
+    adminName: {
       type: DataTypes.STRING,
       allowNull: false,
     },
@@ -45,4 +33,4 @@ const Trainer = connector.sequelize.define(
   { timestamps: true }
 );
 
-export default Trainer;
+export default Admin;

@@ -1,19 +1,22 @@
-import { Company } from '../db';
+import { Company, User } from '../db';
 
 class CompanyRepository {
-  postCompany = async (companyName, time, additional, service, phoneNumber, link) => {
-    try {
-      const result = await Company.create({
-        companyName,
-        time,
-        additional,
-        service,
-        phoneNumber,
-        link,
-      });
+  isUser = async userId => {
+    return await User.findOne({ where: { userId } });
+  };
 
-      return result;
-    } catch (err) {}
+  postCompany = async (companyName, time, additional, service, phoneNumber, link, userId) => {
+    console.log('들어옴 >ㅁ<');
+    const result = await Company.create({
+      companyName,
+      time,
+      additional,
+      service,
+      phoneNumber,
+      link,
+      userId,
+    });
+    return result;
   };
 
   allGetCompany = async () => {

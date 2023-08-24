@@ -1,4 +1,4 @@
-import User from './calender.js';
+import User from './user.js';
 import Comment from './comment.js';
 import Company from './company.js';
 import Contract from './contract.js';

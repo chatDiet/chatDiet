@@ -11,6 +11,10 @@ const Calender = connector.sequelize.define(
       autoIncrement: true,
       unique: true,
     },
+    userId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
     title: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -20,7 +24,7 @@ const Calender = connector.sequelize.define(
       allowNull: false,
     },
     type: {
-      type: DataTypes.ENUM('아침, 점심, 저녁, 운동'),
+      type: DataTypes.ENUM('breakfast', 'lunch', 'dinner', 'exercise'),
     },
     createdAt: {
       type: DataTypes.DATE,

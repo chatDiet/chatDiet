@@ -1,11 +1,10 @@
 import { Router } from 'express';
 import { PostController } from '../controllers';
-import isAuth from "../middlewares/auth.middleware";
+import isAuth from '../middlewares/auth.middleware';
 
 const router = Router();
 
 const postController = new PostController();
-
 
 // 게시글 작성
 router.post('/post', isAuth, postController.createPost);

@@ -11,6 +11,10 @@ const Company = connector.sequelize.define(
       autoIncrement: true,
       unique: true,
     },
+    userId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
     companyName: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -33,6 +37,10 @@ const Company = connector.sequelize.define(
     },
     link: {
       type: DataTypes.INTEGER,
+      allowNull: true,
+    },
+    map: {
+      type: DataTypes.STRING,
       allowNull: true,
     },
     createdAt: {
