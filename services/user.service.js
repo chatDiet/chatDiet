@@ -1,5 +1,7 @@
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
+import bcrypt from 'bcrypt';
+import jwt from 'jsonwebtoken';
 
 import { UserRepository } from '../repositories';
 
@@ -42,10 +44,10 @@ class UserService {
     };
 
     const hashedPassword = await bcrypt.hash(password, 10);
-    const newUser = await this._userRepository.registerUser(userName, 
-      height, 
-      weight, 
-      phone,email, hashedPassword, type, loginType);
+    const newUser = await this._userRepository.registerUser(userName,
+      height,
+      weight,
+      phone, email, hashedPassword, type, loginType);
 
     return newUser;
   }
@@ -54,10 +56,10 @@ class UserService {
   async loginUser(email, password, loginType) {
     const user = await this._userRepository.findUserByEmail(email);
 
+
     if (!user) {
       throw new Error("회원정보가 일치하지 않습니다.");
     };
-
 
     if (loginType === null) {
       const isValidPassword = await bcrypt.compare(password, user.password);
@@ -94,7 +96,7 @@ class UserService {
         status: 200,
         message: '회원탈퇴를 완료하였습니다.',
       };
-    }
-  }
-}
+    };
+  };
+};
 export default UserService;
