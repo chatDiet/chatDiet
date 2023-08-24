@@ -9,4 +9,6 @@ import Review from './review.js';
 import Schedule from './schedule.js';
 import Trainer from './trainer.js';
 
+
+
 export { User, Comment, Company, Contract, Report, Inquiry, Post, Review, Schedule, Trainer };

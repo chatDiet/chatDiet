@@ -1,6 +1,6 @@
 import { Router } from 'express';
 import { PostController } from '../controllers';
-const isAuth = require("../middlewares/auth.middleware");
+import isAuth from "../middlewares/auth.middleware";
 
 const router = Router();
 
@@ -18,3 +18,4 @@ router.put('/posts/:postId', isAuth, postController.updatePost);
 // 게시글 삭제
 router.delete('/posts/:postId', isAuth, postController.deletePost);
 
+export default router;

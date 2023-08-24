@@ -1,7 +1,7 @@
 import { User } from '../db/index';
 
 class UserRepository {
-  async registerUser(nickname, email, password, type) {
+  async registerUser(email, password, type) {
     const existingUser = await User.findOne({ where: { email } });
 
     if (existingUser) {
@@ -9,7 +9,6 @@ class UserRepository {
     };
 
     return User.create({
-      nickname,
       email,
       password,
       type,

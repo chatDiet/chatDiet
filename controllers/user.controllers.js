@@ -4,10 +4,9 @@ class UserController {
   _userService = new UserService();
   // 회원가입
   register = async (req, res) => {
-    const { nickname, email, password, passwordConfirm, type } = req.body;
+    const { email, password, passwordConfirm, type } = req.body;
     try {
       await this._userService.registerUser(
-        nickname,
         email,
         password,
         passwordConfirm,
@@ -24,10 +23,11 @@ class UserController {
   login = async (req, res) => {
     const { email, password } = req.body;
     try {
-      const { token } = await this._userService.loginUser(email, password);
-      console.log(token);
-      res.cookie("authorization", `Bearer ${token}`);
-      res.status(200).json({ message: "로그인 성공" });
+      const { accessToken } = await this._userService.loginUser(email, password);
+
+      res.cookie("authorization", `Bearer ${accessToken}`);
+
+      res.status(200).json({ message: "로그인이 완료되었습니다." });
     } catch (err) {
       console.error(err);
       res.status(500).json({ message: err.message });
@@ -54,8 +54,8 @@ class UserController {
     } catch (err) {
       console.error(err);
       res.status(500).json({ message: err.message });
-    }
-  }
+    };
+  };
 };
 
 export default UserController;

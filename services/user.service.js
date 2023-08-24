@@ -7,10 +7,9 @@ class UserService {
   _userRepository = new UserRepository();
 
   //회원가입
-  async registerUser(nickname, email, password, passwordConfirm, type) {
+  async registerUser(email, password, passwordConfirm, type) {
     const hashedPassword = await bcrypt.hash(password, 10);
     const newUser = await this._userRepository.registerUser(
-      nickname,
       email,
       hashedPassword,
       type,
@@ -30,9 +29,10 @@ class UserService {
   // 로그인
   async loginUser(email, password) {
     const user = await this._userRepository.findUserByEmail(email);
+
     if (!user) {
       throw new Error("회원정보가 일치하지 않습니다.");
-    }
+    };
 
     const isValidPassword = await bcrypt.compare(password, user.password);
 
@@ -40,13 +40,11 @@ class UserService {
       throw new Error("회원정보가 일치하지 않습니다.");
     }
 
-    const token = jwt.sign({ userId: user.userId }, process.env.JWT_SECRET, {
+    const accessToken = jwt.sign({ userId: user.userId }, process.env.JWT_SECRET, {
       expiresIn: process.env.JWT_EXPIREIN,
     });
-    
-    console.log("토큰 생성 완료");
 
-    return { token, userId: user.userId }; // token과 userId 값을 같이 반환합니다.
+    return { accessToken }; // token과 userId 값을 같이 반환합니다.
   }
 
   // 로그아웃
