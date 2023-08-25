@@ -6,9 +6,19 @@ const router = Router();
 
 const scheduleController = new ScheduleController();
 
-router.post('/schedule', scheduleController.postSchedule);
-router.get('/schedule/:scheduleId', scheduleController.oneGetSchedule);
-router.put('/schedule/:scheduleId', scheduleController.putSchedule);
-router.delete('/schedule/:scheduleId', scheduleController.deleteSchedule);
+// 스케줄 생성
+router.post('/schedule', isAuth, scheduleController.postSchedule);
+
+// 스케줄 전체 조회
+router.get('/schedules', isAuth, scheduleController.allGetSchedule);
+
+// 스케줄 상세 조회
+router.get('/schedules/:scheduleId', isAuth, scheduleController.oneGetSchedule);
+
+// 스케줄 수정
+router.put('/schedules/:scheduleId', isAuth, scheduleController.putSchedule);
+
+// 스케줄 삭제
+router.delete('/schedules/:scheduleId', isAuth, scheduleController.deleteSchedule);
 
 export default router;
