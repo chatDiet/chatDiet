@@ -5,13 +5,13 @@ import { ContractRepository } from '../repositories';
 class ChatService {
   _chatRepository = new ChatRepository();
   _contractRepository = new ContractRepository();
-  // _userInfoRepository = new UserInfoRepository();
+  _userInfoRepository = new UserInfoRepository();
 
   postChat = async data => {
     try {
-      // const user = await this._userInfoRepository.getOneUserInfo(data.user);
+      const user = await this._userInfoRepository.getOneUserInfo(data.user);
 
-      // data.name = user.name;
+      data.name = user.name;
       await this._chatRepository.postChat(data);
     } catch (err) {
       return { status: 500, message: 'Server Error' };
