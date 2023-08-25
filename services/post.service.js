@@ -23,7 +23,6 @@ class PostService {
           message: '내용을 입력해주세요.',
         };
       }
-      console.log('check service');
       const result = await this._postRepository.createPost(userId, title, content);
       if (!result) {
         return {
@@ -79,18 +78,19 @@ class PostService {
   updatePost = async (userId, postId, title, content) => {
     const post = await this._postRepository.getPostId(postId);
     try {
-      if (userId !== post.userId) {
-        return {
-          status: 401,
-          message: '수정 권한이 존재하지 않습니다.',
-        };
-      }
       if (!post) {
         return {
           status: 404,
           message: '게시글이 존재하지 않습니다.',
         };
       }
+      if (userId !== post.userId) {
+        return {
+          status: 401,
+          message: '수정 권한이 존재하지 않습니다.',
+        };
+      }
+
       if (!title) {
         return {
           status: 400,
@@ -152,7 +152,6 @@ class PostService {
       return { status: 500, message: 'Server Error' };
     }
   };
-
 }
 
 export default PostService;
