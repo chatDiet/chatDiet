@@ -2,6 +2,21 @@ import { UserService } from '../services';
 
 class UserController {
   _userService = new UserService();
+
+  // 유저 정보 조회
+  getOneUserInfo = async (req, res) => {
+    const userId = res.locals.userId;
+
+    try {
+      const userInfo = await this._userService.getOneUserInfo(userId);
+
+      res.status(userInfo.status).json({ data: userInfo.data });
+    } catch (err) {
+      console.error(err);
+      res.status(500).json({ message: err.message });
+    };
+  };
+
   // 회원가입
   register = async (req, res) => {
     const loginType = true;

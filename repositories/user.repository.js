@@ -4,6 +4,10 @@ import connector from '../db/db';
 const sequelize = connector.sequelize
 
 class UserRepository {
+  async getOneUserInfo(userId) {
+    return await UserInfo.findOne({ where: { userId } });
+  };
+
   async registerUser(userName, height, weight, phone, email, password, type, loginType) {
     const transaction = await sequelize.transaction()
     try {
