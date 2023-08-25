@@ -1,7 +1,5 @@
 import bcrypt from 'bcrypt';
 import jwt from 'jsonwebtoken';
-import bcrypt from 'bcrypt';
-import jwt from 'jsonwebtoken';
 
 import { UserRepository } from '../repositories';
 
@@ -56,7 +54,6 @@ class UserService {
   async loginUser(email, password, loginType) {
     const user = await this._userRepository.findUserByEmail(email);
 
-
     if (!user) {
       throw new Error("회원정보가 일치하지 않습니다.");
     };
@@ -69,11 +66,11 @@ class UserService {
       }
     }
 
-    const accessToken = jwt.sign({ userId: user.userId }, process.env.JWT_SECRET, {
+    const token = jwt.sign({ userId: user.userId }, process.env.JWT_SECRET, {
       expiresIn: process.env.JWT_EXPIREIN,
     });
 
-    return { accessToken }; // token과 userId 값을 같이 반환합니다.
+    return { token }; // token과 userId 값을 같이 반환합니다.
   }
 
   // 로그아웃

@@ -13,24 +13,21 @@ class UserController {
       console.error(err);
       res.status(500).json({ message: err.message });
     }
-    }
-  };
+  }
+
 
   // 로그인
   login = async (req, res) => {
     const { email, password } = req.body;
     try {
-      const { token, userId } = await this._userService.loginUser(email, password);
+      const { token } = await this._userService.loginUser(email, password);
       console.log(token);
-      res.cookie('authorization', `Bearer ${token}`);
-      res.status(200).json({ message: '로그인 성공' });
       res.cookie('authorization', `Bearer ${token}`);
       res.status(200).json({ message: '로그인 성공' });
     } catch (err) {
       console.error(err);
       res.status(500).json({ message: err.message });
-    }
-    }
+    };
   };
 
   //로그아웃
@@ -38,12 +35,11 @@ class UserController {
     try {
       await this._userService.logoutUser(req, res);
       return res.status(200).json({ message: '로그아웃 되었습니다.' });
-      return res.status(200).json({ message: '로그아웃 되었습니다.' });
     } catch (err) {
       console.error(err);
       return res.status(500).json({ message: err.message });
     }
-    }
+
   };
 
   //회원탈퇴
@@ -51,7 +47,6 @@ class UserController {
     const userId = req.params.userId;
     try {
       const deleteUserData = await this._userService.deleteUser(userId);
-      res.status(deleteUserData.status).json({ message: deleteUserData.message });
       res.status(deleteUserData.status).json({ message: deleteUserData.message });
     } catch (err) {
       console.error(err);
@@ -71,8 +66,8 @@ class UserController {
     console.log('성공적인 토큰 >ㅁ<', token);
     res.cookie('authorization', `Bearer ${token}`);
   };
-}
-  };
+
+
 
   kakao = async (req, res) => {
     const { email } = req.body;

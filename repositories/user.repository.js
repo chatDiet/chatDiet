@@ -4,10 +4,7 @@ import connector from '../db/db';
 const sequelize = connector.sequelize
 
 class UserRepository {
-  async registerUser(userName,
-    height,
-    weight,
-    phone, email, password, type, loginType) {
+  async registerUser(userName, height, weight, phone, email, password, type, loginType) {
     const transaction = await sequelize.transaction()
     try {
       const result = await User.create({

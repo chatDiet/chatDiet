@@ -22,16 +22,16 @@ class InquiryRepository {
     return getInquirysData;
   };
 
-  async updateInquiry(inquiryId, userId, content) {
+  async updateInquiry(inquiryId, content) {
     return await Inquiry.update(
       { content },
-      { where: { inquiryId, userId } },
+      { where: { inquiryId } },
     );
   };
 
-  async deleteInquiry(inquiryId, userId) {
+  async deleteInquiry(inquiryId) {
     return await Inquiry.destroy({
-      where: { inquiryId, userId },
+      where: { inquiryId },
     });
   };
 };

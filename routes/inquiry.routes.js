@@ -4,16 +4,15 @@ import isAuth from '../middlewares/auth.middleware';
 
 const router = Router();
 const inquiryController = new InquiryController();
-import auth from "../middlewares/auth.middleware";
 
 // 문의 전체 조회
-router.get("/inquirys", inquiryController.getAllInquiry);
+router.get("/inquirys", isAuth, inquiryController.getAllInquiry);
 // 문의
-router.post("/inquiry", auth, inquiryController.createInquiry);
+router.post("/inquiry", isAuth, inquiryController.createInquiry);
 // 문의 수정
-router.put("/inquirys/:inquiryId", auth, inquiryController.udpateInquiry);
+router.put("/inquirys/:inquiryId", isAuth, inquiryController.udpateInquiry);
 // 문의 삭제
-router.delete("/inquirys/:inquiryId", auth, inquiryController.deleteInquiry);
+router.delete("/inquirys/:inquiryId", isAuth, inquiryController.deleteInquiry);
 
 
 export default router;
