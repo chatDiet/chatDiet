@@ -95,7 +95,7 @@ class ReportService {
       message: '신고 내용이 수정 되었습니다.',
     };
   }
-
+  // 신고 삭제
   async deleteReport(userId, reportId) {
     const existReportUser = await this._reportRepository.getReportId(reportId);
     const user = await this._userRepository.getUserById(userId);
