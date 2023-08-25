@@ -6,8 +6,23 @@ import { UserRepository } from '../repositories';
 class UserService {
   _userRepository = new UserRepository();
 
+  // 유저 정보 조회
+  async getOneUserInfo(userId) {
+    const result = await this._userRepository.getOneUserInfo(userId);
+
+    return {
+      status: 200,
+      data: {
+        userName: result.userName,
+        height: result.height,
+        weight: result.weight,
+        phone: result.phone,
+      },
+    };
+  }
+
   //회원가입
-  async registerUser(email, password, passwordConfirm, type, loginType) {
+  async registerUser(email, password, passwordConfirm, type, loginType, userName, height, weight, phone) {
     const result = await this._userRepository.findUserByEmail(email);
 
     //카카오 회원가입이 이미 존재하면 토큰 새로 발급
@@ -41,7 +56,7 @@ class UserService {
     }
 
     const hashedPassword = await bcrypt.hash(password, 10);
-    const newUser = await this._userRepository.registerUser(email, hashedPassword, type, loginType);
+    const newUser = await this._userRepository.registerUser(userName, height, weight, phone, email, hashedPassword, type, loginType);
 
     return newUser;
   }
@@ -66,17 +81,17 @@ class UserService {
       expiresIn: process.env.JWT_EXPIREIN,
     });
 
-    return { token, userId: user.userId }; // token과 userId 값을 같이 반환합니다.
+    return { token }; // token과 userId 값을 같이 반환합니다.
   }
 
   // 로그아웃
   async logoutUser(req, res) {
     await this._userRepository.logoutUser(req, res);
   }
-
   // 회원탈퇴
   async deleteUser(userId) {
     const existUserData = await this._userRepository.getUserById(userId);
+
     if (!existUserData) {
       return {
         status: 404,

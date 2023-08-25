@@ -12,7 +12,7 @@ class CalenderRepository {
   };
 
   createCalender = async (title, content, type, userId) => {
-    const createCalender = await Calender.create({ title, content, type, userId });
+    const createCalender = await Calender.create({ title, content, type, userId, imageUrl });
     return createCalender;
   };
   isMe = async (calenderId, userId) => {

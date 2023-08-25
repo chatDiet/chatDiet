@@ -40,4 +40,5 @@ class DBConnector {
 }
 const connector = new DBConnector();
 
+
 export default connector;
