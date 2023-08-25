@@ -23,6 +23,10 @@ const Trainer = connector.sequelize.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    imageUrl: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     career: {
       type: DataTypes.STRING,
       allowNull: false,

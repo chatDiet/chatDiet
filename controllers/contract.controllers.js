@@ -2,6 +2,36 @@ import { ContractService } from '../services';
 
 class ContractController {
   contractService = new ContractService();
+
+  createContract = async (req, res) => {
+    const { trainerId } = req.params;
+    const { ptNumber } = req.body;
+    const userId = res.locals.userId;
+    const createContract = await this.contractService.createContract(trainerId, userId, ptNumber);
+    return res.status(createContract.status).json(createContract.message);
+  };
+
+  getContract = async (req, res) => {
+    const userId = 4;
+    const getContract = await this.contractService.getContract(userId);
+    return res.status(getContract.status).json(getContract.message);
+  };
+
+  deleteContract = async (req, res) => {
+    const { contractId } = req.params;
+
+    const deleteContract = await this.contractService.deleteContract(contractId);
+    return res.status(deleteContract.status).json(deleteContract.message);
+  };
+
+  authContract = async (req, res) => {
+    const { data } = req.body;
+
+    const userId = 4;
+
+    const result = await this.contractService.authContract(data, userId);
+    return res.status(result.status).json(result.message);
+  };
 }
 
 export default ContractController;

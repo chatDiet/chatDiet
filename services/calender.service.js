@@ -18,7 +18,7 @@ class CalenderService {
     }
     return { status: 200, message: getCalender };
   };
-  createCalender = async (title, content, type, userId) => {
+  createCalender = async (title, content, type, userId, imageUrl) => {
     try {
       if (!title) {
         return { status: 400, message: '캘린더 제목을 입력해주세요' };
@@ -26,7 +26,7 @@ class CalenderService {
       if (!content) {
         return { status: 400, message: '캘린더 내용을 입력해주세요' };
       }
-      const createCalender = await this._calenderRepository.createCalender(title, content, type, userId);
+      const createCalender = await this._calenderRepository.createCalender(title, content, type, userId, imageUrl);
       return { status: 200, message: createCalender };
     } catch (err) {
       return { status: 500, message: '캘린더 생성에 실패했습니다.' };
