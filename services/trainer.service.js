@@ -35,7 +35,7 @@ class TrainerService {
     }
     return {
       code: 200,
-      data: await this._trainerRepository.create(trainerName, career, ptContent, companyId),
+      data: await this._trainerRepository.create(trainerName, career, ptContent, companyId, userId),
     };
   };
 

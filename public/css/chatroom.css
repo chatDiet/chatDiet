@@ -1,0 +1,12 @@
+.chat-container {
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #949292;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+#chatList {
+  max-height: 300px;
+  overflow-y: scroll;
+}
