@@ -14,7 +14,7 @@ class UserController {
     } catch (err) {
       console.error(err);
       res.status(500).json({ message: err.message });
-    };
+    }
   };
 
   // 회원가입
@@ -22,27 +22,23 @@ class UserController {
     const loginType = true;
     const { email, password, passwordConfirm, type, userName, height, weight, phone } = req.body;
     try {
-      await this._userService.registerUser(email, password, passwordConfirm, type, loginType, userName, height, weight, phone);
-      res.status(201).json({ message: '회원가입에 성공했습니다.' });
+      const result = await this._userService.registerUser(email, password, passwordConfirm, type, loginType, userName, height, weight, phone);
+      return res.status(result.status).json(result.message);
     } catch (err) {
-      console.error(err);
-      res.status(500).json({ message: err.message });
+      console.log(err);
     }
-  }
-
+  };
 
   // 로그인
   login = async (req, res) => {
     const { email, password } = req.body;
     try {
-      const { token } = await this._userService.loginUser(email, password);
-      console.log(token);
-      res.cookie('authorization', `Bearer ${token}`);
-      res.status(200).json({ message: '로그인 성공' });
-    } catch (err) {
-      console.error(err);
-      res.status(500).json({ message: err.message });
-    };
+      const result = await this._userService.loginUser(email, password);
+
+      res.cookie('authorization', `Bearer ${result.data}`);
+
+      res.status(result.status).json(result.message);
+    } catch (err) {}
   };
 
   //로그아웃
@@ -50,23 +46,17 @@ class UserController {
     try {
       await this._userService.logoutUser(req, res);
       return res.status(200).json({ message: '로그아웃 되었습니다.' });
-    } catch (err) {
-      console.error(err);
-      return res.status(500).json({ message: err.message });
-    }
-
+    } catch (err) {}
   };
 
   //회원탈퇴
   deleteUser = async (req, res) => {
-    const userId = req.params.userId;
+    const userId = res.locals.userId;
     try {
       const deleteUserData = await this._userService.deleteUser(userId);
-      res.status(deleteUserData.status).json({ message: deleteUserData.message });
-    } catch (err) {
-      console.error(err);
-      res.status(500).json({ message: err.message });
-    }
+
+      return res.status(deleteUserData.status).json(deleteUserData.message);
+    } catch (err) {}
   };
 
   kakao = async (req, res) => {
@@ -77,23 +67,6 @@ class UserController {
     const password = null;
     const passwordConfirm = null;
     const { token } = await this._userService.registerUser(email, password, passwordConfirm, type, loginType);
-
-    console.log('성공적인 토큰 >ㅁ<', token);
-    res.cookie('authorization', `Bearer ${token}`);
-  };
-
-
-
-  kakao = async (req, res) => {
-    const { email } = req.body;
-    // const { type } = req.body; //원래 받아줘야하는데 프론트에서 넘겨줄거라 지금은 걍 유저로 하겠음
-    const type = 'user';
-    const loginType = false;
-    const password = null;
-    const passwordConfirm = null;
-    const { token } = await this._userService.registerUser(email, password, passwordConfirm, type, loginType);
-
-    console.log('성공적인 토큰 >ㅁ<', token);
     res.cookie('authorization', `Bearer ${token}`);
   };
 }

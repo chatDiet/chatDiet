@@ -10,7 +10,7 @@ router.get('/userInfo', isAuth, userController.getOneUserInfo);
 router.post('/signup', userController.register);
 router.post('/login', userController.login);
 router.post('/logout', userController.logoutUser);
-router.delete('/:userId', isAuth, userController.deleteUser);
+router.delete('/users/:userId', isAuth, userController.deleteUser);
 
 //카카오 로그인
 router.post('/kakao', userController.kakao);
