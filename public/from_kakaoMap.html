@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>from_kakaoMap</title>
+  </head>
+  <body>
+    <button id="Company1">Company1</button>
+    <button id="Company2">Company2</button>
+    <button id="Company3">Company3</button>
+    <button id="Company4">Company4</button>
+
+    <script>
+      const page = companyId => {
+        location.href = `kakaoMap.html?$companyId=${companyId}`;
+      };
+
+      document.getElementById('Company1').addEventListener('click', () => {
+        fetch(`/api/company/1`)
+          .then(response => response.json())
+          .then(data => {
+            const companyId = data.companyId;
+            page(companyId);
+          });
+      });
+      document.getElementById('Company2').addEventListener('click', () => {
+        fetch(`/api/company/2`)
+          .then(response => response.json())
+          .then(data => {
+            const companyId = data.companyId;
+            page(companyId);
+          });
+      });
+      document.getElementById('Company3').addEventListener('click', () => {
+        fetch(`/api/company/3`)
+          .then(response => response.json())
+          .then(data => {
+            const companyId = data.companyId;
+            page(companyId);
+          });
+      });
+      document.getElementById('Company4').addEventListener('click', () => {
+        fetch(`/api/company/4`)
+          .then(response => response.json())
+          .then(data => {
+            const companyId = data.companyId;
+            page(companyId);
+          });
+      });
+    </script>
+    <!-- <div id="buttonContainer"></div>
+
+    <script>
+      const buttonContainer = document.getElementById('buttonContainer');
+
+      // API에서 업체 목록 가져오는 함수
+      async function fetchCompanies() {
+        try {
+          const response = await fetch('/api/company');
+          const data = await response.json();
+          return data.message; // 업체 목록 배열 반환
+        } catch (error) {
+          console.error('API 요청 중 오류 발생:', error);
+        }
+      }
+
+      // 페이지 이동 함수
+      const goToMapPage = companyId => {
+        location.href = `kakaoMap.html?companyId=${companyId}`;
+      };
+
+      // 업체 목록 가져와서 버튼 동적 생성
+      async function createButtons() {
+        const companies = await fetchCompanies();
+
+        companies.forEach((company, index) => {
+          const button = document.createElement('button');
+          button.textContent = `Company${index + 1}`;
+          button.addEventListener('click', () => {
+            goToMapPage(company.companyId);
+          });
+          buttonContainer.appendChild(button);
+        });
+      }
+
+      createButtons(); // 버튼 생성 함수 호출
+    </script> -->
+  </body>
+</html>
