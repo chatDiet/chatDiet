@@ -16,21 +16,24 @@
       const urlParams = new URLSearchParams(window.location.search);
       const companyId = urlParams.get('$companyId');
 
-      var mapContainer = document.getElementById('map'); // 지도를 표시할 div
+      // 지도를 표시할 div
+      var mapContainer = document.getElementById('map');
       var mapOption = {
-        center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
-        level: 3, // 지도의 확대 레벨
+        // 지도의 중심좌표
+        center: new kakao.maps.LatLng(33.450701, 126.570667),
+        // 지도의 확대 레벨
+        level: 3,
       };
 
-      // 지도를 생성합니다
-      // 주소-좌표 변환 객체를 생성합니다
+      // 지도 생성
       var map = new kakao.maps.Map(mapContainer, mapOption);
+      // 주소-좌표 변환 객체를 생성
       var geocoder = new kakao.maps.services.Geocoder();
 
       fetch(`/api/company/${companyId}`)
         .then(response => response.json())
         .then(data => {
-          const address = data.map; // 'map'이 주소를 보유한다고 가정합니다.
+          const address = data.map;
 
           geocoder.addressSearch(address, function (result, status) {
             if (status === kakao.maps.services.Status.OK) {

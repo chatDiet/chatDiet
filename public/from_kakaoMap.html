@@ -49,42 +49,6 @@
           });
       });
     </script>
-    <!-- <div id="buttonContainer"></div>
-
-    <script>
-      const buttonContainer = document.getElementById('buttonContainer');
-
-      // API에서 업체 목록 가져오는 함수
-      async function fetchCompanies() {
-        try {
-          const response = await fetch('/api/company');
-          const data = await response.json();
-          return data.message; // 업체 목록 배열 반환
-        } catch (error) {
-          console.error('API 요청 중 오류 발생:', error);
-        }
-      }
-
-      // 페이지 이동 함수
-      const goToMapPage = companyId => {
-        location.href = `kakaoMap.html?companyId=${companyId}`;
-      };
-
-      // 업체 목록 가져와서 버튼 동적 생성
-      async function createButtons() {
-        const companies = await fetchCompanies();
-
-        companies.forEach((company, index) => {
-          const button = document.createElement('button');
-          button.textContent = `Company${index + 1}`;
-          button.addEventListener('click', () => {
-            goToMapPage(company.companyId);
-          });
-          buttonContainer.appendChild(button);
-        });
-      }
-
-      createButtons(); // 버튼 생성 함수 호출
-    </script> -->
+    
   </body>
 </html>
