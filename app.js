@@ -31,8 +31,8 @@ export class ExpressApp {
   };
 
   setHtml = () => {
-    this.app.get('/', (req, res) => {
-      res.sendFile(__dirname + '/public/test.html');
+    this.app.get('/chatRoomList', (req, res) => {
+      res.sendFile(__dirname + '/public/chatRoomList.html');
     });
 
     this.app.get('/kakao', (req, res) => {
