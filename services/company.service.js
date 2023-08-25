@@ -34,6 +34,7 @@ class CompanyService {
           status: 400,
           message: '업체 주소 미입력',
         };
+      }
       const result = await this._companyRepository.postCompany(companyName, time, additional, service, phoneNumber, link, userId, map);
       if (!result) {
         return {
