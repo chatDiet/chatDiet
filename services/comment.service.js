@@ -12,7 +12,8 @@ class CommentService {
           message: '로그인 후 이용할 수 있습니다.',
         };
       }
-      if (!postId) {
+      const findPost = await this._commentRepository.getPostId(postId);
+      if (!findPost) {
         return {
           status: 404,
           message: '게시글이 존재하지 않습니다.',
@@ -71,6 +72,13 @@ class CommentService {
   updateComment = async (userId, postId, commentId, content) => {
     const comment = await this._commentRepository.getcommentId(commentId);
     try {
+      const findPost = await this._commentRepository.getPostId(postId);
+      if (!findPost) {
+        return {
+          status: 404,
+          message: '게시글이 존재하지 않습니다.',
+        };
+      }
       if (!comment) {
         return {
           status: 404,

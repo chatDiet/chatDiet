@@ -3,7 +3,7 @@ import { CompanyRepository } from '../repositories';
 class CompanyService {
   _companyRepository = new CompanyRepository();
 
-  postCompany = async (companyName, time, additional, service, phoneNumber, link, userId, imageUrl) => {
+  postCompany = async (companyName, time, additional, service, phoneNumber, link, userId, imageUrl ,map) => {
     try {
       const isUser = await this._companyRepository.isUser(userId);
       if (isUser.type === 'user' || isUser.type === 'trainer') {
@@ -36,7 +36,6 @@ class CompanyService {
           status: 400,
           message: '업체 연락처 미입력',
         };
-      }
 
       if (!imageUrl) {
         return {
@@ -44,15 +43,20 @@ class CompanyService {
           message: '업체 사진 미입력',
         };
       }
-
       if (!service) {
         return {
           status: 400,
           message: '업체 부가 서비스 미입력',
         };
       }
+        if (!map) {
+        return {
+          status: 400,
+          message: '업체 주소 미입력',
+        };
+      }
 
-      const result = await this._companyRepository.postCompany(companyName, time, additional, service, phoneNumber, link, userId, imageUrl);
+      const result = await this._companyRepository.postCompany(companyName, time, additional, service, phoneNumber, link, userId, imageUrl , map);
       if (!result) {
         return {
           status: 400,
@@ -108,7 +112,8 @@ class CompanyService {
     }
   };
 
-  putCompany = async (companyId, companyName, time, additional, service, phoneNumber, link, userId, imageUrl) => {
+  putCompany = async (companyId, companyName, time, additional, service, phoneNumber, link, userId, imageUrl , map) => {
+
     try {
       const isUser = await this._companyRepository.isUser(userId);
       if (isUser.type === 'user' || isUser.type === 'trainer') {
@@ -151,8 +156,14 @@ class CompanyService {
           status: 400,
           message: '업체 연락처 미입력',
         };
+      }else if (!map) {
+        return {
+          status: 400,
+          message: '업체 주소 미입력',
+        };
       }
-      const result = await this._companyRepository.putCompany(companyId, companyName, time, additional, service, phoneNumber, link, imageUrl);
+      const result = await this._companyRepository.putCompany(companyId, companyName, time, additional, service, phoneNumber, link, imageUrl , map);
+
       if (!result) {
         return {
           status: 400,
