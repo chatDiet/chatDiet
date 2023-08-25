@@ -25,7 +25,7 @@ class ScheduleService {
 
       if (user.type !== 'trainer') {
         return {
-          status: 400,
+          status: 401,
           message: '스케줄 생성 권한 없음',
         };
       }
@@ -34,7 +34,7 @@ class ScheduleService {
 
       if (!trainer) {
         return {
-          status: 400,
+          status: 404,
           message: '트레이너 정보 없음',
         };
       }
@@ -43,7 +43,7 @@ class ScheduleService {
 
       if (checkDate) {
         return {
-          status: 400,
+          status: 409,
           message: '중복된 날짜',
         };
       }
@@ -51,7 +51,7 @@ class ScheduleService {
       const result = await this._scheduleRepository.postSchedule(title, date, userId, trainer.trainerId);
       if (!result) {
         return {
-          status: 400,
+          status: 404,
           message: '업체 생성 실패',
         };
       }
@@ -92,7 +92,7 @@ class ScheduleService {
 
       if (user.type !== 'trainer' || user.type !== 'admin') {
         return {
-          status: 400,
+          status: 401,
           message: '스케줄 조회 권한 없음',
         };
       }
@@ -100,7 +100,7 @@ class ScheduleService {
       const result = await this._scheduleRepository.oneGetSchedule(scheduleId);
       if (!result) {
         return {
-          status: 400,
+          status: 404,
           message: '존재하지 않는 스케줄 ID',
         };
       }
@@ -126,7 +126,7 @@ class ScheduleService {
       const schedule = await this._scheduleRepository.oneGetSchedule(scheduleId);
       if (!schedule) {
         return {
-          status: 400,
+          status: 404,
           message: '존재하지 않는 스케줄 ID',
         };
       }
@@ -135,7 +135,7 @@ class ScheduleService {
 
       if (schedule.userId !== user.userId || user.type !== 'admin') {
         return {
-          status: 400,
+          status: 401,
           message: '스케줄 수정 권한 없음',
         };
       }
@@ -157,7 +157,7 @@ class ScheduleService {
       const result = await this._scheduleRepository.putSchedule(scheduleId, title, date);
       if (!result) {
         return {
-          status: 400,
+          status: 404,
           message: '스케줄 수정 실패',
         };
       }
@@ -183,7 +183,7 @@ class ScheduleService {
       const schedule = await this._scheduleRepository.oneGetSchedule(scheduleId);
       if (!schedule) {
         return {
-          status: 400,
+          status: 404,
           message: '존재하지 않는 스케줄 ID',
         };
       }
@@ -192,7 +192,7 @@ class ScheduleService {
 
       if (schedule.userId !== user.userId || user.type !== 'admin') {
         return {
-          status: 400,
+          status: 401,
           message: '스케줄 삭제 권한 없음',
         };
       }
@@ -200,7 +200,7 @@ class ScheduleService {
       const result = await this._scheduleRepository.deleteSchedule(scheduleId);
       if (!result) {
         return {
-          status: 400,
+          status: 404,
           message: '스케줄 삭제 실패',
         };
       }
