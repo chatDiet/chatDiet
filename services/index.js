@@ -9,6 +9,7 @@ import ReviewService from './review.service.js';
 import ScheduleService from './schedule.service.js';
 import TrainerService from './trainer.service.js';
 import UserService from './user.service.js';
+import ChatService from './chat.service.js';
 
 export {
   CalenderService,
@@ -22,4 +23,5 @@ export {
   ScheduleService,
   TrainerService,
   UserService,
+  ChatService,
 };
