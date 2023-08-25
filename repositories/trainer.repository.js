@@ -13,8 +13,12 @@ class TrainerRepository {
     return await Trainer.findByPk(trainerId);
   };
 
-  create = async (trainerName, career, ptContent, companyId) => {
-    return await Trainer.create({ trainerName, career, ptContent, companyId });
+  findTrainer = async userId => {
+    return await Trainer.findOne({ where: { userId } });
+  };
+
+  create = async (trainerName, career, ptContent, companyId, userId) => {
+    return await Trainer.create({ trainerName, career, ptContent, companyId, userId });
   };
 
   read = async companyId => {

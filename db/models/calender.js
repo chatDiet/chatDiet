@@ -23,6 +23,10 @@ const Calender = connector.sequelize.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    imageUrl: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     type: {
       type: DataTypes.ENUM('breakfast', 'lunch', 'dinner', 'exercise'),
     },

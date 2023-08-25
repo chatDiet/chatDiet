@@ -16,7 +16,7 @@ class CommentController {
   // 특정 게시글 댓글 전체 조회
   getComment = async (req, res) => {
     const { postId } = req.params;
-    
+
     const result = await this._commentService.getComment(postId);
     return res.status(result.status).json(result.message);
   };
@@ -26,7 +26,7 @@ class CommentController {
     const userId = res.locals.userId;
     const { postId, commentId } = req.params;
     const { content } = req.body;
-    
+
     const result = await this._commentService.updateComment(userId, postId, commentId, content);
     return res.status(result.status).json(result.message);
   };

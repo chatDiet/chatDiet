@@ -1,6 +1,7 @@
 import express from 'express';
 import cookieParser from 'cookie-parser';
 import routes from './routes';
+import cors from 'cors';
 
 export class ExpressApp {
   app = express();
@@ -8,18 +9,15 @@ export class ExpressApp {
   constructor() {
     this.setAppSettings();
     this.setAppRouter();
+    this.setHtml();
   }
   //
   setAppSettings = () => {
     this.app.use(express.json());
     this.app.use(express.urlencoded({ extended: false }));
     this.app.use(cookieParser());
-
     this.app.use(express.static('public'));
-
-    this.app.get('/kakao', (req, res) => {
-      res.sendFile(__dirname + '/public/kakao.html');
-    });
+    this.app.use(cors());
   };
 
   setAppRouter = () => {
@@ -29,6 +27,16 @@ export class ExpressApp {
         success: false,
         error: error.message,
       });
+    });
+  };
+
+  setHtml = () => {
+    this.app.get('/chatRoomList', (req, res) => {
+      res.sendFile(__dirname + '/public/chatRoomList.html');
+    });
+
+    this.app.get('/kakao', (req, res) => {
+      res.sendFile(__dirname + '/public/kakao.html');
     });
   };
 }
