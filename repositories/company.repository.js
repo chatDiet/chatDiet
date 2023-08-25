@@ -4,9 +4,11 @@ class CompanyRepository {
   isUser = async userId => {
     return await User.findOne({ where: { userId } });
   };
+  isMe = async companyId => {
+    return await Company.findOne({ where: { companyId } });
+  };
 
-  postCompany = async (companyName, time, additional, service, phoneNumber, link, userId) => {
-    console.log('들어옴 >ㅁ<');
+  postCompany = async (companyName, time, additional, service, phoneNumber, link, userId, imageUrl) => {
     const result = await Company.create({
       companyName,
       time,
@@ -15,6 +17,7 @@ class CompanyRepository {
       phoneNumber,
       link,
       userId,
+      imageUrl,
     });
     return result;
   };

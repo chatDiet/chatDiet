@@ -6,19 +6,23 @@ class TrainerRepository {
   };
 
   findCompantId = async companyId => {
-    return await Company.findByPk(companyId);
+    return await Company.findOne({ where: { companyId } });
   };
 
-  findtrainerId = async trainerId => {
-    return await Trainer.findByPk(trainerId);
+  findOwner = async userId => {
+    return await Company.findOne({ where: { userId } });
+  };
+
+  findtrainerId = async (trainerId, companyId) => {
+    return await Trainer.findOne({ where: { trainerId, companyId } });
   };
 
   findTrainer = async userId => {
     return await Trainer.findOne({ where: { userId } });
   };
 
-  create = async (trainerName, career, ptContent, companyId, userId) => {
-    return await Trainer.create({ trainerName, career, ptContent, companyId, userId });
+  create = async (trainerName, career, ptContent, companyId, userId, imageUrl) => {
+    return await Trainer.create({ trainerName, career, ptContent, companyId, userId, imageUrl });
   };
 
   read = async companyId => {

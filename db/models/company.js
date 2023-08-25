@@ -45,7 +45,7 @@ const Company = connector.sequelize.define(
     },
     map: {
       type: DataTypes.STRING,
-      allowNull: true,
+      allowNull: false,
     },
     createdAt: {
       type: DataTypes.DATE,
