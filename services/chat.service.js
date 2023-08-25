@@ -1,27 +1,36 @@
 import { ChatRepository } from '../repositories';
 import { ContractRepository } from '../repositories';
+// import { UserInfoRepository } from '../repositories';
 
 class ChatService {
   _chatRepository = new ChatRepository();
   _contractRepository = new ContractRepository();
+  // _userInfoRepository = new UserInfoRepository();
 
-  findUser = async data => {
+  postChat = async data => {
     try {
-      const result = await this._contractRepository.getContract(data.user);
-      if (result) {
-        console.log('````````````````````유저 찾음```````````````');
-      }
+      // const user = await this._userInfoRepository.getOneUserInfo(data.user);
+
+      // data.name = user.name;
+      await this._chatRepository.postChat(data);
     } catch (err) {
       return { status: 500, message: 'Server Error' };
     }
   };
 
-  postChat = async data => {
+  findChat = async roomId => {
     try {
-      const result = await this._chatRepository.postChat(data);
-      if (result) {
-        console.log('`````````````생성 성공````````````````');
+      if (!roomId) {
+        return {
+          status: 400,
+          message: '채팅방 ID 미입력',
+        };
       }
+      const result = await this._chatRepository.findChat(roomId);
+      return {
+        status: 200,
+        message: result,
+      };
     } catch (err) {
       return { status: 500, message: 'Server Error' };
     }

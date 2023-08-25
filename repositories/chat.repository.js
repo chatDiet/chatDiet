@@ -1,4 +1,3 @@
-// import Chat from '../db/schema/chatDiet.schema';
 import mongoose from 'mongoose';
 
 class ChatRepository {
@@ -13,11 +12,24 @@ class ChatRepository {
       const collection = this.connection.collection(data.roomId);
 
       // 데이터를 컬렉션에 직접 삽입
-      const result = await collection.insertOne({ userId: data.user, content: data.message });
+      const result = await collection.insertOne({ userId: data.user, content: data.message, date: new Date() });
       console.log(`데이터가 ${data.roomId} 컬렉션에 성공적으로 저장되었습니다.`);
       return result;
     } catch {
       console.error('메시지 저장 중 오류 발생:', err);
+    }
+  };
+
+  // 몽고디비 "roomId" 컬렉션 조회
+  findChat = async roomId => {
+    try {
+      const collection = this.connection.collection(roomId);
+
+      const result = await collection.find({}).sort({ date: -1 }).toArray();
+
+      return result;
+    } catch (err) {
+      console.error(err);
     }
   };
 }
