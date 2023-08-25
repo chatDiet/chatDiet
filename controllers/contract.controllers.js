@@ -5,22 +5,32 @@ class ContractController {
 
   createContract = async (req, res) => {
     const { trainerId } = req.params;
+    const { ptNumber } = req.body;
     const userId = res.locals.userId;
-    const createContract = await this.contractService.createContract(trainerId, userId);
-    res.status(createContract.status).json(createContract.message);
+    const createContract = await this.contractService.createContract(trainerId, userId, ptNumber);
+    return res.status(createContract.status).json(createContract.message);
   };
 
   getContract = async (req, res) => {
-    const userId = res.locals.userId;
-    const getContract = this.contractService.getContract(userId);
-    res.status(getContract.status).json(getContract.message);
+    const userId = 4;
+    const getContract = await this.contractService.getContract(userId);
+    return res.status(getContract.status).json(getContract.message);
   };
 
   deleteContract = async (req, res) => {
     const { contractId } = req.params;
 
     const deleteContract = await this.contractService.deleteContract(contractId);
-    res.status(deleteContract.status).json(deleteContract.message);
+    return res.status(deleteContract.status).json(deleteContract.message);
+  };
+
+  authContract = async (req, res) => {
+    const { data } = req.body;
+
+    const userId = 4;
+
+    const result = await this.contractService.authContract(data, userId);
+    return res.status(result.status).json(result.message);
   };
 }
 
