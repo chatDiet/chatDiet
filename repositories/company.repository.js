@@ -5,7 +5,7 @@ class CompanyRepository {
     return await User.findOne({ where: { userId } });
   };
 
-  postCompany = async (companyName, time, additional, service, phoneNumber, link, userId) => {
+  postCompany = async (companyName, time, additional, service, phoneNumber, link, userId, map) => {
     console.log('들어옴 >ㅁ<');
     const result = await Company.create({
       companyName,
@@ -15,6 +15,7 @@ class CompanyRepository {
       phoneNumber,
       link,
       userId,
+      map,
     });
     return result;
   };
@@ -37,7 +38,7 @@ class CompanyRepository {
     } catch (err) {}
   };
 
-  putCompany = async (companyId, companyName, time, additional, service, phoneNumber, link) => {
+  putCompany = async (companyId, companyName, time, additional, service, phoneNumber, link, map) => {
     try {
       const result = await Company.update(
         {
@@ -47,6 +48,7 @@ class CompanyRepository {
           service,
           phoneNumber,
           link,
+          map,
         },
         { where: { companyId } }
       );

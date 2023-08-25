@@ -5,10 +5,10 @@ class CompanyController {
 
   // 업체 생성
   postCompany = async (req, res) => {
-    const { companyName, time, additional, service, phoneNumber, link } = req.body;
+    const { companyName, time, additional, service, phoneNumber, link, map } = req.body;
     const userId = res.locals.userId;
 
-    const result = await this._companyService.postCompany(companyName, time, additional, service, phoneNumber, link, userId);
+    const result = await this._companyService.postCompany(companyName, time, additional, service, phoneNumber, link, userId, map);
 
     return res.status(result.status).json(result.message);
   };

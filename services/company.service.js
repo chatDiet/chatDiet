@@ -3,7 +3,7 @@ import { CompanyRepository } from '../repositories';
 class CompanyService {
   _companyRepository = new CompanyRepository();
 
-  postCompany = async (companyName, time, additional, service, phoneNumber, link, userId) => {
+  postCompany = async (companyName, time, additional, service, phoneNumber, link, userId, map) => {
     try {
       const isUser = await this._companyRepository.isUser(userId);
       console.log(isUser);
@@ -29,8 +29,12 @@ class CompanyService {
           status: 400,
           message: '업체 연락처 미입력',
         };
-      }
-      const result = await this._companyRepository.postCompany(companyName, time, additional, service, phoneNumber, link, userId);
+      } else if (!map) {
+        return {
+          status: 400,
+          message: '업체 주소 미입력',
+        };
+      const result = await this._companyRepository.postCompany(companyName, time, additional, service, phoneNumber, link, userId, map);
       if (!result) {
         return {
           status: 400,
@@ -86,7 +90,7 @@ class CompanyService {
     }
   };
 
-  putCompany = async (companyId, companyName, time, additional, service, phoneNumber, link, userId) => {
+  putCompany = async (companyId, companyName, time, additional, service, phoneNumber, link, userId, map) => {
     try {
       const isUser = await this._companyRepository.isUser(userId);
       if (isUser.type != 'owner' || isUser.type != 'admin') {
@@ -122,8 +126,13 @@ class CompanyService {
           status: 400,
           message: '업체 연락처 미입력',
         };
+      }else if (!map) {
+        return {
+          status: 400,
+          message: '업체 주소 미입력',
+        };
       }
-      const result = await this._companyRepository.putCompany(companyId, companyName, time, additional, service, phoneNumber, link);
+      const result = await this._companyRepository.putCompany(companyId, companyName, time, additional, service, phoneNumber, link, map);
       if (!result) {
         return {
           status: 400,
