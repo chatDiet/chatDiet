@@ -19,6 +19,9 @@ const Post = connector.sequelize.define(
       type: DataTypes.STRING,
       allowNull: false,
     },
+    imageUrl: {
+      type: DataTypes.STRING,
+    },
     content: {
       type: DataTypes.STRING,
       allowNull: false,
