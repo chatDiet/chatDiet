@@ -24,9 +24,7 @@ class UserController {
     try {
       const result = await this._userService.registerUser(email, password, passwordConfirm, type, loginType, userName, height, weight, phone);
       return res.status(result.status).json(result.message);
-    } catch (err) {
-      console.log(err);
-    }
+    } catch (err) {}
   };
 
   // 로그인
@@ -44,8 +42,9 @@ class UserController {
   //로그아웃
   logoutUser = async (req, res) => {
     try {
-      await this._userService.logoutUser(req, res);
-      return res.status(200).json({ message: '로그아웃 되었습니다.' });
+      const result = await this._userService.logoutUser(req, res);
+
+      return res.status(result.status).json(result.message);
     } catch (err) {}
   };
 
