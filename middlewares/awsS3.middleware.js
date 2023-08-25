@@ -44,25 +44,25 @@ const singleUpload = fieldName => {
   };
 };
 
-const promiseList = images.map(file => {
-  const fileStream = fs.createReadStream(file.path);
+// const promiseList = images.map(file => {
+//   const fileStream = fs.createReadStream(file.path);
 
-  return s3
-    .upload({
-      Bucket: '버킷이름',
-      // 파일명
-      Key: `uploads/${file.originalname}`,
-      Body: fileStream,
-    })
-    .promise();
-});
+//   return s3
+//     .upload({
+//       Bucket: '버킷이름',
+//       // 파일명
+//       Key: `uploads/${file.originalname}`,
+//       Body: fileStream,
+//     })
+//     .promise();
+// });
 
-const result = await Promise.all(promiseList);
+// const result = await Promise.all(promiseList);
 
-for (let i = 0; i < files.length; i++) {
-  fs.unlink(files[i].path, err => {
-    if (err) throw err;
-  });
-}
+// for (let i = 0; i < files.length; i++) {
+//   fs.unlink(files[i].path, err => {
+//     if (err) throw err;
+//   });
+// }
 
-module.exports = (upload, result);
+module.exports = upload;
