@@ -11,6 +11,14 @@ const Contract = connector.sequelize.define(
       autoIncrement: true,
       unique: true,
     },
+    userId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    trainerId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
     ptNumber: {
       type: DataTypes.INTEGER,
       allowNull: false,

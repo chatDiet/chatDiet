@@ -11,6 +11,14 @@ const Trainer = connector.sequelize.define(
       autoIncrement: true,
       unique: true,
     },
+    userId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    companyId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
     trainerName: {
       type: DataTypes.STRING,
       allowNull: false,

@@ -14,6 +14,12 @@ export class ExpressApp {
     this.app.use(express.json());
     this.app.use(express.urlencoded({ extended: false }));
     this.app.use(cookieParser());
+
+    this.app.use(express.static('public'));
+
+    this.app.get('/kakao', (req, res) => {
+      res.sendFile(__dirname + '/public/kakao.html');
+    });
   };
 
   setAppRouter = () => {
