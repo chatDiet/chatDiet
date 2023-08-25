@@ -14,7 +14,7 @@ class UserController {
     } catch (err) {
       console.error(err);
       res.status(500).json({ message: err.message });
-    };
+    }
   };
 
   // 회원가입
@@ -28,8 +28,7 @@ class UserController {
       console.error(err);
       res.status(500).json({ message: err.message });
     }
-  }
-
+  };
 
   // 로그인
   login = async (req, res) => {
@@ -42,7 +41,7 @@ class UserController {
     } catch (err) {
       console.error(err);
       res.status(500).json({ message: err.message });
-    };
+    }
   };
 
   //로그아웃
@@ -54,7 +53,6 @@ class UserController {
       console.error(err);
       return res.status(500).json({ message: err.message });
     }
-
   };
 
   //회원탈퇴
@@ -81,8 +79,6 @@ class UserController {
     console.log('성공적인 토큰 >ㅁ<', token);
     res.cookie('authorization', `Bearer ${token}`);
   };
-
-
 
   kakao = async (req, res) => {
     const { email } = req.body;
