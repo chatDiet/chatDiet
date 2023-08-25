@@ -30,7 +30,7 @@ socket.on('connect', async function () {
     .then(data => {
       if (data === '토큰이 제공되지 않았습니다.' || data === '접근 권한 없음') {
         alert(data);
-        location.href = '../test.html';
+        location.href = '../chatRommList.html';
       }
     });
 
@@ -56,7 +56,7 @@ socket.on('message', function (data) {
 
 socket.on('noPermission', function () {
   alert('현재 채팅방 접근 권한이 없습니다.');
-  location.href = '../test.html';
+  location.href = '../chatRommList.html';
 });
 
 // 메시지 전송 함수

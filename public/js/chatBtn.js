@@ -3,5 +3,5 @@ function joinChatroom(userId, trainerId) {
 }
 
 function test() {
-  location.href = 'test.html';
+  location.href = 'chatRommList.html';
 }
