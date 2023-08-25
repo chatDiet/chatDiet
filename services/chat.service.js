@@ -1,15 +1,15 @@
 import { ChatRepository } from '../repositories';
 import { ContractRepository } from '../repositories';
-// import { UserInfoRepository } from '../repositories';
+import { UserRepository } from '../repositories';
 
 class ChatService {
   _chatRepository = new ChatRepository();
   _contractRepository = new ContractRepository();
-  _userInfoRepository = new UserInfoRepository();
+  _userRepository = new UserRepository();
 
   postChat = async data => {
     try {
-      const user = await this._userInfoRepository.getOneUserInfo(data.user);
+      const user = await this._userRepository.getOneUserInfo(data.user);
 
       data.name = user.name;
       await this._chatRepository.postChat(data);
