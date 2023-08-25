@@ -86,8 +86,6 @@ class CommentService {
         };
       }
       if (userId !== comment.userId) {
-        console.log(userId);
-        console.log('comment.userId', comment.userId);
         return {
           status: 401,
           message: '수정 권한이 존재하지 않습니다.',
