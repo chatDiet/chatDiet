@@ -20,21 +20,31 @@ class ScheduleService {
           message: '날짜 미입력',
         };
       }
+
       const user = await this._userRepository.getUserById(userId);
 
-      if (user.type !== 'trainer' || user.type !== 'admin') {
+      if (user.type !== 'trainer') {
         return {
           status: 400,
           message: '스케줄 생성 권한 없음',
         };
       }
 
-      const trainer = await this._trainerRepository.getTrainerInfo(userId);
+      const trainer = await this._trainerRepository.findTrainer(userId);
 
       if (!trainer) {
         return {
           status: 400,
           message: '트레이너 정보 없음',
+        };
+      }
+
+      const checkDate = await this._scheduleRepository.checkDateSchedule(date);
+
+      if (checkDate) {
+        return {
+          status: 400,
+          message: '중복된 날짜',
         };
       }
 
