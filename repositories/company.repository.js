@@ -8,8 +8,7 @@ class CompanyRepository {
     return await Company.findOne({ where: { companyId } });
   };
 
-  postCompany = async (companyName, time, additional, service, phoneNumber, link, userId, imageUrl map) => {
-
+  postCompany = async (companyName, time, additional, service, phoneNumber, link, userId, imageUrl, map) => {
     const result = await Company.create({
       companyName,
       time,
