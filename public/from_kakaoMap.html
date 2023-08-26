@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>from_kakaoMap</title>
+  </head>
+  <body>
+    <button id="Company1">Company1</button>
+    <button id="Company2">Company2</button>
+    <button id="Company3">Company3</button>
+    <button id="Company4">Company4</button>
+
+    <script>
+      const page = companyId => {
+        location.href = `kakaoMap.html?$companyId=${companyId}`;
+      };
+
+      document.getElementById('Company1').addEventListener('click', () => {
+        fetch(`/api/company/1`)
+          .then(response => response.json())
+          .then(data => {
+            const companyId = data.companyId;
+            page(companyId);
+          });
+      });
+      document.getElementById('Company2').addEventListener('click', () => {
+        fetch(`/api/company/2`)
+          .then(response => response.json())
+          .then(data => {
+            const companyId = data.companyId;
+            page(companyId);
+          });
+      });
+      document.getElementById('Company3').addEventListener('click', () => {
+        fetch(`/api/company/3`)
+          .then(response => response.json())
+          .then(data => {
+            const companyId = data.companyId;
+            page(companyId);
+          });
+      });
+      document.getElementById('Company4').addEventListener('click', () => {
+        fetch(`/api/company/4`)
+          .then(response => response.json())
+          .then(data => {
+            const companyId = data.companyId;
+            page(companyId);
+          });
+      });
+    </script>
+    
+  </body>
+</html>

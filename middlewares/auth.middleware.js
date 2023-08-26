@@ -13,7 +13,6 @@ async function isAuth(req, res, next) {
       const userId = decoded.userId;
       if (userId) {
         res.locals.userId = userId; // 유저 ID를 res.locals.user에 저장
-        console.log(userId);
         next();
       } else {
         return res.status(400).json({ message: '존재하지 않는 회원입니다.' });

@@ -62,6 +62,17 @@ class ScheduleRepository {
       return result;
     } catch (err) {}
   };
+
+  // 날짜 중복 조회
+  checkDateSchedule = async date => {
+    try {
+      const result = await Schedule.findOne({
+        where: { date },
+      });
+
+      return result;
+    } catch (err) {}
+  };
 }
 
 export default ScheduleRepository;

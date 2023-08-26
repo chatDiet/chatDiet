@@ -29,7 +29,7 @@ class CalenderService {
       const createCalender = await this._calenderRepository.createCalender(title, content, type, userId, imageUrl);
       return { status: 200, message: createCalender };
     } catch (err) {
-      return { status: 500, message: '캘린더 생성에 실패했습니다.' };
+      return { status: 500, message: 'Server error' };
     }
   };
   updateCalender = async (calenderId, title, content, type, userId) => {

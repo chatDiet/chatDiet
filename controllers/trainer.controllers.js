@@ -6,9 +6,8 @@ class TrainerController {
   create = async (req, res) => {
     try {
       const userId = res.locals.userId;
-      const { companyId } = req.params;
-      const { trainerName, career, ptContent } = req.body;
-      const { code, message, data } = await this._trainerService.create(trainerName, career, ptContent, companyId, userId);
+      const { trainerName, career, ptContent, companyId, imageUrl } = req.body;
+      const { code, message, data } = await this._trainerService.create(trainerName, career, ptContent, companyId, userId, imageUrl);
 
       res.status(code).json({ ...(message && { message }), ...(data && { data }) });
     } catch (error) {

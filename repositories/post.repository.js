@@ -3,7 +3,6 @@ import Post from '../db/models/post';
 class PostRepository {
   // # 게시글 생성
   createPost = async (userId, title, content) => {
-    console.log('check Repository');
     try {
       const result = await Post.create({ userId, title, content });
       return result;
