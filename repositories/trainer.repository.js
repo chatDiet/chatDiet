@@ -13,6 +13,10 @@ class TrainerRepository {
     return await Company.findOne({ where: { userId } });
   };
 
+  getExistTrainerId = async trainerId => {
+    return await Trainer.findAll({ where: { trainerId } });
+  };
+
   findtrainerId = async (trainerId, companyId) => {
     return await Trainer.findOne({ where: { trainerId, companyId } });
   };

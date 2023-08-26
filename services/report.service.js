@@ -1,5 +1,4 @@
-import { ReportRepository } from '../repositories';
-import { UserRepository } from '../repositories';
+import { ReportRepository, UserRepository } from '../repositories';
 
 class ReportService {
   _reportRepository = new ReportRepository();
@@ -59,6 +58,8 @@ class ReportService {
   // 신고 수정
   async updateReport(reportId, userId, title, content, type) {
     const getReportData = await this._reportRepository.getReportId(reportId);
+
+    console.log(reportId);
 
     if (getReportData.userId !== userId) {
       return {

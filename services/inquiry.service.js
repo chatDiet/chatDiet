@@ -1,5 +1,4 @@
-import { InquiryRepository } from '../repositories';
-import { UserRepository } from '../repositories';
+import { InquiryRepository, UserRepository } from '../repositories';
 
 class InquiryService {
   _inquiryRepository = new InquiryRepository();
