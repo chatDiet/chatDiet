@@ -27,21 +27,21 @@ class ReportService {
 
   // 신고
   async createReport(userId, title, content, type) {
-    if (content.length <= 0) {
+    if (!content) {
       return {
         status: 400,
         message: '내용을 입력해주세요.',
       };
     }
 
-    if (title.length <= 0) {
+    if (!title) {
       return {
         status: 400,
         message: '제목을 입력해주세요.',
       };
     }
 
-    if (type.length <= 0) {
+    if (!type) {
       return {
         status: 400,
         message: '신고하려는 카테고리 유형을 입력해주세요. (타입: post, comment, review)',
@@ -60,6 +60,12 @@ class ReportService {
   async updateReport(reportId, userId, title, content, type) {
     const getReportData = await this._reportRepository.getReportId(reportId);
 
+    if (!getReportData) {
+      return {
+        status: 404,
+        message: '존재하지 않는 신고 내역입니다.',
+      };
+    }
     if (getReportData.userId !== userId) {
       return {
         status: 401,
@@ -67,21 +73,21 @@ class ReportService {
       };
     }
 
-    if (content.length <= 0) {
+    if (!content) {
       return {
         status: 400,
         message: '내용을 입력해주세요.',
       };
     }
 
-    if (title.length <= 0) {
+    if (!title) {
       return {
         status: 400,
         message: '제목을 입력해주세요.',
       };
     }
 
-    if (type.length <= 0) {
+    if (!type) {
       return {
         status: 400,
         message: '신고하려는 유형을 입력해주세요. (post, comment, review)',
