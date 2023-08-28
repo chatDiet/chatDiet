@@ -6,8 +6,8 @@ const router = Router();
 
 const contractController = new ContractController();
 
-router.post('/trainer/:trainerId/contract', isAuth, contractController.createContract);
-router.get('/contract', contractController.getContract);
+router.post('/trainers/:trainerId/contract', isAuth, contractController.createContract);
+router.get('/contract', isAuth, contractController.getContract);
 router.delete('/contract/:contractId', isAuth, contractController.deleteContract);
 router.patch('/authContract', contractController.authContract);
 

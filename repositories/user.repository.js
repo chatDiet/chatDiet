@@ -8,10 +8,24 @@ class UserRepository {
     return await UserInfo.findOne({ where: { userId } });
   }
 
-  async registerUser(userName, height, weight, phone, email, password, type, loginType) {
+  async updateUserInfo(userInfoId, userName, height, weight, phone) {
+    const result = await UserInfo.update(
+      {
+        userName,
+        height,
+        weight,
+        phone,
+      },
+      { where: { userInfoId } }
+    );
+
+    return result;
+  }
+
+  async registerUser(email, type, loginType, userName, height, weight, phone, password) {
     const transaction = await sequelize.transaction();
     try {
-      const result = await User.create(
+      const user = await User.create(
         {
           email,
           password,
@@ -21,8 +35,8 @@ class UserRepository {
         { transaction }
       );
 
-      const userId = result.userId;
-      await UserInfo.create(
+      const userId = user.userId;
+      const userInfo = await UserInfo.create(
         {
           userId,
           userName,
@@ -33,6 +47,8 @@ class UserRepository {
         { transaction }
       );
       await transaction.commit();
+
+      return userInfo;
     } catch (transactionError) {
       await transaction.rollback();
       console.log(transactionError);
@@ -41,6 +57,10 @@ class UserRepository {
 
   async findUserByEmail(email) {
     return await User.findOne({ where: { email } });
+  }
+
+  async checkPhoneNumber(phone) {
+    return await UserInfo.findOne({ where: { phone } });
   }
 
   async logoutUser(req, res) {
@@ -52,7 +72,7 @@ class UserRepository {
   }
 
   async deleteUser(userId) {
-    return await User.destroy({ where: { userId: userId } });
+    return await User.destroy({ where: { userId } });
   }
 }
 
