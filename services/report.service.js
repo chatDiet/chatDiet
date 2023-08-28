@@ -47,13 +47,27 @@ class ReportService {
         message: '신고하려는 카테고리 유형을 입력해주세요. (타입: post, comment, review)',
       };
     }
-
-    await this._reportRepository.createReport(userId, title, content, type);
-
-    return {
-      status: 201,
-      message: '신고가 접수되었습니다.',
-    };
+    if (type == post) {
+      await this._reportRepository.createReport(userId, title, content, type);
+      return {
+        status: 201,
+        message: '신고가 접수되었습니다.',
+      };
+    }
+    if (type == comment) {
+      await this._reportRepository.createReport(userId, title, content, type);
+      return {
+        status: 201,
+        message: '신고가 접수되었습니다.',
+      };
+    }
+    if (type == review) {
+      await this._reportRepository.createReport(userId, title, content, type);
+      return {
+        status: 201,
+        message: '신고가 접수되었습니다.',
+      };
+    }
   }
 
   // 신고 수정

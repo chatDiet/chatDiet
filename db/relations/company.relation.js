@@ -8,10 +8,6 @@ export default () => {
     sourceKey: 'companyId',
     foreignKey: 'companyId',
   });
-  Company.hasMany(Review, {
-    sourceKey: 'companyId',
-    foreignKey: 'companyId',
-  });
 
   Company.belongsTo(User, {
     sourceKey: 'userId',

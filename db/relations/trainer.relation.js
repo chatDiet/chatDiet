@@ -19,8 +19,4 @@ export default () => {
     sourceKey: 'trainerId',
     foreignKey: 'trainerId',
   });
-  // Trainer.hasMany(Review, {
-  //   sourceKey: 'trainerId',
-  //   foreignKey: 'trainerId',
-  // });
 };

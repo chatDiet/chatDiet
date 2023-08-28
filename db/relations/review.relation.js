@@ -7,12 +7,4 @@ export default () => {
     sourceKey: 'userId',
     foreignKey: 'userId',
   });
-  Review.belongsTo(Company, {
-    sourceKey: 'companyId',
-    foreignKey: 'companyId',
-  });
-  // Review.belongsTo(Trainer, {
-  //   sourceKey: 'trainerId',
-  //   foreignKey: 'trainerId',
-  // });
 };
