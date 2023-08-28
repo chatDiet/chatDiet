@@ -73,7 +73,6 @@ class ContractService {
   // 계약 삭제
   deleteContract = async (contractId, userId) => {
     const findContractData = await this._contractRepository.getContractId(contractId);
-    const findUserData = await this._userRepository.getUserById(userId);
 
     if (!findContractData) {
       return {
@@ -82,7 +81,9 @@ class ContractService {
       };
     }
 
-    if (findContractData.userId === userId || findUserData.type === 'admin') {
+    const findUserData = await this._userRepository.getUserById(userId);
+
+    if (findContractData.userId === userId || findUserData.type === 'admin' || findUserData.type === 'trainer') {
       await this._contractRepository.deleteContract(contractId);
 
       return { status: 200, message: '계약이 취소되었습니다.' };

@@ -59,8 +59,6 @@ class ReportService {
   async updateReport(reportId, userId, title, content, type) {
     const getReportData = await this._reportRepository.getReportId(reportId);
 
-    console.log(reportId);
-
     if (getReportData.userId !== userId) {
       return {
         status: 401,
