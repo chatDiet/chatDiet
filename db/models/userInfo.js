@@ -17,19 +17,15 @@ const UserInfo = connector.sequelize.define(
     },
     userName: {
       type: DataTypes.STRING,
-      allowNull: false,
     },
     height: {
       type: DataTypes.INTEGER,
-      allowNull: false,
     },
     weight: {
       type: DataTypes.INTEGER,
-      allowNull: false,
     },
     phone: {
       type: DataTypes.STRING,
-      allowNull: false,
     },
     createdAt: {
       type: DataTypes.DATE,

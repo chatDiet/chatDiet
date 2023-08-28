@@ -28,7 +28,7 @@ class ContractService {
           message: 'PT 횟수 미입력',
         };
       }
-      const trainer = await this._trainerRepository.findtrainerId(trainerId);
+      const trainer = await this._trainerRepository.getExistTrainerId(trainerId);
       if (!trainer) {
         return {
           status: 400,
@@ -71,12 +71,25 @@ class ContractService {
   };
 
   // 계약 삭제
-  deleteContract = async contractId => {
-    const deleteContract = this._contractRepository.deleteContract(contractId);
-    if (!deleteContract) {
-      return { status: 404, message: '계약이 존재하지 않습니다.' };
+  deleteContract = async (contractId, userId) => {
+    const findContractData = await this._contractRepository.getContractId(contractId);
+
+    if (!findContractData) {
+      return {
+        status: 404,
+        message: '계약이 존재하지 않습니다.',
+      };
     }
-    return { status: 200, message: '계약이 취소되었습니다.' };
+
+    const findUserData = await this._userRepository.getUserById(userId);
+
+    if (findContractData.userId === userId || findUserData.type === 'admin' || findUserData.type === 'trainer') {
+      await this._contractRepository.deleteContract(contractId);
+
+      return { status: 200, message: '계약이 취소되었습니다.' };
+    } else {
+      return { status: 400, message: '계약을 취소하실 권한이 존재하지 않습니다.' };
+    }
   };
 
   // 계약 채팅방 접근 권한 조회

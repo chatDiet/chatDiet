@@ -31,12 +31,10 @@ export class ExpressApp {
   };
 
   setHtml = () => {
-    this.app.get('/chatRoomList', (req, res) => {
-      res.sendFile(__dirname + '/public/chatRoomList.html');
-    });
-
-    this.app.get('/kakao', (req, res) => {
-      res.sendFile(__dirname + '/public/kakao.html');
+    //  이런식으로 만든 화면단 붙여주시면 됩니다
+    // 유저 메인 화면
+    this.app.get('/userMain', (req, res) => {
+      res.sendFile(__dirname + '/public/templates/userMain.html');
     });
   };
 }
