@@ -12,14 +12,16 @@ class ReviewController {
   };
   createReview = async (req, res) => {
     const { companyId } = req.params;
+    const userId = res.locals.userId;
     const { content, grade, type } = req.body;
-    const createReveiw = await this.reviewService.createReview(companyId, content, grade, type);
+    const createReveiw = await this.reviewService.createReview(userId, companyId, content, grade, type);
     return res.status(createReveiw.status).json(createReveiw.message);
   };
   deleteReview = async (req, res) => {
+    const userId = res.locals.userId;
     const { reviewId } = req.params;
 
-    const deleteReveiw = await this.reviewService.deleteReview(reviewId);
+    const deleteReveiw = await this.reviewService.deleteReview(userId, reviewId);
     return res.status(deleteReveiw.status).json(deleteReveiw.message);
   };
 }

@@ -15,6 +15,14 @@ const Review = connector.sequelize.define(
       type: DataTypes.INTEGER,
       allowNull: false,
     },
+    companyId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    // trainerId: {
+    //   type: DataTypes.INTEGER,
+    //   allowNull: false,
+    // },
     content: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -24,7 +32,7 @@ const Review = connector.sequelize.define(
       allowNull: false,
     },
     type: {
-      type: DataTypes.STRING,
+      type: DataTypes.ENUM('health', 'trainer'),
       allowNull: false,
     },
     createdAt: {

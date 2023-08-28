@@ -88,6 +88,7 @@ class CompanyService {
       return { status: 500, message: 'Server Error' };
     }
   };
+
   putCompany = async (companyId, companyName, time, additional, service, phoneNumber, link, userId, imageUrl, map) => {
     try {
       const isUser = await this._companyRepository.isUser(userId);
