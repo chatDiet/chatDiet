@@ -4,37 +4,39 @@ class CompanyService {
   _companyRepository = new CompanyRepository();
 
   postCompany = async (companyName, time, additional, service, phoneNumber, link, userId, imageUrl, map) => {
-    const isUser = await this._companyRepository.isUser(userId);
-    if (isUser.type === 'user' || isUser.type === 'trainer') {
-      return {
-        status: 401,
-        message: '헬스장을 만들 권한이 없습니다',
-      };
-    }
+    try {
+      const isUser = await this._companyRepository.isUser(userId);
+      if (isUser.type === 'user' || isUser.type === 'trainer') {
+        return {
+          status: 401,
+          message: '헬스장을 만들 권한이 없습니다',
+        };
+      }
 
-    if (!companyName) {
-      return {
-        status: 400,
-        message: '업체 이름 미입력',
-      };
-    }
-    if (!time) {
-      return {
-        status: 400,
-        message: '운영 시간 미입력',
-      };
-    }
-    if (!additional) {
-      return {
-        status: 400,
-        message: '업체 추가 운영 프로그램 미입력',
-      };
-    }
-    if (!phoneNumber) {
-      return {
-        status: 400,
-        message: '업체 연락처 미입력',
-      };
+      if (!companyName) {
+        return {
+          status: 400,
+          message: '업체 이름 미입력',
+        };
+      }
+      if (!time) {
+        return {
+          status: 400,
+          message: '운영 시간 미입력',
+        };
+      }
+      if (!additional) {
+        return {
+          status: 400,
+          message: '업체 추가 운영 프로그램 미입력',
+        };
+      }
+      if (!phoneNumber) {
+        return {
+          status: 400,
+          message: '업체 연락처 미입력',
+        };
+      }
 
       if (!imageUrl) {
         return {
@@ -85,82 +87,56 @@ class CompanyService {
         return { status: 500, message: 'Server Error' };
       }
     };
-
-    oneGetCompany = async companyId => {
-      try {
-        if (!companyId) {
-          return {
-            status: 400,
-            message: '업체 ID 미입력',
-          };
-        }
-        const result = await this._companyRepository.oneGetCompany(companyId);
-        if (!result) {
-          return {
-            status: 400,
-            message: '존재하지 않는 업체 ID',
-          };
-        }
+  putCompany = async (companyId, companyName, time, additional, service, phoneNumber, link, userId, imageUrl, map) => {
+    try {
+      const isUser = await this._companyRepository.isUser(userId);
+      if (isUser.type === 'user' || isUser.type === 'trainer') {
         return {
-          status: 200,
-          message: result,
+          status: 401,
+          message: '헬스장의 정보를 수정 할 권한이 없습니다',
         };
-      } catch (err) {
-        return { status: 500, message: 'Server Error' };
       }
-    };
-
-    putCompany = async (companyId, companyName, time, additional, service, phoneNumber, link, userId, imageUrl, map) => {
-      try {
-        const isUser = await this._companyRepository.isUser(userId);
-        if (isUser.type === 'user' || isUser.type === 'trainer') {
-          return {
-            status: 401,
-            message: '헬스장의 정보를 수정 할 권한이 없습니다',
-          };
-        }
-        const isMe = await this._companyRepository.isMe(companyId);
-        if (isUser.type === 'owner' && isMe.userId != userId) {
-          return {
-            status: 401,
-            message: '자신의 헬스장 정보만 수정할 수 있습니다',
-          };
-        }
-        if (!companyId) {
-          return {
-            status: 400,
-            message: '업체 ID 미입력',
-          };
-        }
-        const company = await this._companyRepository.oneGetCompany(companyId);
-        if (!company) {
-          return {
-            status: 400,
-            message: '존재하지 않는 업체 ID',
-          };
-        } else if (!companyName) {
-          return {
-            status: 400,
-            message: '업체 이름 미입력',
-          };
-        } else if (!time) {
-          return {
-            status: 400,
-            message: '운영 시간 미입력',
-          };
-        } else if (!phoneNumber) {
-          return {
-            status: 400,
-            message: '업체 연락처 미입력',
-          };
-        } else if (!map) {
-          return {
-            status: 400,
-            message: '업체 주소 미입력',
-          };
-        }
-        const result = await this._companyRepository.putCompany(companyId, companyName, time, additional, service, phoneNumber, link, imageUrl, map);
-
+      const isMe = await this._companyRepository.isMe(companyId);
+      if (isUser.type === 'owner' && isMe.userId != userId) {
+        return {
+          status: 401,
+          message: '자신의 헬스장 정보만 수정할 수 있습니다',
+        };
+      }
+      if (!companyId) {
+        return {
+          status: 400,
+          message: '업체 ID 미입력',
+        };
+      }
+      const company = await this._companyRepository.oneGetCompany(companyId);
+      if (!company) {
+        return {
+          status: 400,
+          message: '존재하지 않는 업체 ID',
+        };
+      } else if (!companyName) {
+        return {
+          status: 400,
+          message: '업체 이름 미입력',
+        };
+      } else if (!time) {
+        return {
+          status: 400,
+          message: '운영 시간 미입력',
+        };
+      } else if (!phoneNumber) {
+        return {
+          status: 400,
+          message: '업체 연락처 미입력',
+        };
+      } else if (!map) {
+        return {
+          status: 400,
+          message: '업체 주소 미입력',
+        };
+      }
+      const result = await this._companyRepository.putCompany(companyId, companyName, time, additional, service, phoneNumber, link, imageUrl, map);
         if (!result) {
           return {
             status: 400,

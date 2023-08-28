@@ -1,5 +1,4 @@
-import { ReportRepository } from '../repositories';
-import { UserRepository } from '../repositories';
+import { ReportRepository, UserRepository } from '../repositories';
 
 class ReportService {
   _reportRepository = new ReportRepository();

@@ -10,6 +10,10 @@ class ContractRepository {
     return contract;
   };
 
+  getContractId = async contractId => {
+    return await Contract.findOne({ where: { contractId } });
+  };
+
   getUserContract = async userId => {
     try {
       const getUserContract = await Contract.findAll({ where: { userId } });
