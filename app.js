@@ -36,5 +36,13 @@ export class ExpressApp {
     this.app.get('/userMain', (req, res) => {
       res.sendFile(__dirname + '/public/templates/userMain.html');
     });
+    // 헬스장 사장님 등록
+    this.app.get('/setOwnerCompany', (req, res) => {
+      res.sendFile(__dirname + '/public/setOwnerCompany.html');
+    });
+    // 헬스장 사장님 업체 정보
+    this.app.get('/getOwnerCompany', (req, res) => {
+      res.sendFile(__dirname + '/public/getOwnerCompany.html');
+    });
   };
 }
