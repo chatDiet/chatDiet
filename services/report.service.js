@@ -25,7 +25,7 @@ class ReportService {
   }
 
   // 신고
-  async createReport(userId, title, content, type) {
+  async createReport(userId, title, content, type, id) {
     if (!content) {
       return {
         status: 400,
@@ -47,7 +47,7 @@ class ReportService {
       };
     }
 
-    await this._reportRepository.createReport(userId, title, content, type);
+    await this._reportRepository.createReport(userId, title, content, type, id);
 
     return {
       status: 201,

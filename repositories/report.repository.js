@@ -15,8 +15,8 @@ class ReportRepository {
     return result;
   }
 
-  async createReport(userId, title, content, type) {
-    return await Report.create({ userId, title, content, type });
+  async createReport(userId, title, content, type, id) {
+    return await Report.create({ userId, title, content, type, id });
   }
 
   async updateReport(reportId, title, content, type) {
