@@ -99,14 +99,5 @@ export class ExpressApp {
     this.app.get('/chatRoom', (req, res) => {
       res.sendFile(__dirname + '/public/templates/chat/getChatRoom.html');
     });
-    this.app.get('/setOwnerCompany', (req, res) => {
-      res.sendFile(__dirname + '/public/templates/OwnerCompany/setOwnerCompany.html');
-    });
-    this.app.get('/getOwnerCompany', (req, res) => {
-      res.sendFile(__dirname + '/public/templates/OwnerCompany/getOwnerCompany.html');
-    });
-    this.app.get('/putOwnerCompany', (req, res) => {
-      res.sendFile(__dirname + '/public/templates/OwnerCompany/putOwnerCompany.html');
-    });
   };
 }
