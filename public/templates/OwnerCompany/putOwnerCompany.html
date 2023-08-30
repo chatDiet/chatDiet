@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../css/setOwnerCompany.css" />
+    <link rel="stylesheet" href="../../css/OwnerCompany/setOwnerCompany.css" />
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="../js/setOwnerCompany.js"></script>
+    <script src="../../js/OwnerCompany/putOwnerCompany.js"></script>
     <title>Your Project</title>
   </head>
   <body>
@@ -24,22 +24,22 @@
       <section class="main-section">
         <!-- 메인 콘텐츠 -->
         <div class="registration-section">
-          <h2>업체 등록</h2>
+          <h2>정보 수정</h2>
           <form id="registration-form">
             <label for="company-name">업체명:</label>
             <input type="text" id="company-name" name="companyName" required><br><br>
         
             <label for="operating-hours">운영시간:</label>
-            <input type="text" id="operating-hours" name="time" placeholder="07:00 ~ 23:00" required><br><br>
+            <input type="text" id="operating-hours" name="time" placeholder="필수" required><br><br>
         
             <label for="operating-program">운영 프로그램:</label>
-            <input type="text" id="operating-program" name="additional" placeholder="1:1 PT(별도 문의)" required><br><br>
+            <input type="text" id="operating-program" name="additional" placeholder="필수" required><br><br>
         
             <label for="additional-services">부가 서비스:</label>
-            <input type="text" id="additional-services" name="service" placeholder="라커 (월 10,000원)" required><br><br>
+            <input type="text" id="additional-services" name="service" placeholder="" required><br><br>
         
             <label for="phone-number">전화번호:</label>
-            <input type="tel" id="phone-number" name="phoneNumber" pattern="[0-9]{10}" placeholder="숫자만 입력하세요" required><br><br>
+            <input type="tel" id="phone-number" name="phoneNumber" pattern="[0-9]{10}" placeholder="+82 0112345678" required><br><br>
         
             <label for="company-website">업체 홈페이지:</label>
             <input type="url" id="company-website" name="link" placeholder="https://" ><br><br>
@@ -51,9 +51,9 @@
             <input type="file" id="company-photo" name="imageUrl" accept="image/*"><br><br> -->
 
             <label for="company-photo">이미지:</label>
-            <input type="text" id="company-photo" name="imageUrl" placeholder="이미지" required><br><br>
+            <input type="text" id="company-photo" name="imageUrl" placeholder="필수" required><br><br>
         
-            <button type="submit">정보 등록</button>
+            <button type="submit" id="update-button">정보 수정</button>
           </form>
         </div>
       </section>

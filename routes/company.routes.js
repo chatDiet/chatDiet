@@ -14,8 +14,8 @@ router.get('/company', companyController.allGetCompany);
 //업체 디테일 조회
 router.get('/company/:companyId', companyController.oneGetCompany);
 //업체 수정
-router.put('/company/:companyId', isAuth, companyController.putCompany);
+router.put('/company/:companyId', companyController.putCompany);
 //업체 삭제
-router.delete('/company/:companyId', isAuth, companyController.deleteCompany);
+router.delete('/company/:companyId', companyController.deleteCompany);
 
 export default router;

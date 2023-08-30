@@ -5,11 +5,11 @@ class CompanyController {
 
   // 업체 생성
   postCompany = async (req, res) => {
-    const { companyName, time, additional, service, phoneNumber, link, imageUrl , map } = req.body;
+    const { companyName, time, additional, service, phoneNumber, link, imageUrl, map } = req.body;
     //const userId = res.locals.userId;
     const userId = 3;
     // const imageUrl = req.file.location;
-    const result = await this._companyService.postCompany(companyName, time, additional, service, phoneNumber, link, userId, imageUrl , map);
+    const result = await this._companyService.postCompany(companyName, time, additional, service, phoneNumber, link, userId, imageUrl, map);
 
     return res.status(result.status).json(result.message);
   };
@@ -32,19 +32,21 @@ class CompanyController {
 
   // 업체 수정
   putCompany = async (req, res) => {
-    const userId = res.locals.userId;
+    //const userId = res.locals.userId;
+    const userId = 3;
     const { companyId } = req.params;
 
-    const { companyName, time, additional, service, phoneNumber, link, imageUrl } = req.body;
+    const { companyName, time, additional, service, phoneNumber, link, map, imageUrl } = req.body;
 
-    const result = await this._companyService.putCompany(companyId, companyName, time, additional, service, phoneNumber, link, userId, imageUrl);
+    const result = await this._companyService.putCompany(companyId, companyName, time, additional, service, phoneNumber, link, userId, imageUrl, map);
 
     return res.status(result.status).json(result.message);
   };
 
   // 업체 삭제
   deleteCompany = async (req, res) => {
-    const userId = res.locals.userId;
+    //const userId = res.locals.userId;
+    const userId = 3;
     const { companyId } = req.params;
 
     const result = await this._companyService.deleteCompany(companyId, userId);

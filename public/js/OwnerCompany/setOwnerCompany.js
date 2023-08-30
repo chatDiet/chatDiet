@@ -13,9 +13,10 @@ document.addEventListener('DOMContentLoaded', () => {
         url: '/api/company',
         data,
       });
-      console.log(response.data);
+      alert('등록이 완료되었습니다.' + response.data);
+      window.location.href = `http://localhost:3000/getOwnerCompany`;
     } catch (error) {
-      console.error(error);
+      alert('수정 중 오류가 발생했습니다. ' + error.response.data);
     }
   });
 });
