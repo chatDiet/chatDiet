@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>관리자 페이지</title>
+  </head>
+  <body>
+    <h1>관리자 페이지</h1>
+
+    <button id="view-inquiries-button">문의 목록 보기</button>
+    <button id="view-reports-button">신고 목록 보기</button>
+
+    <script>
+      document.getElementById('view-inquiries-button').addEventListener('click', () => {
+        window.location.href = 'http://localhost:3000/inquirys';
+      });
+    </script>
+  </body>
+</html>

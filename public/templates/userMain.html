@@ -13,9 +13,13 @@
           <h1 class="header-title">chat Diet plan</h1>
         </div>
         <div class="navigation-buttons">
-          <button class="icon-button"><img src="../img/free-icon-font-search-3917132.png" alt="검색"></button>
-          <button class="icon-button">로그인 해주세요</button>
+          <button class="icon-button"><img src="../img/free-icon-font-search-3917132.png" alt="검색" /></button>
+          <button id="goto-signup-button" class="icon-button">회원가입</button>
+          <button id="goto-login-button" class="icon-button">로그인</button>
         </div>
+        <form id="logout-form">
+          <button type="submit">Logout</button>
+        </form>
       </nav>
     </header>
     <main class="centered">
@@ -25,13 +29,27 @@
     </main>
     <footer>
       <ul class="footer-list">
-        <li><img src="../img/free-icon-font-calendar-3917244.png" >캘린더</li>
-        <li><img src="../img/free-icon-training-9958263.png">헬스장</li>
-        <li><img src="../img/free-icon-font-envelope-3916611.png" >채팅</li>
-        <li><img src="../img/free-icon-font-world-3916979.png">커뮤니티</li>
-        <li><img src="../img/free-icon-font-user-3917688.png" >마이페이지</li>
-      </ul>
+        <li onclick="getCalender()"><img src="../img/free-icon-font-calendar-3917244.png" />캘린더</li>
+        <li><img src="../img/free-icon-training-9958263.png" />헬스장</li>
+        <li><img src="../img/free-icon-font-envelope-3916611.png" />채팅</li>
+        <li><img src="../img/free-icon-font-world-3916979.png" />커뮤니티</li>
+        <li onclick="userInfo()"><img src="../img/free-icon-font-user-3917688.png" />마이페이지</li>
       </ul>
     </footer>
+    <script src="../js/calender/calenderBtn.js" defer></script>
+    <script type="module" src="../js/login/userLogout.js"></script>
+    <script>
+      const gotoSignupButton = document.getElementById('goto-signup-button');
+      gotoSignupButton.addEventListener('click', () => {
+        // 사용자 메인 페이지로 이동
+        window.location.href = 'http://localhost:3000/signupCategory';
+      });
+
+      const gotoLoginButton = document.getElementById('goto-login-button');
+      gotoLoginButton.addEventListener('click', () => {
+        // 사용자 메인 페이지로 이동
+        window.location.href = 'http://localhost:3000/login';
+      });
+    </script>
   </body>
 </html>

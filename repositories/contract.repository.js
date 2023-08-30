@@ -1,11 +1,10 @@
 import { Contract } from '../db';
 
 class ContractRepository {
-  createContract = async (trainerId, userId, ptNumber) => {
+  createContract = async (trainerId, userId) => {
     const contract = await Contract.create({
       trainerId,
       userId,
-      ptNumber,
     });
     return contract;
   };

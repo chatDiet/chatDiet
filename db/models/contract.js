@@ -19,10 +19,6 @@ const Contract = connector.sequelize.define(
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-    ptNumber: {
-      type: DataTypes.INTEGER,
-      allowNull: false,
-    },
     createdAt: {
       type: DataTypes.DATE,
       allowNull: false,
