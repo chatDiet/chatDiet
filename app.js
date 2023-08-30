@@ -38,11 +38,11 @@ export class ExpressApp {
     });
     // 헬스장 사장님 등록
     this.app.get('/setOwnerCompany', (req, res) => {
-      res.sendFile(__dirname + '/public/setOwnerCompany.html');
+      res.sendFile(__dirname + '/public/templates/setOwnerCompany.html');
     });
     // 헬스장 사장님 업체 정보
     this.app.get('/getOwnerCompany', (req, res) => {
-      res.sendFile(__dirname + '/public/getOwnerCompany.html');
+      res.sendFile(__dirname + '/public/templates/getOwnerCompany.html');
     });
   };
 }

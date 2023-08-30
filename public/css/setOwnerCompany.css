@@ -57,78 +57,49 @@ main {
   justify-content: center;
   align-items: center;
   background-color: blue;
-  margin: 15px auto 5% auto; /* 수평 가운데 정렬을 위해 추가 */
-}
-.main-image {
-  margin-top: 15px;
-  width: 100%;
-  max-height: 512px;
+  margin: 0 auto; /* 수평 가운데 정렬을 위해 추가 */
 }
 
-.small-image {
-  width: 256px;
-  height: 256px;
-  object-fit: cover;
-}
+/* 기존의 CSS 규칙을 여기에 추가하세요 */
 
-.info-box {
-  background-color: #f0f0f0;
-  padding: 15px;
+/* 업체 등록 섹션에 대한 스타일링 */
+.registration-section {
+  max-width: 600px; /* 필요에 따라 이 값을 조정하세요 */
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f4f4f4;
   border-radius: 10px;
 }
 
-.info-item {
-  margin-bottom: 15px;
-}
-
-.trainer-card {
-  width: 256px;
-  background-color: #f0f0f0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  margin-top: 20px;
-}
-
-.trainer-image {
-  width: 70%;
-  border-radius: 50%;
-}
-
-.modal {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  overflow: auto;
-  background-color: rgba(0, 0, 0, 0.4);
-}
-
-.modal-content {
-  background-color: #fff;
-  margin: 10% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 80%;
-}
-
-.close-button {
-  float: right;
-  font-size: 28px;
+/* 라벨에 대한 스타일링 */
+.registration-section label {
+  display: inline-block;
+  width: 150px; /* 라벨 너비를 조정하세요 */
   font-weight: bold;
-  cursor: pointer;
+  margin-bottom: 5px;
 }
 
-.close-button:hover,
-.close-button:focus {
-  color: #000;
-  text-decoration: none;
-  cursor: pointer;
+/* 입력 필드에 대한 스타일링 */
+.registration-section input[type='text'],
+.registration-section input[type='tel'],
+.registration-section input[type='url'] {
+  width: calc(100% - 170px); /* 라벨 너비를 기준으로 입력 필드 너비 조정 */
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
 }
 
+/* 제출 버튼에 대한 스타일링 */
+.registration-section button[type='submit'] {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
 .centered {
   text-align: center;
 }
