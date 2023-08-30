@@ -11,8 +11,11 @@ class ChatService {
     try {
       const user = await this._userRepository.getOneUserInfo(data.user);
 
-      data.name = user.name;
+      data.name = user.userName;
+
       await this._chatRepository.postChat(data);
+
+      return data.name;
     } catch (err) {
       return { status: 500, message: 'Server Error' };
     }

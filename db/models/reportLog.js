@@ -11,8 +11,8 @@ const ReportLog = connector.sequelize.define(
       autoIncrement: true,
       unique: true,
     },
-    username: {
-      type: DataTypes.STRING,
+    userId: {
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
     title: {
