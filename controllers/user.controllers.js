@@ -13,10 +13,9 @@ class UserController {
 
   updateUserInfo = async (req, res) => {
     const userId = res.locals.userId;
-    const { userInfoId } = req.params;
     const { userName, height, weight, phone } = req.body;
 
-    const result = await this._userService.updateUserInfo(userId, userInfoId, userName, height, weight, phone);
+    const result = await this._userService.updateUserInfo(userId, userName, height, weight, phone);
 
     return res.status(result.status).json(result.message);
   };

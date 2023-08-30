@@ -9,7 +9,6 @@ const typeMapping = {
 
 document.addEventListener('DOMContentLoaded', async function () {
   const response = await axios.get('/api/calenders');
-  //   console.log(response);
   const events = response.data.map(item => ({
     title: '[' + typeMapping[item.type] + ']' + item.title,
     start: new Date(item.date),
@@ -22,7 +21,6 @@ document.addEventListener('DOMContentLoaded', async function () {
     displayEventTime: false,
     events: events,
     eventClick: function (info) {
-      console.log(info);
       info.jsEvent.preventDefault(); // don't let the browser navigate
 
       if (info.event.url) {

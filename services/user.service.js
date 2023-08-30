@@ -22,11 +22,11 @@ class UserService {
   }
 
   // 유저 정보 수정
-  async updateUserInfo(userId, userInfoId, userName, height, weight, phone) {
+  async updateUserInfo(userId, userName, height, weight, phone) {
     try {
-      const checkUserInfo = await this._userRepository.getOneUserInfo(userInfoId);
+      const checkUserInfo = await this._userRepository.getOneUserInfo(userId);
 
-      if (userId !== checkUserInfo.userId) {
+      if (userId !== checkUserInfo.userId || !checkUserInfo) {
         return {
           status: 401,
           message: '수정 권한 없음',
@@ -39,6 +39,7 @@ class UserService {
           message: '이름 미입력',
         };
       }
+      const userInfoId = checkUserInfo.userInfoId;
 
       const result = await this._userRepository.updateUserInfo(userInfoId, userName, height, weight, phone);
 
@@ -178,7 +179,7 @@ class UserService {
     try {
       if (!email) {
         return {
-          status: 400, 
+          status: 400,
           message: '이메일 미입력',
         };
       }
