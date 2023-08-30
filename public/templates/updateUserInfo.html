@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../css/userMain.css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <title>Your Project</title>
   </head>
   <body>
@@ -20,7 +21,14 @@
     </header>
     <main class="centered">
       <section class="main-section">
-        <!-- 메인 콘텐츠 -->
+        <div id="userInfoContainer">
+        <!-- 입력 박스 -->
+        <input type="text" id="userNameInput" placeholder="이름">
+        <input type="text" id="heightInput" placeholder="키">
+        <input type="text" id="weightInput" placeholder="몸무게">
+        <input type="text" id="phoneInput" placeholder="전화번호">
+        <!-- 수정 완료 버튼 -->
+        <button id="submitButton">수정 완료</button>
       </section>
     </main>
     <footer>
@@ -29,10 +37,12 @@
         <li><img src="../img/free-icon-training-9958263.png">헬스장</li>
         <li><img src="../img/free-icon-font-envelope-3916611.png" >채팅</li>
         <li><img src="../img/free-icon-font-world-3916979.png">커뮤니티</li>
-        <li  onclick="userInfo()" ><img src="../img/free-icon-font-user-3917688.png" >마이페이지</li>
+        <li onclick="userInfo()"><img src="../img/free-icon-font-user-3917688.png" >마이페이지</li>
       </ul>
       </ul>
     </footer>
     <script src="../js/calenderBtn.js" defer></script>
+    <script src ="../js/userInfoBtn.js" defer></script>
+    <script src="../js/updateUserInfo.js" defer></script>
   </body>
 </html>

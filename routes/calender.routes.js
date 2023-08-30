@@ -7,8 +7,13 @@ const router = Router();
 
 const calenderController = new CalenderController();
 
-router.get('/calenders/:calenderId', isAuth, calenderController.getCalender);
-router.post('/calender', isAuth, upload.single('image'), calenderController.createCalender);
+// 캘린더 하나 조회
+router.get('/calender/:calenderId', calenderController.getCalender);
+
+// 캘린더 전체 조회
+router.get('/calenders', calenderController.getCalenders);
+
+router.post('/calender', upload.single('image'), calenderController.createCalender);
 router.put('/calenders/:calenderId', isAuth, calenderController.updateCalender);
 router.delete('/calenders/:calenderId', isAuth, calenderController.deleteCalender);
 export default router;

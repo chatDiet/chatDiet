@@ -5,7 +5,8 @@ class UserController {
 
   // 유저 정보 조회
   getOneUserInfo = async (req, res) => {
-    const userId = res.locals.userId;
+    const userId = 1;
+    // const userId = res.locals.userId;
     const result = await this._userService.getOneUserInfo(userId);
 
     return res.status(result.status).json(result.data);
