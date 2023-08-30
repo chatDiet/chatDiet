@@ -13,7 +13,7 @@ router.get('/calender/:calenderId', calenderController.getCalender);
 // 캘린더 전체 조회
 router.get('/calenders', calenderController.getCalenders);
 
-router.post('/calender', upload.single('image'), calenderController.createCalender);
+router.post('/calender', isAuth, upload.single('image'), calenderController.createCalender);
 router.put('/calenders/:calenderId', isAuth, calenderController.updateCalender);
 router.delete('/calenders/:calenderId', isAuth, calenderController.deleteCalender);
 export default router;

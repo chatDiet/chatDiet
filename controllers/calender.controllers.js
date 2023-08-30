@@ -4,23 +4,20 @@ class CalenderController {
   calenderService = new CalenderService();
 
   getCalender = async (req, res) => {
-    // const userId = res.locals.userId;
-    const userId = 1;
+    const userId = res.locals.userId;
     const { calenderId } = req.params;
     const getCalender = await this.calenderService.getCalender(userId, calenderId);
     return res.status(getCalender.status).json(getCalender.message);
   };
 
   getCalenders = async (req, res) => {
-    // const userId = res.locals.userId;
-    const userId = 1;
+    const userId = res.locals.userId;
     const getCalenders = await this.calenderService.getCalenders(userId);
     return res.status(getCalenders.status).json(getCalenders.message);
   };
 
   createCalender = async (req, res) => {
-    // const userId = res.locals.userId;
-    const userId = 1;
+    const userId = res.locals.userId;
     const imageUrl = req.file.location;
     const { date, title, content, type } = req.body;
     const createCalender = await this.calenderService.createCalender(date, title, content, type, userId, imageUrl);

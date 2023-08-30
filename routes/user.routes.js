@@ -7,7 +7,7 @@ const router = Router();
 const userController = new UserController();
 
 // 유저 정보 조회
-router.get('/userInfo', userController.getOneUserInfo);
+router.get('/userInfo', isAuth, userController.getOneUserInfo);
 
 // 유저 정보 수정
 router.put('/userInfos/:userInfoId', isAuth, userController.updateUserInfo);
