@@ -8,10 +8,10 @@ const router = Router();
 const calenderController = new CalenderController();
 
 // 캘린더 하나 조회
-router.get('/calender/:calenderId', calenderController.getCalender);
+router.get('/calender/:calenderId', isAuth, calenderController.getCalender);
 
 // 캘린더 전체 조회
-router.get('/calenders', calenderController.getCalenders);
+router.get('/calenders', isAuth, calenderController.getCalenders);
 
 router.post('/calender', isAuth, upload.single('image'), calenderController.createCalender);
 router.put('/calenders/:calenderId', isAuth, calenderController.updateCalender);

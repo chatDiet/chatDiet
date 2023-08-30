@@ -12,6 +12,7 @@ class CalenderController {
 
   getCalenders = async (req, res) => {
     const userId = res.locals.userId;
+    console.log(userId);
     const getCalenders = await this.calenderService.getCalenders(userId);
     return res.status(getCalenders.status).json(getCalenders.message);
   };
