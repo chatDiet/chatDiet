@@ -44,25 +44,20 @@ const singleUpload = fieldName => {
   };
 };
 
-// const promiseList = images.map(file => {
-//   const fileStream = fs.createReadStream(file.path);
+const multipleUpload = fieldName => {
+  return function (req, res, next) {
+    upload.array(fieldName)(req, res, function (err) {
+      if (err instanceof multer.MulterError) {
+        // 이미지 필드가 누락된 경우 기본값을 설정
+        req.files = null;
+        next();
+      } else if (err) {
+        next(err);
+      } else {
+        next();
+      }
+    });
+  };
+};
 
-//   return s3
-//     .upload({
-//       Bucket: '버킷이름',
-//       // 파일명
-//       Key: `uploads/${file.originalname}`,
-//       Body: fileStream,
-//     })
-//     .promise();
-// });
-
-// const result = await Promise.all(promiseList);
-
-// for (let i = 0; i < files.length; i++) {
-//   fs.unlink(files[i].path, err => {
-//     if (err) throw err;
-//   });
-// }
-
-module.exports = upload;
+module.exports = { singleUpload, multipleUpload };

@@ -10,15 +10,15 @@ loginForm.addEventListener('submit', async event => {
   const password = document.getElementById('password').value;
 
   axios
-  .post(`http://localhost:3000/api/login`, { email: email, password: password })
-  .then(function (response) {
-    alert(response.data);
-    console.log(response.data);
+    .post(`http://localhost:3000/api/login`, { email: email, password: password })
+    .then(function (response) {
+      alert(response.data);
+      console.log(response.data);
 
-    window.location.href = "http://localhost:3000/userMain";
-  })
-  .catch(function (error) {
-    alert(error.response.data);
-    console.error("로그인 실패", error);
-  });
+      window.location.href = 'http://localhost:3000/userMain';
+    })
+    .catch(function (error) {
+      alert(error.response.data);
+      console.error('로그인 실패', error);
+    });
 });
