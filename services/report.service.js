@@ -1,8 +1,11 @@
-import { ReportRepository, UserRepository } from '../repositories';
+import { ReportRepository, UserRepository, PostRepository, CommentRepository, ReviewRepository } from '../repositories';
 
 class ReportService {
   _reportRepository = new ReportRepository();
   _userRepository = new UserRepository();
+  _postRepository = new PostRepository();
+  _commentRepository = new CommentRepository();
+  _reviewRepository = new ReviewRepository();
 
   // 신고 전체 조회
   async getAllReport() {
@@ -25,7 +28,7 @@ class ReportService {
   }
 
   // 신고
-  async createReport(userId, title, content, type) {
+  async createReport(userId, tragerId, title, content, type) {
     if (!content) {
       return {
         status: 400,
@@ -40,6 +43,13 @@ class ReportService {
       };
     }
 
+    if (!tragerId) {
+      return {
+        status: 400,
+        message: '신고할려는 ID 미입력',
+      };
+    }
+
     if (!type) {
       return {
         status: 400,
@@ -47,7 +57,37 @@ class ReportService {
       };
     }
 
-    await this._reportRepository.createReport(userId, title, content, type);
+    if (type === 'post') {
+      const post = await this._postRepository.getPostId(tragerId);
+      if (!post) {
+        return {
+          status: 400,
+          message: '존재하지 않는 ID',
+        };
+      }
+    }
+
+    if (type === 'comment') {
+      const comment = await this._commentRepository.getcommentId(tragerId);
+      if (!comment) {
+        return {
+          status: 400,
+          message: '존재하지 않는 ID',
+        };
+      }
+    }
+
+    if (type === 'review') {
+      const review = await this._reviewRepository.findReview(tragerId);
+      if (!review) {
+        return {
+          status: 400,
+          message: '존재하지 않는 ID',
+        };
+      }
+    }
+
+    await this._reportRepository.createReport(userId, tragerId, title, content, type);
 
     return {
       status: 201,
@@ -102,18 +142,22 @@ class ReportService {
   }
   // 신고 삭제
   async deleteReport(userId, reportId) {
-    const existReportUser = await this._reportRepository.getReportId(reportId);
-    const user = await this._userRepository.getUserById(userId);
-
-    if (!existReportUser) {
+    const report = await this._reportRepository.getReportId(reportId);
+    if (!report) {
       return {
         status: 404,
         message: '삭제하실 신고 내역이 존재하지 않습니다.',
       };
     }
 
+    const user = await this._userRepository.getUserById(userId);
+
+    const title = report.title;
+    const content = report.content;
+    const type = report.type;
+
     if (existReportUser.userId === userId || user.type === 'admin') {
-      await this._reportRepository.deleteReport(reportId);
+      await this._reportRepository.deleteReport(reportId, userId, title, content, type);
       return {
         status: 200,
         message: '신고 삭제가 완료 되었습니다.',

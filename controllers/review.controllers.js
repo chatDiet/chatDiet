@@ -4,19 +4,20 @@ class ReviewController {
   reviewService = new ReviewService();
 
   getReviewByType = async (req, res) => {
-    const { companyId } = req.params;
-    const { type } = req.body;
+    const { targetId, type } = req.params;
 
-    const getReviewByType = await this.reviewService.getReviewByType(companyId, type);
+    const getReviewByType = await this.reviewService.getReviewByType(targetId, type);
     return res.status(getReviewByType.status).json(getReviewByType.message);
   };
+
   createReview = async (req, res) => {
-    const { companyId } = req.params;
+    const { targetId } = req.params;
     const userId = res.locals.userId;
     const { content, grade, type } = req.body;
-    const createReveiw = await this.reviewService.createReview(userId, companyId, content, grade, type);
+    const createReveiw = await this.reviewService.createReview(userId, targetId, content, grade, type);
     return res.status(createReveiw.status).json(createReveiw.message);
   };
+
   deleteReview = async (req, res) => {
     const userId = res.locals.userId;
     const { reviewId } = req.params;

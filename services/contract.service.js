@@ -6,7 +6,7 @@ class ContractService {
   _userRepository = new UserRepository();
 
   // 계약 생성
-  createContract = async (trainerId, userId, ptNumber) => {
+  createContract = async (trainerId, userId) => {
     try {
       if (!trainerId) {
         return {
@@ -22,12 +22,6 @@ class ContractService {
         };
       }
 
-      if (!ptNumber) {
-        return {
-          status: 400,
-          message: 'PT 횟수 미입력',
-        };
-      }
       const trainer = await this._trainerRepository.getExistTrainerId(trainerId);
       if (!trainer) {
         return {
@@ -36,7 +30,7 @@ class ContractService {
         };
       }
 
-      const contract = await this._contractRepository.createContract(trainerId, userId, ptNumber);
+      const contract = await this._contractRepository.createContract(trainerId, userId);
       if (!contract) {
         return {
           status: 400,
@@ -66,6 +60,7 @@ class ContractService {
     } else {
       // 유저ID로 계약 테이블 조회
       const getUserContract = await this._contractRepository.getUserContract(userId);
+
       return { status: 200, message: getUserContract };
     }
   };
@@ -123,7 +118,7 @@ class ContractService {
     if (!contract) {
       return { status: 400, message: '접근 권한 없음' };
     }
-    return { status: 200, message: 'test' };
+    return { status: 200, message: '접근 성공' };
   };
 }
 

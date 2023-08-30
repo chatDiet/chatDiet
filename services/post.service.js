@@ -28,14 +28,14 @@ class PostService {
         return {
           status: 400,
           message: '게시글 생성 실패',
+          data: result,
         };
       }
       return {
         status: 201,
-        message: '게시글 작성 성공',
+        message: result,
       };
     } catch (error) {
-      console.log(error);
       return { status: 500, message: 'Server Error' };
     }
   };
