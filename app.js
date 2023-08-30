@@ -37,19 +37,19 @@ export class ExpressApp {
       res.sendFile(__dirname + '/public/templates/userMain.html');
     });
     this.app.get('/calender', (req, res) => {
-      res.sendFile(__dirname + '/public/templates/userCalender.html');
+      res.sendFile(__dirname + '/public/templates/calender/userCalender.html');
     });
     this.app.get('/calender/post', (req, res) => {
-      res.sendFile(__dirname + '/public/templates/postUserCalender.html');
+      res.sendFile(__dirname + '/public/templates/calender/postUserCalender.html');
     });
     this.app.get('/calender/:calenderId', (req, res) => {
-      res.sendFile(__dirname + '/public/templates/detailUserCalender.html');
+      res.sendFile(__dirname + '/public/templates/calender/detailUserCalender.html');
     });
     this.app.get('/userInfo', (req, res) => {
-      res.sendFile(__dirname + '/public/templates/userInfo.html');
+      res.sendFile(__dirname + '/public/templates/userInfo/userInfo.html');
     });
     this.app.get('/updateUserInfo', (req, res) => {
-      res.sendFile(__dirname + '/public/templates/updateUserInfo.html');
+      res.sendFile(__dirname + '/public/templates/userInfo/updateUserInfo.html');
     });
     this.app.get('/companyMain', (req, res) => {
       res.sendFile(__dirname + '/public/templates/company/getUserCompanyMain.html');
