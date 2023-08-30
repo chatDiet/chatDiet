@@ -60,5 +60,44 @@ export class ExpressApp {
     this.app.get('/signupCategory', (req, res) => {
       res.sendFile(__dirname + '/public/templates/userPages/signupCategory.html');
     });
+    this.app.get('/calender', (req, res) => {
+      res.sendFile(__dirname + '/public/templates/userCalender.html');
+    });
+    this.app.get('/calender/post', (req, res) => {
+      res.sendFile(__dirname + '/public/templates/postUserCalender.html');
+    });
+    this.app.get('/calender/:calenderId', (req, res) => {
+      res.sendFile(__dirname + '/public/templates/detailUserCalender.html');
+    });
+    this.app.get('/userInfo', (req, res) => {
+      res.sendFile(__dirname + '/public/templates/userInfo.html');
+    });
+    this.app.get('/updateUserInfo', (req, res) => {
+      res.sendFile(__dirname + '/public/templates/updateUserInfo.html');
+    });
+    this.app.get('/companyMain', (req, res) => {
+      res.sendFile(__dirname + '/public/templates/company/getUserCompanyMain.html');
+    });
+    this.app.get('/detailCompany', (req, res) => {
+      res.sendFile(__dirname + '/public/templates/company/getUserDetailCompany.html');
+    });
+    this.app.get('/detailTrainer', (req, res) => {
+      res.sendFile(__dirname + '/public/templates/company/getUserDetailTrainer.html');
+    });
+    this.app.get('/communityMain', (req, res) => {
+      res.sendFile(__dirname + '/public/templates/community/getUserCommunityMain.html');
+    });
+    this.app.get('/detailCommunity', (req, res) => {
+      res.sendFile(__dirname + '/public/templates/community/getUserDetailCommunity.html');
+    });
+    this.app.get('/createPost', (req, res) => {
+      res.sendFile(__dirname + '/public/templates/community/createUserPost.html');
+    });
+    this.app.get('/chatMain', (req, res) => {
+      res.sendFile(__dirname + '/public/templates/chat/getChatMain.html');
+    });
+    this.app.get('/chatRoom', (req, res) => {
+      res.sendFile(__dirname + '/public/templates/chat/getChatRoom.html');
+    });
   };
 }

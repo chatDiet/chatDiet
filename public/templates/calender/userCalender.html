@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/userCalender.css" />
+    <script src="http://code.jquery.com/jquery-latest.js"></script> 
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>나의 캘린더</title>
+  </head>
+  <body>
+    <header>
+      <nav class="navigation">
+        <div class="navigation-title">
+          <h1 class="header-title">chat Diet plan</h1>
+        </div>
+        <div class="navigation-buttons">
+          <button class="icon-button" ><img src="../img/free-icon-font-search-3917132.png" alt="검색"></button>
+          <button class="icon-button">로그인 해주세요</button>
+        </div>
+      </nav>
+    </header>
+    <!-- <div id = "pencil">
+        <a href="/calender/post"><img src="../img/free-icon-font-pencil-3917376.png"/></a>
+    </div> -->
+    <main class="centered">
+      <div id = "pencil">
+        <a href="/calender/post"><img src="../img/free-icon-font-pencil-3917376.png"/></a>
+    </div>
+      <section class="main-section">
+          <div class="ui container">
+            <div class="ui grid">
+              <div class="ui sixteen column">
+                <div id="calendar"></div>
+              </div>
+            </div>
+          </div>
+          </div>
+      </section>
+      <div id = "dayCalender">
+
+      </div>
+    </main>
+    <footer>
+      <ul class="footer-list">
+        <li><img src="../img/free-icon-font-calendar-3917244.png" >캘린더</li>
+        <li><img src="../img/free-icon-training-9958263.png">헬스장</li>
+        <li><img src="../img/free-icon-font-envelope-3916611.png" >채팅</li>
+        <li><img src="../img/free-icon-font-world-3916979.png">커뮤니티</li>
+        <li><img src="../img/free-icon-font-user-3917688.png" >마이페이지</li>
+      </ul>
+      </ul>
+    </footer>
+    <script type="module" src="../js/getUserCalender.js" defer></script>
+    <script type="module"  src="../js/calenderBtn.js" defer></script>
+  </body>
+</html>

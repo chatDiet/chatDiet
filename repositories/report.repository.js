@@ -1,4 +1,8 @@
-import Report from './../db/models/report';
+import Report from '../db/models/report';
+import ReportLog from '../db/models/reportLog';
+import connector from '../db/db';
+
+const sequelize = connector.sequelize;
 
 class ReportRepository {
   async getReportId(reportId) {
@@ -15,17 +19,29 @@ class ReportRepository {
     return result;
   }
 
-  async createReport(userId, title, content, type, id) {
-    return await Report.create({ userId, title, content, type, id });
+  async createReport(userId, tragerId, title, content, type) {
+    return await Report.create({ userId, tragerId, title, content, type });
   }
 
   async updateReport(reportId, title, content, type) {
     return await Report.update({ title, content, type }, { where: { reportId } });
   }
 
-  async deleteReport(reportId) {
-    return await Report.destroy({ where: { reportId } });
-  }
+  deleteReport = async (reportId, userId, title, content, type) => {
+    const transaction = await sequelize.transaction();
+    try {
+      await Report.destroy({ where: { reportId } }, { transaction });
+
+      const reportLog = await ReportLog.create({ userId, title, content, type }, { transaction });
+
+      await transaction.commit();
+
+      return reportLog;
+    } catch (err) {
+      console.log(err);
+      await transaction.rollback();
+    }
+  };
 }
 
 export default ReportRepository;

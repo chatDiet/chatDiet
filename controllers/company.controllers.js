@@ -5,10 +5,10 @@ class CompanyController {
 
   // 업체 생성
   postCompany = async (req, res) => {
-    const { companyName, time, additional, service, phoneNumber, link, imageUrl , map } = req.body;
+    const { companyName, time, additional, service, phoneNumber, link, imageUrl, map } = req.body;
     const userId = res.locals.userId;
     // const imageUrl = req.file.location;
-    const result = await this._companyService.postCompany(companyName, time, additional, service, phoneNumber, link, userId, imageUrl , map);
+    const result = await this._companyService.postCompany(companyName, time, additional, service, phoneNumber, link, userId, imageUrl, map);
 
     return res.status(result.status).json(result.message);
   };
@@ -23,6 +23,8 @@ class CompanyController {
   // 업체 상세 조회
   oneGetCompany = async (req, res) => {
     const { companyId } = req.params;
+
+    console.log(companyId);
 
     const result = await this._companyService.oneGetCompany(companyId);
 
