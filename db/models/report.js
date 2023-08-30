@@ -31,6 +31,10 @@ const Report = connector.sequelize.define(
       type: DataTypes.ENUM('post', 'comment', 'review'),
       allowNull: false,
     },
+    id: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
     createdAt: {
       type: DataTypes.DATE,
       allowNull: false,
