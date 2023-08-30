@@ -49,31 +49,7 @@ class CompanyService {
     }
   };
 
-  oneGetpostCompany = async companyId => {
-    try {
-      if (!companyId) {
-        return {
-          status: 400,
-          message: '업체 ID 미입력',
-        };
-      }
-      const result = await this._companyRepository.oneGetpostCompany(companyId);
-      if (!result) {
-        return {
-          status: 400,
-          message: '존재하지 않는 업체 ID',
-        };
-      }
-      return {
-        status: 200,
-        message: result,
-      };
-    } catch (err) {
-      return { status: 500, message: 'Server Error' };
-    }
-  };
-
-  putCompany = async (companyId, companyName, time, additional, service, phoneNumber, link) => {
+  putCompany = async (companyId, companyName, time, additional, service, phoneNumber, link, userId, imageUrl, map) => {
     try {
       if (!companyId) {
         return {
@@ -103,7 +79,7 @@ class CompanyService {
           message: '업체 연락처 미입력',
         };
       }
-      const result = await this._companyRepository.putCompany(companyId, companyName, time, additional, service, phoneNumber, link);
+      const result = await this._companyRepository.putCompany(companyId, companyName, time, additional, service, phoneNumber, link, imageUrl, map);
       if (!result) {
         return {
           status: 400,

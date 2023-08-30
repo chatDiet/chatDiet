@@ -10,6 +10,7 @@ export class ExpressApp {
     this.setAppSettings();
     this.setAppRouter();
     this.setHtml();
+    this.setTrainerHtml();
   }
   //
   setAppSettings = () => {
@@ -35,6 +36,12 @@ export class ExpressApp {
     // 유저 메인 화면
     this.app.get('/userMain', (req, res) => {
       res.sendFile(__dirname + '/public/templates/userMain.html');
+    });
+  };
+
+  setTrainerHtml = () => {
+    this.app.get('/trainer', (req, res) => {
+      res.sendFile(__dirname + 'public/templates/trainer.html');
     });
   };
 }

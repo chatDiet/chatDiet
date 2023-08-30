@@ -52,12 +52,12 @@ class ScheduleService {
       if (!result) {
         return {
           status: 404,
-          message: '업체 생성 실패',
+          message: '스케줄 생성 실패',
         };
       }
       return {
         status: 200,
-        message: '업체 생성 성공',
+        message: '스케줄 생성 성공',
       };
     } catch (err) {
       return { status: 500, message: 'Server Error' };

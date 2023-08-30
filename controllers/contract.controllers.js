@@ -12,7 +12,7 @@ class ContractController {
   };
 
   getContract = async (req, res) => {
-    const userId = 4;
+    const userId = res.locals.userId;
     const getContract = await this.contractService.getContract(userId);
     return res.status(getContract.status).json(getContract.message);
   };
