@@ -53,7 +53,7 @@ class ReportService {
     if (!type) {
       return {
         status: 400,
-        message: '신고하려는 카테고리 유형을 입력해주세요. (타입: post, comment, review)',
+        message: '신고하려는 유형을 입력해주세요. (타입: post, comment, review)',
       };
     }
 
