@@ -1,6 +1,7 @@
 import { Router } from 'express';
 import { TrainerController } from '../controllers';
 import isAuth from '../middlewares/auth.middleware';
+import { multipleUpload } from '../middlewares/awsS3.middleware';
 
 const router = Router();
 

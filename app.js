@@ -70,10 +70,10 @@ export class ExpressApp {
       res.sendFile(__dirname + '/public/templates/calender/detailUserCalender.html');
     });
     this.app.get('/userInfo', (req, res) => {
-      res.sendFile(__dirname + '/public/templates/userInfo/userInfo.html');
+      res.sendFile(__dirname + '/public/templates/mypage/userInfo.html');
     });
     this.app.get('/updateUserInfo', (req, res) => {
-      res.sendFile(__dirname + '/public/templates/userInfo/updateUserInfo.html');
+      res.sendFile(__dirname + '/public/templates/mypage/updateUserInfo.html');
     });
     this.app.get('/companyMain', (req, res) => {
       res.sendFile(__dirname + '/public/templates/company/getUserCompanyMain.html');
@@ -99,5 +99,11 @@ export class ExpressApp {
     this.app.get('/chatRoom', (req, res) => {
       res.sendFile(__dirname + '/public/templates/chat/getChatRoom.html');
     });
+    this.app.get('/mypage', (req, res) => {
+      res.sendFile(__dirname + '/public/templates/mypage/userMypage.html');
+    });
+    // this.app.get('/kakaoLogin', (req, res) => {
+    //   res.sendFile(__dirname + '/public/templates/user/kakaoLogin.html');
+    // });
   };
 }
