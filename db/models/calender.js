@@ -30,6 +30,10 @@ const Calender = connector.sequelize.define(
     type: {
       type: DataTypes.ENUM('breakfast', 'lunch', 'dinner', 'exercise'),
     },
+    date: {
+      type: DataTypes.DATE,
+      allowNull: false,
+    },
     createdAt: {
       type: DataTypes.DATE,
       allowNull: false,

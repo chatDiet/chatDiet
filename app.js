@@ -36,5 +36,20 @@ export class ExpressApp {
     this.app.get('/userMain', (req, res) => {
       res.sendFile(__dirname + '/public/templates/userMain.html');
     });
+    this.app.get('/calender', (req, res) => {
+      res.sendFile(__dirname + '/public/templates/userCalender.html');
+    });
+    this.app.get('/calender/post', (req, res) => {
+      res.sendFile(__dirname + '/public/templates/postUserCalender.html');
+    });
+    this.app.get('/calender/:calenderId', (req, res) => {
+      res.sendFile(__dirname + '/public/templates/detailUserCalender.html');
+    });
+    this.app.get('/userInfo', (req, res) => {
+      res.sendFile(__dirname + '/public/templates/userInfo.html');
+    });
+    this.app.get('/updateUserInfo', (req, res) => {
+      res.sendFile(__dirname + '/public/templates/updateUserInfo.html');
+    });
   };
 }

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <link rel="stylesheet" href="../css/postUserCalender.css" />
+    <title>캘린더 추가하기</title>
+  </head>
+  <body>
+    <div class="container">
+      <h1>캘린더 추가하기</h1>
+      <form id="write-form">
+        <label for="date">날짜:</label>
+        <input type="date" id="date" required />
+
+        <label for="title">제목:</label>
+        <input type="text" id="title" required />
+
+        <label for="meal">식사:</label>
+        <select id="meal">
+          <option value="breakfast">아침</option>
+          <option value="lunch">점심</option>
+          <option value="dinner">저녁</option>
+          <option value="exercise">운동</option>
+        </select>
+
+        <label for="image">사진 업로드:</label>
+        <input type="file" id="image" accept="image/*" />
+
+        <label for="content">글 내용:</label>
+        <textarea id="content" rows="6" required></textarea>
+
+        <button type="submit">작성</button>
+      </form>
+    </div>
+    <script src="../js/postUserCalender.js"></script>
+  </body>
+</html>

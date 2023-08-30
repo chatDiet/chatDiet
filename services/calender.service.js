@@ -3,7 +3,7 @@ import { CalenderRepository } from '../repositories';
 class CalenderService {
   _calenderRepository = new CalenderRepository();
 
-  getCalender = async (calenderId, userId) => {
+  getCalender = async (userId, calenderId) => {
     const isUser = await this._calenderRepository.isMe(calenderId, userId);
     if (!isUser) {
       return {
@@ -11,14 +11,25 @@ class CalenderService {
         message: '자신의 캘린더만 조회할 수 있습니다',
       };
     }
-
     const getCalender = await this._calenderRepository.getCalender(calenderId);
     if (getCalender == null) {
       return { status: 400, message: '작성된 캘린더가 존재하지 않습니다.' };
     }
     return { status: 200, message: getCalender };
   };
-  createCalender = async (title, content, type, userId, imageUrl) => {
+
+  getCalenders = async userId => {
+    try {
+      const calenders = await this._calenderRepository.getCalenders(userId);
+      if (calenders == null) {
+        return { status: 400, message: '작성된 캘린더가 존재하지 않습니다.' };
+      }
+      return { status: 200, message: calenders };
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  createCalender = async (date, title, content, type, userId, imageUrl) => {
     try {
       if (!title) {
         return { status: 400, message: '캘린더 제목을 입력해주세요' };
@@ -26,9 +37,14 @@ class CalenderService {
       if (!content) {
         return { status: 400, message: '캘린더 내용을 입력해주세요' };
       }
-      const createCalender = await this._calenderRepository.createCalender(title, content, type, userId, imageUrl);
+      if (!type) {
+        return { status: 400, message: '캘린더 타입을 입력해주세요' };
+      }
+
+      const createCalender = await this._calenderRepository.createCalender(date, title, content, type, userId, imageUrl);
       return { status: 200, message: createCalender };
     } catch (err) {
+      console.log(err);
       return { status: 500, message: 'Server error' };
     }
   };
