@@ -178,7 +178,7 @@ class UserService {
     try {
       if (!email) {
         return {
-          status: 400,
+          status: 400, 
           message: '이메일 미입력',
         };
       }

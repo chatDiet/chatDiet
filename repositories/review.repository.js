@@ -6,20 +6,24 @@ class ReviewRepository {
     const findAuth = await User.findOne({ where: { userId } });
     return findAuth;
   };
+
   findCompany = async companyId => {
     const findCompany = await Company.findOne({ where: { companyId } });
     return findCompany;
   };
-  getReviewByType = async (companyId, type) => {
-    const getReviewByType = await Review.findAll({ where: { companyId, type } });
-    return getReviewByType;
+
+  getTargetReview = async (targetId, type) => {
+    const getTargetReview = await Review.findAll({ where: { targetId, type } });
+    return getTargetReview;
   };
+
   findReview = async reviewId => {
     const findReview = await Review.findOne({ where: { reviewId } });
     return findReview;
   };
-  createReview = async (userId, companyId, content, grade, type) => {
-    const createReveiw = await Review.create({ userId, companyId, content, grade, type });
+
+  createReview = async (userId, targetId, content, grade, type) => {
+    const createReveiw = await Review.create({ userId, targetId, content, grade, type });
     return createReveiw;
   };
 

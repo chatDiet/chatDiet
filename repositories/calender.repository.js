@@ -2,6 +2,10 @@ import { User } from '../db';
 import Calender from '../db/models/calender';
 
 class CalenderRepository {
+  getCalenderId = async userId => {
+    return await Calender.findOne({ where: { userId } });
+  };
+
   isUser = async userId => {
     return await User.findOne({ where: { userId } });
   };
@@ -11,12 +15,17 @@ class CalenderRepository {
     return getCalender;
   };
 
-  createCalender = async (title, content, type, userId) => {
-    const createCalender = await Calender.create({ title, content, type, userId, imageUrl });
+  getCalenders = async userId => {
+    const alenders = await Calender.findAll({ where: { userId } });
+    return alenders;
+  };
+
+  createCalender = async (date, title, content, type, userId, imageUrl) => {
+    const createCalender = await Calender.create({ date, title, content, type, userId, imageUrl });
     return createCalender;
   };
   isMe = async (calenderId, userId) => {
-    const a = await Calender.findOne({ where: { userId, calenderId } });
+    const a = await Calender.findOne({ where: { calenderId, userId } });
     return a;
   };
 

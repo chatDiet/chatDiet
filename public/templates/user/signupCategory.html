@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>회원 유형 선택</title>
+  </head>
+  <body>
+    <h1>회원 유형 선택</h1>
+
+    <button id="user-type-user">사용자</button>
+    <button id="user-type-trainer">트레이너</button>
+    <button id="user-type-owner">사장님</button>
+
+    <script>
+      const userTypeButtons = document.querySelectorAll('[id^="user-type-"]');
+
+      userTypeButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          const userType = button.id.replace('user-type-', '');
+          window.location.href = `http://localhost:3000/signup?type=${userType}`;
+        });
+      });
+    </script>
+  </body>
+</html>

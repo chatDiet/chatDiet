@@ -1,0 +1,139 @@
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  text-align: center;
+  background-color: #f0f0f0;
+  padding: 8px 0;
+}
+
+.header-title {
+  margin: 0;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f0f0f0;
+  padding: 8px 20px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navigation-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.navigation-title {
+  text-align: center;
+  flex: 1; /* 로고와 버튼 사이 간격 조정 */
+}
+
+.icon-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.icon-button i {
+  font-size: 18px;
+}
+
+.icon-button img {
+  width: 18px; /* 원하는 크기로 조정 */
+}
+
+.centered {
+  width: 1200px;
+  height: 1800px;
+  flex: 1;
+  display: block;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto;
+  position: relative;
+}
+
+#pencil a img {
+  width: 35px;
+  height: 30px;
+  border: none;
+  position: absolute;
+  right: 0;
+  top: 15px;
+  right: 290px;
+}
+
+#pencil a img:hover {
+  border-bottom: 3px solid #ccc;
+}
+
+.footer-list {
+  z-index: 5;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #f0f0f0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 20px 0;
+}
+
+footer ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+footer li {
+  display: flex;
+  align-items: center;
+  margin: 0 15px;
+  font-size: 14px;
+  cursor: pointer;
+  /* 장시훈 수정부분 */
+}
+
+footer li:hover {
+  border-bottom: 3px solid #ccc;
+} /* 장시훈 수정부분 */
+
+footer img {
+  width: 20px; /* Adjust the width as needed */
+  margin-right: 5px;
+}
+
+#calendar {
+  margin-top: 10px;
+  width: 1000px;
+  margin-left: 100px;
+} /* 장시훈 수정부분 */
+
+#calendar a {
+  font-size: 8px;
+  color: #000;
+  font-weight: lighter;
+} /* 장시훈 수정부분 */
+
+.fc-toolbar-title {
+  font-size: 55px;
+  color: #3788d8;
+} /* 장시훈 수정부분 */
+
+.fc-daygrid-day-frame {
+  height: 80px;
+  text-align: start;
+}
+/* 장시훈 수정부분 */

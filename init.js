@@ -42,23 +42,23 @@ export class Server {
         socket.roomId = data.roomId;
 
         socket.join(socket.roomId);
-
-        socket.emit('update', { type: 'connect', name: 'SERVER', message: socket.user + '님이 접속함' });
       });
 
       // 전송한 메세지 받기
-      socket.on('message', function (data) {
+      socket.on('message', async function (data) {
         // 받은 데이터에 user,trainer,roomId 추가
         data.user = socket.user;
         data.trainer = socket.trainer;
         data.roomId = socket.roomId;
 
+        //mongDb 로직으로 보냄
+        const name = await chatService.postChat(data);
+
+        data.name = name;
+
         // 해당 방에 보내기
         socket.emit('message', data);
         socket.to(data.roomId).emit('message', data);
-
-        //mongDb 로직으로 보냄
-        chatService.postChat(data);
       });
 
       // 접속 종료

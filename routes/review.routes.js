@@ -6,8 +6,8 @@ const router = Router();
 
 const reviewController = new ReviewController();
 
-router.get('/company/:companyId/review', isAuth, reviewController.getReviewByType);
-router.post('/company/:companyId/review', isAuth, reviewController.createReview);
+router.get('/review/:targetId/:type', reviewController.getReviewByType);
+router.post('/review/:targetId', isAuth, reviewController.createReview);
 router.delete('/review/:reviewId', isAuth, reviewController.deleteReview);
 
 export default router;
