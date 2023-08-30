@@ -11,7 +11,9 @@ class InquiryService {
     const AllInquiryData = getAllInquiryData.map(inquiry => {
       return {
         inquiryId: inquiry.inquiryId,
+        title: inquiry.title,
         content: inquiry.content,
+        createdAt: inquiry.createdAt,
       };
     });
     return {
@@ -21,7 +23,14 @@ class InquiryService {
   };
 
   // 문의
-  createInquiry = async (userId, content) => {
+  createInquiry = async (userId, title, content) => {
+    if (title.length <= 0) {
+      return {
+        status: 400,
+        message: '내용을 입력하지 않았습니다.',
+      };
+    }
+
     if (content.length <= 0) {
       return {
         status: 400,
@@ -29,7 +38,7 @@ class InquiryService {
       };
     }
 
-    await this._inquiryRepository.createInquiry(userId, content);
+    await this._inquiryRepository.createInquiry(userId, title, content);
 
     return {
       status: 201,
