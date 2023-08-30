@@ -77,14 +77,13 @@ class UserService {
       // 카카오 회원가입 유무 확인
       if (checkEmail && loginType === false) {
         // 회원가입 한 적 있을 경우 로그인.
-        return await this.loginUser(email, loginType);
+        return await this.loginUser(email, password);
       }
 
       // 카카오 회원가입
       if (!checkEmail && loginType === false) {
         if (type === 'trainer' || type === 'user' || type === 'owner' || type === 'admin') {
-          const newUser = await this._userRepository.registerUser(email, type, loginType);
-
+          const newUser = await this._userRepository.registerUser(email, type, loginType, userName, height, weight, phone, password);
           if (!newUser) {
             return {
               status: 404,
@@ -167,6 +166,7 @@ class UserService {
         };
       }
     } catch (err) {
+      console.log(err);
       return {
         status: 500,
         message: 'Server Error',
@@ -183,7 +183,6 @@ class UserService {
           message: '이메일 미입력',
         };
       }
-
       const user = await this._userRepository.findUserByEmail(email);
 
       if (!user) {
@@ -205,7 +204,6 @@ class UserService {
           };
         }
       }
-
       const token = jwt.sign({ userId: user.userId }, process.env.JWT_SECRET, {
         expiresIn: process.env.JWT_EXPIREIN,
       });
@@ -223,6 +221,7 @@ class UserService {
         data: token,
       };
     } catch (err) {
+      console.log(err);
       return {
         status: 500,
         message: 'Server Error',

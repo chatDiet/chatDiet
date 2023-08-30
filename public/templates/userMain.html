@@ -36,8 +36,8 @@
         <li onclick="userInfo()"><img src="../img/free-icon-font-user-3917688.png" />마이페이지</li>
       </ul>
     </footer>
-    <script src="../js/calender/calenderBtn.js" defer></script>
-    <script type="module" src="../js/login/userLogout.js"></script>
+    <script src="../js/navigationBtn.js" defer></script>
+    <script type="module" src="../js/login/userLogout.js" defer></script>
     <script>
       const gotoSignupButton = document.getElementById('goto-signup-button');
       gotoSignupButton.addEventListener('click', () => {
@@ -50,6 +50,27 @@
         // 사용자 메인 페이지로 이동
         window.location.href = 'http://localhost:3000/login';
       });
+
+      function getCookie() {
+        const cookie = decodeURIComponent(document.cookie);
+        const [name, value] = cookie.split('=');
+        return value;
+      }
+
+      const isLoggedIn = getCookie();
+      const loginButton = document.getElementById('goto-login-button');
+      const signupButton = document.getElementById('goto-signup-button');
+      const logoutButton = document.getElementById('logoutButton');
+      if (isLoggedIn) {
+        // 로그인한 경우
+        loginButton.style.display = 'none'; // 로그인 버튼 숨김
+        signupButton.style.display = 'none'; // 회원가입 버튼 숨김
+        logoutButton.style.display = 'block'; // 로그아웃 버튼 표시
+      } else {
+        loginButton.style.display = 'block'; // 로그인 버튼 숨김
+        signupButton.style.display = 'block'; // 회원가입 버튼 숨김
+        logoutButton.style.display = 'none'; // 로그아웃 버튼 표시
+      }
     </script>
   </body>
 </html>
