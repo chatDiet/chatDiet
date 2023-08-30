@@ -17,5 +17,7 @@ router.get('/company/:companyId', companyController.oneGetCompany);
 router.put('/company/:companyId', isAuth, companyController.putCompany);
 //업체 삭제
 router.delete('/company/:companyId', isAuth, companyController.deleteCompany);
+//userId에 따른 업체 조회
+router.get('/companys/owner', isAuth, companyController.getOwnerCompany);
 
 export default router;

@@ -1,0 +1,139 @@
+/* userMain.css */
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  text-align: center;
+  background-color: #f0f0f0;
+  padding: 8px 0;
+}
+
+.header-title {
+  margin: 0;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f0f0f0;
+  padding: 8px 20px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navigation-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.navigation-title {
+  text-align: center;
+  flex: 1; /* 로고와 버튼 사이 간격 조정 */
+}
+
+.icon-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.icon-button i {
+  font-size: 18px;
+}
+
+.icon-button img {
+  width: 18px; /* 원하는 크기로 조정 */
+}
+
+main {
+  width: 1000px; /* 원하는 가로 사이즈로 조정 */
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: blue;
+  margin: 0 auto; /* 수평 가운데 정렬을 위해 추가 */
+}
+
+/* 기존의 CSS 규칙을 여기에 추가하세요 */
+
+/* 업체 등록 섹션에 대한 스타일링 */
+.registration-section {
+  max-width: 600px; /* 필요에 따라 이 값을 조정하세요 */
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-radius: 10px;
+}
+
+/* 라벨에 대한 스타일링 */
+.registration-section label {
+  display: inline-block;
+  width: 150px; /* 라벨 너비를 조정하세요 */
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+/* 입력 필드에 대한 스타일링 */
+.registration-section input[type='text'],
+.registration-section input[type='tel'],
+.registration-section input[type='url'] {
+  width: calc(100% - 170px); /* 라벨 너비를 기준으로 입력 필드 너비 조정 */
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+/* 제출 버튼에 대한 스타일링 */
+.registration-section button[type='submit'] {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+.centered {
+  text-align: center;
+}
+
+.footer-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #f0f0f0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 20px 0;
+}
+
+footer ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+footer li {
+  display: flex;
+  align-items: center;
+  margin: 0 15px;
+  font-size: 14px;
+}
+
+footer img {
+  width: 20px; /* Adjust the width as needed */
+  margin-right: 5px;
+}
