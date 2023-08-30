@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
       alert('등록이 완료되었습니다.' + response.data);
       window.location.href = `http://localhost:3000/getOwnerCompany`;
     } catch (error) {
-      alert('수정 중 오류가 발생했습니다. ' + error.response.data);
+      alert('등록 중 오류가 발생했습니다. ' + error.response.data);
     }
   });
 });

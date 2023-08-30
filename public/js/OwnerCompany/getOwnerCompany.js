@@ -1,64 +1,112 @@
 document.addEventListener('DOMContentLoaded', async () => {
   const editButton = document.getElementById('edit-button');
   const deleteButton = document.getElementById('delete-button');
-  const companyId = 6; // 가져올 업체의 ID
 
-  try {
-    const response = await axios.get(`/api/company/${companyId}`);
-    const company = response.data;
+  axios.get(`/api/companys/owner`).then(function (response) {
+    const result = response.data;
 
-    //document.getElementById('company-image').src = company.imageUrl;
-    document.getElementById('company-name').textContent = company.companyName;
-    document.getElementById('company-address').textContent = company.map;
+    document.getElementById('company-name').textContent = result.companyName;
+    document.getElementById('company-address').textContent = result.map;
 
     const infoBox = document.getElementById('info-box');
+    // <!-- 혜민님 이미지 2번입니다.-->
     infoBox.innerHTML = `
         <div class="info-item">
           <h3>운영시간</h3>
-          <p>${company.time}</p>
+          <p>${result.time}</p>
         </div>
         <div class="info-item">
           <h3>운영 프로그램</h3>
-          <p>${company.additional}</p>
+          <p>${result.additional}</p>
         </div>
         <div class="info-item">
           <h3>부가 서비스</h3>
-          <p>${company.service}</p>
+          <p>${result.service}</p>
         </div>
         <div class="info-item">
           <h3>전화번호</h3>
-          <p>+82 ${company.phoneNumber}</p>
+          <p>+82 ${result.phoneNumber}</p>
         </div>
         <div class="info-item">
           <h3>바로가기</h3>
-          <p><a href="${company.link}">업체 홈페이지</a></p>
+          <p><a href="${result.link}">업체 홈페이지</a></p>
         </div>
       `;
+
+    // 업체 리뷰 조회
+    axios
+      .get(`/api/review/${result.companyId}/company`)
+      .then(function (response) {
+        const result = response.data;
+        for (let i = 0; result.length > i; i++) {
+          const content = result[i].content;
+          const grade = result[i].grade;
+          const companyReview = document.getElementById('companyReview');
+          companyReview.innerHTML = `<div>
+                                        <div>${content}</div>
+                                        <div>${grade}</div>
+                                    </div>`;
+        }
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+    //<!-- 혜민님 이미지 3번입니다.-->
+    // 업체 트레이너 조회
+    axios
+      .get(`/api/companys/${result.companyId}/trainer`)
+      .then(function (response) {
+        const result = response.data.data;
+        for (let i = 0; result.length > i; i++) {
+          const trainerList = document.getElementById('trainer');
+          trainerList.innerHTML = `<button class="trainer-card" onclick="detailTrainerBtn(${result[i].trainerId})">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxs8H7J0SCUt6g_YfSKsQzPhyJcyYwXny4Vk3gVqxItxRKjKxEgRYcJjqb8is6SdJZBCE&usqp=CAU" alt="Trainer Image" class="trainer-image">
+          <p>${result[i].trainerName}</p>
+          <p>${result[i].career}</p>
+          <button onclick="deleteTrainerBtn(${result[i].companyId}, ${result[i].trainerId})">트레이너 삭제</button>
+        </button>`;
+        }
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+
+    // 업체 수정 버튼
+    editButton.addEventListener('click', async () => {
+      window.location.href = `http://localhost:3000/putOwnerCompany?companyId=${result.companyId}`;
+    });
+
+    // 업체 삭제 버튼
     deleteButton.addEventListener('click', async () => {
-      // 확인 메시지 창 띄우기
       const confirmDelete = confirm('정말 삭제하시겠습니까?');
       if (confirmDelete) {
         try {
-          const deleteResponse = await axios.delete(`/api/company/${companyId}`);
+          const deleteResponse = await axios.delete(`/api/company/${result.companyId}`);
           if (deleteResponse.status === 200) {
-            // 업체 정보 삭제 후 리다이렉트 등 필요한 동작 수행
             alert('업체 정보가 삭제되었습니다.');
-            window.location.href = 'http://localhost:3000/userMain'; // 삭제 후 이동할 페이지 URL로 변경
+            window.location.href = 'http://localhost:3000/userMain';
           } else {
             alert('업체 정보 삭제에 실패했습니다.');
           }
         } catch (error) {
-          alert(error.response.data);
+          alert(error);
         }
       } else {
         alert('삭제가 취소되었습니다.');
       }
     });
-  } catch (error) {
-    alert(error.response.data);
-  }
-  editButton.addEventListener('click', () => {
-    // 버튼을 눌렀을 때 다른 페이지로 이동하게 하려면 window.location.href를 사용
-    window.location.href = `http://localhost:3000/putOwnerCompany`;
   });
 });
+
+deleteTrainerBtn = (companyId, trainerId) => {
+  axios
+    .delete(`/api/companys/${companyId}/trainers/${trainerId}`)
+    .then(function (response) {
+      alert('트레이너 삭제 성공');
+      location.reload();
+    })
+    .catch(function (error) {
+      console.log(error);
+      alert(error);
+    });
+};

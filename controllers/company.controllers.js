@@ -33,8 +33,7 @@ class CompanyController {
 
   // 업체 수정
   putCompany = async (req, res) => {
-    //const userId = res.locals.userId;
-    const userId = 3;
+    const userId = res.locals.userId;
     const { companyId } = req.params;
 
     const { companyName, time, additional, service, phoneNumber, link, map, imageUrl } = req.body;
@@ -46,14 +45,21 @@ class CompanyController {
 
   // 업체 삭제
   deleteCompany = async (req, res) => {
-    //const userId = res.locals.userId;
-    const userId = 3;
+    const userId = res.locals.userId;
     const { companyId } = req.params;
 
     const result = await this._companyService.deleteCompany(companyId, userId);
 
     return res.status(result.status).json(result.message);
   };
+
+  //userId에 따른 업체 조회
+  getOwnerCompany = async (req, res) => {
+    const userId = res.locals.userId;
+
+    const result = await this._companyService.getOwnerCompany(userId);
+    return res.status(result.status).json(result.message);
+  }
 }
 
 export default CompanyController;

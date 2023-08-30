@@ -81,7 +81,7 @@ main {
   margin-bottom: 15px;
 }
 
-.trainer-card {
+.trainer-box {
   width: 256px;
   background-color: #f0f0f0;
   display: flex;

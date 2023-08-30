@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../../css/OwnerCompany/setOwnerCompany.css" />
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="../../js/OwnerCompany/putOwnerCompany.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js" defer></script>
+    <script src="../../js/OwnerCompany/putOwnerCompany.js" defer></script>
     <title>Your Project</title>
   </head>
   <body>
@@ -15,44 +16,45 @@
           <h1 class="header-title">chat Diet plan</h1>
         </div>
         <div class="navigation-buttons">
-          <button class="icon-button"><img src="../img/free-icon-font-search-3917132.png" alt="검색"></button>
+          <button class="icon-button"><img src="../img/free-icon-font-search-3917132.png" alt="검색" /></button>
           <button class="icon-button">로그인 해주세요</button>
         </div>
       </nav>
-    </header>  
+    </header>
     <main class="centered">
       <section class="main-section">
         <!-- 메인 콘텐츠 -->
         <div class="registration-section">
           <h2>정보 수정</h2>
           <form id="registration-form">
-            <label for="company-name">업체명:</label>
-            <input type="text" id="company-name" name="companyName" required><br><br>
-        
-            <label for="operating-hours">운영시간:</label>
-            <input type="text" id="operating-hours" name="time" placeholder="필수" required><br><br>
-        
-            <label for="operating-program">운영 프로그램:</label>
-            <input type="text" id="operating-program" name="additional" placeholder="필수" required><br><br>
-        
-            <label for="additional-services">부가 서비스:</label>
-            <input type="text" id="additional-services" name="service" placeholder="" required><br><br>
-        
-            <label for="phone-number">전화번호:</label>
-            <input type="tel" id="phone-number" name="phoneNumber" pattern="[0-9]{10}" placeholder="+82 0112345678" required><br><br>
-        
-            <label for="company-website">업체 홈페이지:</label>
-            <input type="url" id="company-website" name="link" placeholder="https://" ><br><br>
-        
-            <label for="address">주소:</label>
-            <input type="text" id="address" name="map" placeholder="서울특별시 중구 세종대로 110" required><br><br>
-        
+            <label for="companyName">업체명:</label>
+            <input type="text" id="companyName" name="companyName" required /><br /><br />
+
+            <label for="time">운영시간:</label>
+            <input type="text" id="time" name="time" placeholder="필수" required /><br /><br />
+
+            <label for="additional">운영 프로그램:</label>
+            <input type="text" id="additional" name="additional" placeholder="필수" required /><br /><br />
+
+            <label for="service">부가 서비스:</label>
+            <input type="text" id="service" name="service" placeholder="" required /><br /><br />
+
+            <label for="phoneNumber">전화번호:</label>
+            <input type="tel" id="phoneNumber" name="phoneNumber" pattern="[0-9]{10}" placeholder="+82 0112345678" required /><br /><br />
+
+            <label for="link">업체 홈페이지:</label>
+            <input type="url" id="link" name="link" placeholder="https://" /><br /><br />
+
+            <label for="map">주소:</label>
+            <input type="text" id="map" name="map" placeholder="서울특별시 중구 세종대로 110" required /><br /><br />
+
+            <!-- 혜민님 이미지 4번입니다. -->
             <!-- <label for="company-photo">업체 사진 등록:</label>
             <input type="file" id="company-photo" name="imageUrl" accept="image/*"><br><br> -->
 
-            <label for="company-photo">이미지:</label>
-            <input type="text" id="company-photo" name="imageUrl" placeholder="필수" required><br><br>
-        
+            <label for="imageUrl">이미지:</label>
+            <input type="text" id="imageUrl" name="imageUrl" placeholder="필수" /><br /><br />
+
             <button type="submit" id="update-button">정보 수정</button>
           </form>
         </div>
@@ -60,12 +62,11 @@
     </main>
     <footer>
       <ul class="footer-list">
-        <li><img src="../img/free-icon-font-calendar-3917244.png" >캘린더</li>
-        <li><img src="../img/free-icon-training-9958263.png">헬스장</li>
-        <li><img src="../img/free-icon-font-envelope-3916611.png" >채팅</li>
-        <li><img src="../img/free-icon-font-world-3916979.png">커뮤니티</li>
-        <li><img src="../img/free-icon-font-user-3917688.png" >마이페이지</li>
-      </ul>
+        <li><img src="../img/free-icon-font-calendar-3917244.png" />캘린더</li>
+        <li><img src="../img/free-icon-training-9958263.png" />헬스장</li>
+        <li><img src="../img/free-icon-font-envelope-3916611.png" />채팅</li>
+        <li><img src="../img/free-icon-font-world-3916979.png" />커뮤니티</li>
+        <li><img src="../img/free-icon-font-user-3917688.png" />마이페이지</li>
       </ul>
     </footer>
   </body>

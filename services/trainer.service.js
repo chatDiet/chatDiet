@@ -91,7 +91,7 @@ class TrainerService {
 
   delete = async (companyId, trainerId, userId) => {
     const isOwner = await this._trainerRepository.isOwner(userId);
-    if (isOwner.type != 'owner' || isOwner.type != 'admin') {
+    if (isOwner.type != 'owner') {
       return {
         code: 401,
         message: '트레이너 삭제 권한이 존재하지 않습니다',
@@ -104,7 +104,6 @@ class TrainerService {
         message: '해당 헬스장의 사장님만 트레이너를 삭제할 수 있습니다',
       };
     }
-
     const Company = await this._trainerRepository.findCompantId(companyId);
     if (!Company) {
       return {
@@ -112,8 +111,7 @@ class TrainerService {
         message: '해당 헬스장이 존재하지 않습니다.',
       };
     }
-
-    const trainer = await this._trainerRepository.findtrainerId(trainerId);
+    const trainer = await this._trainerRepository.findtrainerId(trainerId, companyId);
     if (!trainer) {
       return {
         code: 404,
