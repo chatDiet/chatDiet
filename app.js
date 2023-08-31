@@ -53,6 +53,10 @@ export class ExpressApp {
       res.sendFile(__dirname + '/public/templates/inquiry/getInquiry.html');
     });
 
+    this.app.get('/editInquiry', (req, res) => {
+      res.sendFile(__dirname + '/public/templates/inquiry/editInquiry.html');
+    });
+
     this.app.get('/admin', (req, res) => {
       res.sendFile(__dirname + '/public/templates/adminPage.html');
     });
@@ -60,6 +64,7 @@ export class ExpressApp {
     this.app.get('/signupCategory', (req, res) => {
       res.sendFile(__dirname + '/public/templates/user/signupCategory.html');
     });
+
     this.app.get('/calender', (req, res) => {
       res.sendFile(__dirname + '/public/templates/userCalender.html');
     });

@@ -14,7 +14,8 @@ inquiryForm.addEventListener('submit', async event => {
       alert(response.data.message);
       console.log('문의 생성', response.data);
 
-      window.location.href = 'http://localhost:3000/inquiry';
+      const inquiryId = response.data.data.inquiryId;
+      window.location.href = `http://localhost:3000/inquiry?inquiryId=${inquiryId}`;
     })
     .catch(function (error) {
       alert(error.response.data.message);
