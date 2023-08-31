@@ -133,6 +133,15 @@ footer li {
   font-size: 14px;
 }
 
+.custom {
+  color: black;
+  text-decoration: none;
+}
+
+.custom:hover {
+  color: darkgray;
+}
+
 footer img {
   width: 20px; /* Adjust the width as needed */
   margin-right: 5px;
