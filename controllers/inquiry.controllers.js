@@ -34,10 +34,10 @@ class InquiryController {
   udpateInquiry = async (req, res) => {
     const userId = res.locals.userId;
     const { inquiryId } = req.params;
-    const { content } = req.body;
+    const { title, content } = req.body;
 
     try {
-      const updateInquiry = await this._inquiryService.updateInquiry(inquiryId, userId, content);
+      const updateInquiry = await this._inquiryService.updateInquiry(inquiryId, userId, title, content);
 
       res.status(updateInquiry.status).json({ message: updateInquiry.message, data: updateInquiry.data });
     } catch (err) {
