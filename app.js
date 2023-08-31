@@ -73,6 +73,10 @@ export class ExpressApp {
       res.sendFile(__dirname + '/public/templates/report/getUserReport.html');
     });
 
+    this.app.get('/editReport', (req, res) => {
+      res.sendFile(__dirname + '/public/templates/report/editUserReport.html');
+    });
+
     this.app.get('/calender', (req, res) => {
       res.sendFile(__dirname + '/public/templates/calender/userCalender.html');
     });

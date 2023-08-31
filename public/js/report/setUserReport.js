@@ -15,8 +15,6 @@ reportForm.addEventListener('submit', async event => {
     .then(function (response) {
       alert(response.data.message);
       console.log('신고 작성', response.data);
-
-      location.reload();
     })
     .catch(function (error) {
       alert(error.response.data.message);

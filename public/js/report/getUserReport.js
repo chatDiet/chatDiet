@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       const reportId = deleteButton.getAttribute('data-report-id');
 
       axios
-        .delete(`http://localhost:3000/api/inquirys/${reportId}`)
+        .delete(`http://localhost:3000/api/reports/${reportId}`)
         .then(response => {
           console.log(`문의 ${reportId} 삭제 성공:`, response.data);
           alert(`문의 ${reportId} 삭제 성공:`);
@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       event.preventDefault();
       const reportId = editButton.getAttribute('data-report-id');
 
-      window.location.href = `http://localhost:3000/editInquiry?inquiryId=${reportId}`;
+      window.location.href = `http://localhost:3000/editReport?reportId=${reportId}`;
     });
   });
 });

@@ -156,7 +156,7 @@ class ReportService {
     const content = report.content;
     const type = report.type;
 
-    if (existReportUser.userId === userId || user.type === 'admin') {
+    if (report.userId === userId || user.type === 'admin') {
       await this._reportRepository.deleteReport(reportId, userId, title, content, type);
       return {
         status: 200,
