@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../css/OwnerCompany/setOwnerCompany.css" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../../js/OwnerCompany/setOwnerCompany.js"></script>
+    <title>Your Project</title>
+  </head>
+  <body>
+    <header>
+      <nav class="navigation">
+        <div class="navigation-title">
+          <h1 class="header-title">chat Diet plan</h1>
+        </div>
+        <div class="navigation-buttons">
+          <button class="icon-button"><img src="../img/free-icon-font-search-3917132.png" alt="검색" /></button>
+          <button class="icon-button">로그인 해주세요</button>
+        </div>
+      </nav>
+    </header>
+    <main class="centered">
+      <section class="main-section">
+        <!-- 메인 콘텐츠 -->
+        <div class="registration-section">
+          <h2>업체 등록</h2>
+          <form id="registration-form">
+            <label for="company-name">업체명:</label>
+            <input type="text" id="company-name" name="companyName" required /><br /><br />
+
+            <label for="operating-hours">운영시간:</label>
+            <input type="text" id="operating-hours" name="time" placeholder="07:00 ~ 23:00" required /><br /><br />
+
+            <label for="operating-program">운영 프로그램:</label>
+            <input type="text" id="operating-program" name="additional" placeholder="1:1 PT(별도 문의)" required /><br /><br />
+
+            <label for="additional-services">부가 서비스:</label>
+            <input type="text" id="additional-services" name="service" placeholder="라커 (월 10,000원)" required /><br /><br />
+
+            <label for="phone-number">전화번호:</label>
+            <input type="tel" id="phone-number" name="phoneNumber" pattern="[0-9]{10}" placeholder="+82 0112345678" required /><br /><br />
+
+            <label for="company-website">업체 홈페이지:</label>
+            <input type="url" id="company-website" name="link" placeholder="https://" /><br /><br />
+
+            <label for="address">주소:</label>
+            <input type="text" id="address" name="map" placeholder="서울특별시 중구 세종대로 110" required /><br /><br />
+
+            <!-- <label for="company-photo">업체 사진 등록:</label>
+            <input type="file" id="company-photo" name="imageUrl" accept="image/*"><br><br> -->
+            <!--혜민님 이미지 등록 1번 입니다.-->
+            <label for="company-photo">이미지:</label>
+            <input type="text" id="company-photo" name="imageUrl" placeholder="이미지" required /><br /><br />
+
+            <button type="submit" id="submit-button">정보 등록</button>
+          </form>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <ul class="footer-list">
+        <li><img src="../img/free-icon-font-calendar-3917244.png" />캘린더</li>
+        <li><img src="../img/free-icon-training-9958263.png" />헬스장</li>
+        <li><img src="../img/free-icon-font-envelope-3916611.png" />채팅</li>
+        <li><img src="../img/free-icon-font-world-3916979.png" />커뮤니티</li>
+        <li><img src="../img/free-icon-font-user-3917688.png" />마이페이지</li>
+      </ul>
+    </footer>
+  </body>
+</html>

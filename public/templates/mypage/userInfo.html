@@ -22,13 +22,14 @@
     <main class="centered">
       <section class="main-section">
         <div id="userInfoContainer">
-        <!-- 입력 박스 -->
-        <input type="text" id="userNameInput" placeholder="이름">
-        <input type="text" id="heightInput" placeholder="키">
-        <input type="text" id="weightInput" placeholder="몸무게">
-        <input type="text" id="phoneInput" placeholder="전화번호">
-        <!-- 수정 완료 버튼 -->
-        <button id="submitButton">수정 완료</button>
+          <!-- 사용자 정보 표시 -->
+          <p>이름: <span id="userName"></span></p>
+          <p>키: <span id="height"></span></p>
+          <p>몸무게: <span id="weight"></span></p>
+          <p>전화번호: <span id="phone"></span></p>
+        </div>
+        <!-- 수정하기 버튼 -->
+        <button id="editButton" onclick="updateUserInfo()">수정하기</button>
       </section>
     </main>
     <footer>
@@ -41,8 +42,7 @@
       </ul>
       </ul>
     </footer>
-    <script src="../js/calenderBtn.js" defer></script>
-    <script src ="../js/userInfoBtn.js" defer></script>
-    <script src="../js/updateUserInfo.js" defer></script>
+    <script src="../../js/navigationBtn.js" defer></script>
+    <script src="../../js/mypage/getUserInfo.js" defer></script>
   </body>
 </html>

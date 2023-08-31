@@ -27,6 +27,7 @@ class CalenderService {
       return { status: 200, message: calenders };
     } catch (error) {
       console.log(error);
+      return { status: 400, message: error };
     }
   };
   createCalender = async (date, title, content, type, userId, imageUrl) => {

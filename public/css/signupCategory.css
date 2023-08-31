@@ -1,0 +1,107 @@
+.footer-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #f0f0f0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 20px 0;
+}
+
+footer ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+footer li {
+  display: flex;
+  align-items: center;
+  margin: 0 15px;
+  font-size: 14px;
+}
+
+footer img {
+  width: 20px; /* Adjust the width as needed */
+  margin-right: 5px;
+}
+/* 푸터 */
+
+header {
+  text-align: center;
+  background-color: #f0f0f0;
+  padding: 8px 0;
+}
+
+.header-title {
+  margin: 0;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f0f0f0;
+  padding: 8px 20px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navigation-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.navigation-title {
+  text-align: center;
+  flex: 1; /* 로고와 버튼 사이 간격 조정 */
+}
+
+.icon-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.icon-button i {
+  font-size: 18px;
+}
+
+.icon-button img {
+  width: 18px; /* 원하는 크기로 조정 */
+}
+
+/* selectUser */
+
+.selectUser {
+  position: relative;
+  top: 200px;
+  text-align: center;
+  background-color: #43a0fd51;
+  width: 380px;
+  margin: 0 auto;
+  border-radius: 10px;
+}
+
+.selectUser h1 {
+  margin-top: 8px;
+}
+
+.selectUser button {
+  margin-left: 10px;
+  background: #ccc;
+  border: 1px solid #ccc;
+  height: 44px;
+  margin-bottom: 3px;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.selectUser button:hover {
+  background-color: #f0f0f0;
+}
