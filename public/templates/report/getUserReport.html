@@ -24,7 +24,7 @@
     </header>
     <main class="centered">
       <section class="main-section">
-        <h1>문의 목록</h1>
+        <h1>신고 목록</h1>
         <table>
           <thead>
             <tr>
@@ -33,13 +33,13 @@
               <th>작성일</th>
             </tr>
           </thead>
-          <tbody id="inquiry-list">
-            <!-- 문의 목록이 여기에 추가될 것입니다 -->
+          <tbody id="report-list">
+            <!-- 신고 목록이 여기에 추가될 것입니다 -->
           </tbody>
         </table>
 
         <!-- 외부 JavaScript 파일 불러오기 -->
-        <script type="module" src="../../js/inquiry/getInquiry.js" defer></script>
+        <script type="module" src="../../js/report/getUserReport.js" defer></script>
       </section>
     </main>
     <footer>
@@ -66,6 +66,5 @@
         window.location.href = 'http://localhost:3000/login';
       });
     </script> -->
-    <script type="module" src="../../js/inquiry/editInquiry.js" defer></script>
   </body>
 </html>
