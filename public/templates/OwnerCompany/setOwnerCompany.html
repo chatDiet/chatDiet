@@ -25,7 +25,7 @@
         <!-- 메인 콘텐츠 -->
         <div class="registration-section">
           <h2>업체 등록</h2>
-          <form id="registration-form">
+          <form id="registration-form" enctype="multipart/form-data">
             <label for="company-name">업체명:</label>
             <input type="text" id="company-name" name="companyName" required /><br /><br />
 
@@ -39,7 +39,7 @@
             <input type="text" id="additional-services" name="service" placeholder="라커 (월 10,000원)" required /><br /><br />
 
             <label for="phone-number">전화번호:</label>
-            <input type="tel" id="phone-number" name="phoneNumber" pattern="[0-9]{10}" placeholder="+82 0112345678" required /><br /><br />
+            <input type="tel" id="phone-number" name="phoneNumber" pattern="[0-9]{11}" placeholder="+82 0112345678" required /><br /><br />
 
             <label for="company-website">업체 홈페이지:</label>
             <input type="url" id="company-website" name="link" placeholder="https://" /><br /><br />
@@ -47,11 +47,8 @@
             <label for="address">주소:</label>
             <input type="text" id="address" name="map" placeholder="서울특별시 중구 세종대로 110" required /><br /><br />
 
-            <!-- <label for="company-photo">업체 사진 등록:</label>
-            <input type="file" id="company-photo" name="imageUrl" accept="image/*"><br><br> -->
-            <!--혜민님 이미지 등록 1번 입니다.-->
-            <label for="company-photo">이미지:</label>
-            <input type="text" id="company-photo" name="imageUrl" placeholder="이미지" required /><br /><br />
+            <label for="company-photo">업체 사진 등록:</label>
+            <input type="file" id="company-photo" name="image" accept="image/*" multiple="multiple" />
 
             <button type="submit" id="submit-button">정보 등록</button>
           </form>

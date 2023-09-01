@@ -5,8 +5,20 @@ document.addEventListener('DOMContentLoaded', async () => {
   axios.get(`/api/companys/owner`).then(function (response) {
     const result = response.data;
 
+    document.getElementById('company-name').textContent = result.companyName;
+    document.getElementById('company-address').textContent = result.map;
+    console.log(result.imageUrl);
+    const imageUrls = result.imageUrl.split(',');
+    const smallImagesContainer = document.getElementById('companyImage');
+    for (const imageUrl of imageUrls) {
+      const imgElement = document.createElement('img');
+      console.log(imgElement);
+      imgElement.src = imageUrl;
+      imgElement.classList.add('small-image');
+      smallImagesContainer.appendChild(imgElement);
+    }
+
     const infoBox = document.getElementById('info-box');
-    // <!-- 혜민님 이미지 2번입니다.-->
     infoBox.innerHTML = `
         <h2 id="company-name">${result.companyName}</h2>
         <p id="company-address">${result.map}</p>
@@ -50,8 +62,6 @@ document.addEventListener('DOMContentLoaded', async () => {
       .catch(function (error) {
         console.log(error);
       });
-    //<!-- 혜민님 이미지 3번입니다.-->
-    // 업체 트레이너 조회
     axios
       .get(`/api/companys/${result.companyId}/trainer`)
       .then(function (response) {
@@ -59,7 +69,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         for (let i = 0; result.length > i; i++) {
           const trainerList = document.getElementById('trainer');
           trainerList.innerHTML = `<button class="trainer-card" onclick="detailTrainerBtn(${result[i].trainerId})">
-          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTxs8H7J0SCUt6g_YfSKsQzPhyJcyYwXny4Vk3gVqxItxRKjKxEgRYcJjqb8is6SdJZBCE&usqp=CAU" alt="Trainer Image" class="trainer-image">
+          <img src="${result[i].imageUrl}" alt="Trainer Image" class="trainer-image">
           <p>${result[i].trainerName}</p>
           <p>${result[i].career}</p>
           <button onclick="deleteTrainerBtn(${result[i].companyId}, ${result[i].trainerId})">트레이너 삭제</button>
