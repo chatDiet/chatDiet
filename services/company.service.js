@@ -3,7 +3,7 @@ import { CompanyRepository } from '../repositories';
 class CompanyService {
   _companyRepository = new CompanyRepository();
 
-  postCompany = async (companyName, time, additional, service, phoneNumber, link) => {
+  postCompany = async (companyName, time, additional, service, phoneNumber, link, userId, imageUrl, map) => {
     try {
       if (!companyName) {
         return {
@@ -32,7 +32,7 @@ class CompanyService {
           message: '업체 연락처 미입력',
         };
       }
-      const result = await this._companyRepository.postCompany(companyName, time, additional, service, phoneNumber, link);
+      const result = await this._companyRepository.postCompany(companyName, time, additional, service, phoneNumber, link, userId, imageUrl, map);
       if (!result) {
         return {
           status: 400,
@@ -44,6 +44,7 @@ class CompanyService {
         message: '업체 생성 성공',
       };
     } catch (err) {
+      console.log(err);
       return { status: 500, message: 'Server Error' };
     }
   };

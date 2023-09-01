@@ -214,10 +214,10 @@ class UserService {
           message: '토큰 생성 실패',
         };
       }
-
+      const userType = user.type;
       return {
         status: 200,
-        message: '로그인 성공',
+        message: userType,
         data: token,
       };
     } catch (err) {

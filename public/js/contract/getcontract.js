@@ -23,7 +23,6 @@ async function getContracts() {
         return `
         <div class="contract">
           <h1>${username}회원님</h1>
-          <p>PT:${contract.ptNumber}</p>
           <div class="contract-button">
             <button class="deleteContract" data-contract-id="${contractId}">계약취소하기</button>
             <a href='/calender'><button>회원님 캘린더 보기</button></a>

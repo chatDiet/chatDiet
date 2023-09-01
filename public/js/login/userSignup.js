@@ -27,9 +27,8 @@ signupForm.addEventListener('submit', async event => {
     })
     .then(function (response) {
       alert(response.data);
-      console.log(response.data);
 
-      window.location.href = 'http://localhost:3000/userMain';
+      window.location.href = 'http://localhost:3000/';
     })
     .catch(function (error) {
       alert(error.response.data);

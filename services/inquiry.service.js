@@ -6,20 +6,24 @@ class InquiryService {
 
   // 문의 조회
   getAllInquiry = async () => {
-    const getAllInquiryData = await this._inquiryRepository.getAllInquiry();
+    try {
+      const getAllInquiryData = await this._inquiryRepository.getAllInquiry();
 
-    const AllInquiryData = getAllInquiryData.map(inquiry => {
+      const AllInquiryData = getAllInquiryData.map(inquiry => {
+        return {
+          inquiryId: inquiry.inquiryId,
+          title: inquiry.title,
+          content: inquiry.content,
+          createdAt: inquiry.createdAt,
+        };
+      });
       return {
-        inquiryId: inquiry.inquiryId,
-        title: inquiry.title,
-        content: inquiry.content,
-        createdAt: inquiry.createdAt,
+        status: 200,
+        data: AllInquiryData,
       };
-    });
-    return {
-      status: 200,
-      data: AllInquiryData,
-    };
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   // 문의

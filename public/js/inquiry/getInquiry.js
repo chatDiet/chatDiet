@@ -7,8 +7,7 @@ async function fetchInquiries() {
       return response.data.data;
     })
     .catch(function (error) {
-      alert(error.response.data.message);
-      console.error('문의 목록 조회 실패', error);
+      console.log(error);
       return [];
     });
 }
