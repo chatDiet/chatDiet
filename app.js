@@ -78,5 +78,17 @@ export class ExpressApp {
     // this.app.get('/kakaoLogin', (req, res) => {
     //   res.sendFile(__dirname + '/public/templates/user/kakaoLogin.html');
     // });
+    this.app.get('/trainer', (req, res) => {
+      res.sendFile(__dirname + '/public/templates/trainer/trainer.html');
+    });
+    this.app.get('/myUser', (req, res) => {
+      res.sendFile(__dirname + '/public/templates/trainer/myUser.html');
+    });
+    this.app.get('/postTrainerCalender', (req, res) => {
+      res.sendFile(__dirname + '/public/templates/schedule/postTrainerCalender.html');
+    });
+    this.app.get('/detailTrainerCalender', (req, res) => {
+      res.sendFile(__dirname + '/public/templates/schedule/detailTrainerCalender.html');
+    });
   };
 }
