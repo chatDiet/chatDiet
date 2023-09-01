@@ -12,6 +12,8 @@ logoutForm.addEventListener('submit', async event => {
       alert(response.data);
       console.log(response.data);
 
+      localStorage.removeItem('token');
+
       window.location.href = 'http://localhost:3000/login';
     })
     .catch(function (error) {

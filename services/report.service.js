@@ -28,7 +28,7 @@ class ReportService {
   }
 
   // 신고
-  async createReport(userId, tragerId, title, content, type) {
+  async createReport(userId, targetId, title, content, type) {
     if (!content) {
       return {
         status: 400,
@@ -43,7 +43,7 @@ class ReportService {
       };
     }
 
-    if (!tragerId) {
+    if (!targetId) {
       return {
         status: 400,
         message: '신고할려는 ID 미입력',
@@ -58,7 +58,7 @@ class ReportService {
     }
 
     if (type === 'post') {
-      const post = await this._postRepository.getPostId(tragerId);
+      const post = await this._postRepository.getPostId(targetId);
       if (!post) {
         return {
           status: 400,
@@ -68,7 +68,7 @@ class ReportService {
     }
 
     if (type === 'comment') {
-      const comment = await this._commentRepository.getcommentId(tragerId);
+      const comment = await this._commentRepository.getcommentId(targetId);
       if (!comment) {
         return {
           status: 400,
@@ -78,7 +78,7 @@ class ReportService {
     }
 
     if (type === 'review') {
-      const review = await this._reviewRepository.findReview(tragerId);
+      const review = await this._reviewRepository.findReview(targetId);
       if (!review) {
         return {
           status: 400,
@@ -87,7 +87,7 @@ class ReportService {
       }
     }
 
-    await this._reportRepository.createReport(userId, tragerId, title, content, type);
+    await this._reportRepository.createReport(userId, targetId, title, content, type);
 
     return {
       status: 201,
@@ -156,7 +156,7 @@ class ReportService {
     const content = report.content;
     const type = report.type;
 
-    if (existReportUser.userId === userId || user.type === 'admin') {
+    if (report.userId === userId || user.type === 'admin') {
       await this._reportRepository.deleteReport(reportId, userId, title, content, type);
       return {
         status: 200,

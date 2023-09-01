@@ -47,7 +47,7 @@ class InquiryService {
   };
 
   // 문의 수정
-  updateInquiry = async (inquiryId, userId, content) => {
+  updateInquiry = async (inquiryId, userId, title, content) => {
     const existInquiryUser = await this._inquiryRepository.findInquiryId(inquiryId);
 
     if (!existInquiryUser) {
@@ -71,7 +71,14 @@ class InquiryService {
       };
     }
 
-    await this._inquiryRepository.updateInquiry(inquiryId, content);
+    if (title.length <= 0) {
+      return {
+        status: 400,
+        message: '내용을 입력하지 않았습니다.',
+      };
+    }
+
+    await this._inquiryRepository.updateInquiry(inquiryId, title, content);
 
     return {
       status: 200,
