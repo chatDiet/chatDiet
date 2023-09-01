@@ -24,7 +24,26 @@
     </header>
     <main class="centered">
       <section class="main-section">
-        <!-- 메인 콘텐츠 -->
+        <h1>신고</h1>
+        <form id="report-form">
+          <label for="targetId">대상 ID:</label>
+          <input type="text" id="targetId" name="targetId" required /><br /><br />
+
+          <label for="type">유형:</label>
+          <select id="type" name="type" required>
+            <option value="category">카테고리</option>
+            <option value="post">게시글</option>
+            <option value="comment">댓글</option>
+            <option value="review">후기</option></select
+          ><br /><br />
+          <label for="title">제목:</label>
+          <input type="text" id="title" placeholder="제목을 입력하세요" required /><br />
+
+          <label for="content">내용:</label>
+          <textarea id="content" placeholder="신고 내용을 입력하세요" rows="4" required></textarea><br />
+
+          <button type="submit">신고 제출</button>
+        </form>
       </section>
     </main>
     <footer>
@@ -36,8 +55,8 @@
         <li onclick="userInfo()"><img src="../img/free-icon-font-user-3917688.png" />마이페이지</li>
       </ul>
     </footer>
-    <script src="../js/navigationBtn.js" defer></script>
-    <script type="module" src="../js/login/userLogout.js" defer></script>
+    <!-- <script src="../js/calenderBtn.js" defer></script>
+    <script type="module" src="../js/login/userLogout.js"></script>
     <script>
       const gotoSignupButton = document.getElementById('goto-signup-button');
       gotoSignupButton.addEventListener('click', () => {
@@ -47,30 +66,10 @@
 
       const gotoLoginButton = document.getElementById('goto-login-button');
       gotoLoginButton.addEventListener('click', () => {
-        // 사용자 메인 페이지로 이동
+        // 로그인 페이지로 이동
         window.location.href = 'http://localhost:3000/login';
       });
-
-      function getCookie() {
-        const cookie = decodeURIComponent(document.cookie);
-        const [name, value] = cookie.split('=');
-        return value;
-      }
-
-      const isLoggedIn = getCookie();
-      const loginButton = document.getElementById('goto-login-button');
-      const signupButton = document.getElementById('goto-signup-button');
-      const logoutButton = document.getElementById('logoutButton');
-      if (isLoggedIn) {
-        // 로그인한 경우
-        loginButton.style.display = 'none'; // 로그인 버튼 숨김
-        signupButton.style.display = 'none'; // 회원가입 버튼 숨김
-        logoutButton.style.display = 'block'; // 로그아웃 버튼 표시
-      } else {
-        loginButton.style.display = 'block'; // 로그인 버튼 숨김
-        signupButton.style.display = 'block'; // 회원가입 버튼 숨김
-        logoutButton.style.display = 'none'; // 로그아웃 버튼 표시
-      }
-    </script>
+    </script> -->
+    <script type="module" src="../../js/report/setUserReport.js" defer></script>
   </body>
 </html>

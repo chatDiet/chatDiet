@@ -1,0 +1,171 @@
+/* userMain.css */
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  text-align: center;
+  background-color: #f0f0f0;
+  padding: 8px 0;
+}
+
+.header-title {
+  margin: 0;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f0f0f0;
+  padding: 8px 20px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navigation-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.navigation-title {
+  text-align: center;
+  flex: 1; /* 로고와 버튼 사이 간격 조정 */
+}
+
+.icon-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.icon-button i {
+  font-size: 18px;
+}
+
+.icon-button img {
+  width: 18px; /* 원하는 크기로 조정 */
+}
+
+main {
+  width: 1000px; /* 원하는 가로 사이즈로 조정 */
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: blue;
+  margin: 15px auto 5% auto; /* 수평 가운데 정렬을 위해 추가 */
+}
+.main-image {
+  margin-top: 15px;
+  width: 100%;
+  max-height: 512px;
+}
+
+.small-image {
+  width: 256px;
+  height: 256px;
+  object-fit: cover;
+}
+
+.info-box {
+  background-color: #f0f0f0;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.info-item {
+  margin-bottom: 15px;
+}
+
+.companyReview{
+  background-color: #f0f0f0;
+  padding: 15px;
+  border-radius: 10px;
+  margin-top: 15px;
+}
+
+.trainer-box {
+  width: 256px;
+  background-color: #f0f0f0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.trainer-image {
+  width: 70%;
+  border-radius: 50%;
+}
+
+.edit-button-container {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+#edit-button,
+#delete-button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+#edit-button:hover,
+#delete-button:hover {
+  background-color: #0056b3;
+}
+
+.centered {
+  text-align: center;
+}
+
+.footer-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #f0f0f0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 20px 0;
+}
+
+footer ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+footer li {
+  display: flex;
+  align-items: center;
+  margin: 0 15px;
+  font-size: 14px;
+}
+
+.custom {
+  color: black; 
+  text-decoration: none; 
+}
+
+.custom:hover {
+  color: darkgray; 
+}
+
+footer img {
+  width: 20px; /* Adjust the width as needed */
+  margin-right: 5px;
+}

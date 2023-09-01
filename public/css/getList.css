@@ -1,0 +1,223 @@
+/* getInquiry.css */
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+header {
+  text-align: center;
+  background-color: #f0f0f0;
+  padding: 8px 0;
+}
+
+.header-title {
+  margin: 0;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f0f0f0;
+  padding: 8px 20px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navigation-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.navigation-title {
+  text-align: center;
+  flex: 1; /* 로고와 버튼 사이 간격 조정 */
+}
+
+.icon-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.icon-button i {
+  font-size: 18px;
+}
+
+.icon-button img {
+  width: 18px; /* 원하는 크기로 조정 */
+}
+
+main {
+  width: 1000px; /* 원하는 가로 사이즈로 조정 */
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto; /* 수평 가운데 정렬을 위해 추가 */
+}
+
+.centered {
+  text-align: center;
+}
+
+.footer-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #f0f0f0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 20px 0;
+}
+
+footer ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+footer li {
+  display: flex;
+  align-items: center;
+  margin: 0 15px;
+  font-size: 14px;
+}
+
+footer img {
+  width: 20px; /* Adjust the width as needed */
+  margin-right: 5px;
+}
+
+/* getList.css */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #f7f7f7;
+}
+
+header {
+  background-color: #fff;
+  padding: 12px 0;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+}
+
+.navigation-title {
+  flex: 1;
+}
+
+.header-title {
+  margin: 0;
+  font-size: 24px;
+}
+
+.navigation-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.icon-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.icon-button img {
+  width: 18px;
+}
+
+main.centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 170px); /* 화면 높이에 따른 중앙 정렬 */
+}
+
+.main-section {
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 800px;
+}
+
+h1 {
+  font-size: 28px;
+  margin-bottom: 15px;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+thead {
+  background-color: #f0f0f0;
+}
+
+th,
+td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #dcdcdc;
+}
+
+th {
+  font-weight: bold;
+}
+
+tbody tr:hover {
+  background-color: #f5f5f5;
+}
+
+.footer-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #fff;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 20px 0;
+  box-shadow: 0px -2px 4px rgba(0, 0, 0, 0.1);
+}
+
+footer ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+footer li {
+  display: flex;
+  align-items: center;
+  font-size: 14px;
+  cursor: pointer;
+}
+
+footer img {
+  width: 20px;
+  margin-right: 5px;
+}
