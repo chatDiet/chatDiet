@@ -1,0 +1,306 @@
+@import url('https://fonts.googleapis.com/css?family=Questrial&display=swap');
+
+body { background-color : skyblue; } 
+
+/* userMain.css */
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  header {
+    text-align: center;
+    background-color: #f0f0f0;
+    padding: 8px 0;
+  }
+  
+  .header-title {
+    margin: 0;
+  }
+  
+  .navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f0f0f0;
+    padding: 8px 20px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .navigation-buttons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .navigation-title {
+    text-align: center;
+    flex: 1; /* 로고와 버튼 사이 간격 조정 */
+  }
+  
+  .icon-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .icon-button i {
+    font-size: 18px;
+  }
+  
+  .icon-button img {
+    width: 18px; /* 원하는 크기로 조정 */
+  }
+  
+  main {
+    width: 1000px; /* 원하는 가로 사이즈로 조정 */
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto; /* 수평 가운데 정렬을 위해 추가 */
+  }
+  
+  .centered {
+    text-align: center;
+    width: 1200px;
+    height: 1800px;
+  }
+  
+  .footer-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #f0f0f0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 20px 0;
+  }
+  
+  footer ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  footer li {
+    display: flex;
+    align-items: center;
+    margin: 0 15px;
+    font-size: 14px;
+  }
+  
+  footer img {
+    width: 20px; /* Adjust the width as needed */
+    margin-right: 5px;
+  }
+
+  
+.Calenderdiv {
+    background-color : white;
+    height: auto;
+    width: 400px;
+    margin: 0px;
+    padding: 20px;
+    margin: 0 auto;
+    border-radius:5px;
+    box-shadow:0px 40px 30px -20px rgba(0,0,0,0.3);
+}
+a {
+    text-decoration: none;
+  }
+td {
+    width: 50px;
+    height: 50px;
+}
+.main-section{
+    display: flex; /* Flex 레이아웃 사용 */
+    justify-content: space-between; /* 요소 사이의 여백을 최대로 활용하여 정렬 */
+}
+
+.contractContaier{
+    background-color: #fff;
+    padding: 10px 10px 10px 10px;
+}
+.schedule{
+    background-color: #fff;
+    display: flex;
+    margin-top: 10px;
+    height: 30px;
+    display: block;
+}
+.addSchedule{
+    background-color: #eee;
+    display: flex;
+    width: 250px;
+}
+.trainerCalendar {
+    text-align: center;
+    width: 1000px;
+    height: 500px;
+}
+.fc-daygrid-day-frame fc-scrollgrid-sync-inner{
+  width: 50px;
+  height: 20px;
+}
+.trainerCalendar>thead>tr:first-child>td {
+    font-family: 'Questrial', sans-serif;
+    font-size: 1.1em;
+    font-weight: bold;
+}
+
+.trainerCalendar>thead>tr:last-child>td {
+    font-family: 'Questrial', sans-serif;
+    font-weight: 600;     
+}
+#trainerCalender {
+  margin-top: 10px;
+  width: 1000px;
+  margin-left: 100px;
+}
+.trainerCalendar>tbody>tr>td>p {
+    font-family: 'Montserrat', sans-serif;
+    height: 45px;
+    width: 45px;
+    border-radius: 45px;
+    transition-duration: .2s;
+    line-height: 45px;
+    margin: 2.5px;
+    display: block;
+    text-align: center;
+}        
+
+.pastDay {
+    color: lightgray;
+}
+
+.today {
+    background-color: #F5D042;            
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.futureDay {
+    background-color: #FFFFFF;
+    cursor: pointer;
+}
+.futureDay:hover{
+    background:#eee;
+}
+
+.futureDay.choiceDay,
+.today.choiceDay {
+    background: #0A174E;
+    color: #fff;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* userMain.css */
+body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  
+  header {
+    text-align: center;
+    background-color: #f0f0f0;
+    padding: 8px 0;
+  }
+  
+  .header-title {
+    margin: 0;
+  }
+  
+  .navigation {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #f0f0f0;
+    padding: 8px 20px;
+    box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+  .navigation-buttons {
+    display: flex;
+    gap: 10px;
+  }
+  
+  .navigation-title {
+    text-align: center;
+    flex: 1; /* 로고와 버튼 사이 간격 조정 */
+  }
+  
+  .icon-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .icon-button i {
+    font-size: 18px;
+  }
+  
+  .icon-button img {
+    width: 18px; /* 원하는 크기로 조정 */
+  }
+  
+  main {
+    width: 1000px; /* 원하는 가로 사이즈로 조정 */
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto; /* 수평 가운데 정렬을 위해 추가 */
+  }
+  
+  .centered {
+    text-align: center;
+  }
+  
+  .footer-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: #f0f0f0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 20px 0;
+  }
+  
+  footer ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  footer li {
+    display: flex;
+    align-items: center;
+    margin: 0 15px;
+    font-size: 14px;
+  }
+  
+  footer img {
+    width: 20px; /* Adjust the width as needed */
+    margin-right: 5px;
+  }
+  

@@ -21,7 +21,6 @@ export class ExpressApp {
   };
 
   setAppRouter = () => {
-    // routes
     this.app.use('/api', routes, (error, request, response) => {
       response.status(400).json({
         success: false,
@@ -31,8 +30,6 @@ export class ExpressApp {
   };
 
   setHtml = () => {
-    //  이런식으로 만든 화면단 붙여주시면 됩니다
-    // 유저 메인 화면
     this.app.get('/calender', (req, res) => {
       res.sendFile(__dirname + '/public/templates/calender/userCalender.html');
     });
@@ -74,6 +71,18 @@ export class ExpressApp {
     });
     this.app.get('/mypage', (req, res) => {
       res.sendFile(__dirname + '/public/templates/mypage/userMypage.html');
+    });
+    this.app.get('/trainer', (req, res) => {
+      res.sendFile(__dirname + '/public/templates/trainer/trainer.html');
+    });
+    this.app.get('/myUser', (req, res) => {
+      res.sendFile(__dirname + '/public/templates/trainer/myUser.html');
+    });
+    this.app.get('/postTrainerCalender', (req, res) => {
+      res.sendFile(__dirname + '/public/templates/schedule/postTrainerCalender.html');
+    });
+    this.app.get('/detailTrainerCalender', (req, res) => {
+      res.sendFile(__dirname + '/public/templates/schedule/detailTrainerCalender.html');
     });
     this.app.get('/setOwnerCompany', (req, res) => {
       res.sendFile(__dirname + '/public/templates/OwnerCompany/setOwnerCompany.html');
