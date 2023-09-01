@@ -1,4 +1,3 @@
-// 업로드 , 조회 , 수정(url) , 삭제(서버에서 )
 // 단일 업로드 / 다중 업로드
 const multer = require('multer');
 const { S3Client, PutObjectCommand } = require('@aws-sdk/client-s3');
@@ -21,23 +20,19 @@ const upload = multer({
       cb(null, `${Date.now()}_${path.basename(file.originalname)}`);
     },
   }),
-  fileFilter: function (req, file, cb) {
-    if (file.fieldname !== 'image') {
-      return cb(new Error('Only image files are allowed'));
-    }
-    cb(null, true);
-  },
 });
 const singleUpload = fieldName => {
   return function (req, res, next) {
     upload.single(fieldName)(req, res, function (err) {
       if (err instanceof multer.MulterError && err.code === 'LIMIT_UNEXPECTED_FILE') {
         // 이미지 필드가 누락된 경우 기본값을 설정
+        console.log('이미지 필드 에러 ', err);
         req.file = null;
         next();
       } else if (err) {
         next(err);
       } else {
+        console.log(req);
         next();
       }
     });

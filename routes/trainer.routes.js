@@ -1,14 +1,14 @@
 import { Router } from 'express';
 import { TrainerController } from '../controllers';
 import isAuth from '../middlewares/auth.middleware';
-import { multipleUpload } from '../middlewares/awsS3.middleware';
+import { singleUpload } from '../middlewares/awsS3.middleware';
 
 const router = Router();
 
 const trainerController = new TrainerController();
 
 //트레이너 등록(트레이너만 가능)
-router.post('/trainer', isAuth, trainerController.create);
+router.post('/trainer', isAuth, singleUpload('image'), trainerController.create);
 //해당 헬스장 트레이너 조회
 router.get('/companys/:companyId/trainer', trainerController.read);
 //트레이너 한명 디테일 조회
