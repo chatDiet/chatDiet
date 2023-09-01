@@ -9,6 +9,10 @@
     <link rel="stylesheet" href="../css/modal.css" />
     <script src="https://code.jquery.com/jquery-3.4.1.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" defer></script>
+    <script
+      type="text/javascript"
+      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=bbb9f4265c6b412072975dbd35510aba&libraries=services,clusterer,drawing"
+    ></script>
     <title>Your Project</title>
   </head>
   <body>
@@ -18,7 +22,7 @@
           <h1 class="header-title">chat Diet plan</h1>
         </div>
         <div class="navigation-buttons">
-          <button class="icon-button"><img src="../img/free-icon-font-search-3917132.png" alt="검색"></button>
+          <button class="icon-button"><img src="../img/free-icon-font-search-3917132.png" alt="검색" /></button>
           <button class="icon-button">로그인 해주세요</button>
         </div>
       </nav>
@@ -50,12 +54,11 @@
     </main>
     <footer>
       <ul class="footer-list">
-        <li><img src="../img/free-icon-font-calendar-3917244.png" >캘린더</li>
-        <li onclick="getCompanyBtn()" id="footerBtn"><img src="../img/free-icon-training-9958263.png">헬스장</li>
-        <li onclick="getChatListBtn()" id="footerBtn"><img src="../img/free-icon-font-envelope-3916611.png" >채팅</li>
-        <li onclick="getCommunityBtn()" id="footerBtn"><img src="../img/free-icon-font-world-3916979.png">커뮤니티</li>
-        <li><img src="../img/free-icon-font-user-3917688.png" >마이페이지</li>
-      </ul>
+        <li><img src="../img/free-icon-font-calendar-3917244.png" />캘린더</li>
+        <li onclick="getCompanyBtn()" id="footerBtn"><img src="../img/free-icon-training-9958263.png" />헬스장</li>
+        <li onclick="getChatListBtn()" id="footerBtn"><img src="../img/free-icon-font-envelope-3916611.png" />채팅</li>
+        <li onclick="getCommunityBtn()" id="footerBtn"><img src="../img/free-icon-font-world-3916979.png" />커뮤니티</li>
+        <li><img src="../img/free-icon-font-user-3917688.png" />마이페이지</li>
       </ul>
     </footer>
     <script src="../js/company/getDetailCompany.js" defer></script>
