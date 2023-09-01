@@ -24,20 +24,23 @@
     </header>
     <main class="centered">
       <section class="main-section">
+        <div id="companyList">헬스장 목록</div>
+        <div id="companyZone"></div>
         <!-- 메인 콘텐츠 -->
       </section>
     </main>
     <footer>
       <ul class="footer-list">
-        <li><img src="../img/free-icon-font-calendar-3917244.png" >캘린더</li>
+        <li onclick="getCalender()"><img src="../img/free-icon-font-calendar-3917244.png" />캘린더</li>
         <li onclick="getCompanyBtn()" id="footerBtn"><img src="../img/free-icon-training-9958263.png">헬스장</li>
         <li onclick="getChatListBtn()" id="footerBtn"><img src="../img/free-icon-font-envelope-3916611.png" >채팅</li>
         <li onclick="getCommunityBtn()" id="footerBtn"><img src="../img/free-icon-font-world-3916979.png">커뮤니티</li>
-        <li><img src="../img/free-icon-font-user-3917688.png" >마이페이지</li>
+        <li onclick="userInfo()"><img src="../img/free-icon-font-user-3917688.png" />마이페이지</li>
       </ul>
       </ul>
     </footer>
     <script src="../js/company/getCompany.js" defer></script>
     <script src="../js/commonBtn.js" defer></script>
+    <script src="../js/calender/calenderBtn.js" defer></script>
   </body>
 </html>

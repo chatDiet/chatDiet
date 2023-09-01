@@ -10,12 +10,23 @@ class CompanyService {
           status: 400,
           message: '업체 이름 미입력',
         };
-      } else if (!time) {
+      }
+
+      if (!time) {
         return {
           status: 400,
           message: '운영 시간 미입력',
         };
-      } else if (!phoneNumber) {
+      }
+
+      if (!additional) {
+        return {
+          status: 400,
+          message: '업체 추가 운영 프로그램 미입력',
+        };
+      }
+
+      if (!phoneNumber) {
         return {
           status: 400,
           message: '업체 연락처 미입력',

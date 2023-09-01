@@ -5,7 +5,7 @@ $('#savePost').click(function () {
   axios
     .post('/api/post', { title: title, content: content })
     .then(function (response) {
-      const postId = response.data.data.postId;
+      const postId = response.data.postId;
       alert('게시글 작성 완료');
       location.href = `/detailCommunity?postId=${postId}`;
     })
