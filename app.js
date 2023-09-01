@@ -102,8 +102,14 @@ export class ExpressApp {
     this.app.get('/mypage', (req, res) => {
       res.sendFile(__dirname + '/public/templates/mypage/userMypage.html');
     });
-    // this.app.get('/kakaoLogin', (req, res) => {
-    //   res.sendFile(__dirname + '/public/templates/user/kakaoLogin.html');
-    // });
+    this.app.get('/setOwnerCompany', (req, res) => {
+      res.sendFile(__dirname + '/public/templates/OwnerCompany/setOwnerCompany.html');
+    });
+    this.app.get('/getOwnerCompany', (req, res) => {
+      res.sendFile(__dirname + '/public/templates/OwnerCompany/getOwnerCompany.html');
+    });
+    this.app.get('/putOwnerCompany', (req, res) => {
+      res.sendFile(__dirname + '/public/templates/OwnerCompany/putOwnerCompany.html');
+    });
   };
 }
