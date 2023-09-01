@@ -8,7 +8,7 @@ axios.get(`/api/company/${companyId}`).then(function (response) {
   const companyName = result.companyName;
   const imageUrl = result.imageUrl;
   const link = result.link;
-  const map = result.map;
+  const address = result.map;
   const phoneNumber = result.phoneNumber;
   const time = result.time;
   const service = result.service;
@@ -24,7 +24,7 @@ axios.get(`/api/company/${companyId}`).then(function (response) {
         <div>companyName : ${companyName}</div>
         <div>imageUrl : ${imageUrl}</div>
         <div>link : ${link}</div>
-        <div>map : ${map}</div>
+        <div>map : ${address}</div>
         <div>phoneNumber : ${phoneNumber}</div>
         <div>time : ${time}</div>
         <div>service : ${service}</div>
@@ -33,8 +33,37 @@ axios.get(`/api/company/${companyId}`).then(function (response) {
       <div id="trainerList"></div>
       <button id="createReviewBtn" onclick="createReviewBtn(${companyId}, '${type}')">리뷰 작성</button>
       <div id="reviews"></div>
+      <div id="companyMap" style="width: 100%; height: 400px;"></div>
       `;
   $('.main-section').append(temp_html);
+
+  // Kakao 지도 기능
+  const mapAddress = address;
+  const mapContainer = document.getElementById('companyMap');
+  const mapOptions = {
+    center: new kakao.maps.LatLng(33.450701, 126.570667),
+    level: 3,
+  };
+  const map = new kakao.maps.Map(mapContainer, mapOptions);
+  const geocoder = new kakao.maps.services.Geocoder();
+
+  geocoder.addressSearch(mapAddress, function (result, status) {
+    if (status === kakao.maps.services.Status.OK) {
+      const coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+
+      const marker = new kakao.maps.Marker({
+        map: map,
+        position: coords,
+      });
+
+      const infowindow = new kakao.maps.InfoWindow({
+        content: `<div style="width:150px;text-align:center;padding:6px 0;">${companyName}</div>`,
+      });
+      infowindow.open(map, marker);
+
+      map.setCenter(coords);
+    }
+  });
 });
 
 // 업체 트레이너 전체 조회
