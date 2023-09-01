@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../css/userMain.css" />
     <link rel="stylesheet" href="../css/common.css" />
+    <link rel="stylesheet" href="../css/communityMain.css" />
     <script src="https://code.jquery.com/jquery-3.4.1.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" defer></script>
     <title>Your Project</title>
@@ -23,9 +24,13 @@
     </header>
     <main class="centered">
       <div id="createPostBtn">
-        <button  onclick="createPostBtn()">게시글 작성</button>
       </div>
         <section class="main-section">
+          <div id="createPostBtn">
+            <span>게시글 목록</span>
+            <button onclick="createPostBtn()">게시글 작성</button>
+          </div>
+          <div id="postList"></div>
           <!-- 메인 콘텐츠 -->
         </section>
     </main>

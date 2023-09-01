@@ -30,6 +30,14 @@ class ContractService {
         };
       }
 
+      const checkContract = await this._contractRepository.getContract(trainerId, userId);
+      if (checkContract) {
+        return {
+          status: 404,
+          message: '이미 계약 된 상태',
+        };
+      }
+
       const contract = await this._contractRepository.createContract(trainerId, userId);
       if (!contract) {
         return {
@@ -78,12 +86,26 @@ class ContractService {
 
     const findUserData = await this._userRepository.getUserById(userId);
 
-    if (findContractData.userId === userId || findUserData.type === 'admin' || findUserData.type === 'trainer') {
+    if (findUserData.type === 'trainer') {
+      const trainerData = await this._trainerRepository.findTrainer(userId);
+
+      if (findContractData.trainerId !== trainerData.trainerId) {
+        return {
+          status: 401,
+          message: '계약을 취소하실 권한이 존재하지 않습니다.',
+        };
+      }
+      await this._contractRepository.deleteContract(contractId);
+
+      return { status: 200, message: '계약이 취소되었습니다.' };
+    }
+
+    if (findContractData.userId === userId || findUserData.type === 'admin') {
       await this._contractRepository.deleteContract(contractId);
 
       return { status: 200, message: '계약이 취소되었습니다.' };
     } else {
-      return { status: 400, message: '계약을 취소하실 권한이 존재하지 않습니다.' };
+      return { status: 401, message: '계약을 취소하실 권한이 존재하지 않습니다.' };
     }
   };
 

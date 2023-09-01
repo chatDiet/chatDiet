@@ -4,7 +4,7 @@ const postId = urlParams.get('postId');
 // 게시글 상세 조회
 axios.get(`/api/posts/${postId}`).then(function (response) {
   const result = response.data;
-  $('.main-section').empty();
+  $('#postZone').empty();
   const postId = result.postId;
   const userId = result.userId;
   const title = result.title;
@@ -13,16 +13,16 @@ axios.get(`/api/posts/${postId}`).then(function (response) {
 
   let temp_html = `
       <div id="communityList">
-        <div>postId : ${postId}</div>
-        <div>userId : ${userId}</div>
-        <div>title : ${title}</div>
-        <div>content : ${content}</div>
+        <div>제목 : ${title}</div>
+        <div>내용 : ${content}</div>
       </div>
-      <button onclick="reportBtn(${postId}, '${type}')">신고 버튼</button>
-      <div id="commentList"></div>
-      <button onclick="postComment()">댓글 작성</button>
+      <div id="buttonList">
+        <button onclick="postComment()">댓글 작성</button>
+        <button onclick="deletePostBtn(${postId})">게시글 삭제</button>
+        <button onclick="reportBtn(${postId}, '${type}')">신고 버튼</button>
+      </div>
       `;
-  $('.main-section').append(temp_html);
+  $('#postZone').append(temp_html);
 });
 
 // 댓글 조회
@@ -30,7 +30,7 @@ axios
   .get(`/api/posts/${postId}/comments`)
   .then(function (response) {
     const result = response.data;
-    $('#commentList').empty();
+    $('#commentZone').empty();
     for (let i = result.length - 1; i >= 0; i--) {
       const commentId = result[i].commentId;
       const userId = result[i].userId;
@@ -39,13 +39,13 @@ axios
 
       let temp_html = `
       <div id="comment">
-        <div>commentId : ${commentId}</div>
         <div>userId : ${userId}</div>
-        <div>content : ${content}</div>
+        <div>내용 : ${content}</div>
+        <button onclick="deleteCommentBtn(${postId}, ${commentId})">댓글 삭제</button>
         <button onclick="reportBtn(${commentId}, '${type}')">신고 버튼</button>
       </div>
       `;
-      $('#commentList').append(temp_html);
+      $('#commentZone').append(temp_html);
     }
   })
   .catch(function (error) {
@@ -71,7 +71,10 @@ postComment = () => {
   saveComment = content => {
     axios
       .post(`/api/posts/${postId}/comment`, { content: content })
-      .then(function (response) {})
+      .then(function (response) {
+        alert('댓글 작성 성공');
+        location.reload();
+      })
       .catch(function (error) {
         alert(error.response.data.message);
         location.href = `/detailCommunity?postId=${postId}`;

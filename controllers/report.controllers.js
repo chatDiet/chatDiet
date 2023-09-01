@@ -15,7 +15,7 @@ class ReportController {
     }
   };
 
-  // 신고
+  // 신고 생성
   createReport = async (req, res) => {
     const userId = res.locals.userId;
     const { targetId, title, content, type } = req.body;
