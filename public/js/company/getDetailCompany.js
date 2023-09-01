@@ -21,7 +21,7 @@ axios.get(`/api/company/${companyId}`).then(function (response) {
         <div id="imageUrl">imageUrl : ${imageUrl}</div>
         <div id="companyName">업체 이름 : ${companyName}</div>
         <div id="phoneNumber">연락처 : ${phoneNumber}</div>
-        <div id="map">map : ${map}</div>
+        <div id="map">map : ${address}</div>
         <div id="time">운영시간 : ${time}</div>
         <div id="additional">추가 운영 프로그램 : ${additional}</div>
         <div id="service">부가 서비스 : ${service}</div>

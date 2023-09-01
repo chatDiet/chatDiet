@@ -5,7 +5,6 @@ class CompanyController {
 
   // 업체 생성
   postCompany = async (req, res) => {
-    // console.log(req);
     const { companyName, time, additional, service, phoneNumber, link, map } = req.body;
     const userId = res.locals.userId;
     const imageUrls = req.files.map(file => file.location); // 여러 이미지의 location을 배열로 저장

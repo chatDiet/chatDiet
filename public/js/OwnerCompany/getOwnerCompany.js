@@ -7,7 +7,6 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     document.getElementById('company-name').textContent = result.companyName;
     document.getElementById('company-address').textContent = result.map;
-    console.log(result.imageUrl);
     const imageUrls = result.imageUrl.split(',');
     const smallImagesContainer = document.getElementById('companyImage');
     for (const imageUrl of imageUrls) {
