@@ -3,9 +3,12 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../css/trainer.css" />
-    <!-- <script type="module" src="../js/trainer/trainerApi.js"></script> -->
-    <title>트레이너</title>
+    <link rel="stylesheet" href="../../css/userCalender.css" />
+    <link rel="stylesheet" href="../css/detailSchedule.css" />
+
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
+    <title>스케줄</title>
   </head>
   <body>
     <header>
@@ -20,43 +23,48 @@
       </nav>
     </header>
     <main class="centered">
+      <div id="pencil">
+        <a href="/postTrainerCalender"><img src="../img/free-icon-font-pencil-3917376.png" /></a>
+      </div>
       <section class="main-section">
-        <div class="Calenderdiv">
-          <table class="Calendar">
-            <thead>
-              <button id="createPost">스케줄 생성</button>
-              <button>스케줄 삭제</button>
-              <tr>
-                <td onClick="prevCalendar()" style="cursor: pointer">&#60;</td>
-                <td colspan="5"><span id="calYear"></span>년 <span id="calMonth"></span>월</td>
-                <td onClick="nextCalendar()" style="cursor: pointer">&#62;</td>
-              </tr>
-              <tr>
-                <td>일</td>
-                <td>월</td>
-                <td>화</td>
-                <td>수</td>
-                <td>목</td>
-                <td>금</td>
-                <td>토</td>
-              </tr>
-            </thead>
-            <tbody></tbody>
-          </table>
+        <div class="ui container">
+          <div class="ui grid">
+            <div class="ui sixteen column">
+              <div id="trainerCalendar"></div>
+            </div>
+          </div>
+        </div>
       </section>
+      <div id="dayCalender">
+        <div class="detailSchedule">
+          <div class="sidebar">
+            <!-- 사이드바 내용 -->
+            <button id="close-sidebar-button">닫기</button>
+          </div>
+        </div>
+      </div>
     </main>
     <footer>
       <ul class="footer-list">
-        <a href="myuser.html"
+        <a href="/myUser"
           ><li><img src="../img/free-icon-font-calendar-3917244.png" />내 회원</li>
         </a>
         <li><img src="../img/free-icon-training-9958263.png" />스케줄</li>
-        <li><img src="../img/free-icon-font-envelope-3916611.png" />채팅</li>
-        <li><img src="../img/free-icon-font-world-3916979.png" />커뮤니티</li>
-        <li><img src="../img/free-icon-font-user-3917688.png" />마이페이지</li>
+        <a href="/chatMain">
+          <li><img src="../img/free-icon-font-envelope-3916611.png" />채팅</li>
+        </a>
+        <a href="/communityMain">
+          <li><img src="../img/free-icon-font-world-3916979.png" />커뮤니티</li>
+        </a>
+        <a href="/userInfo">
+          <li><img src="../img/free-icon-font-user-3917688.png" />마이페이지</li>
+        </a>
       </ul>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script type="module" src="../js/trainer/tainer.js"></script>
+    <script src="../../js/schedule/trainerCalenderBtn.js" defer></script>
+    <script type="module" src="../../js/schedule/getTrainerCalender.js" defer></script>
+    <script type="module" src="../../js/schedule/detailschedule.js" defer></script>
+    <script type="module" src="../../js/schedule/deletschedule.js" defer></script>
   </body>
 </html>

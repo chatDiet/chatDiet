@@ -7,7 +7,8 @@ class ScheduleController {
   postSchedule = async (req, res) => {
     const userId = res.locals.userId;
     const { title, date } = req.body;
-
+    console.log(title);
+    console.log(date);
     const result = await this._scheduleService.postSchedule(title, date, userId);
 
     return res.status(result.status).json(result.message);

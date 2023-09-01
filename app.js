@@ -100,7 +100,16 @@ export class ExpressApp {
       res.sendFile(__dirname + '/public/templates/chat/getChatRoom.html');
     });
     this.app.get('/trainer', (req, res) => {
-      res.sendFile(__dirname + 'public/templates/trainer.html');
+      res.sendFile(__dirname + '/public/templates/trainer/trainer.html');
+    });
+    this.app.get('/myUser', (req, res) => {
+      res.sendFile(__dirname + '/public/templates/trainer/myUser.html');
+    });
+    this.app.get('/postTrainerCalender', (req, res) => {
+      res.sendFile(__dirname + '/public/templates/schedule/postTrainerCalender.html');
+    });
+    this.app.get('/detailTrainerCalender', (req, res) => {
+      res.sendFile(__dirname + '/public/templates/schedule/detailTrainerCalender.html');
     });
   };
 }

@@ -10,15 +10,12 @@ async function getUserInfo() {
     console.error('유저 정보가 존재하지 않습니다.', error);
   }
 }
-getUserInfo();
 
 async function getContracts() {
   try {
     const contractResponse = await axios.get('/api/contract');
     const contract = contractResponse.data;
-    // console.log(contractId, 'contractId');
-    // 사용자 정보를 가져오기 위한 쿼리 또는 API 호출을 수행
-    // 계약 목록을 생성하고 HTML에 추가
+    console.log(contract, 'contract');
     const contractListHTML = await Promise.all(
       contract.map(async contract => {
         const username = await getUserInfo();
@@ -29,7 +26,8 @@ async function getContracts() {
           <p>PT:${contract.ptNumber}</p>
           <div class="contract-button">
             <button class="deleteContract" data-contract-id="${contractId}">계약취소하기</button>
-          </div>
+            <a href='/calender'><button>회원님 캘린더 보기</button></a>
+            </div>
         </div>
       `;
       })
