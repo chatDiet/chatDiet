@@ -1,8 +1,4 @@
 const urlParams = new URLSearchParams(window.location.search);
-// const numberPattern = /\/(\d+)$/;
-// const match = numberPattern.exec(currentURL);
-// const numberValue = match[1];
-// console.log(numberValue);
 const companyId = urlParams.get('companyId');
 const trainerId = urlParams.get('trainerId');
 
@@ -12,7 +8,6 @@ axios.get(`/api/companys/${companyId}/trainers/${trainerId}`).then(function (res
 
   $('#trainers').empty();
   const trainerId = result.trainerId;
-  const userId = result.userId;
   const imageUrl = result.imageUrl;
   const trainerName = result.trainerName;
   const career = result.career;
@@ -21,15 +16,16 @@ axios.get(`/api/companys/${companyId}/trainers/${trainerId}`).then(function (res
 
   let temp_html = `
       <div id="trainer">
-        <button onclick="createContractBtn(${trainerId})">계약</button>
-        <div>trainerId : ${trainerId}</div>
-        <div>userId : ${userId}</div>
         <div>imageUrl : ${imageUrl}</div>
-        <div>trainerName : ${trainerName}</div>
-        <div>career : ${career}</div>
-        <div>ptContent : ${ptContent}</div>
+        <div>트레이너 이름 : ${trainerName}</div>
+        <div>경력 : ${career}</div>
+        <div>PT 내용 : ${ptContent}</div>
       </div>
-      <button onclick="createReviewBtn(${trainerId}, '${type}')">리뷰 작성</button>`;
+      <div id="button">
+        <button onclick="createContractBtn(${trainerId})">계약하기</button>
+        <button id="createReviewBtn" onclick="createReviewBtn(${trainerId}, '${type}')">리뷰 작성</button>
+      </div>`;
+
   $('#trainers').append(temp_html);
 });
 
@@ -47,7 +43,6 @@ axios
       $('#reviews').empty();
       for (let i = 0; result.length > i; i++) {
         const reviewId = result[i].reviewId;
-        const userId = result[i].userId;
         const content = result[i].content;
         const grade = result[i].grade;
         const type = 'review';
@@ -55,10 +50,8 @@ axios
 
         let t = `
       <div id="review">
-        <div>reviewId : ${reviewId}</div>
-        <div>userId : ${userId}</div>
-        <div>content : ${content}</div>
-        <div>grade : ${grade}</div>
+        <div>내용 : ${content}</div>
+        <div>평점 : ${grade}</div>
         <button onclick="reportBtn(${reviewId}, '${type}')">신고 버튼</button>
         <button onclick="deleteReviewBtn(${reviewId})">삭제 버튼</button>
       </div>

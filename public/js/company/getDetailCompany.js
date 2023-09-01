@@ -14,26 +14,24 @@ axios.get(`/api/company/${companyId}`).then(function (response) {
   const service = result.service;
   const additional = result.additional;
   const companyId = result.companyId;
-  const userId = result.userId;
-  const type = 'post';
+  const type = 'company';
 
   let temp_html = `
-      <div id="companyList" onclick="getDetailCompanyBtn(${companyId})">
-        <div>companyId : ${companyId}</div>
-        <div>userId : ${userId}</div>
-        <div>companyName : ${companyName}</div>
-        <div>imageUrl : ${imageUrl}</div>
-        <div>link : ${link}</div>
-        <div>map : ${map}</div>
-        <div>phoneNumber : ${phoneNumber}</div>
-        <div>time : ${time}</div>
-        <div>service : ${service}</div>
-        <div>additional : ${additional}</div>
+      <div id="companyList">
+        <div id="imageUrl">imageUrl : ${imageUrl}</div>
+        <div id="companyName">업체 이름 : ${companyName}</div>
+        <div id="phoneNumber">연락처 : ${phoneNumber}</div>
+        <div id="map">map : ${map}</div>
+        <div id="time">운영시간 : ${time}</div>
+        <div id="additional">추가 운영 프로그램 : ${additional}</div>
+        <div id="service">부가 서비스 : ${service}</div>
+        <div id="link">link : ${link}</div>
       </div>
-      <div id="trainerList"></div>
+      <div id="trainerInfo">트레이너 목록
+        <div id="trainerList"></div>
+      </div>
       <button id="createReviewBtn" onclick="createReviewBtn(${companyId}, '${type}')">리뷰 작성</button>
-      <div id="reviews"></div>
-      `;
+      <div id="reviews"></div>`;
   $('.main-section').append(temp_html);
 });
 
@@ -52,12 +50,10 @@ axios.get(`/api/companys/${companyId}/trainer`).then(function (response) {
 
     let temp_html = `
     <button id="trainer" onclick="getDetailTrainerBtn(${companyId}, ${trainerId})">
-      <div>trainerId : ${trainerId}</div>
-      <div>userId : ${userId}</div>
       <div>imageUrl : ${imageUrl}</div>
-      <div>trainerName : ${trainerName}</div>
-      <div>career : ${career}</div>
-      <div>ptContent : ${ptContent}</div>
+      <div>트레이너 이름 : ${trainerName}</div>
+      <div>경력 : ${career}</div>
+      <div>PT 내용 : ${ptContent}</div>
     </button>`;
     $('#trainerList').append(temp_html);
   }
@@ -77,17 +73,14 @@ axios
       $('#reviews').empty();
       for (let i = 0; result.length > i; i++) {
         const reviewId = result[i].reviewId;
-        const userId = result[i].userId;
         const content = result[i].content;
         const grade = result[i].grade;
         const type = 'review';
 
         let temp_html = `
       <div id="review">
-        <div>reviewId : ${reviewId}</div>
-        <div>userId : ${userId}</div>
-        <div>content : ${content}</div>
-        <div>grade : ${grade}</div>
+        <div>내용 : ${content}</div>
+        <div>평점 : ${grade}</div>
         <button onclick="reportBtn(${reviewId}, '${type}')">신고 버튼</button>
         <button onclick="deleteReviewBtn(${reviewId})">삭제 버튼</button>
       </div>`;

@@ -6,7 +6,7 @@ createContractBtn = trainerId => {
       location.reload();
     })
     .catch(function (error) {
-      alert(error.response.data.message);
+      alert(error.response.data);
       location.reload();
     });
 };
