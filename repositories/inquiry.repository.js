@@ -23,8 +23,8 @@ class InquiryRepository {
     return getInquirysData;
   }
 
-  async updateInquiry(inquiryId, content) {
-    return await Inquiry.update({ content }, { where: { inquiryId } });
+  async updateInquiry(inquiryId, title, content) {
+    return await Inquiry.update({ title, content }, { where: { inquiryId } });
   }
 
   async deleteInquiry(inquiryId) {

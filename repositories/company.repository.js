@@ -71,6 +71,17 @@ class CompanyRepository {
       console.log(err);
     }
   };
+
+  getOwnerCompany = async userId => {
+    try {
+      const result = await Company.findOne({
+        where: { userId },
+      });
+      return result;
+    } catch (err) {
+      console.log(err);
+    }
+  };
 }
 
 export default CompanyRepository;

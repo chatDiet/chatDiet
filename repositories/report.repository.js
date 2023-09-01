@@ -20,8 +20,6 @@ class ReportRepository {
   }
 
   async createReport(userId, targetId, title, content, type) {
-    console.log('test111111111111111');
-
     return await Report.create({ userId, targetId, title, content, type });
   }
 

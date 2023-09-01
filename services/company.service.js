@@ -226,6 +226,18 @@ class CompanyService {
       return { status: 500, message: 'Server Error' };
     }
   };
+  getOwnerCompany = async userId => {
+    try {
+      const result = await this._companyRepository.getOwnerCompany(userId);
+      return {
+        status: 200,
+        message: result,
+      };
+    } catch (err) {
+      console.log(err);
+      return { status: 500, message: 'Server Error' };
+    }
+  };
 }
 
 export default CompanyService;
