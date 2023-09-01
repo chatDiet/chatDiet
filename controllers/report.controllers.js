@@ -15,13 +15,13 @@ class ReportController {
     }
   };
 
-  // 신고
+  // 신고 생성
   createReport = async (req, res) => {
     const userId = res.locals.userId;
-    const { tragerId, title, content, type } = req.body;
+    const { targetId, title, content, type } = req.body;
 
     try {
-      const createReport = await this._reportService.createReport(userId, tragerId, title, content, type);
+      const createReport = await this._reportService.createReport(userId, targetId, title, content, type);
 
       res.status(createReport.status).json({ message: createReport.message });
     } catch (err) {

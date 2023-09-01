@@ -4,10 +4,14 @@ axios.get(`api/contract`).then(function (response) {
   for (let i = result.length - 1; i >= 0; i--) {
     const userId = result[i].userId;
     const trainerId = result[i].trainerId;
-    const ptNumber = result[i].ptNumber;
+    const contractId = result[i].contractId;
 
     let temp_html = `
-    <button onclick="joinChatroom(${userId},${trainerId})">${userId}${trainerId}번방입장</button>
+    <div id="chatRoom">
+      <div>${contractId}번 계약</div>
+      <button onclick="deleteContractBtn(${contractId})">계약 취소</button>
+      <button onclick="joinChatroom(${userId},${trainerId})">${userId}${trainerId}번 채팅방</button>
+    </div>
         `;
     $('.main-section').append(temp_html);
   }

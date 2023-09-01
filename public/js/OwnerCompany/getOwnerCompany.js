@@ -20,6 +20,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     const infoBox = document.getElementById('info-box');
     infoBox.innerHTML = `
+        <h2 id="company-name">${result.companyName}</h2>
+        <p id="company-address">${result.map}</p>
         <div class="info-item">
           <h3>운영시간</h3>
           <p>${result.time}</p>
@@ -106,14 +108,18 @@ document.addEventListener('DOMContentLoaded', async () => {
 });
 
 deleteTrainerBtn = (companyId, trainerId) => {
-  axios
-    .delete(`/api/companys/${companyId}/trainers/${trainerId}`)
-    .then(function (response) {
-      alert('트레이너 삭제 성공');
-      location.reload();
-    })
-    .catch(function (error) {
-      console.log(error);
-      alert(error);
-    });
+  const confirmDelete = window.confirm('삭제하시겠습니까?');
+
+  if (confirmDelete) {
+    axios
+      .delete(`/api/companys/${companyId}/trainers/${trainerId}`)
+      .then(function (response) {
+        alert('트레이너 삭제 성공');
+        location.reload();
+      })
+      .catch(function (error) {
+        console.log(error);
+        alert(error);
+      });
+  }
 };

@@ -6,7 +6,7 @@ createReviewBtn = (targetId, type) => {
   });
 
   $('#saveReviewModal').click(function () {
-    const content = $('#reviewContent').val();
+    const content = $('#content').val();
     const grade = $('#grade').val();
     saveReport(targetId, type, content, grade);
     $('#createReviewModal').css('display', 'none');
@@ -14,14 +14,14 @@ createReviewBtn = (targetId, type) => {
 
   saveReport = (targetId, type, content, grade) => {
     axios
-      .post(`/api/report`, { targetId: targetId, type: type, content: content, grade: grade })
+      .post(`/api/review/${targetId}`, { type: type, content: content, grade: grade })
       .then(function (response) {
         alert('리뷰 작성 완료');
         location.reload();
       })
       .catch(function (error) {
-        alert(error.response.data.message);
-        location.href = `/`;
+        alert(error.data.message);
+        location.reload();
       });
   };
 };
