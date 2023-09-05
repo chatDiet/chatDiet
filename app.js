@@ -34,7 +34,6 @@ export class ExpressApp {
     this.app.get('/', (req, res) => {
       res.sendFile(__dirname + '/public/templates/userMain.html');
     });
-
     this.app.get('/signup', (req, res) => {
       res.sendFile(__dirname + '/public/templates/user/signup.html');
     });
@@ -104,14 +103,29 @@ export class ExpressApp {
     this.app.get('/chatRoom', (req, res) => {
       res.sendFile(__dirname + '/public/templates/chat/getChatRoom.html');
     });
+    this.app.get('/trainerChatRoom', (req, res) => {
+      res.sendFile(__dirname + '/public/templates/chat/trainerChatRoom.html');
+    });
     this.app.get('/mypage', (req, res) => {
       res.sendFile(__dirname + '/public/templates/mypage/userMypage.html');
     });
     this.app.get('/trainer', (req, res) => {
       res.sendFile(__dirname + '/public/templates/trainer/trainer.html');
     });
+    this.app.get('/createtrainer', (req, res) => {
+      res.sendFile(__dirname + '/public/templates/trainer/createtrainer.html');
+    });
     this.app.get('/myUser', (req, res) => {
       res.sendFile(__dirname + '/public/templates/trainer/myUser.html');
+    });
+    this.app.get('/trainerInfo', (req, res) => {
+      res.sendFile(__dirname + '/public/templates/trainer/detailTrainer.html');
+    });
+    this.app.get('/userCalender', (req, res) => {
+      res.sendFile(__dirname + '/public/templates/trainer/getUserCalender.html');
+    });
+    this.app.get('/updateTrainerInfo', (req, res) => {
+      res.sendFile(__dirname + '/public/templates/trainer/updateTrainerInfo.html');
     });
     this.app.get('/postTrainerCalender', (req, res) => {
       res.sendFile(__dirname + '/public/templates/schedule/postTrainerCalender.html');

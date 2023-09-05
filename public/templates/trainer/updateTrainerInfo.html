@@ -4,7 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../../css/userMain.css" />
-    <link rel="stylesheet" href="../css/trainer/trainer.css" />
+    <link rel="stylesheet" href="../../css/trainer/myTrainerInfo.css" />
+    <link rel="stylesheet" href="../../css/trainer/updateTrainer.css" />
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
     <title>트레이너</title>
   </head>
   <body>
@@ -19,10 +23,12 @@
       </nav>
     </header>
     <main class="centered">
-      <section class="main-section">
-        <div class="contractContaier">
-          <div class="contract">여기 계약목록 보여줄꺼</div>
-        </div>
+      <section class="updateTrainer">
+        <input type="text" id="trainerName" placeholder="트레이너 이름" />
+        <input type="text" id="career" placeholder="경력" />
+        <textarea type="text" id="ptContent" placeholder="수업 내용"></textarea>
+        <input type="file" id="image" accept="image/*" />
+        <button id="saveTrinaerInfo">저장</button>
       </section>
     </main>
 
@@ -39,10 +45,6 @@
         </a>
       </ul>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script type="module" src="../js/trainer/tainer.js"></script>
-    <script src="../js/commonBtn.js"></script>
-    <script type="text/javascript" src="../../js/contract/getcontract.js"></script>
-    <script type="text/javascript" src="../../js/contract/deletcontract.js"></script>
+    <script type="module" src="../../js/trainer/updateTrainer.js" defer></script>
   </body>
 </html>

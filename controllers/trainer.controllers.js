@@ -7,6 +7,8 @@ class TrainerController {
     try {
       const userId = res.locals.userId;
       const imageUrl = req.file.location;
+      console.log(imageUrl);
+
       const { trainerName, career, ptContent, companyId } = req.body;
       const { code, message, data } = await this._trainerService.create(trainerName, career, ptContent, companyId, userId, imageUrl);
 
@@ -41,6 +43,19 @@ class TrainerController {
     }
   };
 
+  myTrainerInfo = async (req, res) => {
+    try {
+      const userId = res.locals.userId;
+      const { code, message, data } = await this._trainerService.myTrainerInfo(userId);
+      console.log(data);
+
+      res.status(code).json({ ...(message && { message }), ...(data && { data }) });
+    } catch (error) {
+      console.log(error);
+      res.status(500).json({ message: 'server error' });
+    }
+  };
+
   delete = async (req, res) => {
     try {
       const userId = res.locals.userId;
@@ -57,9 +72,10 @@ class TrainerController {
   update = async (req, res) => {
     try {
       const userId = res.locals.userId;
+      const imageUrl = req.file.location;
       const { companyId, trainerId } = req.params;
       const { trainerName, career, ptContent } = req.body;
-      const { code, message, data } = await this._trainerService.update(companyId, trainerId, trainerName, career, ptContent, userId);
+      const { code, message, data } = await this._trainerService.update(companyId, trainerId, trainerName, career, ptContent, userId, imageUrl);
 
       res.status(code).json({ ...(message && { message }), ...(data && { data }) });
     } catch (error) {
