@@ -21,6 +21,7 @@ const upload = multer({
     },
   }),
 });
+
 const singleUpload = fieldName => {
   return function (req, res, next) {
     upload.single(fieldName)(req, res, function (err) {
@@ -54,4 +55,21 @@ const multipleUpload = fieldName => {
   };
 };
 
-module.exports = { singleUpload, multipleUpload };
+const deleteImages = async objectArr => {
+  const params = {
+    Bucket: process.env.AWS_BUCKET_NAME,
+    Delete: {
+      Objects: objectArr,
+      Quiet: false,
+    },
+  };
+
+  try {
+    const result = await s3.deleteObjects(params).promise();
+    return result;
+  } catch (err) {
+    console.log('미들웨어 삭제 에러', err);
+  }
+};
+
+module.exports = { singleUpload, multipleUpload, deleteImages };

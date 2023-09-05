@@ -16,6 +16,6 @@ router.get('/companys/:companyId/trainers/:trainerId', trainerController.detailR
 //트레이너 삭제(관리자, 헬스장 사장님만 가능)
 router.delete('/companys/:companyId/trainers/:trainerId', isAuth, trainerController.delete);
 //트레이너 수정(트레이너, 헬스장 사장님만 가능)
-router.put('/companys/:companyId/trainers/:trainerId', isAuth, trainerController.update);
+router.put('/companys/:companyId/trainers/:trainerId', singleUpload('image'), isAuth, trainerController.update);
 
 export default router;

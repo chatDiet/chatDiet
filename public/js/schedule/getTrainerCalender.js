@@ -25,6 +25,8 @@ document.addEventListener('DOMContentLoaded', async function () {
     title: item.title,
     date: item.date,
     scheduleId: item.scheduleId,
+    startTime: item.startTime,
+    endTime: item.endTime,
   }));
   console.log(events, 'events');
   var calendarEl = document.getElementById('trainerCalendar');
@@ -74,6 +76,8 @@ async function openSidebar(scheduleId) {
       <p> ${username}회원님</p>
       <p>${scheduleData.title}</p>
       <p> ${scheduleData.date}</p>
+      <p> ${scheduleData.startTime}</p>
+      <p> ${scheduleData.endTime}</p>
       `;
     const deleteButton = document.createElement('button');
     deleteButton.classList.add('delete-schedule-button');

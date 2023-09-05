@@ -27,6 +27,14 @@ const Schedule = connector.sequelize.define(
       type: DataTypes.DATE,
       allowNull: false,
     },
+    startTime: {
+      type: DataTypes.TIME,
+      allowNull: false,
+    },
+    endTime: {
+      type: DataTypes.TIME,
+      allowNull: false,
+    },
     createdAt: {
       type: DataTypes.DATE,
       allowNull: false,

@@ -5,7 +5,7 @@ class ScheduleService {
   _trainerRepository = new TrainerRepository();
 
   // 스케줄 생성
-  postSchedule = async (title, date, userId) => {
+  postSchedule = async (title, date, userId, startTime, endTime) => {
     try {
       if (!title) {
         return {
@@ -21,6 +21,20 @@ class ScheduleService {
         };
       }
 
+      if (!startTime) {
+        return {
+          status: 400,
+          message: '시작시간 미입력',
+        };
+      }
+
+      if (!endTime) {
+        return {
+          status: 400,
+          message: '마감시간 미입력',
+        };
+      }
+
       const user = await this._userRepository.getUserById(userId);
 
       if (user.type !== 'trainer') {
@@ -29,7 +43,7 @@ class ScheduleService {
           message: '스케줄 생성 권한 없음',
         };
       }
-
+      console.log(userId);
       const trainer = await this._trainerRepository.findTrainer(userId);
 
       if (!trainer) {
@@ -39,7 +53,7 @@ class ScheduleService {
         };
       }
 
-      const checkDate = await this._scheduleRepository.checkDateSchedule(date);
+      const checkDate = await this._scheduleRepository.checkDateSchedule(date, userId, startTime, endTime);
 
       if (checkDate) {
         return {
@@ -48,7 +62,7 @@ class ScheduleService {
         };
       }
 
-      const result = await this._scheduleRepository.postSchedule(title, date, userId, trainer.trainerId);
+      const result = await this._scheduleRepository.postSchedule(title, date, userId, trainer.trainerId, startTime, endTime);
       if (!result) {
         return {
           status: 404,

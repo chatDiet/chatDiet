@@ -73,7 +73,6 @@ class UserService {
       }
 
       const checkEmail = await this._userRepository.findUserByEmail(email);
-
       // 카카오 회원가입 유무 확인
       if (checkEmail && loginType === false) {
         // 회원가입 한 적 있을 경우 로그인.
