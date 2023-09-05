@@ -32,7 +32,6 @@ const singleUpload = fieldName => {
       } else if (err) {
         next(err);
       } else {
-        console.log(req);
         next();
       }
     });
