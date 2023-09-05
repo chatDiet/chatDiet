@@ -13,6 +13,7 @@ class UserService {
     return {
       status: 200,
       data: {
+        userInfoId: result.userInfoId,
         userName: result.userName,
         height: result.height,
         weight: result.weight,

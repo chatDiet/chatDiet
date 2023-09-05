@@ -19,7 +19,7 @@ function getCookie() {
 const isLoggedIn = getCookie();
 const loginButton = document.getElementById('goto-login-button');
 const signupButton = document.getElementById('goto-signup-button');
-const logoutButton = document.getElementById('logoutButton');
+const logoutButton = document.getElementById('logout-button');
 if (isLoggedIn) {
   // 로그인한 경우
   loginButton.style.display = 'none'; // 로그인 버튼 숨김
