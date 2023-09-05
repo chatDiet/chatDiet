@@ -137,3 +137,12 @@ footer img {
   text-align: start;
 }
 /* 장시훈 수정부분 */
+
+.footer {
+  color: black;
+  text-decoration: none;
+}
+
+.footer:hover {
+  color: darkgray;
+}

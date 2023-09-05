@@ -4,10 +4,10 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../css/userCalender.css" />
-    <link rel="stylesheet" href="../css/detailSchedule.css" />
-    <script src="http://code.jquery.com/jquery-latest.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js"></script>
-    <title>스케줄</title>
+    <script src="http://code.jquery.com/jquery-latest.js"></script> 
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>나의 캘린더</title>
   </head>
   <body>
     <header>
@@ -21,24 +21,18 @@
       </nav>
     </header>
     <main class="centered">
-      <div id="pencil">
-        <a href="/postTrainerCalender"><img src="../img/free-icon-font-pencil-3917376.png" /></a>
-      </div>
       <section class="main-section">
-        <div class="ui container">
-          <div class="ui grid">
-            <div class="ui sixteen column">
-              <div id="trainerCalendar"></div>
+          <div class="ui container">
+            <div class="ui grid">
+              <div class="ui sixteen column">
+                <div id="calendar"></div>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
-      <div id="dayCalender">
-        <div class="detailSchedule">
-          <div class="sidebar">
-            <button id="close-sidebar-button">닫기</button>
           </div>
-        </div>
+      </section>
+      <div id = "dayCalender">
+
       </div>
     </main>
     <footer>
@@ -54,10 +48,7 @@
         </a>
       </ul>
     </footer>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <script src="../../js/schedule/trainerCalenderBtn.js" defer></script>
-    <script type="module" src="../../js/schedule/getTrainerCalender.js" defer></script>
-    <script type="module" src="../../js/schedule/detailschedule.js" defer></script>
-    <script type="module" src="../../js/schedule/deletschedule.js" defer></script>
+    <script type="module" src="../../js/calender/getUserCalender.js" defer></script>
+    <script type="module"  src="../../js/navigationBtn.js" defer></script>
   </body>
 </html>
