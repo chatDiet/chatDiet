@@ -31,14 +31,14 @@ axios.get(`api/chat/${roomId}`).then(function (response) {
 const chatMessages = document.querySelector('#chatList');
 
 // 채팅방 연결
-socket.on('connect', async function () {
+socket.on('connect', function () {
   const user = userId;
   const trainer = trainerId;
 
   const data = { user, trainer, roomId };
 
   // 채팅방 권한 확인
-  await axios
+  axios
     .patch(`api/authContract`, { data: data })
     .then(function (response) {
       socket.emit('newUser', data);
@@ -51,15 +51,13 @@ socket.on('connect', async function () {
 
 // 실시간 채팅
 socket.on('message', function (data) {
-  data.date = formatDate(new Date());
   const messageDiv = document.createElement('div');
   messageDiv.classList.add('chatList');
   messageDiv.innerHTML = `
-  <div id="chatContent">
-    <div>보낸시간 : ${data.date}</div>
-    <div>${data.name} : ${data.message}</div>
-  </div>
-  `;
+            <div id="chatContent">
+              <div>보낸시간 : ${data.data.date}</div>
+              <div>${data.data.name} : ${data.data.message}</div>
+            </div>`;
   chatMessages.appendChild(messageDiv);
   chatMessages.scrollTop = chatMessages.scrollHeight;
 });
@@ -75,5 +73,29 @@ const sendMessage = () => {
   const message = document.getElementById('messageInput').value;
   document.getElementById('messageInput').value = '';
 
-  socket.emit('message', { type: 'message', message: message });
+  // data 생성
+  const data = {};
+  data.date = formatDate(new Date());
+  data.roomId = roomId;
+  data.message = message;
+
+  // chatLog mongodb에 저장 and 보낸 유저 name 찾기
+  axios
+    .post('/api/chat', { data: data })
+    .then(function (response) {
+      data.name = response.data;
+      socket.emit('message', { data: data });
+    })
+    .catch(function (error) {
+      const messageDiv = document.createElement('div');
+      messageDiv.classList.add('chatList');
+      messageDiv.innerHTML = `
+                <div id="chatContent">
+                  <div>보낸시간 : ${data.date}</div>
+                  <div>해당 메세지는 전송 실패되었습니다.</div>
+                </div>
+                `;
+      chatMessages.appendChild(messageDiv);
+      chatMessages.scrollTop = chatMessages.scrollHeight;
+    });
 };

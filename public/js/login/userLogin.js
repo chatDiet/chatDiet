@@ -12,10 +12,22 @@ loginForm.addEventListener('submit', async event => {
   axios
     .post(`http://localhost:3000/api/login`, { email: email, password: password })
     .then(function (response) {
-      alert(response.data);
-      console.log(response.data);
+      alert('로그인 성공');
+      if (response.data === 'user') {
+        window.location.href = '/companyMain';
+      }
 
-      window.location.href = 'http://localhost:3000/userMain';
+      if (response.data === 'trainer') {
+        window.location.href = '/trainer';
+      }
+
+      if (response.data === 'owner') {
+        window.location.href = '/getOwnerCompany';
+      }
+
+      if (response.data === 'admin') {
+        window.location.href = '/admin';
+      }
     })
     .catch(function (error) {
       alert(error.response.data);

@@ -6,7 +6,7 @@ reportBtn = (targetId, type) => {
   });
 
   $('#saveReportModal').click(function () {
-    const title = $('#reportTitle').val();
+    const title = $('#titleReport').val();
     const content = $('#contentReport').val();
     saveReport(targetId, type, title, content);
     $('#createReportModal').css('display', 'none');
@@ -21,7 +21,7 @@ reportBtn = (targetId, type) => {
       })
       .catch(function (error) {
         alert(error.response.data.message);
-        location.href = `/`;
+        location.reload();
       });
   };
 };

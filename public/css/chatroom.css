@@ -1,3 +1,11 @@
+.main-section {
+  width: 90%;
+}
+
+.centered {
+  border: 2px solid #000;
+}
+
 .chat-container {
   max-width: 400px;
   margin: 0 auto;

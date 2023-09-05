@@ -4,16 +4,15 @@ import { ExpressApp } from './app';
 import connector from './db/db.js';
 import socket from 'socket.io';
 import { mongoDB } from './db/mongdb';
-import { ChatService } from './services';
 
 const mongdb = new mongoDB();
-const chatService = new ChatService();
 
 dotenv.config();
 
 export class Server {
   expressApp = new ExpressApp();
   httpServer;
+  io;
 
   constructor() {
     // HTTP 서버를 생성하고, expressApp을 사용하여 요청을 처리하도록 설정
@@ -33,32 +32,23 @@ export class Server {
   };
 
   // socket 연결
-  runSocket = async () => {
+  runSocket = () => {
     // 접속
-    await this.io.sockets.on('connection', function (socket) {
-      socket.on('newUser', async function (data) {
+    this.io.sockets.on('connection', function (socket) {
+      socket.on('newUser', function (data) {
         socket.user = data.user;
         socket.trainer = data.trainer;
         socket.roomId = data.roomId;
-
         socket.join(socket.roomId);
       });
 
       // 전송한 메세지 받기
-      socket.on('message', async function (data) {
-        // 받은 데이터에 user,trainer,roomId 추가
-        data.user = socket.user;
-        data.trainer = socket.trainer;
-        data.roomId = socket.roomId;
-
-        //mongDb 로직으로 보냄
-        const name = await chatService.postChat(data);
-
-        data.name = name;
-
-        // 해당 방에 보내기
+      socket.on('message', function (data) {
+        // 본인에게만 보내기
         socket.emit('message', data);
-        socket.to(data.roomId).emit('message', data);
+
+        // 본인 제외 해당 방에 보내기
+        socket.to(socket.roomId).emit('message', data);
       });
 
       // 접속 종료

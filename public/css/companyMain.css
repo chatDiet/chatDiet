@@ -1,6 +1,80 @@
-#companyList {
+/* .main-section {
+  width: 90%;
+}
+
+.centered {
   border: 2px solid #000;
-  float: left;
-  margin: 10px;
+}
+
+#companyList {
+  border-bottom: 2px solid #000;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+#getDetailCompanyBtn {
+  display: flex;
+  justify-content: space-around;
+  border: 2px solid #000;
+  border-radius: 20px;
+  background-color: transparent;
+  box-shadow: 2px 2px 2px 2px rgb(149, 167, 228);
+  width: 100%;
+  padding: 20px;
   cursor: pointer;
+}
+ */
+
+.main-section {
+  width: 90%;
+  margin: 0 auto; /* Center the content horizontally */
+  padding: 20px; /* Add some space around the content */
+  background-color: #f9f9f9; /* Light gray background */
+  border-radius: 10px; /* Add rounded corners */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  height: 100vh; /* Match the full viewport height */
+  overflow-y: auto; /* Add vertical scrollbar if needed */
+}
+
+/* Style for the company list heading */
+#companyList {
+  font-size: 24px; /* Increase font size */
+  border-bottom: 1px solid #ccc; /* Light border */
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  color: #333; /* Dark text color */
+}
+
+/* Style for each company button */
+#getDetailCompanyBtn {
+  display: flex;
+  flex-direction: column; /* Stack elements vertically */
+  align-items: center; /* Center content horizontally */
+  border: 1px solid #ddd; /* Light border */
+  border-radius: 10px;
+  background-color: #fff; /* White background */
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  padding: 20px;
+  margin-bottom: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth background transition */
+}
+
+/* Style for the company button content */
+#getDetailCompanyBtn div {
+  margin: 10px 0; /* Add vertical spacing between content */
+  text-align: center; /* Center text */
+}
+
+/* Hover effect for company buttons */
+#getDetailCompanyBtn:hover {
+  background-color: #b5d1d6; /* Light gray background on hover */
+}
+
+#getDetailCompanyBtn:active {
+  background-color: #899cb1; /* Change the background color */
+
+  color: #fff; /* Chrgb(133, 154, 175)e text color */
+  border-color: #007bff; /* Change the border color */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
 }

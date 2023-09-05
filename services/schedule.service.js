@@ -52,12 +52,12 @@ class ScheduleService {
       if (!result) {
         return {
           status: 404,
-          message: '업체 생성 실패',
+          message: '스케줄 생성 실패',
         };
       }
       return {
         status: 200,
-        message: '업체 생성 성공',
+        message: '스케줄 생성 성공',
       };
     } catch (err) {
       return { status: 500, message: 'Server Error' };
@@ -89,8 +89,7 @@ class ScheduleService {
       }
 
       const user = await this._userRepository.getUserById(userId);
-
-      if (user.type !== 'trainer' || user.type !== 'admin') {
+      if (user.type == 'user' || user.type == 'owner') {
         return {
           status: 401,
           message: '스케줄 조회 권한 없음',
@@ -98,6 +97,7 @@ class ScheduleService {
       }
 
       const result = await this._scheduleRepository.oneGetSchedule(scheduleId);
+      console.log(scheduleId);
       if (!result) {
         return {
           status: 404,
@@ -189,8 +189,9 @@ class ScheduleService {
       }
 
       const user = await this._userRepository.getUserById(userId);
-
-      if (schedule.userId !== user.userId || user.type !== 'admin') {
+      console.log(user.userId);
+      console.log(schedule.userId);
+      if (schedule.userId !== user.userId || user.type == 'user' || user.type == 'owner') {
         return {
           status: 401,
           message: '스케줄 삭제 권한 없음',

@@ -21,7 +21,6 @@ export class ExpressApp {
   };
 
   setAppRouter = () => {
-    // routes
     this.app.use('/api', routes, (error, request, response) => {
       response.status(400).json({
         success: false,
@@ -31,8 +30,41 @@ export class ExpressApp {
   };
 
   setHtml = () => {
-    //  이런식으로 만든 화면단 붙여주시면 됩니다
-    // 유저 메인 화면
+    // 첫 화면
+    this.app.get('/', (req, res) => {
+      res.sendFile(__dirname + '/public/templates/userMain.html');
+    });
+
+    this.app.get('/signup', (req, res) => {
+      res.sendFile(__dirname + '/public/templates/user/signup.html');
+    });
+    this.app.get('/login', (req, res) => {
+      res.sendFile(__dirname + '/public/templates/user/login.html');
+    });
+    this.app.get('/inquiry', (req, res) => {
+      res.sendFile(__dirname + '/public/templates/inquiry/setInquiry.html');
+    });
+    this.app.get('/inquirys', (req, res) => {
+      res.sendFile(__dirname + '/public/templates/inquiry/getInquiry.html');
+    });
+    this.app.get('/editInquiry', (req, res) => {
+      res.sendFile(__dirname + '/public/templates/inquiry/editInquiry.html');
+    });
+    this.app.get('/admin', (req, res) => {
+      res.sendFile(__dirname + '/public/templates/adminPage.html');
+    });
+    this.app.get('/signupCategory', (req, res) => {
+      res.sendFile(__dirname + '/public/templates/user/signupCategory.html');
+    });
+    this.app.get('/report', (req, res) => {
+      res.sendFile(__dirname + '/public/templates/report/setUserReport.html');
+    });
+    this.app.get('/reports', (req, res) => {
+      res.sendFile(__dirname + '/public/templates/report/getUserReport.html');
+    });
+    this.app.get('/editReport', (req, res) => {
+      res.sendFile(__dirname + '/public/templates/report/editUserReport.html');
+    });
     this.app.get('/calender', (req, res) => {
       res.sendFile(__dirname + '/public/templates/calender/userCalender.html');
     });
@@ -75,8 +107,26 @@ export class ExpressApp {
     this.app.get('/mypage', (req, res) => {
       res.sendFile(__dirname + '/public/templates/mypage/userMypage.html');
     });
-    // this.app.get('/kakaoLogin', (req, res) => {
-    //   res.sendFile(__dirname + '/public/templates/user/kakaoLogin.html');
-    // });
+    this.app.get('/trainer', (req, res) => {
+      res.sendFile(__dirname + '/public/templates/trainer/trainer.html');
+    });
+    this.app.get('/myUser', (req, res) => {
+      res.sendFile(__dirname + '/public/templates/trainer/myUser.html');
+    });
+    this.app.get('/postTrainerCalender', (req, res) => {
+      res.sendFile(__dirname + '/public/templates/schedule/postTrainerCalender.html');
+    });
+    this.app.get('/detailTrainerCalender', (req, res) => {
+      res.sendFile(__dirname + '/public/templates/schedule/detailTrainerCalender.html');
+    });
+    this.app.get('/setOwnerCompany', (req, res) => {
+      res.sendFile(__dirname + '/public/templates/OwnerCompany/setOwnerCompany.html');
+    });
+    this.app.get('/getOwnerCompany', (req, res) => {
+      res.sendFile(__dirname + '/public/templates/OwnerCompany/getOwnerCompany.html');
+    });
+    this.app.get('/putOwnerCompany', (req, res) => {
+      res.sendFile(__dirname + '/public/templates/OwnerCompany/putOwnerCompany.html');
+    });
   };
 }

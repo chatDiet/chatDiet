@@ -8,7 +8,7 @@ const router = Router();
 const companyController = new CompanyController();
 
 //업체 생성
-router.post('/company', isAuth, multipleUpload('images'), companyController.postCompany);
+router.post('/company', isAuth, multipleUpload('image[]'), companyController.postCompany);
 //업체 전체 조회
 router.get('/company', companyController.allGetCompany);
 //업체 디테일 조회

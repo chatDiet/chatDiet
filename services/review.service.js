@@ -50,7 +50,7 @@ class ReviewService {
       if (!getCompany) {
         return {
           status: 400,
-          message: '존재하지 않는 트레이너 ID',
+          message: '존재하지 않는 업체 ID',
         };
       }
     }

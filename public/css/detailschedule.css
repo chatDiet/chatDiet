@@ -1,0 +1,27 @@
+.detailSchedule {
+  display: flex;
+  position: relative;
+  z-index: 1; /* 다른 요소 위에 표시되도록 설정 */
+}
+
+.sidebar {
+  width: 500px;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  right: -500px;
+  background-color: #fff;
+  transition: right 0.3s ease-in-out;
+  z-index: 2; /* 다른 요소보다 위에 표시되도록 설정 */
+}
+
+.sidebar.active {
+  right: 0;
+}
+/* 스케줄 정보를 표시할 클래스의 스타일 설정 */
+.schedule-info {
+  padding: 10px;
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+}

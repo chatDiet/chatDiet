@@ -88,7 +88,6 @@ class ReportService {
     }
 
     await this._reportRepository.createReport(userId, targetId, title, content, type);
-
     return {
       status: 201,
       message: '신고가 접수되었습니다.',

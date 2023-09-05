@@ -5,9 +5,11 @@ class CompanyController {
 
   // 업체 생성
   postCompany = async (req, res) => {
-    const { companyName, time, additional, service, phoneNumber, link, imageUrl, map } = req.body;
+    const { companyName, time, additional, service, phoneNumber, link, map } = req.body;
     const userId = res.locals.userId;
-    // const imageUrl = req.file.location;
+    const imageUrls = req.files.map(file => file.location); // 여러 이미지의 location을 배열로 저장
+    // 이미지 URL을 문자열로 조합하여 저장
+    const imageUrl = imageUrls.join(', '); // 예: "url1, url2, url3"
     const result = await this._companyService.postCompany(companyName, time, additional, service, phoneNumber, link, userId, imageUrl, map);
 
     return res.status(result.status).json(result.message);
@@ -59,7 +61,7 @@ class CompanyController {
 
     const result = await this._companyService.getOwnerCompany(userId);
     return res.status(result.status).json(result.message);
-  }
+  };
 }
 
 export default CompanyController;

@@ -1,33 +1,24 @@
 // 업체 전체 조회
 axios.get('/api/company').then(function (response) {
   const result = response.data;
-  $('.main-section').empty();
+  $('#companyZone').empty();
   for (let i = result.length - 1; i >= 0; i--) {
     const companyName = result[i].companyName;
     const imageUrl = result[i].imageUrl;
-    const link = result[i].link;
     const map = result[i].map;
     const phoneNumber = result[i].phoneNumber;
     const time = result[i].time;
-    const service = result[i].service;
-    const additional = result[i].additional;
     const companyId = result[i].companyId;
-    const userId = result[i].userId;
 
     let temp_html = `
-    <button id="companyList" onclick="getDetailCompanyBtn(${companyId})">
-      <div>companyId : ${companyId}</div>
-      <div>userId : ${userId}</div>
-      <div>companyName : ${companyName}</div>
+    <button id="getDetailCompanyBtn" onclick="getDetailCompanyBtn(${companyId})">
       <div>imageUrl : ${imageUrl}</div>
-      <div>link : ${link}</div>
+      <div>업체 이름 : ${companyName}</div>
       <div>map : ${map}</div>
-      <div>phoneNumber : ${phoneNumber}</div>
-      <div>time : ${time}</div>
-      <div>service : ${service}</div>
-      <div>additional : ${additional}</div>
+      <div>연락처 : ${phoneNumber}</div>
+      <div>운영시간 : ${time}</div>
     </button>
     `;
-    $('.main-section').append(temp_html);
+    $('#companyZone').append(temp_html);
   }
 });
