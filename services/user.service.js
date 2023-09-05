@@ -22,11 +22,11 @@ class UserService {
   }
 
   // 유저 정보 수정
-  async updateUserInfo(userId, userName, height, weight, phone) {
+  async updateUserInfo(userId, userInfoId, userName, height, weight, phone) {
     try {
-      const checkUserInfo = await this._userRepository.getOneUserInfo(userId);
+      const checkUserInfo = await this._userRepository.getOneUserInfo(userInfoId);
 
-      if (userId !== checkUserInfo.userId || !checkUserInfo) {
+      if (userId !== checkUserInfo.userId) {
         return {
           status: 401,
           message: '수정 권한 없음',
@@ -39,7 +39,6 @@ class UserService {
           message: '이름 미입력',
         };
       }
-      const userInfoId = checkUserInfo.userInfoId;
 
       const result = await this._userRepository.updateUserInfo(userInfoId, userName, height, weight, phone);
 
@@ -77,13 +76,14 @@ class UserService {
       // 카카오 회원가입 유무 확인
       if (checkEmail && loginType === false) {
         // 회원가입 한 적 있을 경우 로그인.
-        return await this.loginUser(email, password);
+        return await this.loginUser(email, loginType);
       }
 
       // 카카오 회원가입
       if (!checkEmail && loginType === false) {
         if (type === 'trainer' || type === 'user' || type === 'owner' || type === 'admin') {
-          const newUser = await this._userRepository.registerUser(email, type, loginType, userName, height, weight, phone, password);
+          const newUser = await this._userRepository.registerUser(email, type, loginType);
+
           if (!newUser) {
             return {
               status: 404,
@@ -166,7 +166,6 @@ class UserService {
         };
       }
     } catch (err) {
-      console.log(err);
       return {
         status: 500,
         message: 'Server Error',
@@ -183,6 +182,7 @@ class UserService {
           message: '이메일 미입력',
         };
       }
+
       const user = await this._userRepository.findUserByEmail(email);
 
       if (!user) {
@@ -204,6 +204,7 @@ class UserService {
           };
         }
       }
+
       const token = jwt.sign({ userId: user.userId }, process.env.JWT_SECRET, {
         expiresIn: process.env.JWT_EXPIREIN,
       });
@@ -221,7 +222,6 @@ class UserService {
         data: token,
       };
     } catch (err) {
-      console.log(err);
       return {
         status: 500,
         message: 'Server Error',
