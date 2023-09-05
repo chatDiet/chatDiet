@@ -28,6 +28,8 @@ document.addEventListener('DOMContentLoaded', async function () {
     title: item.title,
     date: item.date,
     scheduleId: item.scheduleId,
+    startTime: item.startTime,
+    endTime: item.endTime,
   }));
   var calendarEl = document.getElementById('trainerCalendar');
   calendar = new FullCalendar.Calendar(calendarEl, {
@@ -76,6 +78,8 @@ async function openSidebar(scheduleId) {
       <p> ${username} 트레이너</p>
       <p>${scheduleData.title}</p>
       <p> ${scheduleData.date}</p>
+      <p> ${scheduleData.startTime}</p>
+      <p> ${scheduleData.endTime}</p>
       `;
     const deleteButton = document.createElement('button');
     deleteButton.classList.add('delete-schedule-button');

@@ -62,6 +62,7 @@ class UserController {
     const { email, type } = req.body;
     const loginType = false;
     const result = await this._userService.registerUser(email, type, loginType);
+    console.log('@@@', result);
     res.cookie('authorization', `Bearer ${result.data}`);
     return res.status(result.status).json(result.message);
   };
