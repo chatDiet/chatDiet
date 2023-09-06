@@ -8,6 +8,4 @@ RUN npm install
 
 COPY . .
 
-RUN docker build .
-
 CMD ["npm run dev"]
