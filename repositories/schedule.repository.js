@@ -1,4 +1,5 @@
 import { Schedule } from '../db';
+import { Op } from 'sequelize';
 
 class ScheduleRepository {
   // 스케줄 생성
