@@ -25,6 +25,10 @@ const Contract = connector.sequelize.define(
       },
       onDelete: 'CASCADE',
     },
+    ptNumber: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
     createdAt: {
       type: DataTypes.DATE,
       allowNull: false,
