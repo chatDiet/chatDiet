@@ -33,6 +33,11 @@ body {
 }
  */
 
+#img1 {
+  width: 250px;
+  height: 250px;
+}
+
 .main-section {
   width: 1200px;
   margin: 0 auto; /* Center the content horizontally */
@@ -54,7 +59,6 @@ body {
 }
 
 .companyExplain {
-  background-color: #007bff;
   height: 150px;
   text-align: center;
   padding-top: 50px;
@@ -63,25 +67,44 @@ body {
 .imgArea {
   width: 250px;
   height: 250px;
+  align-items: center;
+  display: contents;
 }
 
 /* 수정 장시훈 */
 
 #companyZone {
-  display: flex;
-
-  width: 200px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3개의 열을 생성 */
+  grid-gap: 5px; /* 그리드 사이의 간격 설정 */
 }
 
 #getDetailCompanyBtn {
-  border: 3px solid red;
+  border: 0px solid;
   align-items: center;
   margin-left: 15px;
   margin-right: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  transition: box-shadow 0.3s ease; /* 호버 효과에 전환 효과 적용 */
+  border-radius: 10px; /* Add rounded corners */
 }
 
 #getDetailCompanyBtn div {
   margin-left: 15px;
   margin-right: 15px;
+  justify-content: space-between;
   justify-content: center;
+}
+
+#getDetailCompanyBtn:hover {
+  border: 1px;
+  align-items: center;
+  margin-left: 15px;
+  margin-right: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+  border-radius: 10px; /* Add rounded corners */
 }

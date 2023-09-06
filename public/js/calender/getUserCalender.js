@@ -21,7 +21,9 @@ document.addEventListener('DOMContentLoaded', async function () {
       calendar = new FullCalendar.Calendar(calendarEl, {
         initialView: 'dayGridMonth',
         displayEventTime: false,
+        scrollTime: '08:00:00',
         events: events,
+
         eventClick: function (info) {
           info.jsEvent.preventDefault(); // don't let the browser navigate
 

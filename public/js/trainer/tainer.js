@@ -102,8 +102,6 @@ export function showSchedule(dateFormat, date) {
     .get(`http://localhost:3000/api/schedules`)
     .then(response => {
       const scheduleData = response.data;
-      console.log('scheduleData', scheduleData);
-      console.log('dateFormat', dateFormat);
       if (!scheduleData.date || scheduleData.length === 0) {
         // 스케줄이 없는 경우
         if (scheduleTitle) {

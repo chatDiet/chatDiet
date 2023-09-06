@@ -26,8 +26,6 @@ class CompanyController {
   oneGetCompany = async (req, res) => {
     const { companyId } = req.params;
 
-    console.log(companyId);
-
     const result = await this._companyService.oneGetCompany(companyId);
 
     return res.status(result.status).json(result.message);
@@ -38,7 +36,7 @@ class CompanyController {
     const userId = res.locals.userId;
     const { companyId } = req.params;
 
-    const { companyName, time, additional, service, phoneNumber, link, map, imageUrl } = req.body;
+    const { companyName, map, time, additional, service, phoneNumber, link, imageUrl } = req.body;
 
     const result = await this._companyService.putCompany(companyId, companyName, time, additional, service, phoneNumber, link, userId, imageUrl, map);
 

@@ -35,7 +35,6 @@ class CalenderController {
   deleteCalender = async (req, res) => {
     const userId = res.locals.userId;
     const { calenderId } = req.params;
-
     const deleteCalender = await this.calenderService.deleteCalender(calenderId, userId);
     return res.status(deleteCalender.status).json(deleteCalender.message);
   };

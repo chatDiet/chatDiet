@@ -5,10 +5,24 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
-    <link rel="stylesheet" href="../css/postUserCalender.css" />
+    <link rel="stylesheet" href="../../css/postUserCalender.css" />
     <title>캘린더 추가하기</title>
   </head>
   <body>
+    <header>
+      <nav class="navigation">
+        <div class="navigation-title">
+          <h1 class="header-title">CHAT DIET PLAN</h1>
+        </div>
+        <div class="navigation-buttons">
+          <button id="goto-signup-button" class="icon-button">회원가입</button>
+          <button id="goto-login-button" class="icon-button">로그인</button>
+        </div>
+        <form id="logout-form">
+          <button type="submit">Logout</button>
+        </form>
+      </nav>
+    </header>
     <div class="container">
       <h1>캘린더 추가하기</h1>
       <form id="write-form">
@@ -32,9 +46,28 @@
         <label for="content">글 내용:</label>
         <textarea id="content" rows="6" required></textarea>
 
-        <button type="submit">작성</button>
+        <button type="submit" id="submit1">작성</button>
       </form>
     </div>
+    <footer>
+      <ul class="footer-list">
+        <a href="/calender">
+          <li id="footerBtn"><img src="../img/free-icon-font-calendar-3917244.png" />캘린더</li>
+        </a>
+        <a href="/companyMain">
+          <li id="footerBtn"><img src="../img/free-icon-training-9958263.png" />헬스장</li>
+        </a>
+        <a href="/chatMain">
+          <li id="footerBtn"><img src="../img/free-icon-font-envelope-3916611.png" />채팅</li>
+        </a>
+        <a href="/communityMain">
+          <li id="footerBtn"><img src="../img/free-icon-font-world-3916979.png" />커뮤니티</li>
+        </a>
+        <a href="/userInfo">
+          <li id="footerBtn"><img src="../img/free-icon-font-user-3917688.png" />마이페이지</li>
+        </a>
+      </ul>
+    </footer>
     <script src="../../js/calender/postUserCalender.js"></script>
   </body>
 </html>

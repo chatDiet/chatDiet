@@ -4,7 +4,9 @@ axios.get('/api/company').then(function (response) {
   $('#companyZone').empty();
   for (let i = result.length - 1; i >= 0; i--) {
     const companyName = result[i].companyName;
-    const imageUrl = result[i].imageUrl;
+    const imageUrlString = result[i].imageUrl; // imageUrl 문자열 가져오기
+    const imageUrlArray = imageUrlString.split(','); // 쉼표로 분할하여 배열 생성
+    const firstImageUrl = imageUrlArray[0]; // 첫 번째 URL 가져오기
     const map = result[i].map;
     const phoneNumber = result[i].phoneNumber;
     const time = result[i].time;
@@ -12,7 +14,7 @@ axios.get('/api/company').then(function (response) {
 
     let temp_html = `
     <div id="getDetailCompanyBtn" onclick="getDetailCompanyBtn(${companyId})">
-      <div class='imgArea'>imageUrl : ${imageUrl}</div>
+      <div class='imgArea'><img src ="${firstImageUrl}" id="img1"/></div>
       <div class='companyExplain'>
       <div>업체 이름 : ${companyName}</div>
       <div> 주소 : ${map}</div>
