@@ -66,11 +66,24 @@ main {
   flex: 1;
   justify-content: center;
   align-items: center;
+  display: flex;
   margin: 0 auto;
+}
+
+.centered {
+  width: 1000px;
+  height: 800px;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10%;
 }
 
 #img #img1 {
   width: 1000px;
+}
+.centered {
+  text-align: center;
 }
 
 .footer-list {
@@ -112,84 +125,41 @@ footer img {
   margin-right: 5px;
 }
 
-/* seInquiry.css */
-.centered {
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: #f5f5f5; /* 배경색 조정 */
+/* adminPage.css */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f0f0f0;
+  margin: 0;
+  padding: 0;
 }
 
-/* 제목 스타일 */
+.centered {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  text-align: center;
+}
+
 h1 {
-  font-size: 30px;
+  font-size: 36px;
   color: #333;
   margin-bottom: 20px;
-  text-align: center;
 }
 
-/* 양식 스타일 */
-#editInquiry-form {
-  font-size: 23px;
-  background-color: #fff;
-  padding: 20px;
-  margin-top: 30px;
-  margin-right: 100px;
-  margin-left: 100px;
-  height: 650px;
-  border-radius: 5px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* 그림자 효과 추가 */
-  text-align: center;
-}
-
-/* 레이블 스타일 */
-label {
-  display: block;
-  font-weight: bold;
-  margin-bottom: 5px;
-  color: #333;
-}
-
-/* 입력 필드 스타일 */
-input[type='text'],
-textarea {
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 15px;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  font-size: 16px;
-  width: 600px;
-}
-
-#content {
-  height: 430px;
-}
-
-#title {
-  height: 20px;
-}
-
-/* 버튼 스타일 */
-button[type='submit'] {
+button {
   padding: 10px 20px;
   font-size: 18px;
-  margin-top: 15px;
   background-color: #007bff;
   color: #fff;
   border: none;
-  border-radius: 5px;
   cursor: pointer;
+  margin: 10px;
+  border-radius: 5px;
   transition: background-color 0.3s ease;
 }
 
-button[type='submit']:hover {
+button:hover {
   background-color: #0056b3;
-}
-
-label[for='content'] {
-  display: block;
-  font-weight: bold;
-  margin-bottom: 5px;
-  color: #333;
 }

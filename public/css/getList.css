@@ -1,4 +1,15 @@
 /* getInquiry.css */
+@font-face {
+  font-family: 'omyu_pretty';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'omyu_pretty';
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -156,6 +167,7 @@ main.centered {
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
   width: 100%;
   max-width: 800px;
+  height: 710px;
 }
 
 h1 {

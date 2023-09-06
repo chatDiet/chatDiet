@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../css/userMain.css" />
+    <link rel="stylesheet" href="../../css/updateUserInfo.css" />
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <title>Your Project</title>
   </head>
@@ -14,36 +14,57 @@
           <h1 class="header-title">chat Diet plan</h1>
         </div>
         <div class="navigation-buttons">
-          <button class="icon-button"><img src="../img/free-icon-font-search-3917132.png" alt="검색"></button>
-          <button class="icon-button">로그인 해주세요</button>
+          <button id="goto-signup-button" class="icon-button">회원가입</button>
+          <button id="goto-login-button" class="icon-button">로그인</button>
+          <button id="logout-button" class="icon-button">Logout</button>
         </div>
       </nav>
     </header>
     <main class="centered">
       <section class="main-section">
         <div id="userInfoContainer">
-        <!-- 입력 박스 -->
-        <input type="text" id="userNameInput" placeholder="이름">
-        <input type="text" id="heightInput" placeholder="키">
-        <input type="text" id="weightInput" placeholder="몸무게">
-        <input type="text" id="phoneInput" placeholder="전화번호">
+          <!-- 입력 박스 -->
+          <div class="form-group">
+            <label for="userNameInput">이름</label>
+            <input type="text" id="userNameInput" placeholder="이름" />
+          </div>
+
+          <!-- 키 입력 -->
+          <div class="form-group">
+            <label for="heightInput">키</label>
+            <input type="text" id="heightInput" placeholder="키" />
+          </div>
+
+          <!-- 몸무게 입력 -->
+          <div class="form-group">
+            <label for="weightInput">몸무게</label>
+            <input type="text" id="weightInput" placeholder="몸무게" />
+          </div>
+
+          <!-- 전화번호 입력 -->
+          <div class="form-group">
+            <label for="phoneInput">전화번호</label>
+            <input type="text" id="phoneInput" placeholder="전화번호" />
+          </div>
+        </div>
         <!-- 수정 완료 버튼 -->
         <button id="submitButton">수정 완료</button>
       </section>
     </main>
     <footer>
       <ul class="footer-list">
-        <li onclick="getCalender()"><img src="../img/free-icon-font-calendar-3917244.png" >캘린더</li>
-        <li><img src="../img/free-icon-training-9958263.png">헬스장</li>
-        <li><img src="../img/free-icon-font-envelope-3916611.png" >채팅</li>
-        <li><img src="../img/free-icon-font-world-3916979.png">커뮤니티</li>
+        <li onclick="getCalender()"><img src="../img/free-icon-font-calendar-3917244.png" />캘린더</li>
+        <li><img src="../img/free-icon-training-9958263.png" />헬스장</li>
+        <li><img src="../img/free-icon-font-envelope-3916611.png" />채팅</li>
+        <li><img src="../img/free-icon-font-world-3916979.png" />커뮤니티</li>
         <a href="/userInfo">
           <li><img src="../img/free-icon-font-user-3917688.png" />마이페이지</li>
         </a>
       </ul>
-      </ul>
     </footer>
-    <script type="module"  src="../../js/navigationBtn.js" defer></script>
+    <script type="module" src="../../js/navigationBtn.js" defer></script>
     <script src="../js/mypage/updateUserInfo.js" defer></script>
+    <script type="module" src="../js/login/userLogout.js" defer></script>
+    <script src="../js/headerScript.js" defer></script>
   </body>
 </html>

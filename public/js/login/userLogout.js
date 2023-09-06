@@ -1,9 +1,9 @@
 import axios from 'https://cdn.jsdelivr.net/npm/axios@1.3.5/+esm';
 
-const logoutForm = document.getElementById('logout-form');
+const logoutButton = document.getElementById('logout-button');
 
 // 로그아웃 폼 제출 이벤트 리스너 등록
-logoutForm.addEventListener('submit', async event => {
+logoutButton.addEventListener('click', async event => {
   event.preventDefault();
 
   axios

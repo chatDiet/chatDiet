@@ -18,7 +18,9 @@
           <h1 class="header-title">chat Diet plan</h1>
         </div>
         <div class="navigation-buttons">
-          <button class="icon-button">로그인 해주세요</button>
+          <button id="goto-signup-button" class="icon-button">회원가입</button>
+          <button id="goto-login-button" class="icon-button">로그인</button>
+          <button id="logout-button" class="icon-button">Logout</button>
         </div>
       </nav>
     </header>
@@ -42,18 +44,21 @@
     <footer>
       <ul class="footer-list">
         <ul class="footer-list">
-            <a class="footer" href="/myUser"
-              ><li><img src="../img/free-icon-font-calendar-3917244.png" />내 회원</li>
-            </a>
-            <a class="footer" href="/trainer">
-              <li><img src="../img/free-icon-training-9958263.png" />스케줄</li>
-            </a>
-            <a class="footer" href="/trainerInfo">
-              <li><img src="../img/free-icon-font-user-3917688.png" />마이페이지</li>
-            </a>
+          <a class="footer" href="/myUser"
+            ><li><img src="../img/free-icon-font-calendar-3917244.png" />내 회원</li>
+          </a>
+          <a class="footer" href="/trainer">
+            <li><img src="../img/free-icon-training-9958263.png" />스케줄</li>
+          </a>
+          <a class="footer" href="/trainerInfo">
+            <li><img src="../img/free-icon-font-user-3917688.png" />마이페이지</li>
+          </a>
+        </ul>
       </ul>
     </footer>
     <script src="../js/commonBtn.js" defer></script>
     <script src="../js/chat/getChatRoom.js" defer></script>
+    <script type="module" src="../../js/login/userLogout.js" defer></script>
+    <script src="../../js/headerScript.js" defer></script>
   </body>
 </html>

@@ -1,15 +1,4 @@
 /* userMain.css */
-@font-face {
-  font-family: 'omyu_pretty';
-  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2') format('woff2');
-  font-weight: normal;
-  font-style: normal;
-}
-
-body {
-  font-family: 'omyu_pretty';
-}
-
 body {
   margin: 0;
   padding: 0;
@@ -25,8 +14,9 @@ header {
 }
 
 .header-title {
-  margin-left: 200px;
+  margin: 0;
 }
+
 .navigation {
   display: flex;
   justify-content: space-between;
@@ -61,16 +51,16 @@ header {
 }
 
 main {
-  width: 1000px;
-  height: 800px;
+  width: 1000px; /* 원하는 가로 사이즈로 조정 */
   flex: 1;
+  display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 auto;
+  margin: 0 auto; /* 수평 가운데 정렬을 위해 추가 */
 }
 
-#img #img1 {
-  width: 1000px;
+.centered {
+  text-align: center;
 }
 
 .footer-list {
@@ -99,12 +89,7 @@ footer li {
   display: flex;
   align-items: center;
   margin: 0 15px;
-  font-size: 20px;
-  color: black;
-  text-decoration: none;
-}
-footer a {
-  text-decoration: none;
+  font-size: 14px;
 }
 
 footer img {
@@ -112,84 +97,63 @@ footer img {
   margin-right: 5px;
 }
 
-/* seInquiry.css */
 .centered {
+  display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: #f5f5f5; /* 배경색 조정 */
 }
 
-/* 제목 스타일 */
-h1 {
-  font-size: 30px;
-  color: #333;
-  margin-bottom: 20px;
-  text-align: center;
-}
-
-/* 양식 스타일 */
-#editInquiry-form {
-  font-size: 23px;
-  background-color: #fff;
+.main-section {
+  background-color: #f5f5f5;
+  border-radius: 10px;
   padding: 20px;
-  margin-top: 30px;
-  margin-right: 100px;
-  margin-left: 100px;
-  height: 650px;
-  border-radius: 5px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* 그림자 효과 추가 */
   text-align: center;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  width: 100%;
 }
 
-/* 레이블 스타일 */
-label {
-  display: block;
-  font-weight: bold;
-  margin-bottom: 5px;
-  color: #333;
-}
-
-/* 입력 필드 스타일 */
-input[type='text'],
-textarea {
+/* 입력 박스 스타일 */
+input[type='text'] {
   width: 100%;
   padding: 10px;
-  margin-bottom: 15px;
+  margin: 10px 0;
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 16px;
-  width: 600px;
 }
 
-#content {
-  height: 430px;
-}
-
-#title {
-  height: 20px;
-}
-
-/* 버튼 스타일 */
-button[type='submit'] {
-  padding: 10px 20px;
-  font-size: 18px;
-  margin-top: 15px;
+/* 수정 완료 버튼 스타일 */
+#submitButton {
   background-color: #007bff;
-  color: #fff;
+  color: white;
   border: none;
   border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s;
 }
 
-button[type='submit']:hover {
+#submitButton:hover {
   background-color: #0056b3;
 }
 
-label[for='content'] {
-  display: block;
-  font-weight: bold;
-  margin-bottom: 5px;
-  color: #333;
+/* 전체 페이지 스타일 */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+}
+
+.form-group {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.form-group > label {
+  width: 100px;
 }
