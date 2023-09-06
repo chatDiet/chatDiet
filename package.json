@@ -4,7 +4,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "nodemon --exec babel-node init.js",
-    "build": "docker build ."
+    "test": "jest"
   },
   "author": "",
   "license": "ISC",
