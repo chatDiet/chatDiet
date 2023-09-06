@@ -5,5 +5,6 @@ export default () => {
   Schedule.belongsTo(Trainer, {
     sourceKey: 'trainerId',
     foreignKey: 'trainerId',
+    onDelete: 'CASCADE'
   });
 };

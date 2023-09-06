@@ -11,7 +11,6 @@ function closeSidebar() {
 async function getUserInfo() {
   try {
     const userInfoResponse = await axios.get(`/api/userinfo`);
-    console.log(userInfoResponse.data);
     const username = userInfoResponse.data.userName; // 서버에서 응답한 username
     return username;
   } catch (error) {
@@ -24,17 +23,32 @@ getUserInfo();
 
 document.addEventListener('DOMContentLoaded', async function () {
   const response = await axios.get('/api/schedules');
-  const events = response.data.map(item => ({
-    title: item.title,
-    date: item.date,
-    scheduleId: item.scheduleId,
-    startTime: item.startTime,
-    endTime: item.endTime,
-  }));
+  const events = response.data.map(item => {
+    const startDate = new Date(item.date); // 날짜 정보 사용
+    const endDate = new Date(item.date); // 날짜 정보 사용
+    const startTime = item.startTime.split(':');
+    const endTime = item.endTime.split(':');
+
+    // 시작 시간과 종료 시간 설정
+    startDate.setHours(startTime[0]);
+    startDate.setMinutes(startTime[1]);
+    endDate.setHours(endTime[0]);
+    endDate.setMinutes(endTime[1]);
+
+    return {
+      title: item.title,
+      scheduleId: item.scheduleId,
+      start: startDate.toISOString(), // ISO 8601 형식으로 변환
+      end: endDate.toISOString(), // ISO 8601 형식으로 변환
+    };
+  });
+
   var calendarEl = document.getElementById('trainerCalendar');
   calendar = new FullCalendar.Calendar(calendarEl, {
     initialView: 'dayGridMonth',
     events: events,
+    dayMaxEvents: true,
+    locale: 'ko',
     eventClick: function (info) {
       // 클릭한 날짜 정보 가져오기
       const scheduleId = info.event.extendedProps.scheduleId;

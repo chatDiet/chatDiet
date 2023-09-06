@@ -13,7 +13,7 @@ document.getElementById('registration-form').addEventListener('submit', async fu
   const link = $('#link').val();
   // const image = document.getElementById('image').files[0];
   //<!-- 혜민님 이미지 4번입니다.-->
-
+  
   axios
     .put(`/api/company/${companyId}`, {
       companyName: companyName,

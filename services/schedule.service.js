@@ -43,7 +43,6 @@ class ScheduleService {
           message: '스케줄 생성 권한 없음',
         };
       }
-      console.log(userId);
       const trainer = await this._trainerRepository.findTrainer(userId);
 
       if (!trainer) {

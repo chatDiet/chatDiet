@@ -1,5 +1,6 @@
 import { DataTypes } from 'sequelize';
 import connector from '../db.js';
+import Trainer from './trainer.js';
 
 const Schedule = connector.sequelize.define(
   'schedules',
@@ -14,6 +15,11 @@ const Schedule = connector.sequelize.define(
     trainerId: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      references: {
+        model: Trainer, 
+        key: 'trainerId',
+      },
+      onDelete: 'CASCADE',
     },
     userId: {
       type: DataTypes.INTEGER,
