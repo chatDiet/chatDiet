@@ -1,3 +1,11 @@
+/* 나눔고딕 글꼴 추가 */
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap');
+
+/* 글꼴 적용 */
+body {
+  font-family: 'Nanum Gothic', sans-serif;
+}
+
 /* .main-section {
   width: 90%;
 }
@@ -26,12 +34,12 @@
  */
 
 #img1 {
-  width: 300px;
-  height: 300px;
+  width: 250px;
+  height: 250px;
 }
 
 .main-section {
-  width: 90%;
+  width: 1200px;
   margin: 0 auto; /* Center the content horizontally */
   padding: 20px; /* Add some space around the content */
   background-color: #f9f9f9; /* Light gray background */
@@ -50,36 +58,53 @@
   color: #333; /* Dark text color */
 }
 
-/* Style for each company button */
+.companyExplain {
+  height: 150px;
+  text-align: center;
+  padding-top: 50px;
+}
+
+.imgArea {
+  width: 250px;
+  height: 250px;
+  align-items: center;
+  display: contents;
+}
+
+/* 수정 장시훈 */
+
+#companyZone {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3개의 열을 생성 */
+  grid-gap: 5px; /* 그리드 사이의 간격 설정 */
+}
+
 #getDetailCompanyBtn {
-  display: flex;
-  flex-direction: column; /* Stack elements vertically */
-  align-items: center; /* Center content horizontally */
-  border: 1px solid #ddd; /* Light border */
-  border-radius: 10px;
-  background-color: #fff; /* White background */
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  padding: 20px;
+  border: 0px solid;
+  align-items: center;
+  margin-left: 15px;
+  margin-right: 15px;
+  flex-wrap: wrap;
   margin-bottom: 20px;
-  cursor: pointer;
-  transition: background-color 0.3s ease; /* Smooth background transition */
-}
-
-/* Style for the company button content */
-#getDetailCompanyBtn div {
-  margin: 10px 0; /* Add vertical spacing between content */
-  text-align: center; /* Center text */
-}
-
-/* Hover effect for company buttons */
-#getDetailCompanyBtn:hover {
-  background-color: #b5d1d6; /* Light gray background on hover */
-}
-
-#getDetailCompanyBtn:active {
-  background-color: #899cb1; /* Change the background color */
-
-  color: #fff; /* Chrgb(133, 154, 175)e text color */
-  border-color: #007bff; /* Change the border color */
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  transition: box-shadow 0.3s ease; /* 호버 효과에 전환 효과 적용 */
+  border-radius: 10px; /* Add rounded corners */
+}
+
+#getDetailCompanyBtn div {
+  margin-left: 15px;
+  margin-right: 15px;
+  justify-content: space-between;
+  justify-content: center;
+}
+
+#getDetailCompanyBtn:hover {
+  border: 1px;
+  align-items: center;
+  margin-left: 15px;
+  margin-right: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+  border-radius: 10px; /* Add rounded corners */
 }

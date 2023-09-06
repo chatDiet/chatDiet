@@ -11,8 +11,18 @@
 
 #commentZone {
   border-top: 2px solid #000;
-  margin-top: 20px;
   padding-top: 20px;
+  margin-top: 5px;
+}
+
+#postZone {
+  padding-top: 20px;
+  margin-bottom: 20px;
+}
+
+.commentName {
+  font-weight: 600; /* 두껍게 (글씨 굵기 조정) */
+  text-align: left; /* 왼쪽 정렬 */
 }
 
 #comment {
@@ -30,4 +40,13 @@
 
 #buttonList {
   margin-top: 20px;
+}
+
+.main-section button {
+  background-color: #007bff; /* Blue button color */
+  color: #fff; /* White text color */
+  border: none; /* Remove button border */
+  padding: 10px 20px; /* Add padding to the button */
+  border-radius: 5px; /* Add rounded corners */
+  cursor: pointer; /* Change cursor to pointer on hover */
 }

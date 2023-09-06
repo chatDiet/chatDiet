@@ -8,6 +8,10 @@ class UserRepository {
     return await UserInfo.findOne({ where: { userId } });
   }
 
+  async findOneUserInfo(userId) {
+    const result = await UserInfo.findOne({ where: { userId } });
+    return result;
+  }
   async updateUserInfo(userInfoId, userName, height, weight, phone) {
     const result = await UserInfo.update(
       {

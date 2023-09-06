@@ -3,22 +3,22 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../css/userMain.css" />
-    <link rel="stylesheet" href="../css/common.css" />
-    <link rel="stylesheet" href="../css/communityMain.css" />
+    <link rel="stylesheet" href="../../css/userMain.css" />
+    <link rel="stylesheet" href="../../css/common.css" />
+    <link rel="stylesheet" href="../../css/communityMain.css" />
     <script src="https://code.jquery.com/jquery-3.4.1.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" defer></script>
-    <title>Your Project</title>
+    <title>커뮤니티</title>
   </head>
   <body>
     <header>
       <nav class="navigation">
         <div class="navigation-title">
-          <h1 class="header-title">chat Diet plan</h1>
+          <h1 class="header-title">커뮤니티</h1>
         </div>
         <div class="navigation-buttons">
           <button class="icon-button"><img src="../img/free-icon-font-search-3917132.png" alt="검색" /></button>
-          <button class="icon-button">로그인 해주세요</button>
+          <a href="/login"> <button class="icon-button">로그인 해주세요</button></a>
         </div>
       </nav>
     </header>
@@ -26,8 +26,10 @@
       <div id="createPostBtn"></div>
       <section class="main-section">
         <div id="createPostBtn">
-          <span>게시글 목록</span>
-          <button onclick="createPostBtn()">게시글 작성</button>
+          <span style="font-weight: bold">게시글 목록</span>
+          <br />
+          <br />
+          <button id="createCommunity" onclick="createPostBtn()">게시글 작성</button>
         </div>
         <div id="postList"></div>
         <!-- 메인 콘텐츠 -->

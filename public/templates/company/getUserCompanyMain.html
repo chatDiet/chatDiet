@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../../css/userMain.css" />
-    <link rel="stylesheet" href="../css/companyMain.css" />
-    <link rel="stylesheet" href="../css/common.css" />
+    <link rel="stylesheet" href="../../css/companyMain.css" />
+    <link rel="stylesheet" href="../../css/common.css" />
     <script src="https://code.jquery.com/jquery-3.4.1.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" defer></script>
     <title>Your Project</title>
@@ -14,17 +14,17 @@
     <header>
       <nav class="navigation">
         <div class="navigation-title">
-          <h1 class="header-title">chat Diet plan</h1>
+          <h1 class="header-title">우리동네 헬스장</h1>
         </div>
         <div class="navigation-buttons">
-          <button class="icon-button"><img src="../img/free-icon-font-search-3917132.png" alt="검색"></button>
-          <button class="icon-button">로그인 해주세요</button>
+          <button class="icon-button"><img src="../img/free-icon-font-search-3917132.png" alt="검색" /></button>
+          <a href="/login"> <button class="icon-button">로그인 해주세요</button></a>
         </div>
       </nav>
     </header>
     <main class="centered">
       <section class="main-section">
-        <div id="companyList">헬스장 목록</div>
+        <div id="companyList"></div>
         <div id="companyZone"></div>
         <!-- 메인 콘텐츠 -->
       </section>
@@ -32,25 +32,24 @@
     <footer>
       <ul class="footer-list">
         <a href="/calender">
-          <li id="footerBtn"><img src="../img/free-icon-font-calendar-3917244.png" />캘린더</li>
+          <li id="footerBtn" class="calender"><img src="../img/free-icon-font-calendar-3917244.png" />캘린더</li>
         </a>
         <a href="/companyMain">
-          <li id="footerBtn"><img src="../img/free-icon-training-9958263.png">헬스장</li>
+          <li id="footerBtn" class="companyMain"><img src="../img/free-icon-training-9958263.png" />헬스장</li>
         </a>
         <a href="/chatMain">
-          <li id="footerBtn"><img src="../img/free-icon-font-envelope-3916611.png" >채팅</li>
+          <li id="footerBtn" class="chatMain"><img src="../img/free-icon-font-envelope-3916611.png" />채팅</li>
         </a>
         <a href="/communityMain">
-          <li id="footerBtn"><img src="../img/free-icon-font-world-3916979.png">커뮤니티</li>
+          <li id="footerBtn" class="communityMain"><img src="../img/free-icon-font-world-3916979.png" />커뮤니티</li>
         </a>
         <a href="/userInfo">
-          <li id="footerBtn"><img src="../img/free-icon-font-user-3917688.png" />마이페이지</li>
+          <li id="footerBtn" class="userInfo"><img src="../img/free-icon-font-user-3917688.png" />마이페이지</li>
         </a>
-      </ul>
       </ul>
     </footer>
     <script src="../js/company/getCompany.js" defer></script>
     <script src="../js/commonBtn.js" defer></script>
-    <script src="../js/calender/calenderBtn.js" defer></script>
+    <script src="../../js/navigationBtn.js" defer></script>
   </body>
 </html>
