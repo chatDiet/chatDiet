@@ -3,19 +3,46 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>1:1 문의</title>
+    <link rel="stylesheet" href="../../css/setInquiry.css" />
+    <title>Your Project</title>
   </head>
   <body>
-    <h1>1:1 문의</h1>
-    <form id="inquiry-form">
-      <label for="title">제목:</label>
-      <input type="text" id="title" placeholder="제목을 입력하세요" required /><br />
+    <header>
+      <nav class="navigation">
+        <div class="navigation-title">
+          <h1 class="header-title">CHAT DIET PLAN</h1>
+        </div>
+        <div class="navigation-buttons">
+          <button id="goto-signup-button" class="icon-button">회원가입</button>
+          <button id="goto-login-button" class="icon-button">로그인</button>
+          <button id="logout-button" class="icon-button">Logout</button>
+        </div>
+      </nav>
+    </header>
+    <main class="centered">
+      <h1>1 : 1 문의</h1>
+      <form id="inquiry-form">
+        <label for="title">제목</label>
+        <textarea id="title" placeholder="제목을 입력해주세요." style="resize: none" required></textarea><br />
 
-      <label for="content">내용:</label>
-      <textarea id="content" placeholder="문의 내용을 입력하세요" rows="4" required></textarea><br />
+        <label for="content">내용</label>
+        <textarea id="content" placeholder="문의 내용을 입력해주세요." rows="4" style="resize: none" required></textarea><br />
 
-      <button type="submit">문의 제출</button>
-    </form>
-    <script type="module" src="../js/inquiry/setInquiry.js"></script>
+        <button type="submit">문의 제출</button>
+      </form>
+    </main>
+    <footer>
+      <ul class="footer-list">
+        <li onclick="getCalender()"><img src="../img/free-icon-font-calendar-3917244.png" />캘린더</li>
+        <li><img src="../img/free-icon-training-9958263.png" />헬스장</li>
+        <li><img src="../img/free-icon-font-envelope-3916611.png" />채팅</li>
+        <li><img src="../img/free-icon-font-world-3916979.png" />커뮤니티</li>
+        <li onclick="myPage()"><img src="../img/free-icon-font-user-3917688.png" />마이페이지</li>
+      </ul>
+    </footer>
+    <script src="../../js/navigationBtn.js" defer></script>
+    <script type="module" src="../../js/login/userLogout.js" defer></script>
+    <script src="../../js/headerScript.js" defer></script>
+    <script type="module" src="../../js/inquiry/setInquiry.js" defer></script>
   </body>
 </html>

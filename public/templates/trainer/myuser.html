@@ -4,8 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../../css/userMain.css" />
-    <link rel="stylesheet" href="../../css/trainer.css" />
-    <!-- <script type="module" src="../js/trainer/trainerApi.js"></script> -->
+    <link rel="stylesheet" href="../css/trainer/trainer.css" />
     <title>트레이너</title>
   </head>
   <body>
@@ -15,8 +14,9 @@
           <h1 class="header-title">chat Diet plan</h1>
         </div>
         <div class="navigation-buttons">
-          <button class="icon-button"><img src="../img/free-icon-font-search-3917132.png" alt="검색" /></button>
-          <button class="icon-button">로그인 해주세요</button>
+          <button id="goto-signup-button" class="icon-button">회원가입</button>
+          <button id="goto-login-button" class="icon-button">로그인</button>
+          <button id="logout-button" class="icon-button">Logout</button>
         </div>
       </nav>
     </header>
@@ -30,26 +30,23 @@
 
     <footer>
       <ul class="footer-list">
-        <a href="/myUser"
+        <a class="footer" href="/myUser"
           ><li><img src="../img/free-icon-font-calendar-3917244.png" />내 회원</li>
         </a>
-        <a href="/trainer">
+        <a class="footer" href="/trainer">
           <li><img src="../img/free-icon-training-9958263.png" />스케줄</li>
         </a>
-        <a href="/chatMain">
-          <li><img src="../img/free-icon-font-envelope-3916611.png" />채팅</li>
-        </a>
-        <a href="/communityMain">
-          <li><img src="../img/free-icon-font-world-3916979.png" />커뮤니티</li>
-        </a>
-        <a href="/userInfo">
+        <a class="footer" href="/trainerInfo">
           <li><img src="../img/free-icon-font-user-3917688.png" />마이페이지</li>
         </a>
       </ul>
     </footer>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script type="module" src="../js/trainer/tainer.js"></script>
+    <script src="../js/commonBtn.js"></script>
     <script type="text/javascript" src="../../js/contract/getcontract.js"></script>
     <script type="text/javascript" src="../../js/contract/deletcontract.js"></script>
+    <script type="module" src="../../js/login/userLogout.js" defer></script>
+    <script src="../../js/headerScript.js" defer></script>
   </body>
 </html>

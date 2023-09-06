@@ -19,6 +19,8 @@ editInquiryForm.addEventListener('submit', async event => {
     .then(response => {
       console.log(`문의 ${inquiryId} 수정 성공:`, response.data);
       alert(`문의 ${inquiryId} 수정 성공:`);
+
+      window.location.href = `http://localhost:3000/inquirys`;
     })
     .catch(error => {
       console.error(`문의 ${inquiryId} 수정 실패:`, error);

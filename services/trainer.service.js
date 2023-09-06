@@ -1,7 +1,8 @@
-import { TrainerRepository } from '../repositories';
+import { TrainerRepository, UserRepository } from '../repositories';
 
 class TrainerService {
   _trainerRepository = new TrainerRepository();
+  _userRepository = new UserRepository();
 
   create = async (trainerName, career, ptContent, companyId, userId, imageUrl) => {
     const isOwner = await this._trainerRepository.isOwner(userId);
@@ -89,6 +90,28 @@ class TrainerService {
     };
   };
 
+  myTrainerInfo = async userId => {
+    const user = await this._userRepository.getUserById(userId);
+    if (user.type !== 'trainer') {
+      return {
+        code: 401,
+        message: '조회 권한 없음',
+      };
+    }
+
+    const trainer = await this._trainerRepository.findTrainer(userId);
+    if (!trainer) {
+      return {
+        code: 404,
+        message: '조회 실패',
+      };
+    }
+    return {
+      code: 200,
+      data: trainer,
+    };
+  };
+
   delete = async (companyId, trainerId, userId) => {
     const isOwner = await this._trainerRepository.isOwner(userId);
     if (isOwner.type != 'owner') {
@@ -127,7 +150,7 @@ class TrainerService {
     };
   };
 
-  update = async (companyId, trainerId, trainerName, career, ptContent, userId) => {
+  update = async (companyId, trainerId, trainerName, career, ptContent, userId, imageUrl) => {
     if (!trainerName) {
       return {
         code: 400,
@@ -173,7 +196,7 @@ class TrainerService {
       };
     }
 
-    const result = await this._trainerRepository.update(trainerId, trainerName, career, ptContent);
+    const result = await this._trainerRepository.update(trainerId, trainerName, career, ptContent, imageUrl);
     return {
       code: 200,
       data: result,

@@ -25,6 +25,11 @@
 }
  */
 
+#img1 {
+  width: 300px;
+  height: 300px;
+}
+
 .main-section {
   width: 90%;
   margin: 0 auto; /* Center the content horizontally */

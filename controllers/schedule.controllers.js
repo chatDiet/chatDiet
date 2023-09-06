@@ -6,10 +6,8 @@ class ScheduleController {
   // 스케줄 생성
   postSchedule = async (req, res) => {
     const userId = res.locals.userId;
-    const { title, date } = req.body;
-    console.log(title);
-    console.log(date);
-    const result = await this._scheduleService.postSchedule(title, date, userId);
+    const { title, date, startTime, endTime } = req.body;
+    const result = await this._scheduleService.postSchedule(title, date, userId, startTime, endTime);
 
     return res.status(result.status).json(result.message);
   };

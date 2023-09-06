@@ -59,6 +59,17 @@ main {
   margin: 0 auto; /* 수평 가운데 정렬을 위해 추가 */
 }
 
+.main-section {
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  width: 100%;
+  height: 350px;
+}
+
 .centered {
   text-align: center;
 }
@@ -99,11 +110,12 @@ footer img {
 
 table {
   border-collapse: collapse;
+  height: 270px;
   width: 100%;
   max-width: 600px;
   margin: 0 auto;
   font-family: Arial, sans-serif;
-  background-color: #f5f5f5;
+  background-color: white;
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
 }
@@ -138,7 +150,7 @@ tr:last-child td {
   font-size: 18px;
   cursor: pointer;
   transition: background-color 0.3s;
-  margin-top: 20px; /* 버튼과 상단 간격 조정 */
+  margin-top: 30px; /* 버튼과 상단 간격 조정 */
 }
 
 #editButton:hover {

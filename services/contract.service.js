@@ -62,6 +62,12 @@ class ContractService {
     if (user.type === 'trainer') {
       // 트레이너 정보 가져오기
       const trainer = await this._trainerRepository.findTrainer(userId);
+      if (!trainer) {
+        return {
+          status: 401,
+          message: '트레이너 등록 필요',
+        };
+      }
       // 트레이너 ID로 계약 테이블 조회
       const getTrainerContract = await this._contractRepository.getTrainerContract(trainer.trainerId);
       return { status: 200, message: getTrainerContract };

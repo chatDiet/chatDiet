@@ -1,4 +1,15 @@
 /* userMain.css */
+@font-face {
+  font-family: 'omyu_pretty';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'omyu_pretty';
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -14,9 +25,8 @@ header {
 }
 
 .header-title {
-  margin: 0;
+  margin-left: 200px;
 }
-
 .navigation {
   display: flex;
   justify-content: space-between;
@@ -51,16 +61,16 @@ header {
 }
 
 main {
-  width: 1000px; /* 원하는 가로 사이즈로 조정 */
+  width: 1000px;
+  height: 800px;
   flex: 1;
-  display: flex;
   justify-content: center;
   align-items: center;
-  margin: 0 auto; /* 수평 가운데 정렬을 위해 추가 */
+  margin: 0 auto;
 }
 
-.centered {
-  text-align: center;
+#img #img1 {
+  width: 1000px;
 }
 
 .footer-list {
@@ -89,7 +99,12 @@ footer li {
   display: flex;
   align-items: center;
   margin: 0 15px;
-  font-size: 14px;
+  font-size: 20px;
+  color: black;
+  text-decoration: none;
+}
+footer a {
+  text-decoration: none;
 }
 
 footer img {
@@ -97,136 +112,84 @@ footer img {
   margin-right: 5px;
 }
 
-/* editInquiry.css */
-body {
-  margin: 0;
-  font-family: Arial, sans-serif;
-  background-color: #f7f7f7;
-}
-
-header {
-  background-color: #fff;
-  padding: 12px 0;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.navigation {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 20px;
-}
-
-.navigation-title {
-  flex: 1;
-}
-
-.header-title {
-  margin: 0;
-  font-size: 24px;
-}
-
-.navigation-buttons {
-  display: flex;
-  gap: 10px;
-}
-
-.icon-button {
-  background: none;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-}
-
-.icon-button img {
-  width: 18px;
-}
-
-main.centered {
-  display: flex;
+/* seInquiry.css */
+.centered {
   justify-content: center;
   align-items: center;
-  min-height: calc(100vh - 170px); /* 화면 높이에 따른 중앙 정렬 */
+  height: 100vh;
+  background-color: #f5f5f5; /* 배경색 조정 */
 }
 
-.main-section {
+/* 제목 스타일 */
+h1 {
+  font-size: 30px;
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+/* 양식 스타일 */
+#editInquiry-form {
+  font-size: 23px;
   background-color: #fff;
   padding: 20px;
-  border-radius: 8px;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  width: 100%;
-  max-width: 600px;
-  margin: 0 auto;
+  margin-top: 30px;
+  margin-right: 100px;
+  margin-left: 100px;
+  height: 650px;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* 그림자 효과 추가 */
+  text-align: center;
 }
 
-#editInquiry-form label {
-  font-weight: bold;
-  margin-top: 10px;
+/* 레이블 스타일 */
+label {
   display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #333;
 }
 
-#title,
-#content {
+/* 입력 필드 스타일 */
+input[type='text'],
+textarea {
   width: 100%;
   padding: 10px;
-  margin: 8px 0;
-  border: 1px solid #dcdcdc;
-  border-radius: 4px;
-  font-size: 14px;
-  box-sizing: border-box;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 600px;
 }
 
 #content {
-  resize: vertical;
+  height: 430px;
 }
 
-#editInquiry-form button[type='submit'] {
+#title {
+  height: 20px;
+}
+
+/* 버튼 스타일 */
+button[type='submit'] {
+  padding: 10px 20px;
+  font-size: 18px;
+  margin-top: 15px;
   background-color: #007bff;
   color: #fff;
   border: none;
-  border-radius: 4px;
-  padding: 8px 15px;
+  border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s, color 0.3s;
-  display: block;
-  margin-top: 15px;
+  transition: background-color 0.3s ease;
 }
 
-#editInquiry-form button[type='submit']:hover {
+button[type='submit']:hover {
   background-color: #0056b3;
 }
 
-.footer-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  background-color: #fff;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  padding: 20px 0;
-  box-shadow: 0px -2px 4px rgba(0, 0, 0, 0.1);
-}
-
-footer ul {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-footer li {
-  display: flex;
-  align-items: center;
-  font-size: 14px;
-  cursor: pointer;
-}
-
-footer img {
-  width: 20px;
-  margin-right: 5px;
+label[for='content'] {
+  display: block;
+  font-weight: bold;
+  margin-bottom: 5px;
+  color: #333;
 }

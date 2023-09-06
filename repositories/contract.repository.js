@@ -1,4 +1,4 @@
-import { Contract } from '../db';
+import { Contract, User, UserInfo } from '../db';
 
 class ContractRepository {
   createContract = async (trainerId, userId) => {
@@ -22,7 +22,20 @@ class ContractRepository {
 
   getTrainerContract = async trainerId => {
     try {
-      const getTrainerContract = await Contract.findAll({ where: { trainerId } });
+      const getTrainerContract = await Contract.findAll({
+        where: { trainerId },
+        include: [
+          {
+            model: User,
+            include: [
+              {
+                model: UserInfo,
+                attributes: ['userName'],
+              },
+            ],
+          },
+        ],
+      });
       return getTrainerContract;
     } catch (err) {}
   };
