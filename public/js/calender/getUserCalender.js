@@ -8,27 +8,35 @@ const typeMapping = {
 };
 
 document.addEventListener('DOMContentLoaded', async function () {
-  const response = await axios.get('/api/calenders');
-  const events = response.data.map(item => ({
-    title: '[' + typeMapping[item.type] + ']' + item.title,
-    start: new Date(item.date),
-    url: `/calender/${item.calenderId}`,
-  }));
+  const response = await axios
+    .get('/api/calenders')
+    .then(function (response) {
+      const events = response.data.map(item => ({
+        title: '[' + typeMapping[item.type] + ']' + item.title,
+        start: new Date(item.date),
+        url: `/calender/${item.calenderId}`,
+      }));
 
-  var calendarEl = document.getElementById('calendar');
-  calendar = new FullCalendar.Calendar(calendarEl, {
-    initialView: 'dayGridMonth',
-    displayEventTime: false,
-    scrollTime: '08:00:00',
-    events: events,
+      var calendarEl = document.getElementById('calendar');
+      calendar = new FullCalendar.Calendar(calendarEl, {
+        initialView: 'dayGridMonth',
+        displayEventTime: false,
+        scrollTime: '08:00:00',
+        events: events,
 
-    eventClick: function (info) {
-      info.jsEvent.preventDefault(); // don't let the browser navigate
+        eventClick: function (info) {
+          info.jsEvent.preventDefault(); // don't let the browser navigate
 
-      if (info.event.url) {
-        location.href = info.event.url;
-      }
-    },
-  });
-  calendar.render();
+          if (info.event.url) {
+            location.href = info.event.url;
+          }
+        },
+      });
+      calendar.render();
+    })
+    .catch(function (error) {
+      alert('로그인이 필요한 서비스입니다.');
+      console.log('이거 왜 에러 안뜨냐');
+      location.href = '/login';
+    });
 });

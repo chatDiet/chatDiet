@@ -11,5 +11,6 @@ export default () => {
   Contract.belongsTo(Trainer, {
     sourceKey: 'trainerId',
     foreignKey: 'trainerId',
+    onDelete: 'CASCADE',
   });
 };

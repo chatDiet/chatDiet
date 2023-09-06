@@ -5,15 +5,16 @@ document.addEventListener('DOMContentLoaded', async () => {
   axios.get(`/api/companys/owner`).then(function (response) {
     const result = response.data;
 
-    document.getElementById('company-name').textContent = result.companyName;
-    document.getElementById('company-address').textContent = result.map;
     const imageUrls = result.imageUrl.split(',');
+
     const smallImagesContainer = document.getElementById('companyImage');
+
     for (const imageUrl of imageUrls) {
       const imgElement = document.createElement('img');
       console.log(imgElement);
       imgElement.src = imageUrl;
       imgElement.classList.add('small-image');
+
       smallImagesContainer.appendChild(imgElement);
     }
 
@@ -35,7 +36,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         </div>
         <div class="info-item">
           <h3>전화번호</h3>
-          <p>+82 ${result.phoneNumber}</p>
+          <p>${result.phoneNumber}</p>
         </div>
         <div class="info-item">
           <h3>바로가기</h3>
@@ -65,14 +66,22 @@ document.addEventListener('DOMContentLoaded', async () => {
       .get(`/api/companys/${result.companyId}/trainer`)
       .then(function (response) {
         const result = response.data.data;
+
+        const trainerList = document.getElementById('trainer');
+        trainerList.innerHTML = '';
+
         for (let i = 0; result.length > i; i++) {
-          const trainerList = document.getElementById('trainer');
-          trainerList.innerHTML = `<button class="trainer-card" onclick="detailTrainerBtn(${result[i].trainerId})">
+          const trainerContainer = document.createElement('div'); // 새로운 컨테이너 생성
+          trainerContainer.classList.add('trainer-card');
+
+          trainerContainer.innerHTML = `<button class="trainer-card" onclick="detailTrainerBtn(${result[i].trainerId})">
           <img src="${result[i].imageUrl}" alt="Trainer Image" class="trainer-image">
           <p>${result[i].trainerName}</p>
           <p>${result[i].career}</p>
           <button onclick="deleteTrainerBtn(${result[i].companyId}, ${result[i].trainerId})">트레이너 삭제</button>
         </button>`;
+
+        trainerList.appendChild(trainerContainer);
         }
       })
       .catch(function (error) {
@@ -92,7 +101,7 @@ document.addEventListener('DOMContentLoaded', async () => {
           const deleteResponse = await axios.delete(`/api/company/${result.companyId}`);
           if (deleteResponse.status === 200) {
             alert('업체 정보가 삭제되었습니다.');
-            window.location.href = 'http://localhost:3000/userMain';
+            window.location.href = 'http://localhost:3000/getOwnerCompany';
           } else {
             alert('업체 정보 삭제에 실패했습니다.');
           }

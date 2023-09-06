@@ -22,6 +22,10 @@ class UserService {
     };
   }
 
+  async findOneUserInfo(userId) {
+    const result = await this._userRepository.findOneUserInfo(userId);
+    return { status: 200, data: result };
+  }
   // 유저 정보 수정
   async updateUserInfo(userId, userInfoId, userName, height, weight, phone) {
     try {

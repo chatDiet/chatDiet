@@ -32,22 +32,22 @@
             <input type="text" id="companyName" name="companyName" required /><br /><br />
 
             <label for="time">운영시간:</label>
-            <input type="text" id="time" name="time" placeholder="필수" required /><br /><br />
+            <input type="text" id="time" name="time" placeholder="e.g. 08시~23시" required /><br /><br />
 
             <label for="additional">운영 프로그램:</label>
-            <input type="text" id="additional" name="additional" placeholder="필수" required /><br /><br />
+            <input type="text" id="additional" name="additional" placeholder="e.g. 1:1 PT(별도 문의)" required /><br /><br />
 
             <label for="service">부가 서비스:</label>
-            <input type="text" id="service" name="service" placeholder="" required /><br /><br />
+            <input type="text" id="service" name="service" placeholder="e.g. 라커 (월 10,000원)" required /><br /><br />
 
             <label for="phoneNumber">전화번호:</label>
-            <input type="tel" id="phoneNumber" name="phoneNumber" pattern="[0-9]{10}" placeholder="+82 0112345678" required /><br /><br />
+            <input type="tel" id="phoneNumber" name="phoneNumber" pattern="[0-9]{11}" placeholder=" - 제외하고 입력 " required /><br /><br />
 
             <label for="link">업체 홈페이지:</label>
             <input type="url" id="link" name="link" placeholder="https://" /><br /><br />
 
             <label for="map">주소:</label>
-            <input type="text" id="map" name="map" placeholder="서울특별시 중구 세종대로 110" required /><br /><br />
+            <input type="text" id="map" name="map" placeholder="도로명 주소 입력 " required /><br /><br />
 
             <!-- 혜민님 이미지 4번입니다. -->
             <!-- <label for="company-photo">업체 사진 등록:</label>
@@ -69,9 +69,6 @@
         <li>
           <a class="custom" href="http://localhost:3000/setOwnerCompany"><img src="../img/free-icon-training-9958263.png" />업체등록</a>
         </li>
-        <a href="/userInfo">
-          <li><img src="../img/free-icon-font-user-3917688.png" />마이페이지</li>
-        </a>
       </ul>
     </footer>
     <script type="module" src="../../js/login/userLogout.js" defer></script>

@@ -41,7 +41,7 @@ class CompanyRepository {
     } catch (err) {}
   };
 
-  putCompany = async (companyId, companyName, time, additional, service, phoneNumber, link, map) => {
+  putCompany = async (companyId, companyName, time, additional, service, phoneNumber, link, imageUrl, map) => {
     try {
       const result = await Company.update(
         {
@@ -51,13 +51,16 @@ class CompanyRepository {
           service,
           phoneNumber,
           link,
+          imageUrl,
           map,
         },
         { where: { companyId } }
       );
 
       return result;
-    } catch (err) {}
+    } catch (err) {
+      console.log(err);
+    }
   };
 
   deleteCompany = async companyId => {

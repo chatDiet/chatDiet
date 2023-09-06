@@ -9,7 +9,7 @@ axios.get('/api/posts').then(function (response) {
 
     let temp_html = `
     <button id="communityList" onclick="getDetailCommunityBtn(${postId})">
-      <div id="title">title : ${title}</div>
+      <div id="title"> ${title}</div>
     </button>
     `;
     $('#postList').append(temp_html);
