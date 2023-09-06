@@ -5,7 +5,7 @@ class CompanyService {
 
   postCompany = async (companyName, time, additional, service, phoneNumber, link, userId, imageUrl, map) => {
     try {
-      const existCompany = await this._companyRepository.oneGetCompany(userId);
+      const existCompany = await this._companyRepository.getOwnerCompany(userId);
       if (existCompany) {
         return {
           status: 400,
