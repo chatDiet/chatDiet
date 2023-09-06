@@ -4,6 +4,8 @@ WORKDIR /chatDiet
 
 COPY package*.json ./
 
+RUN npm install --no-audit
+
 RUN npm install
 
 COPY . .
