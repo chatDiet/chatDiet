@@ -6,12 +6,15 @@ document.addEventListener('DOMContentLoaded', async () => {
     const result = response.data;
 
     const imageUrls = result.imageUrl.split(',');
+
     const smallImagesContainer = document.getElementById('companyImage');
+
     for (const imageUrl of imageUrls) {
       const imgElement = document.createElement('img');
       console.log(imgElement);
       imgElement.src = imageUrl;
       imgElement.classList.add('small-image');
+
       smallImagesContainer.appendChild(imgElement);
     }
 
@@ -63,14 +66,22 @@ document.addEventListener('DOMContentLoaded', async () => {
       .get(`/api/companys/${result.companyId}/trainer`)
       .then(function (response) {
         const result = response.data.data;
+
+        const trainerList = document.getElementById('trainer');
+        trainerList.innerHTML = '';
+
         for (let i = 0; result.length > i; i++) {
-          const trainerList = document.getElementById('trainer');
-          trainerList.innerHTML = `<button class="trainer-card" onclick="detailTrainerBtn(${result[i].trainerId})">
+          const trainerContainer = document.createElement('div'); // 새로운 컨테이너 생성
+          trainerContainer.classList.add('trainer-card');
+
+          trainerContainer.innerHTML = `<button class="trainer-card" onclick="detailTrainerBtn(${result[i].trainerId})">
           <img src="${result[i].imageUrl}" alt="Trainer Image" class="trainer-image">
           <p>${result[i].trainerName}</p>
           <p>${result[i].career}</p>
           <button onclick="deleteTrainerBtn(${result[i].companyId}, ${result[i].trainerId})">트레이너 삭제</button>
         </button>`;
+
+        trainerList.appendChild(trainerContainer);
         }
       })
       .catch(function (error) {

@@ -20,7 +20,7 @@ const Company = connector.sequelize.define(
       allowNull: false,
     },
     time: {
-      type: DataTypes.DATE,
+      type: DataTypes.STRING,
       allowNull: false,
     },
     additional: {

@@ -64,10 +64,17 @@ main {
 
 /* 업체 등록 섹션에 대한 스타일링 */
 .registration-section {
-  max-width: 600px; /* 필요에 따라 이 값을 조정하세요 */
+  min-width: 800px;
+  max-width: 1000px; /* 필요에 따라 이 값을 조정하세요 */
   margin: 0 auto;
   padding: 20px;
-  background-color: #f4f4f4;
+  background-color: #f0f0f0;
+  border-radius: 10px;
+}
+
+#registration-form {
+  background-color: #ffffff;
+  padding: 15px;
   border-radius: 10px;
 }
 
