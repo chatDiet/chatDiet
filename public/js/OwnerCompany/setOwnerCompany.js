@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', () => {
       window.location.href = `http://localhost:3000/getOwnerCompany`;
     } catch (error) {
       console.log(error);
-      alert('등록 중 오류가 발생했습니다. ');
+      alert(error.response.data);
     }
   });
 });

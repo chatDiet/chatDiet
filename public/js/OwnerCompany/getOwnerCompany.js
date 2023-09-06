@@ -5,8 +5,6 @@ document.addEventListener('DOMContentLoaded', async () => {
   axios.get(`/api/companys/owner`).then(function (response) {
     const result = response.data;
 
-    document.getElementById('company-name').textContent = result.companyName;
-    document.getElementById('company-address').textContent = result.map;
     const imageUrls = result.imageUrl.split(',');
     const smallImagesContainer = document.getElementById('companyImage');
     for (const imageUrl of imageUrls) {
@@ -35,7 +33,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         </div>
         <div class="info-item">
           <h3>전화번호</h3>
-          <p>+82 ${result.phoneNumber}</p>
+          <p>${result.phoneNumber}</p>
         </div>
         <div class="info-item">
           <h3>바로가기</h3>
@@ -92,7 +90,7 @@ document.addEventListener('DOMContentLoaded', async () => {
           const deleteResponse = await axios.delete(`/api/company/${result.companyId}`);
           if (deleteResponse.status === 200) {
             alert('업체 정보가 삭제되었습니다.');
-            window.location.href = 'http://localhost:3000/userMain';
+            window.location.href = 'http://localhost:3000/getOwnerCompany';
           } else {
             alert('업체 정보 삭제에 실패했습니다.');
           }

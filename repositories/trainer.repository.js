@@ -1,4 +1,4 @@
-import { User, Trainer, Company } from '../db';
+import { User, Trainer, Company, Contract } from '../db';
 
 class TrainerRepository {
   isOwner = async userId => {
@@ -38,6 +38,7 @@ class TrainerRepository {
   };
 
   delete = async trainerId => {
+    await Contract.destroy({ where: { trainerId } });
     await Trainer.destroy({ where: { trainerId } });
   };
 
