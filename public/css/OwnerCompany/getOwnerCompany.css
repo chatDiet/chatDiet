@@ -60,6 +60,7 @@ main {
 }
 
 .company-info{
+  min-width: 800px;
   max-width: 1000px; /* 필요에 따라 이 값을 조정하세요 */
   margin: 0 auto;
   padding: 20px;
@@ -67,10 +68,22 @@ main {
   border-radius: 10px;
 }
 
+#companyImage {
+  display: flex;
+  flex-wrap: nowrap; /* 가로로 스크롤되도록 설정 */
+  overflow-x: auto; /* 스크롤 표시를 활성화 */
+  gap: 10px; /* 이미지 사이 간격 설정 */
+  align-items: center; /* 이미지를 수직 가운데로 정렬 */
+  justify-content: center; /* 이미지를 수평 가운데로 정렬 */
+  margin-bottom: 10px;
+}
+
+/* 각 이미지 스타일 */
 .small-image {
   width: 256px;
   height: 256px;
   object-fit: cover;
+  flex: 0 0 auto; /* 이미지 크기 고정 */
   margin: 0px 10px 0px 10px;
 }
 
@@ -92,13 +105,37 @@ main {
 }
 
 .trainer-box {
-  width: 256px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+  border-radius: 10px;
+}
+
+.trainer-card {
+  width: calc(33.33% - 20px);
+  margin: 10px;
+  text-align: center;
   background-color: #ffffff;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative; /* 추가: 상대 위치 지정 */
+
+  /* 수정된 스타일 */
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 20px;
-  border-radius: 10px;
+}
+
+.trainer-card button {
+  margin-top: auto; /* 버튼을 카드의 하단에 위치 */
+  background-color: #f0f0f0;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+  width: 100%; /* 버튼 넓이를 카드에 맞게 설정 */
 }
 
 .trainer-image {
