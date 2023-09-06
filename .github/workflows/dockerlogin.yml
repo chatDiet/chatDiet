@@ -1,7 +1,8 @@
 name: 'deploy'
 
 on:
-  push: ['testDevelop']
+  push:
+    branches: [testDevelop]
 
 jobs:
   build:
