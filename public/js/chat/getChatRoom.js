@@ -11,22 +11,28 @@ const formatDate = date => {
 };
 
 // 대화 내용 조회
-axios.get(`api/chat/${roomId}`).then(function (response) {
-  const result = response.data;
-  $('#chatList').empty();
-  for (let i = result.length - 1; i >= 0; i--) {
-    const name = result[i]['name'];
-    const content = result[i]['content'];
-    const date = formatDate(result[i]['date']);
-    const temp_html = `
+axios
+  .get(`api/chat/${roomId}`)
+  .then(function (response) {
+    const result = response.data;
+    $('#chatList').empty();
+    for (let i = result.length - 1; i >= 0; i--) {
+      const name = result[i]['name'];
+      const content = result[i]['content'];
+      const date = formatDate(result[i]['date']);
+      const temp_html = `
         <div id="chatContent">
           <div>보낸시간 : ${date}</div>
           <div>${name} : ${content}</div>
         </div>
         `;
-    $('#chatList').append(temp_html);
-  }
-});
+      $('#chatList').append(temp_html);
+    }
+  })
+  .catch(function (error) {
+    alert('로그인이 필요한 서비스 입니다.');
+    location.href = '/login';
+  });
 
 const chatMessages = document.querySelector('#chatList');
 

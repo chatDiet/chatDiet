@@ -11,13 +11,15 @@ axios.get('/api/company').then(function (response) {
     const companyId = result[i].companyId;
 
     let temp_html = `
-    <button id="getDetailCompanyBtn" onclick="getDetailCompanyBtn(${companyId})">
-      <div>imageUrl : ${imageUrl}</div>
+    <div id="getDetailCompanyBtn" onclick="getDetailCompanyBtn(${companyId})">
+      <div class='imgArea'>imageUrl : ${imageUrl}</div>
+      <div class='companyExplain'>
       <div>업체 이름 : ${companyName}</div>
-      <div>map : ${map}</div>
+      <div> 주소 : ${map}</div>
       <div>연락처 : ${phoneNumber}</div>
       <div>운영시간 : ${time}</div>
-    </button>
+      </div>
+    </div>
     `;
     $('#companyZone').append(temp_html);
   }

@@ -10,7 +10,7 @@ $('#savePost').click(function () {
       location.href = `/detailCommunity?postId=${postId}`;
     })
     .catch(function (error) {
-      alert(error.response.data.message);
+      alert('게시글을 작성하려면 로그인 해주세요.');
       location.href = `/communityMain`;
     });
 });

@@ -22,7 +22,7 @@ deleteCommentBtn = (postId, commentId) => {
       location.reload();
     })
     .catch(function (error) {
-      alert(error.response.data.message);
+      alert('삭제 권한이 없습니다');
       location.reload();
     });
 };

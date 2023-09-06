@@ -11,6 +11,12 @@ class UserController {
     return res.status(result.status).json(result.data);
   };
 
+  findOneUserInfo = async (req, res) => {
+    const userId = req.params.userId;
+    const result = await this._userService.findOneUserInfo(userId);
+    console.log(result, '백에서');
+    return res.status(result.status).json(result.data);
+  };
   updateUserInfo = async (req, res) => {
     const userId = res.locals.userId;
     const { userName, height, weight, phone } = req.body;
