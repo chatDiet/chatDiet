@@ -18,7 +18,14 @@ class ContractService {
       if (!ptNumber) {
         return {
           status: 400,
-          message: 'PT 횟수 미입력',
+          message: 'PT 횟수 미입력(숫자 입력)',
+        };
+      }
+
+      if (0 < ptNumber <= 100) {
+        return {
+          status: 400,
+          message: '1회 이상 또는 100회 이하',
         };
       }
 

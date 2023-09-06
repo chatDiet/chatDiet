@@ -37,8 +37,8 @@ class ContractRepository {
     return getTrainerContract;
   };
 
-  getContract = async (userId, trainerId) => {
-    const getTrainerContract = await Contract.findOne({ where: { userId, trainerId } });
+  getContract = async (trainerId, userId) => {
+    const getTrainerContract = await Contract.findOne({ where: { trainerId, userId } });
     return getTrainerContract;
   };
 
