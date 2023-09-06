@@ -1,4 +1,4 @@
-FROM node:18
+FROM node:14
 
 WORKDIR /chatDiet
 
@@ -12,4 +12,4 @@ COPY . .
 # 예: npm run build
 RUN npm run build
 
-CMD ["npm run dev", ]
+CMD ["npm run dev"]
