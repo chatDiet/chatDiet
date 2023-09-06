@@ -11,9 +11,12 @@ function closeSidebar() {
 async function getUserInfo() {
   try {
     const userInfoResponse = await axios.get(`/api/userinfo`);
+    console.log(userInfoResponse.data);
     const username = userInfoResponse.data.userName; // 서버에서 응답한 username
     return username;
   } catch (error) {
+    alert('로그인 후 이용 가능');
+    location.href = '/login';
     console.error('유저 정보가 존재하지 않습니다.', error);
   }
 }
@@ -25,8 +28,9 @@ document.addEventListener('DOMContentLoaded', async function () {
     title: item.title,
     date: item.date,
     scheduleId: item.scheduleId,
+    startTime: item.startTime,
+    endTime: item.endTime,
   }));
-  console.log(events, 'events');
   var calendarEl = document.getElementById('trainerCalendar');
   calendar = new FullCalendar.Calendar(calendarEl, {
     initialView: 'dayGridMonth',
@@ -71,9 +75,11 @@ async function openSidebar(scheduleId) {
     const username = await getUserInfo();
     scheduleInfo.innerHTML = `
     <div class="scheduleList">
-      <p> ${username}회원님</p>
+      <p> ${username} 트레이너</p>
       <p>${scheduleData.title}</p>
       <p> ${scheduleData.date}</p>
+      <p> ${scheduleData.startTime}</p>
+      <p> ${scheduleData.endTime}</p>
       `;
     const deleteButton = document.createElement('button');
     deleteButton.classList.add('delete-schedule-button');

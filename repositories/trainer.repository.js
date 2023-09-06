@@ -42,8 +42,8 @@ class TrainerRepository {
     await Trainer.destroy({ where: { trainerId } });
   };
 
-  update = async (trainerId, trainerName, career, ptContent) => {
-    return await Trainer.update({ trainerName, career, ptContent }, { where: { trainerId } });
+  update = async (trainerId, trainerName, career, ptContent, imageUrl) => {
+    return await Trainer.update({ trainerName, career, ptContent, imageUrl }, { where: { trainerId } });
   };
 }
 
