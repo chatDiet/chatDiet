@@ -10,5 +10,6 @@ router.post('/contract', isAuth, contractController.createContract);
 router.get('/contract', isAuth, contractController.getContract);
 router.delete('/contract/:contractId', isAuth, contractController.deleteContract);
 router.patch('/authContract', isAuth, contractController.authContract);
+router.put('/contract/:contractId', isAuth, contractController.updateContract);
 
 export default router;

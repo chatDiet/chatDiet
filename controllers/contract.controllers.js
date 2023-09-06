@@ -4,9 +4,9 @@ class ContractController {
   contractService = new ContractService();
 
   createContract = async (req, res) => {
-    const { trainerId } = req.body;
+    const { trainerId, ptNumber } = req.body;
     const userId = res.locals.userId;
-    const createContract = await this.contractService.createContract(trainerId, userId);
+    const createContract = await this.contractService.createContract(trainerId, userId, ptNumber);
     return res.status(createContract.status).json(createContract.message);
   };
 
@@ -30,6 +30,14 @@ class ContractController {
     const userId = res.locals.userId;
 
     const result = await this.contractService.authContract(data, userId);
+    return res.status(result.status).json(result.message);
+  };
+
+  updateContract = async (req, res) => {
+    const { contractId } = req.params;
+    const userId = res.locals.userId;
+
+    const result = await this.contractService.updateContract(contractId, userId);
     return res.status(result.status).json(result.message);
   };
 }

@@ -1,6 +1,7 @@
 #createCommentModal,
 #createReportModal,
-#createReviewModal {
+#createReviewModal,
+#createPtModal {
   display: none; /* 기본적으로 숨김 */
   position: fixed;
   z-index: 1;
@@ -13,7 +14,8 @@
 
 #commentContent,
 #reportContent,
-#reviewContent {
+#reviewContent,
+#ptContent {
   background-color: #fefefe;
   margin: 15% auto;
   padding: 20px;
@@ -24,7 +26,8 @@
 
 #commentModalClose,
 #reportModalClose,
-#reviewModalClose {
+#reviewModalClose,
+#ptModalClose {
   float: right;
   font-size: 20px;
   font-weight: bold;
@@ -35,7 +38,8 @@
 #content,
 #titleReport,
 #contentReport,
-#grade {
+#grade,
+#ptNumber {
   width: 100%;
   padding: 10px;
   margin-bottom: 10px;
@@ -46,7 +50,8 @@
 
 #saveComment,
 #saveReportModal,
-#saveReviewModal {
+#saveReviewModal,
+#savePtModal {
   background-color: #007bff;
   color: white;
   border: none;

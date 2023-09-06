@@ -6,7 +6,7 @@ class ContractService {
   _userRepository = new UserRepository();
 
   // 계약 생성
-  createContract = async (trainerId, userId) => {
+  createContract = async (trainerId, userId, ptNumber) => {
     try {
       if (!trainerId) {
         return {
@@ -15,10 +15,10 @@ class ContractService {
         };
       }
 
-      if (!userId) {
+      if (!ptNumber) {
         return {
           status: 400,
-          message: '유저 ID 미입력',
+          message: 'PT 횟수 미입력',
         };
       }
 
@@ -38,13 +38,14 @@ class ContractService {
         };
       }
 
-      const contract = await this._contractRepository.createContract(trainerId, userId);
+      const contract = await this._contractRepository.createContract(trainerId, userId, ptNumber);
       if (!contract) {
         return {
           status: 400,
           message: '계약 생성 실패',
         };
       }
+
       return {
         status: 200,
         message: '계약 생성',
@@ -147,6 +148,67 @@ class ContractService {
       return { status: 400, message: '접근 권한 없음' };
     }
     return { status: 200, message: '접근 성공' };
+  };
+
+  // pt횟수 수정
+  updateContract = async (contractId, userId) => {
+    try {
+      const checkTrainer = await this._userRepository.getUserById(userId);
+      if (checkTrainer.type !== 'trainer') {
+        return {
+          status: 401,
+          message: '권한 없음',
+        };
+      }
+
+      const trainer = await this._trainerRepository.findTrainer(userId);
+      if (!trainer) {
+        return {
+          status: 404,
+          message: '트레이너 등록 필요',
+        };
+      }
+
+      const checkContract = await this._contractRepository.getContractId(contractId);
+      if (!checkContract) {
+        return {
+          status: 404,
+          message: '존재하지 않는 계약',
+        };
+      }
+
+      if (checkContract.ptNumber <= 0) {
+        return {
+          status: 400,
+          message: 'PT 횟수 0',
+        };
+      }
+
+      if (checkContract.trainerId !== trainer.trainerId) {
+        return {
+          status: 401,
+          message: '권한 없음',
+        };
+      }
+
+      const result = await this._contractRepository.updateContract(contractId);
+      if (!result) {
+        return {
+          status: 40,
+          message: '수정 실패',
+        };
+      }
+      return {
+        status: 200,
+        message: '성공',
+      };
+    } catch (err) {
+      console.log(err);
+      return {
+        status: 500,
+        message: 'Server error',
+      };
+    }
   };
 }
 
