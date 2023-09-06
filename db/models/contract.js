@@ -1,5 +1,6 @@
 import { DataTypes } from 'sequelize';
 import connector from '../db.js';
+import Trainer from './trainer.js';
 
 const Contract = connector.sequelize.define(
   'contracts',
@@ -18,6 +19,11 @@ const Contract = connector.sequelize.define(
     trainerId: {
       type: DataTypes.INTEGER,
       allowNull: false,
+      references: {
+        model: Trainer, 
+        key: 'trainerId',
+      },
+      onDelete: 'CASCADE',
     },
     createdAt: {
       type: DataTypes.DATE,
