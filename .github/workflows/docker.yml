@@ -13,7 +13,7 @@ jobs:
 
       - name: Generate env file
         env:
-        envfile: ${{ secrets.ENV }}
+          envfile: ${{ secrets.ENV }}
         run: echo ENV="$envfile" >> .env
 
       - name: Login to Docker hub
