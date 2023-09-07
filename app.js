@@ -67,6 +67,9 @@ export class ExpressApp {
     this.app.get('/calender', (req, res) => {
       res.sendFile(__dirname + '/public/templates/calender/userCalender.html');
     });
+    this.app.get('/trainerUserCalender/:calenderId', (req, res) => {
+      res.sendFile(__dirname + '/public/templates/trainer/trainerUserCalender.html');
+    });
     this.app.get('/calender/post', (req, res) => {
       res.sendFile(__dirname + '/public/templates/calender/postUserCalender.html');
     });

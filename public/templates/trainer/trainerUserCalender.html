@@ -3,17 +3,16 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../css/userCalender.css" />
-    <script src="http://code.jquery.com/jquery-latest.js"></script> 
-    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js'></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-    <title>나의 캘린더</title>
+    <link rel="stylesheet" href="../css/userMain.css" />
+    <link rel="stylesheet" href="../../css/detailUserCalender.css" />
+    <title>Document</title>
   </head>
   <body>
     <header>
       <nav class="navigation">
         <div class="navigation-title">
-          <h1 class="header-title">chat Diet plan</h1>
+          <h1 class="header-title">CHAT DIET PLAN</h1>
         </div>
         <div class="navigation-buttons">
           <button id="goto-signup-button" class="icon-button">회원가입</button>
@@ -23,18 +22,9 @@
       </nav>
     </header>
     <main class="centered">
-      <section class="main-section">
-          <div class="ui container">
-            <div class="ui grid">
-              <div class="ui sixteen column">
-                <div id="calendar"></div>
-              </div>
-            </div>
-          </div>
-          </div>
-      </section>
-      <div id = "dayCalender">
-
+      <div id="detailCalender">
+        <h1>나의 캘린더</h1>
+        <button id="deleteButton">삭제</button>
       </div>
     </main>
     <footer>
@@ -50,8 +40,9 @@
         </a>
       </ul>
     </footer>
-    <script type="module" src="../../js/calender/getTrainerUserCalender.js" defer></script>
-    <script type="module"  src="../../js/navigationBtn.js" defer></script>
+    <script type="module" src="../../js/calender/detailUserCalender.js"></script>
+    <script src="../js/navigationBtn.js" defer></script>
+    <script type="module" src="../js/login/userLogout.js" defer></script>
     <script type="module" src="../../js/login/userLogout.js" defer></script>
     <script src="../../js/headerScript.js" defer></script>
   </body>
