@@ -50,8 +50,9 @@ socket.on('connect', function () {
       socket.emit('newUser', data);
     })
     .catch(function (error) {
-      alert(error.response.data.message);
-      location.href = `/companyMain`;
+      console.log(error, 'error');
+      alert('채팅방 참여 권한이 없습니다.');
+      location.href = `/chatMain`;
     });
 });
 

@@ -78,8 +78,9 @@ export class Server {
 const server = new Server();
 
 // 여기서 실행
-server.runSocket();
+
 connector.testConnectDB();
 connector.connectDB();
 mongdb.mongoDBconnect();
 server.runServer();
+server.runSocket();

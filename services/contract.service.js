@@ -199,6 +199,7 @@ class ContractService {
       }
 
       const result = await this._contractRepository.updateContract(contractId);
+      console.log(typeof result.ptNumber, result.ptNumber);
       if (!result) {
         return {
           status: 40,
