@@ -46,22 +46,13 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: byeongil/chatdiet:test1
-# # 배포
-#   deploy:
-#     needs: build # build 후에 실행되도록 정의
-#     name: Deploy
-#     runs-on: [self-hosted, label-go] # AWS ./configure에서 사용할 label명
-#     steps:
-#       - name: Login to ghcr
-#         uses: docker/login-action@v1
-#         with:
-#           registry: ghcr.io
-#           username: ${{ github.actor }}
-#           password: ${{ secrets.GHCR_TOKEN }}
-#       - name: Docker run
-#         run: |
-#           docker stop my-web && docker rm my-web && docker rmi ${{ secrets.DOCKERHUB_USERNAME }}/chatdiet:test1
 
-#           docker pull ${{ secrets.DOCKERHUB_USERNAME }}/chatdiet:test1
-
-#           docker run -d -p 80:80 --name my-web ${{ secrets.DOCKERHUB_USERNAME }}/chatdiet:test1
+      - name: Beanstalk Deploy
+        uses: einaregilsson/beanstalk-deploy@v20
+        with:
+          aws_access_key: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          application_name: ${{ secrets.AWS_APPLICATION_NAME }}
+          environment_name: ${{ secrets.AWS_ENVIRONMENT_NAME }}
+          region: ap-northeast-2
+          deployment_package: Dockerrun.aws.json
