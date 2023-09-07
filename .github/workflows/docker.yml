@@ -46,3 +46,22 @@ jobs:
           file: ./Dockerfile
           push: true
           tags: byeongil/chatdiet:test1
+# # 배포
+#   deploy:
+#     needs: build # build 후에 실행되도록 정의
+#     name: Deploy
+#     runs-on: [self-hosted, label-go] # AWS ./configure에서 사용할 label명
+#     steps:
+#       - name: Login to ghcr
+#         uses: docker/login-action@v1
+#         with:
+#           registry: ghcr.io
+#           username: ${{ github.actor }}
+#           password: ${{ secrets.GHCR_TOKEN }}
+#       - name: Docker run
+#         run: |
+#           docker stop my-web && docker rm my-web && docker rmi ${{ secrets.DOCKERHUB_USERNAME }}/chatdiet:test1
+
+#           docker pull ${{ secrets.DOCKERHUB_USERNAME }}/chatdiet:test1
+
+#           docker run -d -p 80:80 --name my-web ${{ secrets.DOCKERHUB_USERNAME }}/chatdiet:test1
