@@ -85,7 +85,12 @@ footer li {
   display: flex;
   align-items: center;
   margin: 0 15px;
-  font-size: 14px;
+  font-size: 20px;
+  color: black;
+  text-decoration: none;
+}
+footer a {
+  text-decoration: none;
 }
 
 footer img {
