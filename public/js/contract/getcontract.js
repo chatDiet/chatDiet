@@ -30,7 +30,7 @@ async function getContracts() {
           <h1 id="userName">남은 PT 횟수 : ${ptNumber}</h1>
           <div class="contract-button">
             <button class="deleteContract" data-contract-id="${contractId}">계약취소하기</button>
-            <a href='/userCalender'><button>회원님 캘린더 보기</button></a>
+            <button onclick="getTrainerUserCalender(${userId})">회원님 캘린더 보기</button></a>
             <button onclick="trainerChatRoomBtn(${userId},${trainerId})">채팅방 입장</button>
             <button onclick="ptNumBtn(${contractId})">PT 1회 차감</button>
             </div>
@@ -60,3 +60,7 @@ ptNumBtn = contractId => {
       alert('PT 완료 실패');
     });
 };
+
+getTrainerUserCalender = (user) => {
+  location.href=`/userCalender?user=${user}`
+}
