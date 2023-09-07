@@ -22,7 +22,7 @@ class ContractService {
         };
       }
 
-      if (0 < ptNumber <= 100) {
+      if (0 >= ptNumber || ptNumber > 100) {
         return {
           status: 400,
           message: '1회 이상 또는 100회 이하',
@@ -149,8 +149,7 @@ class ContractService {
     if (data.roomId !== data.user + data.trainer) {
       return { status: 400, message: '접근 권한 없음' };
     }
-
-    const contract = await this._contractRepository.getContract(data.user, data.trainer);
+    const contract = await this._contractRepository.getContract(data.trainer, data.user);
     if (!contract) {
       return { status: 400, message: '접근 권한 없음' };
     }
@@ -197,8 +196,8 @@ class ContractService {
           message: '권한 없음',
         };
       }
-
-      const result = await this._contractRepository.updateContract(contractId);
+      const updatePtNumber = checkContract.ptNumber - 1;
+      const result = await this._contractRepository.updateContract(contractId, updatePtNumber);
       if (!result) {
         return {
           status: 40,

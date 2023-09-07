@@ -131,6 +131,7 @@ main {
 .trainer-card button {
   margin-top: auto; /* 버튼을 카드의 하단에 위치 */
   background-color: #f0f0f0;
+
   border: none;
   padding: 10px 20px;
   border-radius: 5px;

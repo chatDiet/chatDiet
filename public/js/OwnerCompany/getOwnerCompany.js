@@ -36,7 +36,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         </div>
         <div class="info-item">
           <h3>전화번호</h3>
-          <p>${result.phoneNumber}</p>
+          <p>+82 ${result.phoneNumber}</p>
         </div>
         <div class="info-item">
           <h3>바로가기</h3>
