@@ -35,8 +35,8 @@ document.addEventListener('DOMContentLoaded', async function () {
       calendar.render();
     })
     .catch(function (error) {
+      console.log(error);
       alert('로그인이 필요한 서비스입니다.');
-      console.log('이거 왜 에러 안뜨냐');
       location.href = '/login';
     });
 });

@@ -47,8 +47,8 @@ class ContractRepository {
     return contract;
   };
 
-  updateContract = async contractId => {
-    const result = await Contract.update({ ptNumber: -1 }, { where: { contractId } });
+  updateContract = async (contractId, updatePtNumber) => {
+    const result = await Contract.update({ ptNumber: updatePtNumber }, { where: { contractId } });
     return result;
   };
 }

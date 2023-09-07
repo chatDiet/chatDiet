@@ -50,7 +50,8 @@ socket.on('connect', function () {
       socket.emit('newUser', data);
     })
     .catch(function (error) {
-      alert(error.response.data.message);
+      console.log(error)
+      alert(error.data.message);
       location.href = `/companyMain`;
     });
 });
