@@ -55,7 +55,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v3
 
-
       - name: Deploy to EB
         uses: einaregilsson/beanstalk-deploy@v21
         with:
@@ -65,3 +64,4 @@ jobs:
           environment_name: ${{ secrets.AWS_ENVIRONMENT_NAME }}
           version_label: 10
           region: ap-northeast-2
+          deployment_package: Dockerrun.aws.json
