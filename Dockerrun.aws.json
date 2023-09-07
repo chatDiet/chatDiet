@@ -1,7 +1,7 @@
 {
   "AWSEBDockerrunVersion": "1",
   "Image": {
-    "Name": "test1",
+    "Name": "byeongil/chatdiet:test1",
     "Update": "true"
   },
   "Ports": [
