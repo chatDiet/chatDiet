@@ -50,6 +50,7 @@ header {
   background: none;
   border: none;
   cursor: pointer;
+  color: #000;
 }
 
 .icon-button i {
