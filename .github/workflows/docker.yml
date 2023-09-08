@@ -20,12 +20,6 @@ jobs:
       - name: Install Dependencies
         run: npm install
 
-      - name: Generate env file
-        env:
-          envfile: ${{ secrets.ENV }}
-        run: |
-          echo ENV="$envfile" >> .env
-
       - name: Npm Build
         run: unset CI && npm run build
 
@@ -69,6 +63,6 @@ jobs:
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           application_name: chatdiet
           environment_name: Chatdiet-env
-          version_label: 30
+          version_label: 20
           region: ap-northeast-2
           deployment_package: Dockerrun.aws.json

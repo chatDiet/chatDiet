@@ -1,0 +1,15 @@
+{ env: COOKIE_SECRET=cookie_secret_key
+    KEY=secret_key
+    PORT=3000
+    JWT_SECRET=jwt_secret_key
+    JWT_EXPIREIN=1h
+    DBUSERNAME=root
+    PASSWORD=remi1738
+    DATABASE=chatDiet
+    HOST=sparta-pt.cuulxkviuwfg.ap-northeast-2.rds.amazonaws.com
+    DIALECT=mysql
+    MONGODB=mongodb+srv://chatDiet:chatdiet123@cluster0.9rhu9tr.mongodb.net/
+    AWS_BUCKET_NAME=chatdiet
+    AWS_BUCKET_REGION=ap-northeast-2
+    AWS_ACCESS_KEY= AKIAXJNFEH3MHY3AYR6M
+    AWS_SECRET_KEY= 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 }
