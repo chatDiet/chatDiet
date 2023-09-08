@@ -13,6 +13,9 @@ router.get('/calender/:calenderId', isAuth, calenderController.getCalender);
 // 캘린더 전체 조회
 router.get('/calenders', isAuth, calenderController.getCalenders);
 
+// 회원 캘린더 조회
+router.get("/calender/user/:user", isAuth, calenderController.userCalender)
+
 router.post('/calender', isAuth, singleUpload('image'), calenderController.createCalender);
 router.put('/calenders/:calenderId', isAuth, calenderController.updateCalender);
 router.delete('/calenders/:calenderId', isAuth, calenderController.deleteCalender);

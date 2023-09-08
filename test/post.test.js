@@ -1,8 +1,12 @@
 import request from 'supertest';
-import Server from '../init';
+import express from 'express';
 
-const request = require('supertest');
-const app = require('../app'); // Express 애플리케이션 파일 경로에 따라 수정
+const app = express();
+const port = 80;
+
+app.listen(port, () => {
+  console.log(`server on ${port}`);
+});
 
 describe('Create Post API', () => {
   it('should create a new post', async () => {
