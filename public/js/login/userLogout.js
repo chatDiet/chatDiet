@@ -14,7 +14,7 @@ logoutButton.addEventListener('click', async event => {
 
       localStorage.removeItem('token');
 
-      location.reload();
+      window.location.href = '/login';
     })
     .catch(function (error) {
       alert('로그아웃 실패');

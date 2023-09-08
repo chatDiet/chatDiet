@@ -23,15 +23,15 @@ function userInfo() {
 }
 
 function review() {
-  location.href = '/review';
+  location.href = '/getUserReviews';
 }
 
 function posts() {
-  location.href = '/posts';
+  location.href = '/getUserPosts';
 }
 
 function comments() {
-  location.href = '/comments';
+  location.href = '/getUserComments';
 }
 
 function contract() {
