@@ -2,7 +2,7 @@ name: 'deploy'
 
 on:
   push:
-    branches: [testDevelop]
+    branches: [feature/cicd]
 
 jobs:
   build:

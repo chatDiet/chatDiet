@@ -5,20 +5,18 @@ services:
     ports:
       - '3000:3000'
     environment:
-      - COOKIE_SECRET=${COOKIE_SECRET}
-      - KEY=${KEY}
-      - PORT=${PORT}
-      - JWT_SECRET=${JWT_SECRET}
-      - JWT_EXPIREIN=${JWT_EXPIREIN}
-      - DBUSERNAME=${DBUSERNAME}
-      - PASSWORD=${PASSWORD}
-      - DATABASE=${DATABASE}
-      - HOST=${HOST}
-      - DIALECT=${DIALECT}
-      - MONGODB=${MONGODB}
-      - AWS_BUCKET_NAME=${AWS_BUCKET_NAME}
-      - AWS_BUCKET_REGION=${AWS_BUCKET_REGION}
-      - AWS_ACCESS_KEY=${AWS_ACCESS_KEY}
-      - AWS_SECRET_KEY=${AWS_SECRET_KEY}
-    env_file:
-      - .env
+      - COOKIE_SECRET=cookie_secret_key
+      - KEY=secret_key
+      - PORT=3000
+      - JWT_SECRET=jwt_secret_key
+      - JWT_EXPIREIN=1h
+      - DBUSERNAME=root
+      - PASSWORD=remi1738
+      - DATABASE=chatDiet
+      - HOST=sparta-pt.cuulxkviuwfg.ap-northeast-2.rds.amazonaws.com
+      - DIALECT=mysql
+      - MONGODB=mongodb+srv://chatDiet:chatdiet123@cluster0.9rhu9tr.mongodb.net/
+      - AWS_BUCKET_NAME=chatdiet
+      - AWS_BUCKET_REGION=ap-northeast-2
+      - AWS_ACCESS_KEY=AKIAXJNFEH3MHY3AYR6M
+      - AWS_SECRET_KEY=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
