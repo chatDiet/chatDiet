@@ -1,8 +1,10 @@
 FROM node:14
 
-COPY package*.json ./
+WORKDIR /chatdiet
 
 RUN npm install
 
-CMD ["npm run dev"]
+COPY . ./
+
+CMD npm run dev
 # 
