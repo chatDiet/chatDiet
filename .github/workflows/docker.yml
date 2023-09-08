@@ -19,13 +19,14 @@ jobs:
           node-version: '18.10.0'
       - name: Install Dependencies
         run: npm install
-      - name: Npm Build
-        run: unset CI && npm run build
 
       - name: Generate env file
         env:
           envfile: ${{ secrets.ENV }}
         run: echo ENV="$envfile" >> .env
+
+      - name: Npm Build
+        run: unset CI && npm run build
 
   docker:
     name: Deploy Docker Image
