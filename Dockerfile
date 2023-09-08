@@ -6,7 +6,7 @@ COPY package*.json ./
 
 RUN npm install
 
-COPY .env ./
+COPY /home/runner/work/chatDiet/chatDiet/.env ./
 
 COPY . ./
 
