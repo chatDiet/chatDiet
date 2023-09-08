@@ -23,7 +23,10 @@ jobs:
       - name: Generate env file
         env:
           envfile: ${{ secrets.ENV }}
-        run: echo ENV="$envfile" >> chatdiet/.env
+        run: |
+          echo ENV="$envfile" >> .env
+          echo "Current working directory: $(pwd)"
+          ls -la
 
       - name: Npm Build
         run: unset CI && npm run build
