@@ -22,6 +22,11 @@ jobs:
       - name: Npm Build
         run: unset CI && npm run build
 
+      - name: Generate env file
+        env:
+          envfile: ${{ secrets.ENV }}
+        run: echo ENV="$envfile" >> .env
+
   docker:
     name: Deploy Docker Image
     runs-on: ubuntu-latest

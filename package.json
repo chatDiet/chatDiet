@@ -10,6 +10,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@aws-sdk/client-s3": "^3.408.0",
     "@babel/node": "^7.22.15",
     "@babel/preset-env": "^7.22.10",
     "@fullcalendar/core": "^6.1.8",
