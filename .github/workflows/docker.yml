@@ -61,8 +61,8 @@ jobs:
         with:
           aws_access_key: ${{ secrets.WHY }}
           aws_secret_key: ${{ secrets.HYEM_SECRET }}
-          application_name: chatdiet
-          environment_name: Chatdiet-env
+          application_name: realChatdiet
+          environment_name: RealChatdiet-env
           version_label: 20
           region: ap-northeast-2
           deployment_package: Dockerrun.aws.json
