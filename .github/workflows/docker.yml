@@ -65,4 +65,4 @@ jobs:
           environment_name: Chatdietv1-env
           version_label: 20
           region: ap-northeast-2
-          deployment_package: Docker
+          deployment_package: Dockerrun.aws.json
