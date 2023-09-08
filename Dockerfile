@@ -8,6 +8,8 @@ RUN npm install
 
 COPY . ./
 
+RUN pwd
+
 RUN ls -a
 
 CMD npm run dev

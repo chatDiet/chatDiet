@@ -25,8 +25,6 @@ jobs:
           envfile: ${{ secrets.ENV }}
         run: |
           echo ENV="$envfile" >> .env
-          echo "Current working directory: $(pwd)"
-          ls -la
 
       - name: Npm Build
         run: unset CI && npm run build
@@ -71,6 +69,6 @@ jobs:
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           application_name: chatdiet
           environment_name: Chatdiet-env
-          version_label: 20
+          version_label: 30
           region: ap-northeast-2
           deployment_package: Dockerrun.aws.json
