@@ -8,16 +8,18 @@ body {
 }
 
 header {
+  height: 80px;
   text-align: center;
   background-color: #f0f0f0;
   padding: 8px 0;
 }
 
 .header-title {
-  margin: 0;
+  margin-left: 80px;
 }
 
 .navigation {
+  height: 65px;
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -44,9 +46,13 @@ main {
   text-align: center;
 }
 
+#signup {
+  height: 30px;
+}
+
 .selectUser {
   position: relative;
-  top: 200px;
+  top: 100px;
   text-align: center;
   background-color: #43a0fd51;
   width: 380px;
@@ -55,14 +61,15 @@ main {
 }
 
 .selectUser h1 {
-  margin-top: 8px;
+  margin-top: 45px;
 }
 
 .selectUser button {
-  margin-left: 10px;
   background: #ccc;
   border: 1px solid #ccc;
   height: 44px;
+  width: 100px;
+  margin-top: 50px;
   margin-bottom: 3px;
   border-radius: 8px;
   cursor: pointer;
@@ -109,4 +116,54 @@ footer a {
 footer img {
   width: 20px; /* Adjust the width as needed */
   margin-right: 5px;
+}
+
+.kakaoLogin > img {
+  width: 300px;
+  margin-top: -20px;
+  margin-right: 40px;
+  margin-bottom: -30px;
+}
+
+#login-form {
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+#email {
+  height: 25px;
+  margin-top: 20px;
+}
+
+#password {
+  height: 25px;
+  margin-top: 30px;
+}
+
+input[type='text'],
+input[type='password'] {
+  width: 200px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+/* 포커스 상태일 때 스타일링 */
+input[type='text']:focus,
+input[type='password']:focus {
+  outline: none;
+  border-color: #007bff;
+  /* 포커스시 색상을 변경하거나 다른 스타일을 추가할 수 있습니다. */
+}
+
+label {
+  display: block; /* 라벨을 블록 요소로 변경하여 세로로 배치합니다. */
+  margin-bottom: 5px; /* 라벨 아래의 간격을 조절할 수 있습니다. */
 }
