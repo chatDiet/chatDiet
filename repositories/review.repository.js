@@ -3,13 +3,24 @@ import { User, Company } from '../db';
 
 class ReviewRepository {
   findAuth = async userId => {
-    const findAuth = await User.findOne({ where: { userId } });
+    const findAuth = await User.findAll({ where: { userId } });
     return findAuth;
   };
 
   findCompany = async companyId => {
     const findCompany = await Company.findOne({ where: { companyId } });
+
     return findCompany;
+  };
+
+  getUserReview = async userId => {
+    const getUserReviewData = await Review.findAll({ where: { userId: userId } });
+
+    getUserReviewData.sort((a, b) => {
+      return b.createdAt - a.createdAt;
+    });
+
+    return getUserReviewData;
   };
 
   getTargetReview = async (targetId, type) => {

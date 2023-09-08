@@ -1,3 +1,4 @@
+/* userMain.css */
 @font-face {
   font-family: 'omyu_pretty';
   src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2') format('woff2');
@@ -26,7 +27,6 @@ header {
 .header-title {
   margin-left: 200px;
 }
-
 .navigation {
   display: flex;
   justify-content: space-between;
@@ -50,6 +50,7 @@ header {
   background: none;
   border: none;
   cursor: pointer;
+  color: #000;
 }
 
 .icon-button i {
@@ -60,33 +61,33 @@ header {
   width: 18px; /* 원하는 크기로 조정 */
 }
 
-.centered {
-  width: 1200px;
-  height: 1800px;
+main {
+  width: 1000px;
+  height: 800px;
   flex: 1;
-  display: block;
   justify-content: center;
   align-items: center;
+  display: flex;
   margin: 0 auto;
-  position: relative;
 }
 
-#pencil a img {
-  width: 35px;
-  height: 30px;
-  border: none;
-  position: absolute;
-  right: 0;
-  top: 15px;
-  right: 290px;
+.centered {
+  width: 1000px;
+  height: 800px;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10%;
 }
 
-#pencil a img:hover {
-  border-bottom: 3px solid #ccc;
+#img #img1 {
+  width: 1000px;
+}
+.centered {
+  text-align: center;
 }
 
 .footer-list {
-  z-index: 5;
   list-style: none;
   padding: 0;
   margin: 0;
@@ -113,47 +114,52 @@ footer li {
   align-items: center;
   margin: 0 15px;
   font-size: 20px;
-  cursor: pointer;
-  /* 장시훈 수정부분 */
+  color: black;
+  text-decoration: none;
 }
-
-footer li:hover {
-  border-bottom: 3px solid #ccc;
-} /* 장시훈 수정부분 */
+footer a {
+  text-decoration: none;
+}
 
 footer img {
   width: 20px; /* Adjust the width as needed */
   margin-right: 5px;
 }
 
-#calendar {
-  margin-top: 10px;
-  width: 1000px;
-  margin-left: 100px;
-} /* 장시훈 수정부분 */
-
-#calendar a {
-  font-size: 15px;
-  color: #000;
-  font-weight: lighter;
-} /* 장시훈 수정부분 */
-
-.fc-toolbar-title {
-  font-size: 55px;
-  color: #3788d8;
-} /* 장시훈 수정부분 */
-
-.fc-daygrid-day-frame {
-  height: 80px;
-  text-align: start;
-}
-/* 장시훈 수정부분 */
-
-.footer {
-  color: black;
-  text-decoration: none;
+/* 목록 스타일 */
+.list {
+  list-style: none;
+  padding: 0;
 }
 
-.footer:hover {
-  color: darkgray;
+/* 목록 아이템 스타일 */
+.list li {
+  margin-bottom: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* content 스타일 */
+.list li p:nth-child(1) {
+  font-weight: bold;
+  margin: 0;
+}
+
+/* createdAt 스타일 */
+.list li p:nth-child(2) {
+  font-style: italic;
+  margin: 0;
+}
+
+/* updatedAt 스타일 */
+.list li p:nth-child(3) {
+  font-style: italic;
+  margin: 0;
+}
+
+/* Hover 효과 */
+.list li:hover {
+  background-color: #f0f0f0;
+  /* 마우스 호버 시 배경색 변경 */
 }

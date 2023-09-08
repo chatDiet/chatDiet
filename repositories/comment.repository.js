@@ -10,6 +10,18 @@ class CommentRepository {
       console.log(error);
     }
   };
+
+  // 사용자 댓글 전체 조회
+  getUserComments = async userId => {
+    const getUserCommentsData = await Comment.findAll({ where: { userId: userId } });
+
+    getUserCommentsData.sort((a, b) => {
+      return b.createdAt - a.createdAt;
+    });
+
+    return getUserCommentsData;
+  };
+
   // 특정 게시글 댓글 전체 조회
   getPostId = async postId => {
     try {

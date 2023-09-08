@@ -6,6 +6,16 @@
   flex-direction: column;
   min-height: 100vh;
 } */
+@font-face {
+  font-family: 'omyu_pretty';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'omyu_pretty';
+}
 
 header {
   text-align: center;
@@ -14,7 +24,8 @@ header {
 }
 
 .header-title {
-  margin: 0;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .navigation {
@@ -96,12 +107,6 @@ footer a {
 footer img {
   width: 20px; /* Adjust the width as needed */
   margin-right: 5px;
-}
-
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
 }
 
 .centered {
