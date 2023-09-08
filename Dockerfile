@@ -6,9 +6,9 @@ COPY package*.json ./
 
 RUN npm install
 
-RUN ls -a
-
 COPY . ./
+
+RUN ls -a
 
 CMD npm run dev
 # 
