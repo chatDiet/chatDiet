@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/login.css" />
+    <link rel="stylesheet" href="../css/default.css" />
+
+    <title>Login Example</title>
+  </head>
+  <header>
+    <nav class="navigation">
+      <div class="navigation-title">
+        <h1 class="header-title">chat Diet plan</h1>
+      </div>
+      <a href="/signupCategory"><button id="signup">회원가입</button></a>
+    </nav>
+  </header>
+  <body>
+    <div class="selectUser">
+      <h1>Login</h1>
+      <form id="login-form">
+        <input type="text" id="email" placeholder="Username" required />
+        <input type="password" id="password" placeholder="Password" required />
+        <div class="form-group">
+          <button type="submit">Login</button>
+        </div>
+      </form>
+      <a class="kakaoLogin" href="javascript:kakaoLogin();"><img src="." /></a>
+    </div>
+    <footer>
+      <ul class="footer-list">
+        <a href="/calender">
+          <li><img src="../img/free-icon-font-calendar-3917244.png" />캘린더</li>
+        </a>
+        <a href="/companyMain">
+          <li><img src="../img/free-icon-training-9958263.png" />헬스장</li>
+        </a>
+        <a href="/chatMain">
+          <li><img src="../img/free-icon-font-envelope-3916611.png" />채팅</li>
+        </a>
+        <a href="/communityMain">
+          <li><img src="../img/free-icon-font-world-3916979.png" />커뮤니티</li>
+        </a>
+        <a href="/myPage">
+          <li><img src="../img/free-icon-font-user-3917688.png" />마이페이지</li>
+        </a>
+      </ul>
+    </footer>
+    <script src="../js/navigationBtn.js" defer></script>
+    <script type="module" src="../../js/login/userLogin.js"></script>
+    <script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+    <script>
+      window.Kakao.init('0086ddc0be052814652891ce70d445d2');
+      function kakaoLogin() {
+        window.Kakao.Auth.login({
+          scope: 'account_email',
+          success: function (authObj) {
+            window.Kakao.API.request({
+              url: '/v2/user/me',
+              success: res => {
+                const kakao_account = res.kakao_account;
+                fetch(`/api/kakao`, {
+                  method: 'POST', // 변경이 필요한 경우 PUT 또는 다른 HTTP 메서드 사용
+                  headers: {
+                    'Content-Type': 'application/json',
+                  },
+                  body: JSON.stringify({ email: kakao_account.email }),
+                })
+                  .then(() => {
+                    // 로그인이 완료되었을 때 userMain 페이지로 이동
+                    window.location.href = '/';
+                  })
+                  .catch(error => {
+                    console.error('Error:', error);
+                  });
+              },
+            });
+          },
+        });
+      }
+    </script>
+  </body>
+</html>

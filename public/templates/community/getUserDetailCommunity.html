@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/userMain.css" />
+    <link rel="stylesheet" href="../css/common.css" />
+    <link rel="stylesheet" href="../css/modal.css" />
+    <link rel="stylesheet" href="../css/detailCommunity.css" />
+    <link rel="stylesheet" href="../css/default.css" />
+
+    <script src="https://code.jquery.com/jquery-3.4.1.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" defer></script>
+    <title>Your Project</title>
+  </head>
+  <body>
+    <header>
+      <nav class="navigation">
+        <div class="navigation-title">
+          <h1 class="header-title">chat Diet plan</h1>
+        </div>
+        <div class="navigation-buttons">
+          <button id="goto-signup-button" class="icon-button">회원가입</button>
+          <button id="goto-login-button" class="icon-button">로그인</button>
+          <button id="logout-button" class="icon-button">Logout</button>
+        </div>
+      </nav>
+    </header>
+    <main class="centered">
+      <section class="main-section">
+        <a href="/communityMain"><button id="listButton">목록</button></a>
+        <div id="postZone"></div>
+        <div class="'commentName">댓글</div>
+        <div id="commentZone"></div>
+        <!-- 메인 콘텐츠 -->
+      </section>
+      <!-- 댓글 모달 -->
+      <div id="createCommentModal">
+        <div id="commentContent">
+          <span id="commentModalClose">&times;</span>
+          <input type="text" id="content" placeholder="내용" />
+          <button id="saveCommentModal">저장</button>
+        </div>
+      </div>
+      <!-- 신고 모달 -->
+      <div id="createReportModal">
+        <div id="reportContent">
+          <span id="reportModalClose">&times;</span>
+          <div>신고</div>
+          <input type="text" id="titleReport" placeholder="제목" />
+          <input type="text" id="contentReport" placeholder="내용" />
+          <button id="saveReportModal">저장</button>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <ul class="footer-list">
+        <a href="/calender">
+          <li id="footerBtn"><img src="../img/free-icon-font-calendar-3917244.png" />캘린더</li>
+        </a>
+        <a href="/companyMain">
+          <li id="footerBtn"><img src="../img/free-icon-training-9958263.png" />헬스장</li>
+        </a>
+        <a href="/chatMain">
+          <li id="footerBtn"><img src="../img/free-icon-font-envelope-3916611.png" />채팅</li>
+        </a>
+        <a href="/communityMain">
+          <li id="footerBtn"><img src="../img/free-icon-font-world-3916979.png" />커뮤니티</li>
+        </a>
+        <a href="/myPage">
+          <li id="footerBtn"><img src="../img/free-icon-font-user-3917688.png" />마이페이지</li>
+        </a>
+      </ul>
+    </footer>
+    <script src="../js/commonBtn.js" defer></script>
+    <script src="../js/community/getDetailCommunity.js" defer></script>
+    <script src="../js/community/deleteCommunity.js" defer></script>
+    <script src="../js/report/createUserReport.js" defer></script>
+    <script type="module" src="../../js/login/userLogout.js" defer></script>
+    <script src="../../js/headerScript.js" defer></script>
+  </body>
+</html>

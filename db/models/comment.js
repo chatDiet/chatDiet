@@ -1,5 +1,6 @@
 import { DataTypes } from 'sequelize';
 import connector from '../db.js';
+import Post from './post.js'
 
 const Comment = connector.sequelize.define(
   'comments',
@@ -10,6 +11,19 @@ const Comment = connector.sequelize.define(
       primaryKey: true,
       autoIncrement: true,
       unique: true,
+    },
+    userId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    postId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      references: {
+        model: Post, 
+        key: 'postId',
+      },
+      onDelete: 'CASCADE',
     },
     content: {
       type: DataTypes.STRING,

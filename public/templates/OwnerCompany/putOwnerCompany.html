@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../css/OwnerCompany/setOwnerCompany.css" />
+    <link rel="stylesheet" href="../css/default.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js" defer></script>
+    <script src="../../js/OwnerCompany/putOwnerCompany.js" defer></script>
+    <title>Your Project</title>
+  </head>
+  <body>
+    <header>
+      <nav class="navigation">
+        <div class="navigation-title">
+          <h1 class="header-title">chat Diet plan</h1>
+        </div>
+        <div class="navigation-buttons">
+          <button id="goto-signup-button" class="icon-button">회원가입</button>
+          <button id="goto-login-button" class="icon-button">로그인</button>
+          <button id="logout-button" class="icon-button">Logout</button>
+        </div>
+      </nav>
+    </header>
+    <main class="centered">
+      <section class="main-section">
+        <!-- 메인 콘텐츠 -->
+        <div class="registration-section">
+          <h2>정보 수정</h2>
+          <form id="registration-form">
+            <label for="companyName">업체명:</label>
+            <input type="text" id="companyName" name="companyName" required /><br /><br />
+
+            <label for="time">운영시간:</label>
+            <input type="text" id="time" name="time" placeholder="e.g. 08시~23시" required /><br /><br />
+
+            <label for="additional">운영 프로그램:</label>
+            <input type="text" id="additional" name="additional" placeholder="e.g. 1:1 PT(별도 문의)" required /><br /><br />
+
+            <label for="service">부가 서비스:</label>
+            <input type="text" id="service" name="service" placeholder="e.g. 라커 (월 10,000원)" required /><br /><br />
+
+            <label for="phoneNumber">전화번호:</label>
+            <input type="tel" id="phoneNumber" name="phoneNumber" pattern="[0-9]{11}" placeholder=" - 제외하고 입력 " required /><br /><br />
+
+            <label for="link">업체 홈페이지:</label>
+            <input type="url" id="link" name="link" placeholder="https://" /><br /><br />
+
+            <label for="map">주소:</label>
+            <input type="text" id="map" name="map" placeholder="도로명 주소 입력 " required /><br /><br />
+
+            <!-- 혜민님 이미지 4번입니다. -->
+            <!-- <label for="company-photo">업체 사진 등록:</label>
+            <input type="file" id="company-photo" name="imageUrl" accept="image/*"><br><br> -->
+
+            <label for="imageUrl">이미지:</label>
+            <input type="text" id="imageUrl" name="imageUrl" placeholder="필수" /><br /><br />
+
+            <button type="submit" id="update-button">정보 수정</button>
+          </form>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <ul class="footer-list">
+        <li>
+          <a class="custom" href="/getOwnerCompany"> <img src="../img/free-icon-font-calendar-3917244.png" />내업체 </a>
+        </li>
+        <li>
+          <a class="custom" href="/setOwnerCompany"><img src="../img/free-icon-training-9958263.png" />업체등록</a>
+        </li>
+      </ul>
+    </footer>
+    <script type="module" src="../../js/login/userLogout.js" defer></script>
+    <script src="../../js/headerScript.js" defer></script>
+  </body>
+</html>
