@@ -2,7 +2,7 @@ import axios from 'https://cdn.jsdelivr.net/npm/axios@1.3.5/+esm';
 
 async function fetchReports() {
   return await axios
-    .get('http://localhost:3000/api/reports')
+    .get('/api/reports')
     .then(function (response) {
       return response.data.data;
     })
@@ -63,7 +63,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       const reportId = deleteButton.getAttribute('data-report-id');
 
       axios
-        .delete(`http://localhost:3000/api/reports/${reportId}`)
+        .delete(`/api/reports/${reportId}`)
         .then(response => {
           console.log(`문의 ${reportId} 삭제 성공:`, response.data);
           alert(`문의 ${reportId} 삭제 성공:`);
@@ -84,7 +84,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       event.preventDefault();
       const reportId = editButton.getAttribute('data-report-id');
 
-      window.location.href = `http://localhost:3000/editReport?reportId=${reportId}`;
+      window.location.href = `/editReport?reportId=${reportId}`;
     });
   });
 });

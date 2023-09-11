@@ -1,5 +1,4 @@
 deletePostBtn = postId => {
-  console.log('11111111111111111', postId);
   axios
     .delete(`/api/posts/${postId}`)
     .then(function (res) {
@@ -13,8 +12,6 @@ deletePostBtn = postId => {
 };
 
 deleteCommentBtn = (postId, commentId) => {
-  console.log('11111111111111111', postId);
-
   axios
     .delete(`/api/posts/${postId}/comments/${commentId}`)
     .then(function (res) {

@@ -11,6 +11,15 @@ class PostController {
     return res.status(result.status).json(result.message);
   };
 
+  // # 사용자 본인 게시글 전체 조회
+  getUserPosts = async (req, res) => {
+    const userId = res.locals.userId;
+
+    const getUserPosts = await this._postService.getUserPosts(userId);
+
+    return res.status(getUserPosts.status).json(getUserPosts.data);
+  };
+
   // # 게시글 전체 조회
   getPosts = async (req, res) => {
     const result = await this._postService.getPosts();

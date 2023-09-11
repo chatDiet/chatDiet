@@ -40,6 +40,31 @@ class PostService {
     }
   };
 
+  // # 사용자 게시글 전체 조회
+  getUserPosts = async userId => {
+    if (!userId) {
+      return {
+        status: 401,
+        data: '로그인 후 이용 가능합니다.',
+      };
+    }
+
+    const getUserPosts = await this._postRepository.getUserPosts(userId);
+
+    const allPostsData = getUserPosts.map(post => {
+      return {
+        title: post.title,
+        content: post.content,
+        createdAt: post.createdAt,
+        updatedAt: post.updatedAt,
+      };
+    });
+    return {
+      status: 200,
+      data: allPostsData,
+    };
+  };
+
   //# 게시글 전체 조회
   getPosts = async () => {
     try {

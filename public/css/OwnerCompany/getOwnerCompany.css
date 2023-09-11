@@ -7,35 +7,6 @@ body {
   min-height: 100vh;
 }
 
-header {
-  text-align: center;
-  background-color: #f0f0f0;
-  padding: 8px 0;
-}
-
-.header-title {
-  margin: 0;
-}
-
-.navigation {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #f0f0f0;
-  padding: 8px 20px;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.navigation-buttons {
-  display: flex;
-  gap: 10px;
-}
-
-.navigation-title {
-  text-align: center;
-  flex: 1; /* 로고와 버튼 사이 간격 조정 */
-}
-
 .icon-button {
   background: none;
   border: none;
@@ -59,7 +30,7 @@ main {
   margin: 15px auto 5% auto; /* 수평 가운데 정렬을 위해 추가 */
 }
 
-.company-info{
+.company-info {
   min-width: 800px;
   max-width: 1000px; /* 필요에 따라 이 값을 조정하세요 */
   margin: 0 auto;
@@ -97,7 +68,7 @@ main {
   margin-bottom: 15px;
 }
 
-.companyReview{
+.companyReview {
   background-color: #ffffff;
   padding: 15px;
   border-radius: 10px;
@@ -200,12 +171,12 @@ footer li {
 }
 
 .custom {
-  color: black; 
-  text-decoration: none; 
+  color: black;
+  text-decoration: none;
 }
 
 .custom:hover {
-  color: darkgray; 
+  color: darkgray;
 }
 
 footer img {

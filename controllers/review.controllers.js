@@ -3,6 +3,14 @@ import { ReviewService } from '../services';
 class ReviewController {
   reviewService = new ReviewService();
 
+  getUserReview = async (req, res) => {
+    const userId = res.locals.userId;
+
+    const getUserReview = await this.reviewService.getUserReview(userId);
+
+    return res.status(getUserReview.status).json(getUserReview.data);
+  };
+
   getReviewByType = async (req, res) => {
     const { targetId, type } = req.params;
 
@@ -14,7 +22,6 @@ class ReviewController {
     const { targetId } = req.params;
     const userId = res.locals.userId;
     const { content, grade, type } = req.body;
-    console.log('111111111111111111111111111111111', type);
     const createReveiw = await this.reviewService.createReview(userId, targetId, content, grade, type);
     return res.status(createReveiw.status).json(createReveiw.message);
   };

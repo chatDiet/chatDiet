@@ -7,7 +7,6 @@ class TrainerController {
     try {
       const userId = res.locals.userId;
       const imageUrl = req.file.location;
-      console.log(imageUrl);
 
       const { trainerName, career, ptContent, companyId } = req.body;
       const { code, message, data } = await this._trainerService.create(trainerName, career, ptContent, companyId, userId, imageUrl);
@@ -47,7 +46,6 @@ class TrainerController {
     try {
       const userId = res.locals.userId;
       const { code, message, data } = await this._trainerService.myTrainerInfo(userId);
-      console.log(data);
 
       res.status(code).json({ ...(message && { message }), ...(data && { data }) });
     } catch (error) {

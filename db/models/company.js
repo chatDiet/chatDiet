@@ -40,7 +40,7 @@ const Company = connector.sequelize.define(
       allowNull: true,
     },
     imageUrl: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(500),
       allowNull: false,
     },
     map: {

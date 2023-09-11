@@ -6,34 +6,15 @@
   flex-direction: column;
   min-height: 100vh;
 } */
-
-header {
-  text-align: center;
-  background-color: #f0f0f0;
-  padding: 8px 0;
+@font-face {
+  font-family: 'omyu_pretty';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
 }
 
-.header-title {
-  margin: 0;
-}
-
-.navigation {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #f0f0f0;
-  padding: 8px 20px;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.navigation-buttons {
-  display: flex;
-  gap: 10px;
-}
-
-.navigation-title {
-  text-align: center;
-  flex: 1; /* 로고와 버튼 사이 간격 조정 */
+body {
+  font-family: 'omyu_pretty';
 }
 
 .icon-button {
@@ -96,12 +77,6 @@ footer a {
 footer img {
   width: 20px; /* Adjust the width as needed */
   margin-right: 5px;
-}
-
-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
 }
 
 .centered {

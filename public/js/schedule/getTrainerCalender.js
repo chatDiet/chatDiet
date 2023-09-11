@@ -124,7 +124,6 @@ async function openSidebar(scheduleId) {
   // 닫기 버튼 클릭 시 사이드바 닫기
   const closeSchedule = closeButton.addEventListener('click', closeSidebar);
   if (closeSchedule) {
-    console.log('닫히냐');
     sidebar.innerHTML = '';
   }
 
