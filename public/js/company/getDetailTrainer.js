@@ -16,7 +16,7 @@ axios.get(`/api/companys/${companyId}/trainers/${trainerId}`).then(function (res
 
   let temp_html = `
       <div id="trainer">
-        <div>imageUrl : ${imageUrl}</div>
+        <div><img id="image" src="${imageUrl}" /></div>
         <div>트레이너 이름 : ${trainerName}</div>
         <div>경력 : ${career}</div>
         <div>PT 내용 : ${ptContent}</div>
