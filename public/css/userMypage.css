@@ -44,16 +44,6 @@ body {
   min-height: 100vh;
 }
 
-header {
-  text-align: center;
-  background-color: #f0f0f0;
-  padding: 8px 0;
-}
-
-.header-title {
-  margin: 0;
-}
-
 .navigation {
   display: flex;
   justify-content: space-between;

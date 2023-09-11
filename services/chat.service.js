@@ -7,13 +7,14 @@ class ChatService {
   _contractRepository = new ContractRepository();
   _userRepository = new UserRepository();
 
-  postChat = async (data, userId) => {
+  postChat = async (data, userId, imageUrl) => {
     try {
       const user = await this._userRepository.getOneUserInfo(userId);
 
       data.name = user.userName;
 
-      await this._chatRepository.postChat(data);
+      const result = await this._chatRepository.postChat(data, imageUrl);
+      console.log('imageUrl before postChat:', result);
 
       return {
         status: 200,

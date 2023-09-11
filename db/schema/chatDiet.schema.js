@@ -16,6 +16,9 @@ const chatSchema = new Schema(
       type: String,
       required: true,
     },
+    imageUrl: {
+      type: String,
+    },
     timestamp: {
       type: Date,
       default: Date.now,

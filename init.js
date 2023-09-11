@@ -42,11 +42,17 @@ export class Server {
         socket.join(socket.roomId);
       });
 
+      // 전송한 이미지 받기
+      socket.on('sendImage', function (imageData) {
+        // 이미지를 받으면 모든 클라이언트에게 이미지를 전송
+        socket.emit('imageReceived', imageData); // 본인에게만 보내기
+        socket.to(socket.roomId).emit('imageReceived', imageData); // 본인 제외 해당 방에 보내기
+      });
+
       // 전송한 메세지 받기
       socket.on('message', function (data) {
         // 본인에게만 보내기
         socket.emit('message', data);
-
         // 본인 제외 해당 방에 보내기
         socket.to(socket.roomId).emit('message', data);
       });
@@ -83,4 +89,5 @@ connector.testConnectDB();
 connector.connectDB();
 mongdb.mongoDBconnect();
 server.runServer();
-server.runSocket();
+
+// test

@@ -18,15 +18,6 @@ body {
   min-height: 100vh;
 }
 
-header {
-  text-align: center;
-  background-color: #f0f0f0;
-  padding: 8px 0;
-}
-
-.header-title {
-  margin-left: 200px;
-}
 .navigation {
   display: flex;
   justify-content: space-between;
@@ -50,6 +41,7 @@ header {
   background: none;
   border: none;
   cursor: pointer;
+  color: #000;
 }
 
 .icon-button i {

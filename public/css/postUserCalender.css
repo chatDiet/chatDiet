@@ -16,14 +16,7 @@ body {
   flex-direction: column;
   min-height: 100vh;
 }
-header {
-  text-align: center;
-  padding: 8px 0;
-}
 
-.header-title {
-  margin-left: 200px;
-}
 .navigation {
   display: flex;
   justify-content: space-between;

@@ -1,6 +1,8 @@
 name: Node.js CI
 
-on: [push]
+on:
+  push:
+    branches: [master]
 
 jobs:
   test:
@@ -22,6 +24,9 @@ jobs:
         env:
           envfile: ${{ secrets.ENV }}
         run: echo ENV="$envfile" >> .env
-          cat .env
-      - run: npm i
-      # - run: npm run dev
+
+      - name: Npm Install
+        run: npm i
+
+      # - name: test
+      #   run: npm run test
