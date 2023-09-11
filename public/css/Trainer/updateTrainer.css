@@ -1,0 +1,19 @@
+.updateTrainer {
+  display: flex;
+  flex-direction: column; /* Align elements vertically */
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+#ptContent {
+  width: 400px;
+  height: 200px;
+  resize: none;
+}
+
+#trainerName,
+#career {
+  height: 30px;
+}

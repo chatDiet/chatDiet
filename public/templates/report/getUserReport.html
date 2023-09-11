@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/getList.css" />
+    <link rel="stylesheet" href="../css/default.css" />
+
+    <title>Your Project</title>
+  </head>
+  <body>
+    <header>
+      <nav class="navigation">
+        <div class="navigation-title">
+          <h1 class="header-title">chat Diet plan</h1>
+        </div>
+        <div class="navigation-buttons">
+          <button id="goto-signup-button" class="icon-button">회원가입</button>
+          <button id="goto-login-button" class="icon-button">로그인</button>
+          <button id="logout-button" class="icon-button">Logout</button>
+        </div>
+        <form id="logout-form">
+          <button type="submit">Logout</button>
+        </form>
+      </nav>
+    </header>
+    <main class="centered">
+      <section class="main-section">
+        <h1>신고 목록</h1>
+        <table>
+          <thead>
+            <tr>
+              <th>제목</th>
+              <th>내용</th>
+              <th>작성일</th>
+            </tr>
+          </thead>
+          <tbody id="report-list">
+            <!-- 신고 목록이 여기에 추가될 것입니다 -->
+          </tbody>
+        </table>
+
+        <!-- 외부 JavaScript 파일 불러오기 -->
+        <script type="module" src="../../js/report/getUserReport.js" defer></script>
+      </section>
+    </main>
+    <footer>
+      <ul class="footer-list">
+        <li onclick="getCalender()"><img src="../img/free-icon-font-calendar-3917244.png" />캘린더</li>
+        <li><img src="../img/free-icon-training-9958263.png" />헬스장</li>
+        <li><img src="../img/free-icon-font-envelope-3916611.png" />채팅</li>
+        <li><img src="../img/free-icon-font-world-3916979.png" />커뮤니티</li>
+        <a href="/userInfo">
+          <li><img src="../img/free-icon-font-user-3917688.png" />마이페이지</li>
+        </a>
+      </ul>
+    </footer>
+    <script type="module" src="../js/login/userLogout.js" defer></script>
+    <script src="../../js/headerScript.js" defer></script>
+  </body>
+</html>

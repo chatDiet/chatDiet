@@ -1,0 +1,67 @@
+@font-face {
+  font-family: 'omyu_pretty';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'omyu_pretty';
+}
+
+.main-section {
+  width: 90%;
+}
+
+.chat-container {
+  border: 2px solid #000;
+  width: 100%;
+}
+
+#chatList {
+  max-height: 500px;
+  overflow-y: scroll;
+}
+
+#chatContent {
+  border: 1px solid #000;
+  margin: 3px;
+  padding: 10px;
+}
+
+.message-text {
+  border-bottom: 2px solid #000;
+}
+
+.chat-input {
+  position: fixed;
+  margin-top: 20px;
+  width: 900px;
+}
+
+#messageInput {
+  width: 80%;
+  height: 50px;
+  resize: none;
+}
+
+#messageSend {
+  height: 70px;
+}
+
+button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.icon-button {
+  color: #000;
+}

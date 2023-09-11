@@ -1,0 +1,103 @@
+.main-section {
+  width: 90%;
+  margin: 0 auto; /* Center the content horizontally */
+  padding: 20px; /* Add some space around the content */
+  background-color: #f9f9f9; /* Light gray background */
+  border-radius: 10px; /* Add rounded corners */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  height: 100vh; /* Match the full viewport height */
+  overflow-y: auto; /* Add vertical scrollbar if needed */
+}
+
+/* #trainers {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+} */
+
+#trainers {
+  display: flex;
+  flex-direction: column; /* Align elements vertically */
+  border-bottom: 1px solid #ccc;
+
+  padding-bottom: 10px;
+
+  margin-bottom: 20px;
+
+  color: #333;
+}
+
+#reviews {
+  margin-top: 20px;
+}
+
+#review {
+  border: 1px solid #ddd;
+
+  border-radius: 10px;
+
+  background-color: #fff;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+/* Style for modal content */
+
+#reportContent,
+#reviewContent {
+  background-color: #fff;
+
+  border-radius: 10px;
+
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+
+  padding: 20px;
+  position: relative;
+}
+
+/* Style for modal close button */
+#reportModalClose,
+#reviewModalClose {
+  position: absolute;
+
+  top: 10px;
+  right: 10px;
+
+  cursor: pointer;
+  font-size: 24px;
+
+  color: #888;
+}
+
+/* Style for input fields in modals */
+input[type='text'] {
+  width: 100%;
+  padding: 10px;
+
+  margin: 10px 0;
+  border: 1px solid #ccc;
+
+  border-radius: 5px;
+}
+
+/* Style for buttons in modals */
+button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+
+  cursor: pointer;
+
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
+
+.icon-button {
+  color: #000;
+}

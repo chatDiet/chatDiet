@@ -9,6 +9,7 @@ import ReviewController from './review.controllers';
 import ScheduleController from './schedule.controllers';
 import TrainerController from './trainer.controllers';
 import UserController from './user.controllers';
+import ChatController from './chat.controllers';
 
 export {
   CalenderController,
@@ -22,4 +23,5 @@ export {
   ScheduleController,
   TrainerController,
   UserController,
+  ChatController,
 };

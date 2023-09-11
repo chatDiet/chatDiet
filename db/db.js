@@ -11,9 +11,10 @@ class DBConnector {
       dialect: 'mysql',
     });
   }
+
   connectDB() {
     this.sequelize
-      .sync()
+      .sync({ alter: false })
       .then(() => {
         console.log('✨'.repeat(40));
         console.log('Datebase is Connected 👍');
@@ -24,6 +25,7 @@ class DBConnector {
         throw new Error('Fail to connect..👎');
       });
   }
+
   testConnectDB() {
     this.sequelize
       .authenticate()

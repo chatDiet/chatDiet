@@ -1,0 +1,114 @@
+/* 나눔고딕 글꼴 추가 */
+@font-face {
+  font-family: 'omyu_pretty';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'omyu_pretty';
+}
+
+/* .main-section {
+  width: 90%;
+}
+
+.centered {
+  border: 2px solid #000;
+}
+
+#companyList {
+  border-bottom: 2px solid #000;
+  padding-bottom: 20px;
+  margin-bottom: 20px;
+}
+
+#getDetailCompanyBtn {
+  display: flex;
+  justify-content: space-around;
+  border: 2px solid #000;
+  border-radius: 20px;
+  background-color: transparent;
+  box-shadow: 2px 2px 2px 2px rgb(149, 167, 228);
+  width: 100%;
+  padding: 20px;
+  cursor: pointer;
+}
+ */
+
+#img1 {
+  width: 250px;
+  height: 250px;
+}
+
+.main-section {
+  width: 1200px;
+  margin: 0 auto; /* Center the content horizontally */
+  padding: 20px; /* Add some space around the content */
+  background-color: #f9f9f9; /* Light gray background */
+  border-radius: 10px; /* Add rounded corners */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  height: 100vh; /* Match the full viewport height */
+  overflow-y: auto; /* Add vertical scrollbar if needed */
+}
+
+/* Style for the company list heading */
+#companyList {
+  font-size: 24px; /* Increase font size */
+  border-bottom: 1px solid #ccc; /* Light border */
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  color: #333; /* Dark text color */
+}
+
+.companyExplain {
+  height: 150px;
+  text-align: center;
+  padding-top: 50px;
+}
+
+.imgArea {
+  width: 250px;
+  height: 250px;
+  align-items: center;
+  display: contents;
+}
+
+/* 수정 장시훈 */
+
+#companyZone {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3개의 열을 생성 */
+  grid-gap: 5px; /* 그리드 사이의 간격 설정 */
+}
+
+#getDetailCompanyBtn {
+  border: 0px solid;
+  align-items: center;
+  margin-left: 15px;
+  margin-right: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  transition: box-shadow 0.3s ease; /* 호버 효과에 전환 효과 적용 */
+  border-radius: 10px; /* Add rounded corners */
+}
+
+#getDetailCompanyBtn div {
+  margin-left: 15px;
+  margin-right: 15px;
+  justify-content: space-between;
+  justify-content: center;
+}
+
+#getDetailCompanyBtn:hover {
+  border: 1px;
+  align-items: center;
+  margin-left: 15px;
+  margin-right: 15px;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.5);
+  border-radius: 10px; /* Add rounded corners */
+}

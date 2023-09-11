@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/userCalender.css" />
+    <link rel="stylesheet" href="../css/default.css" />
+
+    <script src="http://code.jquery.com/jquery-latest.js"></script> 
+    <script src='https://cdn.jsdelivr.net/npm/fullcalendar@6.1.8/index.global.min.js'></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>나의 캘린더</title>
+  </head>
+  <body>
+    <header>
+      <nav class="navigation">
+        <div class="navigation-title">
+          <h1 class="header-title">chat Diet plan</h1>
+        </div>
+        <div class="navigation-buttons">
+          <button id="goto-signup-button" class="icon-button">회원가입</button>
+          <button id="goto-login-button" class="icon-button">로그인</button>
+          <button id="logout-button" class="icon-button">Logout</button>
+        </div>
+      </nav>
+    </header>
+    <main class="centered">
+      <section class="main-section">
+          <div class="ui container">
+            <div class="ui grid">
+              <div class="ui sixteen column">
+                <div id="calendar"></div>
+              </div>
+            </div>
+          </div>
+          </div>
+      </section>
+      <div id = "dayCalender">
+
+      </div>
+    </main>
+    <footer>
+      <ul class="footer-list">
+        <a class="footer" href="/myUser"
+          ><li><img src="../img/free-icon-font-calendar-3917244.png" />내 회원</li>
+        </a>
+        <a class="footer" href="/trainer">
+          <li><img src="../img/free-icon-training-9958263.png" />스케줄</li>
+        </a>
+        <a class="footer" href="/trainerInfo">
+          <li><img src="../img/free-icon-font-user-3917688.png" />마이페이지</li>
+        </a>
+      </ul>
+    </footer>
+    <script type="module" src="../../js/calender/getTrainerUserCalender.js" defer></script>
+    <script type="module"  src="../../js/navigationBtn.js" defer></script>
+    <script type="module" src="../../js/login/userLogout.js" defer></script>
+    <script src="../../js/headerScript.js" defer></script>
+  </body>
+</html>

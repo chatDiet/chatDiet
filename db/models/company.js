@@ -11,12 +11,16 @@ const Company = connector.sequelize.define(
       autoIncrement: true,
       unique: true,
     },
-    CompanyName: {
+    userId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    companyName: {
       type: DataTypes.STRING,
       allowNull: false,
     },
     time: {
-      type: DataTypes.DATE,
+      type: DataTypes.STRING,
       allowNull: false,
     },
     additional: {
@@ -34,6 +38,14 @@ const Company = connector.sequelize.define(
     link: {
       type: DataTypes.INTEGER,
       allowNull: true,
+    },
+    imageUrl: {
+      type: DataTypes.STRING(500),
+      allowNull: false,
+    },
+    map: {
+      type: DataTypes.STRING,
+      allowNull: false,
     },
     createdAt: {
       type: DataTypes.DATE,

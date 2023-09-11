@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../css/userMypage.css" />
+    <link rel="stylesheet" href="../css/default.css" />
+
+    <title>Your Project</title>
+  </head>
+  <body>
+    <header>
+      <nav class="navigation">
+        <div class="navigation-title">
+          <h1 class="header-title">chat Diet plan</h1>
+        </div>
+        <div class="navigation-buttons">
+          <button id="goto-signup-button" class="icon-button">회원가입</button>
+          <button id="goto-login-button" class="icon-button">로그인</button>
+          <button id="logout-button" class="icon-button">Logout</button>
+        </div>
+      </nav>
+    </header>
+    <main class="centered">
+      <main class="centered">
+        <section class="main-section">
+          <nav class="navigation-menu">
+            <ul>
+              <li onclick="userInfo()"><img src="../img/free-icon-font-user-3917688.png" />내 정보</li>
+              <li onclick="inquiry()"><img src="../img/free-icon-font-search-3917132.png" />1:1 문의</li>
+              <li onclick="review()"><img src="../img/free-icon-training-9958263.png" />내가 작성한 후기</li>
+              <li onclick="posts()"><img src="../img/free-icon-font-envelope-3916611.png" />내가 작성한 글</li>
+              <li onclick="comments()"><img src="../img/free-icon-font-world-3916979.png" />내가 작성한 댓글</li>
+            </ul>
+          </nav>
+        </section>
+      </main>
+    </main>
+    <footer>
+      <ul class="footer-list">
+        <a href="/calender">
+          <li><img src="../img/free-icon-font-calendar-3917244.png" />캘린더</li>
+        </a>
+        <a href="/companyMain">
+          <li><img src="../img/free-icon-training-9958263.png" />헬스장</li>
+        </a>
+        <a href="/chatMain">
+          <li><img src="../img/free-icon-font-envelope-3916611.png" />채팅</li>
+        </a>
+        <a href="/communityMain">
+          <li><img src="../img/free-icon-font-world-3916979.png" />커뮤니티</li>
+        </a>
+      </ul>
+    </footer>
+    <script src="../../js/navigationBtn.js" defer></script>
+    <script type="module" src="../js/login/userLogout.js"></script>
+    <script src="../js/headerScript.js" defer></script>
+  </body>
+</html>

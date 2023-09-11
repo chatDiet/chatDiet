@@ -1,0 +1,146 @@
+/* Style for the main section */
+@font-face {
+  font-family: 'omyu_pretty';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'omyu_pretty';
+}
+
+.main-section {
+  width: 90%;
+  margin: 0 auto; /* Center the content horizontally */
+  padding: 20px; /* Add some space around the content */
+  background-color: #f9f9f9; /* Light gray background */
+  border-radius: 10px; /* Add rounded corners */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+  height: 100vh; /* Match the full viewport height */
+  overflow-y: auto; /* Add vertical scrollbar if needed */
+}
+
+/* Style for the company information section */
+
+#companyList {
+  display: flex;
+  flex-direction: column; /* Align elements vertically */
+  border-bottom: 1px solid #ccc;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+#companyInfo {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Style for the trainer list section */
+#trainerInfo {
+  border-top: 1px solid #ccc;
+  margin-top: 20px;
+  padding-top: 20px;
+}
+
+#trainerList {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 20px;
+  border-radius: 10px;
+}
+
+#trainer {
+  width: calc(33.33% - 20px);
+  margin: 10px;
+  text-align: center;
+  background-color: #ffffff;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  position: relative; /* 추가: 상대 위치 지정 */
+  color: #000000;
+
+  /* 수정된 스타일 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#trainer-image {
+  width: 70%;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+#trainer:hover {
+  background-color: #b5d1d6;
+}
+
+#trainer:active {
+  background-color: #faf5d8; /* Change the background color */
+  color: #000000; /* Chrgb(133, 154, 175)e text color */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
+
+/* Style for the review section */
+#reviews {
+  margin-top: 20px;
+}
+
+#review {
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  background-color: #fff;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+/* Style for modal content */
+
+#reportContent,
+#reviewContent {
+  background-color: #fff;
+  border-radius: 10px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+  position: relative;
+}
+
+/* Style for modal close button */
+#reportModalClose,
+#reviewModalClose {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  cursor: pointer;
+  font-size: 24px;
+  color: #888;
+}
+
+/* Style for input fields in modals */
+input[type='text'] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+/* Style for buttons in modals */
+button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #0056b3;
+}

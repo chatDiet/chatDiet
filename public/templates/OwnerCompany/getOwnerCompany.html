@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../../css/OwnerCompany/getOwnerCompany.css" />
+    <link rel="stylesheet" href="../css/default.css" />
+
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="../../js/OwnerCompany/getOwnerCompany.js"></script>
+    <title>Your Project</title>
+  </head>
+  <body>
+    <header>
+      <nav class="navigation">
+        <div class="navigation-title">
+          <h1 class="header-title">chat Diet plan</h1>
+        </div>
+        <div class="navigation-buttons">
+          <button id="goto-signup-button" class="icon-button">회원가입</button>
+          <button id="goto-login-button" class="icon-button">로그인</button>
+          <button id="logout-button" class="icon-button">Logout</button>
+        </div>
+      </nav>
+    </header>
+    <main class="centered">
+      <section class="main-section">
+        <div id="companyImage"></div>
+        <div class="company-info">
+          <div class="info-box" id="info-box">
+            <!-- 정보 표시 -->
+          </div>
+          <div class="companyReview" id="companyReview">리뷰가 존재하지 않습니다.</div>
+          <div class="trainer-box" id="trainer">
+            <!-- 트레이너 정보 표시-->
+            트레이너가 존재하지 않습니다.
+          </div>
+          <div class="edit-button-container">
+            <button id="edit-button">수정하기</button>
+            <button id="delete-button">업체 삭제</button>
+          </div>
+        </div>
+      </section>
+    </main>
+    <footer>
+      <ul class="footer-list">
+        <li>
+          <a class="custom" href="/getOwnerCompany"> <img src="../img/free-icon-font-calendar-3917244.png" />내업체 </a>
+        </li>
+        <li>
+          <a class="custom" href="/setOwnerCompany"><img src="../img/free-icon-training-9958263.png" />업체등록</a>
+        </li>
+      </ul>
+    </footer>
+    <script type="module" src="../../js/login/userLogout.js" defer></script>
+    <script src="../../js/headerScript.js" defer></script>
+  </body>
+</html>

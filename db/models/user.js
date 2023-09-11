@@ -17,10 +17,13 @@ const User = connector.sequelize.define(
     },
     password: {
       type: DataTypes.STRING,
-      allowNull: false,
     },
     type: {
-      type: DataTypes.ENUM('trainer', 'user', 'owner', 'admin'),
+      type: DataTypes.ENUM('user', 'trainer', 'owner', 'admin'),
+      allowNull: false,
+    },
+    loginType: {
+      type: DataTypes.BOOLEAN,
       allowNull: false,
     },
     createdAt: {
