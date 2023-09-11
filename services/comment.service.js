@@ -12,7 +12,8 @@ class CommentService {
           message: '로그인 후 이용할 수 있습니다.',
         };
       }
-      if (!postId) {
+      const findPost = await this._commentRepository.getPostId(postId);
+      if (!findPost) {
         return {
           status: 404,
           message: '게시글이 존재하지 않습니다.',
@@ -39,6 +40,24 @@ class CommentService {
       console.log(error);
       return { status: 500, message: 'Server Error' };
     }
+  };
+
+  // 사용자 댓글 전체 조회
+  getUserComments = async userId => {
+    const getUserComments = await this._commentRepository.getUserComments(userId);
+
+    const allCommentsData = getUserComments.map(comment => {
+      return {
+        title: comment.title,
+        content: comment.content,
+        createdAt: comment.createdAt,
+        updatedAt: comment.updatedAt,
+      };
+    });
+    return {
+      status: 200,
+      data: allCommentsData,
+    };
   };
 
   // 특정 게시글 댓글 전체 조회
@@ -71,6 +90,13 @@ class CommentService {
   updateComment = async (userId, postId, commentId, content) => {
     const comment = await this._commentRepository.getcommentId(commentId);
     try {
+      const findPost = await this._commentRepository.getPostId(postId);
+      if (!findPost) {
+        return {
+          status: 404,
+          message: '게시글이 존재하지 않습니다.',
+        };
+      }
       if (!comment) {
         return {
           status: 404,

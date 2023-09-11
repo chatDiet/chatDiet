@@ -7,6 +7,7 @@ export default () => {
   Trainer.belongsTo(Company, {
     sourceKey: 'companyId',
     foreignKey: 'companyId',
+    onDelete: 'CASCADE',
   });
 
   Trainer.hasMany(Schedule, {

@@ -1,39 +1,49 @@
-import { Contract } from '../db';
+import { Contract, User, UserInfo } from '../db';
 
 class ContractRepository {
   createContract = async (trainerId, userId, ptNumber) => {
-    const contract = await Contract.create({
+    return await Contract.create({
       trainerId,
       userId,
       ptNumber,
     });
-    return contract;
+  };
+
+  getContractId = async contractId => {
+    return await Contract.findOne({ where: { contractId } });
   };
 
   getUserContract = async userId => {
-    try {
-      const getUserContract = await Contract.findAll({ where: { userId } });
-      return getUserContract;
-    } catch (err) {}
+    return await Contract.findAll({ where: { userId } });
   };
 
   getTrainerContract = async trainerId => {
-    try {
-      const getTrainerContract = await Contract.findAll({ where: { trainerId } });
-      return getTrainerContract;
-    } catch (err) {}
+    return await Contract.findAll({
+      where: { trainerId },
+      include: [
+        {
+          model: User,
+          include: [
+            {
+              model: UserInfo,
+              attributes: ['userName'],
+            },
+          ],
+        },
+      ],
+    });
   };
 
-  getContract = async (userId, trainerId) => {
-    try {
-      const getTrainerContract = await Contract.findOne({ where: { userId, trainerId } });
-      return getTrainerContract;
-    } catch (err) {}
+  getContract = async (trainerId, userId) => {
+    return await Contract.findOne({ where: { trainerId, userId } });
   };
 
   deleteContract = async contractId => {
-    const contract = await Contract.destroy({ where: { contractId } });
-    return contract;
+    return await Contract.destroy({ where: { contractId } });
+  };
+
+  updateContract = async (contractId, updatePtNumber) => {
+    return await Contract.update({ ptNumber: updatePtNumber }, { where: { contractId } });
   };
 }
 

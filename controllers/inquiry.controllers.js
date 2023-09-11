@@ -12,38 +12,38 @@ class InquiryController {
     } catch (err) {
       console.log(err);
       res.status(500).json({ errorMessage: err.message });
-    };
+    }
   };
 
   // 문의
   createInquiry = async (req, res) => {
     const userId = res.locals.userId;
-    const { content } = req.body;
+    const { title, content } = req.body;
 
     try {
-      const createInquiry = await this._inquiryService.createInquiry(userId, content);
+      const createInquiry = await this._inquiryService.createInquiry(userId, title, content);
 
-      res.status(createInquiry.status).json({ message: createInquiry.message })
+      res.status(createInquiry.status).json({ message: createInquiry.message });
     } catch (err) {
       console.error(err);
       res.status(500).json({ message: err.message });
-    };
+    }
   };
 
   // 문의 수정
   udpateInquiry = async (req, res) => {
     const userId = res.locals.userId;
     const { inquiryId } = req.params;
-    const { content } = req.body;
+    const { title, content } = req.body;
 
     try {
-      const updateInquiry = await this._inquiryService.updateInquiry(inquiryId, userId, content);
+      const updateInquiry = await this._inquiryService.updateInquiry(inquiryId, userId, title, content);
 
-      res.status(updateInquiry.status).json({ message: updateInquiry.message, data: updateInquiry.data});
+      res.status(updateInquiry.status).json({ message: updateInquiry.message, data: updateInquiry.data });
     } catch (err) {
       console.error(err);
       res.status(500).json({ message: err.message });
-    };
+    }
   };
 
   // 문의 삭제
@@ -58,8 +58,8 @@ class InquiryController {
     } catch (err) {
       console.error(err);
       res.status(500).json({ message: err.message });
-    };
+    }
   };
-};
+}
 
 export default InquiryController;

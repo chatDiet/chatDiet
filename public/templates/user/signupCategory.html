@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>회원 유형 선택</title>
+    <link rel="stylesheet" href="../css/signupCategory.css" />
+    <link rel="stylesheet" href="../css/default.css" />
+  </head>
+  <body>
+    <header>
+      <nav class="navigation">
+        <div class="navigation-title">
+          <h1 class="header-title">chat Diet plan</h1>
+        </div>
+      </nav>
+    </header>
+    <div class="selectUser">
+      <h1>회원 유형 선택</h1>
+
+      <button id="user-type-user">사용자</button>
+      <button id="user-type-trainer">트레이너</button>
+      <button id="user-type-owner">사장님</button>
+    </div>
+    <footer>
+      <ul class="footer-list">
+        <a href="/calender">
+          <li><img src="../img/free-icon-font-calendar-3917244.png" />캘린더</li>
+        </a>
+        <a href="/companyMain">
+          <li><img src="../img/free-icon-training-9958263.png" />헬스장</li>
+        </a>
+        <a href="/chatMain">
+          <li><img src="../img/free-icon-font-envelope-3916611.png" />채팅</li>
+        </a>
+        <a href="/communityMain">
+          <li><img src="../img/free-icon-font-world-3916979.png" />커뮤니티</li>
+        </a>
+        <a href="/userInfo">
+          <li><img src="../img/free-icon-font-user-3917688.png" />마이페이지</li>
+        </a>
+      </ul>
+    </footer>
+
+    <script>
+      const userTypeButtons = document.querySelectorAll('[id^="user-type-"]');
+
+      userTypeButtons.forEach(button => {
+        button.addEventListener('click', () => {
+          const userType = button.id.replace('user-type-', '');
+          window.location.href = `/signup?type=${userType}`;
+        });
+      });
+    </script>
+  </body>
+</html>

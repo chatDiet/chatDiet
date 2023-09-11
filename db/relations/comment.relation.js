@@ -10,5 +10,6 @@ export default () => {
   Comment.belongsTo(Post, {
     sourceKey: 'postId',
     foreignKey: 'postId',
+    onDelete: 'CASCADE'
   });
 };

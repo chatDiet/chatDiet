@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/editUserReport.css" />
+    <link rel="stylesheet" href="../css/default.css" />
+
+    <title>Your Project</title>
+  </head>
+  <body>
+    <header>
+      <nav class="navigation">
+        <div class="navigation-title">
+          <h1 class="header-title">chat Diet plan</h1>
+        </div>
+        <div class="navigation-buttons">
+          <button id="goto-signup-button" class="icon-button">회원가입</button>
+          <button id="goto-login-button" class="icon-button">로그인</button>
+          <button id="logout-button" class="icon-button">Logout</button>
+        </div>
+      </nav>
+    </header>
+    <main class="centered">
+      <section class="main-section">
+        <h1>신고 수정</h1>
+        <form id="editReport-form">
+          <label for="targetId">대상 ID</label>
+          <input type="text" id="targetId" name="targetId" required /><br /><br />
+
+          <label for="type">유형</label>
+          <select id="type" name="type" required>
+            <option value="category">카테고리</option>
+            <option value="post">게시글</option>
+            <option value="comment">댓글</option>
+            <option value="review">후기</option></select
+          ><br /><br />
+          <label for="title">제목</label>
+          <input type="text" id="title" placeholder="수정하실 제목을 입력하세요" required /><br />
+
+          <label for="content">내용</label>
+          <textarea id="content" placeholder="수정하실 신고 내용을 입력하세요" rows="4" required></textarea><br />
+
+          <button type="submit">신고 수정</button>
+        </form>
+      </section>
+    </main>
+    <footer>
+      <ul class="footer-list">
+        <li onclick="getCalender()"><img src="../img/free-icon-font-calendar-3917244.png" />캘린더</li>
+        <li><img src="../img/free-icon-training-9958263.png" />헬스장</li>
+        <li><img src="../img/free-icon-font-envelope-3916611.png" />채팅</li>
+        <li><img src="../img/free-icon-font-world-3916979.png" />커뮤니티</li>
+        <a href="/userInfo">
+          <li><img src="../img/free-icon-font-user-3917688.png" />마이페이지</li>
+        </a>
+      </ul>
+    </footer>
+    <script type="module" src="../../js/report/editUserReport.js" defer></script>
+    <script type="module" src="../../js/login/userLogout.js" defer></script>
+    <script src="../../js/headerScript.js" defer></script>
+  </body>
+</html>

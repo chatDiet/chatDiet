@@ -7,12 +7,18 @@ class ChatService {
   _contractRepository = new ContractRepository();
   _userRepository = new UserRepository();
 
-  postChat = async data => {
+  postChat = async (data, userId) => {
     try {
-      const user = await this._userRepository.getOneUserInfo(data.user);
+      const user = await this._userRepository.getOneUserInfo(userId);
 
-      data.name = user.name;
+      data.name = user.userName;
+
       await this._chatRepository.postChat(data);
+
+      return {
+        status: 200,
+        message: data.name,
+      };
     } catch (err) {
       return { status: 500, message: 'Server Error' };
     }

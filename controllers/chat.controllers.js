@@ -10,6 +10,16 @@ class ChatController {
 
     return res.status(result.status).json(result.message);
   };
+
+  postChat = async (req, res) => {
+    const { data } = req.body;
+
+    const userId = res.locals.userId;
+
+    const result = await this._chatService.postChat(data, userId);
+
+    return res.status(result.status).json(result.message);
+  };
 }
 
 export default ChatController;

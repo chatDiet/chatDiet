@@ -1,23 +1,36 @@
 import Review from '../db/models/review';
+import { User, Company } from '../db';
 
 class ReviewRepository {
-  getReviewByType = async (companyId, type) => {
-    const getReviewByType = await Review.findOne({ where: { companyId, type } });
-    return getReviewByType;
+  findAuth = async userId => {
+    return await User.findOne({ where: { userId } });
   };
-  findReview = async reviewId => {
-    const findReview = await Review.findOne({ where: { reviewId } });
-    return findReview;
-  };
-  createReview = async (content, grade, type) => {
-    console.log(grade);
-    const createReveiw = await Review.create({ content, grade, type });
 
-    return createReveiw;
+  findCompany = async companyId => {
+    return await Company.findOne({ where: { companyId } });
+  };
+
+  getUserReview = async userId => {
+    return await Review.findAll({
+      where: { userId: userId },
+      order: [['createdAt', 'DESC']],
+    });
+  };
+
+  getTargetReview = async (targetId, type) => {
+    return await Review.findAll({ where: { targetId, type } });
+  };
+
+  findReview = async reviewId => {
+    return await Review.findOne({ where: { reviewId } });
+  };
+
+  createReview = async (userId, targetId, content, grade, type) => {
+    return await Review.create({ userId, targetId, content, grade, type });
   };
 
   deleteReview = async reviewId => {
-    await Review.destroy({ where: { reviewId } });
+    return Review.destroy({ where: { reviewId } });
   };
 }
 

@@ -1,5 +1,3 @@
-// 업로드 , 조회 , 수정(url) , 삭제(서버에서 )
-// 단일 업로드 / 다중 업로드
 const multer = require('multer');
 const { S3Client, PutObjectCommand } = require('@aws-sdk/client-s3');
 const multerS3 = require('multer-s3');
@@ -21,19 +19,38 @@ const upload = multer({
       cb(null, `${Date.now()}_${path.basename(file.originalname)}`);
     },
   }),
-  fileFilter: function (req, file, cb) {
-    if (file.fieldname !== 'image') {
-      return cb(new Error('Only image files are allowed'));
-    }
-    cb(null, true);
-  },
 });
+
 const singleUpload = fieldName => {
   return function (req, res, next) {
     upload.single(fieldName)(req, res, function (err) {
+      if (req.body.image === 'undefined') {
+        return res.status(400).json({ message: '이미지 없음' });
+      }
       if (err instanceof multer.MulterError && err.code === 'LIMIT_UNEXPECTED_FILE') {
         // 이미지 필드가 누락된 경우 기본값을 설정
+        console.log('이미지 필드 에러 ', err);
         req.file = null;
+        next();
+      } else if (err) {
+        next();
+      } else {
+        next();
+      }
+    });
+  };
+};
+
+const multipleUpload = fieldName => {
+  return function (req, res, next) {
+    upload.array(fieldName)(req, res, function (err) {
+      // if (req.body.images === 'undefined') {
+      //   return res.status(400).json({ message: '이미지 없음' });
+      // }
+      console.log(req.body);
+      if (err instanceof multer.MulterError) {
+        // 이미지 필드가 누락된 경우 기본값을 설정
+        req.files = null;
         next();
       } else if (err) {
         next(err);
@@ -44,25 +61,21 @@ const singleUpload = fieldName => {
   };
 };
 
-// const promiseList = images.map(file => {
-//   const fileStream = fs.createReadStream(file.path);
+const deleteImages = async objectArr => {
+  const params = {
+    Bucket: process.env.AWS_BUCKET_NAME,
+    Delete: {
+      Objects: objectArr,
+      Quiet: false,
+    },
+  };
 
-//   return s3
-//     .upload({
-//       Bucket: '버킷이름',
-//       // 파일명
-//       Key: `uploads/${file.originalname}`,
-//       Body: fileStream,
-//     })
-//     .promise();
-// });
+  try {
+    const result = await s3.deleteObjects(params).promise();
+    return result;
+  } catch (err) {
+    console.log('미들웨어 삭제 에러', err);
+  }
+};
 
-// const result = await Promise.all(promiseList);
-
-// for (let i = 0; i < files.length; i++) {
-//   fs.unlink(files[i].path, err => {
-//     if (err) throw err;
-//   });
-// }
-
-module.exports = upload;
+module.exports = { singleUpload, multipleUpload, deleteImages };

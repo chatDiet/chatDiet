@@ -20,7 +20,7 @@ const Company = connector.sequelize.define(
       allowNull: false,
     },
     time: {
-      type: DataTypes.DATE,
+      type: DataTypes.STRING,
       allowNull: false,
     },
     additional: {
@@ -40,12 +40,12 @@ const Company = connector.sequelize.define(
       allowNull: true,
     },
     imageUrl: {
-      type: DataTypes.STRING,
+      type: DataTypes.STRING(500),
       allowNull: false,
     },
     map: {
       type: DataTypes.STRING,
-      allowNull: true,
+      allowNull: false,
     },
     createdAt: {
       type: DataTypes.DATE,

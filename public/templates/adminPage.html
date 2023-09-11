@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>관리자 페이지</title>
+  </head>
+  <body></body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../css/adminPage.css" />
+    <link rel="stylesheet" href="../css/default.css" />
+    <title>Your Project</title>
+  </head>
+  <body>
+    <header>
+      <nav class="navigation">
+        <div class="navigation-title">
+          <h1 class="header-title">CHAT DIET PLAN</h1>
+        </div>
+        <div class="navigation-buttons">
+          <button id="goto-signup-button" class="icon-button">회원가입</button>
+          <button id="goto-login-button" class="icon-button">로그인</button>
+          <button id="logout-button" class="icon-button">Logout</button>
+        </div>
+      </nav>
+    </header>
+    <main class="centered">
+      <h1>관리자 페이지</h1>
+      <button id="view-inquiries-button">문의 목록 보기</button>
+      <button id="view-reports-button">신고 목록 보기</button>
+    </main>
+    <footer>
+      <ul class="footer-list">
+        <li onclick="getCalender()"><img src="../img/free-icon-font-calendar-3917244.png" />캘린더</li>
+        <li><img src="../img/free-icon-training-9958263.png" />헬스장</li>
+        <li><img src="../img/free-icon-font-envelope-3916611.png" />채팅</li>
+        <li><img src="../img/free-icon-font-world-3916979.png" />커뮤니티</li>
+        <li onclick="myPage()"><img src="../img/free-icon-font-user-3917688.png" />마이페이지</li>
+      </ul>
+    </footer>
+    <script src="../js/navigationBtn.js" defer></script>
+    <script type="module" src="../js/login/userLogout.js" defer></script>
+    <script src="../js/headerScript.js" defer></script>
+    <script src="../js/adminPage/adminPage.js" defer></script>
+  </body>
+</html>

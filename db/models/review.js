@@ -15,15 +15,19 @@ const Review = connector.sequelize.define(
       type: DataTypes.INTEGER,
       allowNull: false,
     },
+    targetId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+    },
+    type: {
+      type: DataTypes.ENUM('company', 'trainer'),
+      allowNull: false,
+    },
     content: {
       type: DataTypes.STRING,
       allowNull: false,
     },
     grade: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    type: {
       type: DataTypes.STRING,
       allowNull: false,
     },

@@ -1,0 +1,146 @@
+/* userMain.css */
+@font-face {
+  font-family: 'omyu_pretty';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'omyu_pretty';
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.icon-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.icon-button i {
+  font-size: 18px;
+}
+
+.icon-button img {
+  width: 18px; /* 원하는 크기로 조정 */
+}
+
+main {
+  width: 1000px; /* 원하는 가로 사이즈로 조정 */
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 0 auto; /* 수평 가운데 정렬을 위해 추가 */
+}
+
+.centered {
+  text-align: center;
+}
+
+.footer-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #f0f0f0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 20px 0;
+}
+
+footer ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+footer li {
+  display: flex;
+  align-items: center;
+  margin: 0 15px;
+  font-size: 20px;
+  color: black;
+  text-decoration: none;
+}
+
+footer a {
+  text-decoration: none;
+}
+
+footer img {
+  width: 20px; /* Adjust the width as needed */
+  margin-right: 5px;
+}
+
+.centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.main-section {
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  padding: 20px;
+  text-align: center;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  max-width: 400px;
+  width: 100%;
+}
+
+/* 입력 박스 스타일 */
+input[type='text'] {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+/* 수정 완료 버튼 스타일 */
+#submitButton {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+#submitButton:hover {
+  background-color: #0056b3;
+}
+
+/* 전체 페이지 스타일 */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #f0f0f0;
+}
+
+.form-group {
+  display: flex;
+  align-items: center;
+  margin: 10px 0;
+}
+
+.form-group > label {
+  width: 100px;
+}

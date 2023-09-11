@@ -11,6 +11,7 @@ class DBConnector {
       dialect: 'mysql',
     });
   }
+
   connectDB() {
     this.sequelize
       .sync({ alter: false })
@@ -24,6 +25,7 @@ class DBConnector {
         throw new Error('Fail to connect..👎');
       });
   }
+
   testConnectDB() {
     this.sequelize
       .authenticate()
@@ -39,6 +41,5 @@ class DBConnector {
   }
 }
 const connector = new DBConnector();
-
 
 export default connector;

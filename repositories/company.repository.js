@@ -1,13 +1,12 @@
 import { Company, User } from '../db';
 
 class CompanyRepository {
-  isUser = async userId => {
-    return await User.findOne({ where: { userId } });
+  isMe = async companyId => {
+    return await Company.findOne({ where: { companyId } });
   };
 
-  postCompany = async (companyName, time, additional, service, phoneNumber, link, userId) => {
-    console.log('들어옴 >ㅁ<');
-    const result = await Company.create({
+  postCompany = async (companyName, time, additional, service, phoneNumber, link, userId, imageUrl, map) => {
+    return await Company.create({
       companyName,
       time,
       additional,
@@ -15,56 +14,47 @@ class CompanyRepository {
       phoneNumber,
       link,
       userId,
+      imageUrl,
+      map,
     });
-    return result;
   };
 
   allGetCompany = async () => {
-    try {
-      const result = await Company.findAll({});
-
-      return result;
-    } catch (err) {}
+    return await Company.findAll({});
   };
 
   oneGetCompany = async companyId => {
-    try {
-      const result = await Company.findOne({
-        where: { companyId },
-      });
-
-      return result;
-    } catch (err) {}
+    return await Company.findOne({
+      where: { companyId },
+    });
   };
 
-  putCompany = async (companyId, companyName, time, additional, service, phoneNumber, link) => {
-    try {
-      const result = await Company.update(
-        {
-          companyName,
-          time,
-          additional,
-          service,
-          phoneNumber,
-          link,
-        },
-        { where: { companyId } }
-      );
-
-      return result;
-    } catch (err) {}
+  putCompany = async (companyId, companyName, time, additional, service, phoneNumber, link, imageUrl, map) => {
+    return await Company.update(
+      {
+        companyName,
+        time,
+        additional,
+        service,
+        phoneNumber,
+        link,
+        imageUrl,
+        map,
+      },
+      { where: { companyId } }
+    );
   };
 
   deleteCompany = async companyId => {
-    try {
-      const result = await Company.destroy({
-        where: { companyId },
-      });
+    return await Company.destroy({
+      where: { companyId },
+    });
+  };
 
-      return result;
-    } catch (err) {
-      console.log(err);
-    }
+  getOwnerCompany = async userId => {
+    return await Company.findOne({
+      where: { userId },
+    });
   };
 }
 
