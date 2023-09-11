@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="../css/userMain.css" />
+    <link rel="stylesheet" href="../../css/detailUserCalender.css" />
+    <link rel="stylesheet" href="../css/default.css" />
+
+    <title>Document</title>
+  </head>
+  <body>
+    <header>
+      <nav class="navigation">
+        <div class="navigation-title">
+          <h1 class="header-title">CHAT DIET PLAN</h1>
+        </div>
+        <div class="navigation-buttons">
+          <button id="goto-signup-button" class="icon-button">회원가입</button>
+          <button id="goto-login-button" class="icon-button">로그인</button>
+          <button id="logout-button" class="icon-button">Logout</button>
+        </div>
+      </nav>
+    </header>
+    <main class="centered">
+      <div id="detailCalender">
+        <h1>나의 캘린더</h1>
+        <button id="deleteButton">삭제</button>
+      </div>
+    </main>
+    <footer>
+      <ul class="footer-list">
+        <a class="footer" href="/myUser"
+          ><li><img src="../img/free-icon-font-calendar-3917244.png" />내 회원</li>
+        </a>
+        <a class="footer" href="/trainer">
+          <li><img src="../img/free-icon-training-9958263.png" />스케줄</li>
+        </a>
+        <a class="footer" href="/trainerInfo">
+          <li><img src="../img/free-icon-font-user-3917688.png" />마이페이지</li>
+        </a>
+      </ul>
+    </footer>
+    <script type="module" src="../../js/calender/detailUserCalender.js"></script>
+    <script src="../js/navigationBtn.js" defer></script>
+    <script type="module" src="../js/login/userLogout.js" defer></script>
+    <script type="module" src="../../js/login/userLogout.js" defer></script>
+    <script src="../../js/headerScript.js" defer></script>
+  </body>
+</html>

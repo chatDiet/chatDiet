@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../css/userMain.css" />
+    <link rel="stylesheet" href="../css/default.css" />
+
     <title>Your Project</title>
   </head>
   <body>
@@ -13,13 +15,10 @@
           <h1 class="header-title">CHAT DIET PLAN</h1>
         </div>
         <div class="navigation-buttons">
-          <button class="icon-button"><img src="../img/free-icon-font-search-3917132.png" alt="검색" /></button>
           <button id="goto-signup-button" class="icon-button">회원가입</button>
           <button id="goto-login-button" class="icon-button">로그인</button>
+          <button id="logout-button" class="icon-button">Logout</button>
         </div>
-        <form id="logout-form">
-          <button type="submit">Logout</button>
-        </form>
       </nav>
     </header>
     <main class="centered">
@@ -30,57 +29,24 @@
     <footer>
       <ul class="footer-list">
         <a href="/calender">
-          <li id="footerBtn"><img src="../img/free-icon-font-calendar-3917244.png" />캘린더</li>
+          <li><img src="../img/free-icon-font-calendar-3917244.png" />캘린더</li>
         </a>
         <a href="/companyMain">
-          <li id="footerBtn"><img src="../img/free-icon-training-9958263.png" />헬스장</li>
+          <li><img src="../img/free-icon-training-9958263.png" />헬스장</li>
         </a>
         <a href="/chatMain">
-          <li id="footerBtn"><img src="../img/free-icon-font-envelope-3916611.png" />채팅</li>
+          <li><img src="../img/free-icon-font-envelope-3916611.png" />채팅</li>
         </a>
         <a href="/communityMain">
-          <li id="footerBtn"><img src="../img/free-icon-font-world-3916979.png" />커뮤니티</li>
+          <li><img src="../img/free-icon-font-world-3916979.png" />커뮤니티</li>
         </a>
-        <a href="/userInfo">
-          <li id="footerBtn"><img src="../img/free-icon-font-user-3917688.png" />마이페이지</li>
+        <a href="/myPage">
+          <li><img src="../img/free-icon-font-user-3917688.png" />마이페이지</li>
         </a>
       </ul>
     </footer>
     <script src="../js/navigationBtn.js" defer></script>
     <script type="module" src="../js/login/userLogout.js" defer></script>
-    <script>
-      const gotoSignupButton = document.getElementById('goto-signup-button');
-      gotoSignupButton.addEventListener('click', () => {
-        // 사용자 메인 페이지로 이동
-        window.location.href = 'http://localhost:3000/signupCategory';
-      });
-
-      const gotoLoginButton = document.getElementById('goto-login-button');
-      gotoLoginButton.addEventListener('click', () => {
-        // 사용자 메인 페이지로 이동
-        window.location.href = 'http://localhost:3000/login';
-      });
-
-      function getCookie() {
-        const cookie = decodeURIComponent(document.cookie);
-        const [name, value] = cookie.split('=');
-        return value;
-      }
-
-      const isLoggedIn = getCookie();
-      const loginButton = document.getElementById('goto-login-button');
-      const signupButton = document.getElementById('goto-signup-button');
-      const logoutButton = document.getElementById('logoutButton');
-      if (isLoggedIn) {
-        // 로그인한 경우
-        loginButton.style.display = 'none'; // 로그인 버튼 숨김
-        signupButton.style.display = 'none'; // 회원가입 버튼 숨김
-        logoutButton.style.display = 'block'; // 로그아웃 버튼 표시
-      } else {
-        loginButton.style.display = 'block'; // 로그인 버튼 숨김
-        signupButton.style.display = 'block'; // 회원가입 버튼 숨김
-        logoutButton.style.display = 'none'; // 로그아웃 버튼 표시
-      }
-    </script>
+    <script src="../js/headerScript.js" defer></script>
   </body>
 </html>

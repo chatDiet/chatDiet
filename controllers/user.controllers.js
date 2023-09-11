@@ -14,14 +14,14 @@ class UserController {
   findOneUserInfo = async (req, res) => {
     const userId = req.params.userId;
     const result = await this._userService.findOneUserInfo(userId);
-    console.log(result, '백에서');
     return res.status(result.status).json(result.data);
   };
   updateUserInfo = async (req, res) => {
     const userId = res.locals.userId;
     const { userName, height, weight, phone } = req.body;
+    const { userInfoId } = req.params;
 
-    const result = await this._userService.updateUserInfo(userId, userName, height, weight, phone);
+    const result = await this._userService.updateUserInfo(userId, userInfoId, userName, height, weight, phone);
 
     return res.status(result.status).json(result.message);
   };
@@ -68,7 +68,6 @@ class UserController {
     const { email, type } = req.body;
     const loginType = false;
     const result = await this._userService.registerUser(email, type, loginType);
-    console.log('@@@', result);
     res.cookie('authorization', `Bearer ${result.data}`);
     return res.status(result.status).json(result.message);
   };

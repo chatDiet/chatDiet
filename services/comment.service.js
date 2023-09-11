@@ -42,6 +42,24 @@ class CommentService {
     }
   };
 
+  // 사용자 댓글 전체 조회
+  getUserComments = async userId => {
+    const getUserComments = await this._commentRepository.getUserComments(userId);
+
+    const allCommentsData = getUserComments.map(comment => {
+      return {
+        title: comment.title,
+        content: comment.content,
+        createdAt: comment.createdAt,
+        updatedAt: comment.updatedAt,
+      };
+    });
+    return {
+      status: 200,
+      data: allCommentsData,
+    };
+  };
+
   // 특정 게시글 댓글 전체 조회
   getComment = async postId => {
     const post = await this._commentRepository.getPostId(postId);

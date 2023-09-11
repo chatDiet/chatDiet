@@ -1,6 +1,16 @@
 /* Add a background image for a resolution app look */
+@font-face {
+  font-family: 'omyu_pretty';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
-  background-image: url('path_to_your_background_image.jpg');
+  font-family: 'omyu_pretty';
+}
+
+body {
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -13,7 +23,7 @@ body {
   background-color: #f9f9f9; /* Light gray background */
   border-radius: 10px; /* Add rounded corners */
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
-  min-height: calc(100vh - 120px); /* Increase the minimum height, accounting for header and footer */
+  min-height: calc(100vh - 120px); /*
   overflow-y: auto; /* Add vertical scrollbar if needed */
 }
 
@@ -42,15 +52,13 @@ body {
   cursor: pointer; /* Change cursor to pointer on hover */
 }
 
-/* Style the footer */
 footer {
   background-color: #333; /* Dark background color */
   color: #fff; /* Text color */
-  padding: 20px 0; /* Add padding to the footer */
+  padding: 20px 0;
   text-align: center; /* Center align the text */
 }
 
-/* Style the footer links */
 .footer-list a {
   text-decoration: none; /* Remove underline */
   margin: 0 10px; /* Add margin between links */

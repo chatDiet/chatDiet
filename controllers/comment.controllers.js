@@ -10,7 +10,16 @@ class CommentController {
     const { content } = req.body;
 
     const result = await this._commentService.createComment(userId, postId, content);
-    return res.status(result.status).json(result.message);
+    return res.status(result.status).json(result.data);
+  };
+
+  // 사용자 본인 댓글 전체조회
+  getUserComments = async (req, res) => {
+    const userId = res.locals.userId;
+
+    const getUserComments = await this._commentService.getUserComments(userId);
+
+    return res.status(getUserComments.status).json(getUserComments.data);
   };
 
   // 특정 게시글 댓글 전체 조회

@@ -20,8 +20,9 @@ createReviewBtn = (targetId, type) => {
         location.reload();
       })
       .catch(function (error) {
-        alert(error.data.message);
-        location.reload();
+        console.log(error);
+        alert(error.response.data);
+        // location.reload();
       });
   };
 };

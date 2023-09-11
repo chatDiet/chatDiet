@@ -10,7 +10,7 @@ loginForm.addEventListener('submit', async event => {
   const password = document.getElementById('password').value;
 
   axios
-    .post(`http://localhost:3000/api/login`, { email: email, password: password })
+    .post(`/api/login`, { email: email, password: password })
     .then(function (response) {
       alert('로그인 성공');
       if (response.data === 'user') {

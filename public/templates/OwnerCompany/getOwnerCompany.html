@@ -4,6 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../../css/OwnerCompany/getOwnerCompany.css" />
+    <link rel="stylesheet" href="../css/default.css" />
+
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="../../js/OwnerCompany/getOwnerCompany.js"></script>
     <title>Your Project</title>
@@ -15,8 +17,9 @@
           <h1 class="header-title">chat Diet plan</h1>
         </div>
         <div class="navigation-buttons">
-          <button class="icon-button"><img src="../img/free-icon-font-search-3917132.png" alt="검색" /></button>
-          <button class="icon-button">로그인 해주세요</button>
+          <button id="goto-signup-button" class="icon-button">회원가입</button>
+          <button id="goto-login-button" class="icon-button">로그인</button>
+          <button id="logout-button" class="icon-button">Logout</button>
         </div>
       </nav>
     </header>
@@ -30,7 +33,6 @@
           <div class="companyReview" id="companyReview">리뷰가 존재하지 않습니다.</div>
           <div class="trainer-box" id="trainer">
             <!-- 트레이너 정보 표시-->
-            <!--혜민님 이미지 3번입니다.-->
             트레이너가 존재하지 않습니다.
           </div>
           <div class="edit-button-container">
@@ -43,12 +45,14 @@
     <footer>
       <ul class="footer-list">
         <li>
-          <a class="custom" href="http://localhost:3000/getOwnerCompany"> <img src="../img/free-icon-font-calendar-3917244.png" />내업체 </a>
+          <a class="custom" href="/getOwnerCompany"> <img src="../img/free-icon-font-calendar-3917244.png" />내업체 </a>
         </li>
         <li>
-          <a class="custom" href="http://localhost:3000/setOwnerCompany"><img src="../img/free-icon-training-9958263.png" />업체등록</a>
+          <a class="custom" href="/setOwnerCompany"><img src="../img/free-icon-training-9958263.png" />업체등록</a>
         </li>
       </ul>
     </footer>
+    <script type="module" src="../../js/login/userLogout.js" defer></script>
+    <script src="../../js/headerScript.js" defer></script>
   </body>
 </html>

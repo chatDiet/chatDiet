@@ -15,7 +15,7 @@ signupForm.addEventListener('submit', async event => {
   const phone = document.getElementById('phone').value;
 
   axios
-    .post(`http://localhost:3000/api/signup`, {
+    .post(`/api/signup`, {
       userName: userName,
       type: type,
       email: email,
@@ -28,7 +28,7 @@ signupForm.addEventListener('submit', async event => {
     .then(function (response) {
       alert(response.data);
 
-      window.location.href = 'http://localhost:3000/';
+      window.location.href = '/';
     })
     .catch(function (error) {
       alert(error.response.data);

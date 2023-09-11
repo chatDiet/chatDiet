@@ -4,6 +4,30 @@ class ReviewService {
   _companyRepository = new CompanyRepository();
   _trainerRepository = new TrainerRepository();
 
+  getUserReview = async userId => {
+    if (!userId) {
+      return {
+        status: 401,
+        data: '로그인 후 이용 가능합니다.',
+      };
+    }
+
+    const getUserReview = await this._reviewRepository.getUserReview(userId);
+
+    const allReviewData = getUserReview.map(review => {
+      return {
+        type: review.type,
+        content: review.content,
+        createdAt: review.createdAt,
+        updatedAt: review.updatedAt,
+      };
+    });
+    return {
+      status: 200,
+      data: allReviewData,
+    };
+  };
+
   getReviewByType = async (targetId, type) => {
     if (!type) {
       return {

@@ -99,7 +99,7 @@ export function showSchedule(dateFormat, date) {
   }
 
   axios
-    .get(`http://localhost:3000/api/schedules`)
+    .get(`/api/schedules`)
     .then(response => {
       const scheduleData = response.data;
       if (!scheduleData.date || scheduleData.length === 0) {
@@ -110,7 +110,7 @@ export function showSchedule(dateFormat, date) {
           if (userResponse) {
             // 사용자가 스케줄을 추가하려는 경우
             axios
-              .post('http://localhost:3000/api/schedules', { date: selectedDate }) // 날짜를 'YYYY-MM-DDTHH:mm:ss.sssZ' 형식으로 보냄
+              .post('/api/schedules', { date: selectedDate }) // 날짜를 'YYYY-MM-DDTHH:mm:ss.sssZ' 형식으로 보냄
               .then(response => {
                 // POST 요청 성공 시 처리
                 console.log('스케줄 추가 요청 성공:', response.data);

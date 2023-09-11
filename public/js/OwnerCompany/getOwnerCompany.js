@@ -11,10 +11,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     for (const imageUrl of imageUrls) {
       const imgElement = document.createElement('img');
-      console.log(imgElement);
       imgElement.src = imageUrl;
       imgElement.classList.add('small-image');
-
       smallImagesContainer.appendChild(imgElement);
     }
 
@@ -36,7 +34,7 @@ document.addEventListener('DOMContentLoaded', async () => {
         </div>
         <div class="info-item">
           <h3>전화번호</h3>
-          <p>${result.phoneNumber}</p>
+          <p>+82 ${result.phoneNumber}</p>
         </div>
         <div class="info-item">
           <h3>바로가기</h3>
@@ -74,14 +72,14 @@ document.addEventListener('DOMContentLoaded', async () => {
           const trainerContainer = document.createElement('div'); // 새로운 컨테이너 생성
           trainerContainer.classList.add('trainer-card');
 
-          trainerContainer.innerHTML = `<button class="trainer-card" onclick="detailTrainerBtn(${result[i].trainerId})">
+          trainerContainer.innerHTML = `<button class="trainer-card">
           <img src="${result[i].imageUrl}" alt="Trainer Image" class="trainer-image">
           <p>${result[i].trainerName}</p>
           <p>${result[i].career}</p>
           <button onclick="deleteTrainerBtn(${result[i].companyId}, ${result[i].trainerId})">트레이너 삭제</button>
         </button>`;
 
-        trainerList.appendChild(trainerContainer);
+          trainerList.appendChild(trainerContainer);
         }
       })
       .catch(function (error) {
@@ -90,7 +88,7 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     // 업체 수정 버튼
     editButton.addEventListener('click', async () => {
-      window.location.href = `http://localhost:3000/putOwnerCompany?companyId=${result.companyId}`;
+      window.location.href = `/putOwnerCompany?companyId=${result.companyId}`;
     });
 
     // 업체 삭제 버튼
@@ -101,7 +99,7 @@ document.addEventListener('DOMContentLoaded', async () => {
           const deleteResponse = await axios.delete(`/api/company/${result.companyId}`);
           if (deleteResponse.status === 200) {
             alert('업체 정보가 삭제되었습니다.');
-            window.location.href = 'http://localhost:3000/getOwnerCompany';
+            window.location.href = '/getOwnerCompany';
           } else {
             alert('업체 정보 삭제에 실패했습니다.');
           }

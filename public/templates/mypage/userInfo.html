@@ -3,7 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../css/userMain.css" />
+    <link rel="stylesheet" href="../../css/userInfo.css" />
+    <link rel="stylesheet" href="../css/default.css" />
+
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <title>Your Project</title>
   </head>
@@ -14,37 +16,58 @@
           <h1 class="header-title">chat Diet plan</h1>
         </div>
         <div class="navigation-buttons">
-          <button class="icon-button"><img src="../img/free-icon-font-search-3917132.png" alt="검색"></button>
-          <button class="icon-button">로그인 해주세요</button>
+          <button id="goto-signup-button" class="icon-button">회원가입</button>
+          <button id="goto-login-button" class="icon-button">로그인</button>
+          <button id="logout-button" class="icon-button">Logout</button>
         </div>
       </nav>
     </header>
     <main class="centered">
       <section class="main-section">
-        <div id="userInfoContainer">
-          <!-- 사용자 정보 표시 -->
-          <p>이름: <span id="userName"></span></p>
-          <p>키: <span id="height"></span></p>
-          <p>몸무게: <span id="weight"></span></p>
-          <p>전화번호: <span id="phone"></span></p>
-        </div>
+        <table>
+          <tr>
+            <td><strong>이름:</strong></td>
+            <td><span id="userName"></span></td>
+          </tr>
+          <tr>
+            <td><strong>키:</strong></td>
+            <td><span id="height"></span></td>
+          </tr>
+          <tr>
+            <td><strong>몸무게:</strong></td>
+            <td><span id="weight"></span></td>
+          </tr>
+          <tr>
+            <td><strong>전화번호:</strong></td>
+            <td><span id="phone"></span></td>
+          </tr>
+        </table>
         <!-- 수정하기 버튼 -->
         <button id="editButton" onclick="updateUserInfo()">수정하기</button>
       </section>
     </main>
     <footer>
       <ul class="footer-list">
-        <li onclick="getCalender()"><img src="../img/free-icon-font-calendar-3917244.png" >캘린더</li>
-        <li><img src="../img/free-icon-training-9958263.png">헬스장</li>
-        <li><img src="../img/free-icon-font-envelope-3916611.png" >채팅</li>
-        <li><img src="../img/free-icon-font-world-3916979.png">커뮤니티</li>
-        <a href="/userInfo">
+        <a href="/calender">
+          <li><img src="../img/free-icon-font-calendar-3917244.png" />캘린더</li>
+        </a>
+        <a href="/companyMain">
+          <li><img src="../img/free-icon-training-9958263.png" />헬스장</li>
+        </a>
+        <a href="/chatMain">
+          <li><img src="../img/free-icon-font-envelope-3916611.png" />채팅</li>
+        </a>
+        <a href="/communityMain">
+          <li><img src="../img/free-icon-font-world-3916979.png" />커뮤니티</li>
+        </a>
+        <a href="/myPage">
           <li><img src="../img/free-icon-font-user-3917688.png" />마이페이지</li>
         </a>
-      </ul>
       </ul>
     </footer>
     <script src="../../js/navigationBtn.js" defer></script>
     <script src="../../js/mypage/getUserInfo.js" defer></script>
+    <script type="module" src="../js/login/userLogout.js" defer></script>
+    <script src="../js/headerScript.js" defer></script>
   </body>
 </html>

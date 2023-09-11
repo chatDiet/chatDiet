@@ -24,10 +24,6 @@ document.getElementById('write-schedule-form').addEventListener('submit', async 
       location.href = '/trainer';
     })
     .catch(function (error) {
-      console.log(error);
+      alert('회원과의 계약을 우선적으로 진행해주세요 !', error);
     });
-
-  for (var value of formData.values()) {
-    console.log(value, 'formDatavalue');
-  }
 });

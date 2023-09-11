@@ -7,6 +7,8 @@
     <link rel="stylesheet" href="../css/common.css" />
     <link rel="stylesheet" href="../css/modal.css" />
     <link rel="stylesheet" href="../css/detailCommunity.css" />
+    <link rel="stylesheet" href="../css/default.css" />
+
     <script src="https://code.jquery.com/jquery-3.4.1.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" defer></script>
     <title>Your Project</title>
@@ -18,8 +20,9 @@
           <h1 class="header-title">chat Diet plan</h1>
         </div>
         <div class="navigation-buttons">
-          <button class="icon-button"><img src="../img/free-icon-font-search-3917132.png" alt="검색" /></button>
-          <a href="/login"><button class="icon-button">로그인 해주세요</button></a>
+          <button id="goto-signup-button" class="icon-button">회원가입</button>
+          <button id="goto-login-button" class="icon-button">로그인</button>
+          <button id="logout-button" class="icon-button">Logout</button>
         </div>
       </nav>
     </header>
@@ -64,7 +67,7 @@
         <a href="/communityMain">
           <li id="footerBtn"><img src="../img/free-icon-font-world-3916979.png" />커뮤니티</li>
         </a>
-        <a href="/userInfo">
+        <a href="/myPage">
           <li id="footerBtn"><img src="../img/free-icon-font-user-3917688.png" />마이페이지</li>
         </a>
       </ul>
@@ -73,5 +76,7 @@
     <script src="../js/community/getDetailCommunity.js" defer></script>
     <script src="../js/community/deleteCommunity.js" defer></script>
     <script src="../js/report/createUserReport.js" defer></script>
+    <script type="module" src="../../js/login/userLogout.js" defer></script>
+    <script src="../../js/headerScript.js" defer></script>
   </body>
 </html>

@@ -6,6 +6,8 @@
     <link rel="stylesheet" href="../../css/userMain.css" />
     <link rel="stylesheet" href="../../css/trainer/myTrainerInfo.css" />
     <link rel="stylesheet" href="../../css/trainer/updateTrainer.css" />
+    <link rel="stylesheet" href="../css/default.css" />
+
     <script src="http://code.jquery.com/jquery-latest.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 
@@ -18,7 +20,9 @@
           <h1 class="header-title">chat Diet plan</h1>
         </div>
         <div class="navigation-buttons">
-          <button class="icon-button">로그인 해주세요</button>
+          <button id="goto-signup-button" class="icon-button">회원가입</button>
+          <button id="goto-login-button" class="icon-button">로그인</button>
+          <button id="logout-button" class="icon-button">Logout</button>
         </div>
       </nav>
     </header>
@@ -47,5 +51,7 @@
       </ul>
     </footer>
     <script type="module" src="../../js/trainer/createTrainer.js" defer></script>
+    <script type="module" src="../../js/login/userLogout.js" defer></script>
+    <script src="../../js/headerScript.js" defer></script>
   </body>
 </html>

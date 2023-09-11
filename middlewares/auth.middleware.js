@@ -7,7 +7,6 @@ async function isAuth(req, res, next) {
   }
 
   try {
-    console.log(token);
     const extractedToken = token.split(' ')[1]; // 'Bearer' 접두사 제거 후 토큰 추출
     const decoded = jwt.verify(extractedToken, process.env.JWT_SECRET);
     if (decoded) {

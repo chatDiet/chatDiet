@@ -1,4 +1,15 @@
 /* Style for the main section */
+@font-face {
+  font-family: 'omyu_pretty';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'omyu_pretty';
+}
+
 .main-section {
   width: 90%;
   margin: 0 auto; /* Center the content horizontally */
@@ -36,19 +47,32 @@
 #trainerList {
   display: flex;
   flex-wrap: wrap;
-  gap: 20px;
+  justify-content: center;
+  margin-top: 20px;
+  border-radius: 10px;
 }
 
 #trainer {
-  flex: 0 1 calc(33.333% - 20px);
-  border: 1px solid #ddd;
+  width: calc(33.33% - 20px);
+  margin: 10px;
+  text-align: center;
+  background-color: #ffffff;
+  padding: 10px;
   border-radius: 10px;
-  background-color: #fff;
   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  color: #333; /* Add this line to set the text color */
+  position: relative; /* 추가: 상대 위치 지정 */
+  color: #000000;
+
+  /* 수정된 스타일 */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#trainer-image {
+  width: 70%;
+  border-radius: 50%;
+  object-fit: cover;
 }
 
 #trainer:hover {

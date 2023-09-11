@@ -4,9 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../css/userMain.css" />
-    <link rel="stylesheet" href="../css/detailTrainer.css" />
+    <link rel="stylesheet" href="../../css/Trainer/detailTrainer.css" />
     <link rel="stylesheet" href="../css/modal.css" />
     <link rel="stylesheet" href="../css/common.css" />
+    <link rel="stylesheet" href="../css/default.css" />
+
     <script src="https://code.jquery.com/jquery-3.4.1.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" defer></script>
     <title>Your Project</title>
@@ -18,8 +20,9 @@
           <h1 class="header-title">chat Diet plan</h1>
         </div>
         <div class="navigation-buttons">
-          <button class="icon-button"><img src="../img/free-icon-font-search-3917132.png" alt="검색" /></button>
-          <button class="icon-button">로그인 해주세요</button>
+          <button id="goto-signup-button" class="icon-button">회원가입</button>
+          <button id="goto-login-button" class="icon-button">로그인</button>
+          <button id="logout-button" class="icon-button">Logout</button>
         </div>
       </nav>
     </header>
@@ -87,5 +90,7 @@
     <script src="../js/review/createUserReview.js" defer></script>
     <script src="../js/review/deleteUserReview.js" defer></script>
     <script src="../js/contract/createUserContract.js" defer></script>
+    <script type="module" src="../../js/login/userLogout.js" defer></script>
+    <script src="../../js/headerScript.js" defer></script>
   </body>
 </html>

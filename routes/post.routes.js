@@ -8,6 +8,8 @@ const postController = new PostController();
 
 // 게시글 작성
 router.post('/post', isAuth, postController.createPost);
+// 사용자 게시글 전체 조회
+router.get('/userPosts', isAuth, postController.getUserPosts);
 // 게시글 전체 조회
 router.get('/posts', postController.getPosts);
 // 특정 게시글 조회
