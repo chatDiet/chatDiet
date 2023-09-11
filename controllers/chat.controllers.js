@@ -14,7 +14,7 @@ class ChatController {
   postChat = async (req, res) => {
     const { data } = req.body;
 
-    const userId = res.locals.userId;
+    const userId = 6;
 
     const result = await this._chatService.postChat(data, userId);
 

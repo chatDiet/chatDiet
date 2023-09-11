@@ -24,6 +24,7 @@ jobs:
         env:
           envfile: ${{ secrets.ENV }}
         run: echo ENV="$envfile" >> .env
+        ls -la
 
       - name: Npm Install
         run: npm i

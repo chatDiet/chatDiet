@@ -50,7 +50,7 @@ socket.on('connect', function () {
       socket.emit('newUser', data);
     })
     .catch(function (error) {
-      console.log(error)
+      console.log(error);
       alert(error.data.message);
       location.href = `/companyMain`;
     });
@@ -85,7 +85,6 @@ const sendMessage = () => {
   data.date = formatDate(new Date());
   data.roomId = roomId;
   data.message = message;
-
   // chatLog mongodb에 저장 and 보낸 유저 name 찾기
   axios
     .post('/api/chat', { data: data })

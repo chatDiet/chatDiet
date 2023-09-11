@@ -6,6 +6,6 @@ const router = Router();
 const chatController = new ChatController();
 
 router.get('/chat/:roomId', isAuth, chatController.findChat);
-router.post('/chat', isAuth, chatController.postChat);
+router.post('/chat', chatController.postChat);
 
 export default router;
