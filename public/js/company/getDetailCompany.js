@@ -4,9 +4,20 @@ const companyId = urlParams.get('companyId');
 // 업체 상세 조회
 axios.get(`/api/company/${companyId}`).then(function (response) {
   const result = response.data;
-  $('.main-section').empty();
+
+  $('#formdata').empty();
+
+  const imageUrls = result.imageUrl.split(',');
+
+  const smallImagesContainer = document.getElementById('companyImage');
+  for (const imageUrl of imageUrls) {
+    const imgElement = document.createElement('img');
+    imgElement.src = imageUrl;
+    imgElement.classList.add('small-image');
+    smallImagesContainer.appendChild(imgElement);
+  }
+
   const companyName = result.companyName;
-  const imageUrl = result.imageUrl;
   const link = result.link;
   const address = result.map;
   const phoneNumber = result.phoneNumber;
@@ -18,7 +29,6 @@ axios.get(`/api/company/${companyId}`).then(function (response) {
 
   let temp_html = `
       <div id="companyList">
-        <div id="imageUrl">imageUrl : ${imageUrl}</div>
         <div id="companyName">업체 이름 : ${companyName}</div>
         <div id="phoneNumber">연락처 : ${phoneNumber}</div>
         <div id="map">map : ${address}</div>
@@ -34,7 +44,7 @@ axios.get(`/api/company/${companyId}`).then(function (response) {
       <div id="reviews"></div>
       <div id="companyMap" style="width: 100%; height: 400px;"></div>
       `;
-  $('.main-section').append(temp_html);
+  $('#formdata').append(temp_html);
 
   // Kakao 지도 기능
   const mapAddress = address;
@@ -80,7 +90,7 @@ axios.get(`/api/companys/${companyId}/trainer`).then(function (response) {
 
     let temp_html = `
     <button id="trainer" onclick="getDetailTrainerBtn(${companyId}, ${trainerId})">
-      <div>imageUrl : ${imageUrl}</div>
+      <div><img id="image" src="${imageUrl}" /></div>
       <div>트레이너 이름 : ${trainerName}</div>
       <div>경력 : ${career}</div>
       <div>PT 내용 : ${ptContent}</div>
