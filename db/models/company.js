@@ -36,7 +36,7 @@ const Company = connector.sequelize.define(
       allowNull: false,
     },
     link: {
-      type: DataTypes.INTEGER,
+      type: DataTypes.STRING,
       allowNull: true,
     },
     imageUrl: {
