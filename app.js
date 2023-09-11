@@ -128,7 +128,7 @@ export class ExpressApp {
       res.sendFile(__dirname + '/public/templates/trainer/createTrainer.html');
     });
     this.app.get('/myUser', (req, res) => {
-      res.sendFile(__dirname + '/public/templates/trainer/myUser.html');
+      res.sendFile(__dirname + '/public/templates/trainer/myuser.html');
     });
     this.app.get('/trainerInfo', (req, res) => {
       res.sendFile(__dirname + '/public/templates/trainer/detailTrainer.html');
