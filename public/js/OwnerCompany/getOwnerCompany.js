@@ -11,10 +11,8 @@ document.addEventListener('DOMContentLoaded', async () => {
 
     for (const imageUrl of imageUrls) {
       const imgElement = document.createElement('img');
-      console.log(imgElement);
       imgElement.src = imageUrl;
       imgElement.classList.add('small-image');
-
       smallImagesContainer.appendChild(imgElement);
     }
 
@@ -81,7 +79,7 @@ document.addEventListener('DOMContentLoaded', async () => {
           <button onclick="deleteTrainerBtn(${result[i].companyId}, ${result[i].trainerId})">트레이너 삭제</button>
         </button>`;
 
-        trainerList.appendChild(trainerContainer);
+          trainerList.appendChild(trainerContainer);
         }
       })
       .catch(function (error) {
