@@ -32,6 +32,5 @@ signupForm.addEventListener('submit', async event => {
     })
     .catch(function (error) {
       alert(error.response.data);
-      console.error('회원가입 실패', error);
     });
 });

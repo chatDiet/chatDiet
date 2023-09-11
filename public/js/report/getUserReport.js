@@ -8,7 +8,6 @@ async function fetchReports() {
     })
     .catch(function (error) {
       alert(error.response.data.message);
-      console.error('신고 목록 조회 실패', error);
       return [];
     });
 }
@@ -65,15 +64,11 @@ document.addEventListener('DOMContentLoaded', async () => {
       axios
         .delete(`/api/reports/${reportId}`)
         .then(response => {
-          console.log(`문의 ${reportId} 삭제 성공:`, response.data);
           alert(`문의 ${reportId} 삭제 성공:`);
           const row = deleteButton.closest('tr');
           row.remove();
         })
-        .catch(error => {
-          console.error(`문의 ${reportId} 삭제 실패:`, error);
-          // 필요한 경우 에러 처리 작업 수행
-        });
+        .catch(error => {});
     });
   });
 

@@ -14,10 +14,8 @@ reportForm.addEventListener('submit', async event => {
     .post(`/api/report`, { targetId: targetId, type: type, title: title, content: content })
     .then(function (response) {
       alert(response.data.message);
-      console.log('신고 작성', response.data);
     })
     .catch(function (error) {
       alert(error.response.data.message);
-      console.error('신고 작성 실패', error);
     });
 });
