@@ -8,9 +8,7 @@ function getUserInfo(userNames) {
       username = result.userName;
     });
     return username;
-  } catch (error) {
-    console.error(error);
-  }
+  } catch (error) {}
 }
 
 async function getContracts() {
@@ -41,7 +39,6 @@ async function getContracts() {
 
     contractList.innerHTML = contractListHTML.join('');
   } catch (error) {
-    console.error('계약 데이터를 가져오는 중 오류 발생:', error);
     alert('업체 등록 후 이용가능합니다.');
     location.href = '/createtrainer';
   }
@@ -56,11 +53,10 @@ ptNumBtn = contractId => {
       location.reload();
     })
     .catch(function (error) {
-      console.log(error);
       alert('PT 완료 실패');
     });
 };
 
-getTrainerUserCalender = (user) => {
-  location.href=`/userCalender?user=${user}`
-}
+getTrainerUserCalender = user => {
+  location.href = `/userCalender?user=${user}`;
+};

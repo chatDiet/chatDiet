@@ -57,9 +57,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                                     </div>`;
         }
       })
-      .catch(function (error) {
-        console.log(error);
-      });
+      .catch(function (error) {});
     axios
       .get(`/api/companys/${result.companyId}/trainer`)
       .then(function (response) {
@@ -82,9 +80,7 @@ document.addEventListener('DOMContentLoaded', async () => {
           trainerList.appendChild(trainerContainer);
         }
       })
-      .catch(function (error) {
-        console.log(error);
-      });
+      .catch(function (error) {});
 
     // 업체 수정 버튼
     editButton.addEventListener('click', async () => {
@@ -124,7 +120,6 @@ deleteTrainerBtn = (companyId, trainerId) => {
         location.reload();
       })
       .catch(function (error) {
-        console.log(error);
         alert(error);
       });
   }

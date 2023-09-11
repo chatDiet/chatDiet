@@ -45,40 +45,6 @@ main {
   text-align: center;
 }
 
-.footer-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  background-color: #f0f0f0;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  padding: 20px 0;
-}
-
-footer ul {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-footer li {
-  display: flex;
-  align-items: center;
-  margin: 0 15px;
-  font-size: 14px;
-}
-
-footer img {
-  width: 20px; /* Adjust the width as needed */
-  margin-right: 5px;
-}
-
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -149,39 +115,4 @@ main.centered {
 
 #editReport-form button[type='submit']:hover {
   background-color: #0056b3;
-}
-
-.footer-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  background-color: #fff;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  padding: 20px 0;
-  box-shadow: 0px -2px 4px rgba(0, 0, 0, 0.1);
-}
-
-footer ul {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-footer li {
-  display: flex;
-  align-items: center;
-  font-size: 14px;
-  cursor: pointer;
-}
-
-footer img {
-  width: 20px;
-  margin-right: 5px;
 }

@@ -31,6 +31,5 @@ loginForm.addEventListener('submit', async event => {
     })
     .catch(function (error) {
       alert(error.response.data);
-      console.error('로그인 실패', error);
     });
 });

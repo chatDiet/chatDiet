@@ -24,6 +24,9 @@ document.getElementById('write-schedule-form').addEventListener('submit', async 
       location.href = '/trainer';
     })
     .catch(function (error) {
-      alert('회원과의 계약을 우선적으로 진행해주세요 !', error);
+      if (error.response.status === 404) {
+        alert('트레이너 등록이 필요합니다.');
+        location.href = '/createtrainer';
+      }
     });
 });

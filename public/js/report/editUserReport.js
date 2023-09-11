@@ -17,12 +17,9 @@ editReportForm.addEventListener('submit', async event => {
   axios
     .put(`/api/reports/${reportId}`, { targetId: targetId, type: type, title: title, content: content })
     .then(response => {
-      console.log(`문의 ${reportId} 수정 성공:`, response.data);
       alert(`문의 ${reportId} 수정 성공:`);
 
       location.href = '/reports';
     })
-    .catch(error => {
-      console.error(`문의 ${reportId} 수정 실패:`, error);
-    });
+    .catch(error => {});
 });

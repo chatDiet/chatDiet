@@ -50,7 +50,6 @@ socket.on('connect', function () {
       socket.emit('newUser', data);
     })
     .catch(function (error) {
-      console.log(error)
       alert(error.data.message);
       location.href = `/companyMain`;
     });
@@ -75,6 +74,12 @@ socket.on('noPermission', function () {
   location.href = '../chatRommList.html';
 });
 
+// 메시지 입력란에서 엔터 키를 눌렀을 때 이벤트 처리
+messageInput.addEventListener('keydown', event => {
+  if (event.key === 'Enter') {
+    sendMessage();
+  }
+});
 // 메시지 전송 함수
 const sendMessage = () => {
   const message = document.getElementById('messageInput').value;

@@ -46,7 +46,5 @@ document.addEventListener('DOMContentLoaded', async function () {
         alert('정보 수정 실패:', error);
       }
     });
-  } catch (error) {
-    console.error('사용자 정보 로드 실패:', error);
-  }
+  } catch (error) {}
 });

@@ -6,7 +6,7 @@ deletePostBtn = postId => {
       location.href = `/companyMain`;
     })
     .catch(function (error) {
-      alert(error.response.data.message);
+      alert(error.response.data);
       location.reload();
     });
 };

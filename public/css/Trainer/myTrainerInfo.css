@@ -29,15 +29,6 @@
   border-top: 1px solid #ccc;
 }
 
-.footer {
-  color: black;
-  text-decoration: none;
-}
-
-.footer:hover {
-  color: darkgray;
-}
-
 button {
   background-color: #007bff;
   color: #fff;
