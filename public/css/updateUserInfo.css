@@ -1,4 +1,15 @@
 /* userMain.css */
+@font-face {
+  font-family: 'omyu_pretty';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2304-01@1.0/omyu_pretty.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: 'omyu_pretty';
+}
+
 body {
   margin: 0;
   padding: 0;
@@ -14,7 +25,7 @@ header {
 }
 
 .header-title {
-  margin: 0;
+  margin-left: 200px;
 }
 
 .navigation {
@@ -89,7 +100,13 @@ footer li {
   display: flex;
   align-items: center;
   margin: 0 15px;
-  font-size: 14px;
+  font-size: 20px;
+  color: black;
+  text-decoration: none;
+}
+
+footer a {
+  text-decoration: none;
 }
 
 footer img {
@@ -142,7 +159,6 @@ input[type='text'] {
 
 /* 전체 페이지 스타일 */
 body {
-  font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
   background-color: #f0f0f0;

@@ -3,15 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../../css/userInfo.css" />
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="../../css/userMain.css" />
     <title>Your Project</title>
   </head>
   <body>
     <header>
       <nav class="navigation">
         <div class="navigation-title">
-          <h1 class="header-title">chat Diet plan</h1>
+          <h1 class="header-title">CHAT DIET PLAN</h1>
         </div>
         <div class="navigation-buttons">
           <button id="goto-signup-button" class="icon-button">회원가입</button>
@@ -22,26 +21,7 @@
     </header>
     <main class="centered">
       <section class="main-section">
-        <table>
-          <tr>
-            <td><strong>이름:</strong></td>
-            <td><span id="userName"></span></td>
-          </tr>
-          <tr>
-            <td><strong>키:</strong></td>
-            <td><span id="height"></span></td>
-          </tr>
-          <tr>
-            <td><strong>몸무게:</strong></td>
-            <td><span id="weight"></span></td>
-          </tr>
-          <tr>
-            <td><strong>전화번호:</strong></td>
-            <td><span id="phone"></span></td>
-          </tr>
-        </table>
-        <!-- 수정하기 버튼 -->
-        <button id="editButton" onclick="updateUserInfo()">수정하기</button>
+        <div class="comments"></div>
       </section>
     </main>
     <footer>
@@ -64,8 +44,8 @@
       </ul>
     </footer>
     <script src="../../js/navigationBtn.js" defer></script>
-    <script src="../../js/mypage/getUserInfo.js" defer></script>
-    <script type="module" src="../js/login/userLogout.js" defer></script>
-    <script src="../js/headerScript.js" defer></script>
+    <script type="module" src="../../js/login/userLogout.js" defer></script>
+    <script type="module" src="../../js/mypage/getUserComment.js" defer></script>
+    <script src="../../js/headerScript.js" defer></script>
   </body>
 </html>

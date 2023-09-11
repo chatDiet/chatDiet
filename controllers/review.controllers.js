@@ -3,6 +3,14 @@ import { ReviewService } from '../services';
 class ReviewController {
   reviewService = new ReviewService();
 
+  getUserReview = async (req, res) => {
+    const userId = res.locals.userId;
+
+    const getUserReview = await this.reviewService.getUserReview(userId);
+
+    return res.status(getUserReview.status).json(getUserReview.data);
+  };
+
   getReviewByType = async (req, res) => {
     const { targetId, type } = req.params;
 

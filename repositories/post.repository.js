@@ -11,6 +11,17 @@ class PostRepository {
     }
   };
 
+  // # 사용자 게시글 전체 조회
+  getUserPosts = async userId => {
+    const getUserPostsData = await Post.findAll({ where: { userId: userId } });
+
+    getUserPostsData.sort((a, b) => {
+      return b.createdAt - a.createdAt;
+    });
+
+    return getUserPostsData;
+  };
+
   // # 게시글 전체 조회
   getPosts = async () => {
     try {
