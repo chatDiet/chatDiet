@@ -2,7 +2,7 @@ name: 'deploy'
 
 on:
   push:
-    branches: [release]
+    branches: [master]
 
 jobs:
   docker:
@@ -44,6 +44,6 @@ jobs:
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           application_name: chatdietv1
           environment_name: Chatdietv1-env
-          version_label: 2.5
+          version_label: 3.0
           region: ap-northeast-2
           deployment_package: Dockerrun.aws.json
