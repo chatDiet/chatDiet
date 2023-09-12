@@ -23,7 +23,7 @@ class UserService {
   }
 
   async findOneUserInfo(userId) {
-    const result = await this._userRepository.findOneUserInfo(userId);
+    const result = await this._userRepository.getOneUserInfo(userId);
     return { status: 200, data: result };
   }
   // 유저 정보 수정

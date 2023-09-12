@@ -57,9 +57,7 @@ document.addEventListener('DOMContentLoaded', async () => {
                                     </div>`;
         }
       })
-      .catch(function (error) {
-        console.log(error);
-      });
+      .catch(function (error) {});
     axios
       .get(`/api/companys/${result.companyId}/trainer`)
       .then(function (response) {
@@ -72,7 +70,7 @@ document.addEventListener('DOMContentLoaded', async () => {
           const trainerContainer = document.createElement('div'); // 새로운 컨테이너 생성
           trainerContainer.classList.add('trainer-card');
 
-          trainerContainer.innerHTML = `<button class="trainer-card" onclick="detailTrainerBtn(${result[i].trainerId})">
+          trainerContainer.innerHTML = `<button class="trainer-card">
           <img src="${result[i].imageUrl}" alt="Trainer Image" class="trainer-image">
           <p>${result[i].trainerName}</p>
           <p>${result[i].career}</p>
@@ -82,13 +80,11 @@ document.addEventListener('DOMContentLoaded', async () => {
           trainerList.appendChild(trainerContainer);
         }
       })
-      .catch(function (error) {
-        console.log(error);
-      });
+      .catch(function (error) {});
 
     // 업체 수정 버튼
     editButton.addEventListener('click', async () => {
-      window.location.href = `http://localhost:3000/putOwnerCompany?companyId=${result.companyId}`;
+      window.location.href = `/putOwnerCompany?companyId=${result.companyId}`;
     });
 
     // 업체 삭제 버튼
@@ -99,7 +95,7 @@ document.addEventListener('DOMContentLoaded', async () => {
           const deleteResponse = await axios.delete(`/api/company/${result.companyId}`);
           if (deleteResponse.status === 200) {
             alert('업체 정보가 삭제되었습니다.');
-            window.location.href = 'http://localhost:3000/getOwnerCompany';
+            window.location.href = '/getOwnerCompany';
           } else {
             alert('업체 정보 삭제에 실패했습니다.');
           }
@@ -124,7 +120,6 @@ deleteTrainerBtn = (companyId, trainerId) => {
         location.reload();
       })
       .catch(function (error) {
-        console.log(error);
         alert(error);
       });
   }

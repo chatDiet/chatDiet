@@ -37,7 +37,7 @@ document.addEventListener('DOMContentLoaded', async function () {
       };
 
       try {
-        const response = await axios.put(`http://localhost:3000/api/userInfos/${userInfo.userInfoId}`, updatedUserInfo);
+        const response = await axios.put(`/api/userInfos/${userInfo.userInfoId}`, updatedUserInfo);
         alert('정보 수정 완료:', response.data);
 
         // 페이지 이동
@@ -46,7 +46,5 @@ document.addEventListener('DOMContentLoaded', async function () {
         alert('정보 수정 실패:', error);
       }
     });
-  } catch (error) {
-    console.error('사용자 정보 로드 실패:', error);
-  }
+  } catch (error) {}
 });

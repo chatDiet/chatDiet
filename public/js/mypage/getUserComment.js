@@ -1,7 +1,7 @@
 import axios from 'https://cdn.jsdelivr.net/npm/axios@1.3.5/+esm';
 
 axios
-  .get('http://localhost:3000/api/userComments')
+  .get('/api/userComments')
   .then(function (response) {
     // 서버에서 데이터를 성공적으로 가져온 경우
 
@@ -24,7 +24,7 @@ axios
 
       // 생성일 및 수정일 표시
       const commentDates = document.createElement('p');
-      commentDates.innerHTML = `Created At: <span>${commentData.createdAt}</span><br>Updated At: <span>${commentData.updatedAt}</span>`;
+      commentDates.innerHTML = `작성일자: <span>${commentData.createdAt}</span><br>수정 일자: <span>${commentData.updatedAt}</span>`;
       commentContainer.appendChild(commentDates);
 
       // 댓글을 댓글 목록에 추가
@@ -32,6 +32,10 @@ axios
     });
   })
   .catch(function (error) {
-    // 데이터를 가져오지 못한 경우 오류 처리
-    console.error('데이터를 가져오는 동안 오류 발생:', error);
+    if (error.response.data.message) {
+      alert(error.response.data.message);
+      location.href = '/login';
+    } else {
+      alert(error.data);
+    }
   });

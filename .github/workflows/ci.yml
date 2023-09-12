@@ -1,8 +1,8 @@
 name: Node.js CI
 
 on:
-  push:
-    branches: [master]
+  pull_request:
+    branches: [develop]
 
 jobs:
   test:
@@ -20,14 +20,13 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
-      - name: Generate env file
-        env:
-          envfile: ${{ secrets.ENV }}
-        run: echo ENV="$envfile" >> .env
-        ls -la
+      # - name: Generate env file
+      #   env:
+      #     envfile: ${{ secrets.ENV }}
+      #   run: echo ENV="$envfile" >> .env
 
-      - name: Npm Install
-        run: npm i
+      # - name: Npm Install
+      #   run: npm i
 
       # - name: test
       #   run: npm run test

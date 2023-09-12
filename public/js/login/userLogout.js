@@ -7,10 +7,9 @@ logoutButton.addEventListener('click', async event => {
   event.preventDefault();
 
   axios
-    .post(`http://localhost:3000/api/logout`)
+    .post(`/api/logout`)
     .then(function (response) {
       alert(response.data);
-      console.log(response.data);
 
       localStorage.removeItem('token');
 
@@ -18,6 +17,5 @@ logoutButton.addEventListener('click', async event => {
     })
     .catch(function (error) {
       alert('로그아웃 실패');
-      console.error('로그아웃 실패', error);
     });
 });
