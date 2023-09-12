@@ -50,10 +50,6 @@ socket.on('connect', function () {
       socket.emit('newUser', data);
     })
     .catch(function (error) {
-<<<<<<< HEAD
-      console.log(error);
-=======
->>>>>>> 6aea257e9d90e7a3725b3cf28bf96e894e4d62c4
       alert(error.data.message);
       location.href = `/companyMain`;
     });
