@@ -27,7 +27,7 @@ jobs:
           context: .
           file: ./Dockerfile
           push: true
-          tags: byeongil/chatdiet:test1
+          tags: byeongil/chatdiet:${{ github.sha }}
 
   beanstalk:
     name: Deploy to EB
@@ -44,6 +44,6 @@ jobs:
           aws_secret_key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           application_name: chatdietv1
           environment_name: Chatdietv1-env
-          version_label: 2.1
+          version_label: 2.2
           region: ap-northeast-2
           deployment_package: Dockerrun.aws.json
