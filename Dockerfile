@@ -10,4 +10,4 @@ RUN npm install --production \
 
 COPY . ./
 
-CMD ["babel-node", "init.js"]
+CMD npm run dev
