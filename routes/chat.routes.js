@@ -7,7 +7,7 @@ const router = Router();
 const chatController = new ChatController();
 
 router.get('/chat/:roomId', isAuth, chatController.findChat);
-router.post('/upload', isAuth, singleUpload('image'), chatController.uploadImg);
-router.post('/chat', isAuth, chatController.postChat);
+// router.post('/upload', isAuth,  chatController.uploadImg);
+router.post('/chat', isAuth, singleUpload('image'), chatController.postChat);
 
 export default router;

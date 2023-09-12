@@ -70,7 +70,6 @@ async function getComments() {
 async function getUserInfo(userId) {
   try {
     const userInfoResponse = await axios.get(`/api/userInfo/${userId}`);
-    console.log(userInfoResponse, 'userInfoResponse');
     const username = userInfoResponse.data.userName;
     return username;
   } catch (error) {
@@ -79,39 +78,7 @@ async function getUserInfo(userId) {
   }
 }
 
-// 함수 호출 예시
 getComments();
-
-// axios
-//   .get(`/api/posts/${postId}/comments`)
-//   .then(function (response) {
-//     const result = response.data;
-//     console.log(result, 'result');
-//     const username = getUserInfo(result.userId);
-//     console.log(username, 'username');
-//     $('#commentZone').empty();
-//     for (let i = result.length - 1; i >= 0; i--) {
-//       const commentId = result[i].commentId;
-//       const userId = result[i].userId;
-//       const content = result[i].content;
-//       const type = 'comment';
-
-//       let temp_html = `
-//       <div id="comment">
-//         <div>닉네임 : ${username}</div>
-//         <div>내용 : ${content}</div>
-//         <button onclick="deleteCommentBtn(${postId}, ${commentId})">댓글 삭제</button>
-//         <button onclick="reportBtn(${commentId}, '${type}')">신고 버튼</button>
-//       </div>
-//       `;
-//       $('#commentZone').append(temp_html);
-//     }
-//   })
-//   .catch(function (error) {
-//     $('#commentList').empty();
-//     `<div id="comment">댓글이 없습니다.</div>`;
-//     $('#commentList').append(temp_html);
-//   });
 
 // 댓글 작성
 postComment = () => {

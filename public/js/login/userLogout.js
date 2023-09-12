@@ -7,14 +7,14 @@ logoutButton.addEventListener('click', async event => {
   event.preventDefault();
 
   axios
-    .post(`http://localhost:3000/api/logout`)
+    .post(`/api/logout`)
     .then(function (response) {
       alert(response.data);
       console.log(response.data);
 
       localStorage.removeItem('token');
 
-      location.reload();
+      window.location.href = '/login';
     })
     .catch(function (error) {
       alert('로그아웃 실패');

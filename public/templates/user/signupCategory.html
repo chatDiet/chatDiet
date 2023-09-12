@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>회원 유형 선택</title>
     <link rel="stylesheet" href="../css/signupCategory.css" />
-    <link rel="stylesheet" href="../css/headerOnly.css" />
+    <link rel="stylesheet" href="../css/default.css" />
   </head>
   <body>
     <header>
@@ -48,7 +48,7 @@
       userTypeButtons.forEach(button => {
         button.addEventListener('click', () => {
           const userType = button.id.replace('user-type-', '');
-          window.location.href = `http://localhost:3000/signup?type=${userType}`;
+          window.location.href = `/signup?type=${userType}`;
         });
       });
     </script>

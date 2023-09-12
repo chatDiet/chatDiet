@@ -18,25 +18,6 @@ body {
   min-height: 100vh;
 }
 
-.navigation {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #f0f0f0;
-  padding: 8px 20px;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.navigation-buttons {
-  display: flex;
-  gap: 10px;
-}
-
-.navigation-title {
-  text-align: center;
-  flex: 1; /* 로고와 버튼 사이 간격 조정 */
-}
-
 .icon-button {
   background: none;
   border: none;
@@ -103,22 +84,6 @@ body {
   margin: 0;
   font-family: Arial, sans-serif;
   background-color: #f7f7f7;
-}
-
-.navigation {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 20px;
-}
-
-.navigation-title {
-  flex: 1;
-}
-
-.navigation-buttons {
-  display: flex;
-  gap: 10px;
 }
 
 .icon-button {

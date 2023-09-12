@@ -17,7 +17,7 @@ class ChatRepository {
         name: data.name,
         content: data.message,
         date: new Date(),
-        imageUrl,
+        imageUrl: imageUrl,
       });
       console.log(`데이터가 ${data.roomId} 컬렉션에 성공적으로 저장되었습니다.`);
       return result;
@@ -28,15 +28,9 @@ class ChatRepository {
 
   // 몽고디비 "roomId" 컬렉션 조회
   findChat = async roomId => {
-    try {
-      const collection = this.connection.collection(roomId);
+    const collection = this.connection.collection(roomId);
 
-      const result = await collection.find({}).sort({ date: -1 }).toArray();
-
-      return result;
-    } catch (err) {
-      console.error(err);
-    }
+    return await collection.find({}).sort({ date: -1 }).toArray();
   };
 }
 

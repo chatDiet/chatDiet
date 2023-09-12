@@ -110,7 +110,6 @@ class ScheduleService {
       }
 
       const result = await this._scheduleRepository.oneGetSchedule(scheduleId);
-      console.log(scheduleId);
       if (!result) {
         return {
           status: 404,
@@ -202,8 +201,7 @@ class ScheduleService {
       }
 
       const user = await this._userRepository.getUserById(userId);
-      console.log(user.userId);
-      console.log(schedule.userId);
+
       if (schedule.userId !== user.userId || user.type == 'user' || user.type == 'owner') {
         return {
           status: 401,

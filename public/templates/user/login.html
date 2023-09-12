@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../css/login.css" />
-    <link rel="stylesheet" href="../css/headerOnly.css" />
+    <link rel="stylesheet" href="../css/default.css" />
 
     <title>Login Example</title>
   </head>
@@ -13,7 +13,7 @@
       <div class="navigation-title">
         <h1 class="header-title">chat Diet plan</h1>
       </div>
-      <a href="/signupCategory"><button>회원가입</button></a>
+      <a href="/signupCategory"><button id="signup">회원가입</button></a>
     </nav>
   </header>
   <body>
@@ -22,9 +22,11 @@
       <form id="login-form">
         <input type="text" id="email" placeholder="Username" required />
         <input type="password" id="password" placeholder="Password" required />
-        <button type="submit">Login</button>
+        <div class="form-group">
+          <button type="submit">Login</button>
+        </div>
       </form>
-      <a href="javascript:kakaoLogin();"><img src="https://developers.kakao.com/docs/static/image/ko/m/kakaologin.png" /></a>
+      <a class="kakaoLogin" href="javascript:kakaoLogin();"><img src="." /></a>
     </div>
     <footer>
       <ul class="footer-list">
@@ -40,7 +42,7 @@
         <a href="/communityMain">
           <li><img src="../img/free-icon-font-world-3916979.png" />커뮤니티</li>
         </a>
-        <a href="/userInfo">
+        <a href="/myPage">
           <li><img src="../img/free-icon-font-user-3917688.png" />마이페이지</li>
         </a>
       </ul>

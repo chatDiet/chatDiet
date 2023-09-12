@@ -8,21 +8,16 @@ class ChatService {
   _userRepository = new UserRepository();
 
   postChat = async (data, userId, imageUrl) => {
-    try {
-      const user = await this._userRepository.getOneUserInfo(userId);
+    const user = await this._userRepository.getOneUserInfo(userId);
+    data.name = user.userName;
+    data.imageUrl = imageUrl;
 
-      data.name = user.userName;
+    const result = await this._chatRepository.postChat(data, imageUrl);
 
-      const result = await this._chatRepository.postChat(data, imageUrl);
-      console.log('imageUrl before postChat:', result);
-
-      return {
-        status: 200,
-        message: data.name,
-      };
-    } catch (err) {
-      return { status: 500, message: 'Server Error' };
-    }
+    return {
+      status: 200,
+      message: data,
+    };
   };
 
   findChat = async roomId => {
