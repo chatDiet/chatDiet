@@ -34,7 +34,7 @@ body {
 }
 
 .chat-input {
-  position: fixed;
+  /* position: fixed; */
   margin-top: 20px;
   width: 900px;
 }

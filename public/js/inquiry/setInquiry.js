@@ -12,12 +12,10 @@ inquiryForm.addEventListener('submit', async event => {
     .post(`/api/inquiry`, { title: title, content: content })
     .then(function (response) {
       alert(response.data.message);
-      console.log('문의 생성', response.data);
 
       window.location.href = `/`;
     })
     .catch(function (error) {
       alert(error.response.data.message);
-      console.error('문의 작성 실패', error);
     });
 });

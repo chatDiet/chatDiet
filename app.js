@@ -74,13 +74,13 @@ export class ExpressApp {
       res.sendFile(__dirname + '/public/templates/calender/postUserCalender.html');
     });
     this.app.get('/getUserPosts', (req, res) => {
-      res.sendFile(__dirname + '/public/templates/myPage/getUserPost.html');
+      res.sendFile(__dirname + '/public/templates/mypage/getUserPost.html');
     });
     this.app.get('/calender/:calenderId', (req, res) => {
       res.sendFile(__dirname + '/public/templates/calender/detailUserCalender.html');
     });
     this.app.get('/getUserReviews', (req, res) => {
-      res.sendFile(__dirname + '/public/templates/myPage/getUserReview.html');
+      res.sendFile(__dirname + '/public/templates/mypage/getUserReview.html');
     });
     this.app.get('/userInfo', (req, res) => {
       res.sendFile(__dirname + '/public/templates/myPage/userInfo.html');
@@ -98,7 +98,7 @@ export class ExpressApp {
       res.sendFile(__dirname + '/public/templates/company/getUserDetailTrainer.html');
     });
     this.app.get('/getUserComments', (req, res) => {
-      res.sendFile(__dirname + '/public/templates/myPage/getUserComment.html');
+      res.sendFile(__dirname + '/public/templates/mypage/getUserComment.html');
     });
     this.app.get('/communityMain', (req, res) => {
       res.sendFile(__dirname + '/public/templates/community/getUserCommunityMain.html');
@@ -119,16 +119,16 @@ export class ExpressApp {
       res.sendFile(__dirname + '/public/templates/chat/trainerChatRoom.html');
     });
     this.app.get('/myPage', (req, res) => {
-      res.sendFile(__dirname + '/public/templates/myPage/userMypage.html');
+      res.sendFile(__dirname + '/public/templates/mypage/userMypage.html');
     });
     this.app.get('/trainer', (req, res) => {
       res.sendFile(__dirname + '/public/templates/trainer/trainer.html');
     });
     this.app.get('/createtrainer', (req, res) => {
-      res.sendFile(__dirname + '/public/templates/trainer/createtrainer.html');
+      res.sendFile(__dirname + '/public/templates/trainer/createTrainer.html');
     });
     this.app.get('/myUser', (req, res) => {
-      res.sendFile(__dirname + '/public/templates/trainer/myUser.html');
+      res.sendFile(__dirname + '/public/templates/trainer/myuser.html');
     });
     this.app.get('/trainerInfo', (req, res) => {
       res.sendFile(__dirname + '/public/templates/trainer/detailTrainer.html');

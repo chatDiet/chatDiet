@@ -28,7 +28,5 @@ document.getElementById('registration-form').addEventListener('submit', async fu
       alert('수정이 완료되었습니다.');
       window.location.href = `/getOwnerCompany`;
     })
-    .catch(function (error) {
-      console.log(error);
-    });
+    .catch(function (error) {});
 });

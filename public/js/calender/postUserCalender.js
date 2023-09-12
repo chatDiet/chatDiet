@@ -25,7 +25,6 @@ document.getElementById('write-form').addEventListener('submit', async function 
       location.href = '/calender';
     })
     .catch(function (error) {
-      console.log(error);
-      alert(error.reponse.data.message);
+      alert(error.response.data.message);
     });
 });

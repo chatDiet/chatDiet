@@ -27,6 +27,12 @@
   color: #333;
 }
 
+#image {
+  width: 80%;
+  height: 256px;
+  object-fit: contain;
+}
+
 #reviews {
   margin-top: 20px;
 }

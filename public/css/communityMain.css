@@ -52,18 +52,6 @@ body {
   cursor: pointer; /* Change cursor to pointer on hover */
 }
 
-footer {
-  background-color: #333; /* Dark background color */
-  color: #fff; /* Text color */
-  padding: 20px 0;
-  text-align: center; /* Center align the text */
-}
-
-.footer-list a {
-  text-decoration: none; /* Remove underline */
-  margin: 0 10px; /* Add margin between links */
-}
-
 /* Adjust other styles as needed for your specific content and design preferences */
 
 #postList {

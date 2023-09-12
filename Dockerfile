@@ -1,10 +1,14 @@
-FROM node:14
+FROM node:14-slim
+
+WORKDIR /chatdiet
 
 WORKDIR /chatdiet
 
 COPY package*.json ./
 
-RUN npm install
+RUN npm install --production \
+    && apt-get update \
+    && apt-get install -y procps
 
 COPY . ./
 

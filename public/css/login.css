@@ -65,43 +65,53 @@ main {
   background-color: #f0f0f0;
 }
 
-.footer-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  background-color: #f0f0f0;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  padding: 20px 0;
+.kakaoLogin > img {
+  width: 200px;
+  margin-top: 20px;
+  margin-bottom: -30px;
 }
 
-footer ul {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+#login-form {
+  max-width: 300px;
+  margin: 0 auto;
 }
 
-footer li {
-  display: flex;
-  align-items: center;
-  margin: 0 15px;
-  font-size: 20px;
-  color: black;
-  text-decoration: none;
-}
-footer a {
-  text-decoration: none;
+label {
+  display: block;
+  margin-bottom: 5px;
 }
 
-footer img {
-  width: 20px; /* Adjust the width as needed */
-  margin-right: 5px;
+#email {
+  height: 25px;
+  margin-top: 20px;
+}
+
+#password {
+  height: 25px;
+  margin-top: 30px;
+}
+
+input[type='text'],
+input[type='password'] {
+  width: 200px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+/* 포커스 상태일 때 스타일링 */
+input[type='text']:focus,
+input[type='password']:focus {
+  outline: none;
+  border-color: #007bff;
+  /* 포커스시 색상을 변경하거나 다른 스타일을 추가할 수 있습니다. */
+}
+
+label {
+  display: block; /* 라벨을 블록 요소로 변경하여 세로로 배치합니다. */
+  margin-bottom: 5px; /* 라벨 아래의 간격을 조절할 수 있습니다. */
 }
 
 .kakaoLogin > img {

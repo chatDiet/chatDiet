@@ -38,40 +38,6 @@ main {
   height: 1800px;
 }
 
-.footer-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  background-color: #f0f0f0;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  padding: 20px 0;
-}
-
-footer ul {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-footer li {
-  display: flex;
-  align-items: center;
-  margin: 0 15px;
-  font-size: 14px;
-}
-
-footer img {
-  width: 20px; /* Adjust the width as needed */
-  margin-right: 5px;
-}
-
 .Calenderdiv {
   background-color: white;
   height: auto;
@@ -162,6 +128,7 @@ td {
   background-color: #ffffff;
   cursor: pointer;
 }
+
 .futureDay:hover {
   background: #eee;
 }
@@ -174,110 +141,9 @@ td {
   cursor: pointer;
 }
 
-/* userMain.css */
-body {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-}
-
-.icon-button {
-  background: none;
-  border: none;
-  cursor: pointer;
-}
-
-.icon-button i {
-  font-size: 18px;
-}
-
-.icon-button img {
-  width: 18px; /* 원하는 크기로 조정 */
-}
-
-main {
-  width: 1000px; /* 원하는 가로 사이즈로 조정 */
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin: 0 auto; /* 수평 가운데 정렬을 위해 추가 */
-}
-
-.centered {
+.sidebar {
   text-align: center;
-}
-
-.footer-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  background-color: #f0f0f0;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  padding: 20px 0;
-}
-
-footer ul {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-footer li {
-  display: flex;
-  align-items: center;
-  margin: 0 15px;
-  font-size: 14px;
-}
-
-footer img {
-  width: 20px; /* Adjust the width as needed */
-  margin-right: 5px;
-}
-
-.footer {
-  color: black;
-  text-decoration: none;
-}
-
-.footer:hover {
-  color: darkgray;
-}
-
-.contractList {
-  flex: 0 1 calc(33.333% - 20px);
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  background-color: #fff;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 20px;
-  transition: background-color 0.3s ease;
-  color: #333; /* Add this line to set the text color */
-}
-
-button {
-  background-color: #007bff;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  padding: 10px 20px;
-  cursor: pointer;
-  margin-top: 10px;
-}
-
-button:hover {
-  background-color: #0056b3;
-}
-
-.icon-button {
-  color: #000;
+  margin-top: 20px;
+  margin-left: 20px;
+  width: 300px;
 }

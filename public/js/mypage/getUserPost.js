@@ -19,17 +19,17 @@ axios
 
       // 제목 표시
       const postTitle = document.createElement('h1');
-      postTitle.textContent = postData.title;
+      postTitle.textContent = `제목 : ${postData.title}`;
       postContainer.appendChild(postTitle);
 
       // 내용 표시
       const postContent = document.createElement('p');
-      postContent.textContent = postData.content;
+      postContent.textContent = `제목 : ${postData.content}`;
       postContainer.appendChild(postContent);
 
       // 생성일 및 수정일 표시
       const postDates = document.createElement('p');
-      postDates.innerHTML = `Created At: <span>${postData.createdAt}</span><br>Updated At: <span>${postData.updatedAt}</span>`;
+      postDates.innerHTML = `작성 일자: <span>${postData.createdAt}</span><br>수정 일자: <span>${postData.updatedAt}</span>`;
       postContainer.appendChild(postDates);
 
       // 게시글을 게시글 목록에 추가
@@ -37,7 +37,10 @@ axios
     });
   })
   .catch(function (error) {
-    alert(error.data);
-    // 데이터를 가져오지 못한 경우 오류 처리
-    console.error('데이터를 가져오는 동안 오류 발생:', error);
+    if (error.response.data.message) {
+      alert(error.response.data.message);
+      location.href = '/login';
+    } else {
+      alert(error.data);
+    }
   });

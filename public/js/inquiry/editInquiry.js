@@ -16,12 +16,11 @@ editInquiryForm.addEventListener('submit', async event => {
   axios
     .put(`/api/inquirys/${inquiryId}`, { title: title, content: content })
     .then(response => {
-      console.log(`문의 ${inquiryId} 수정 성공:`, response.data);
       alert(`문의 ${inquiryId} 수정 성공:`);
 
       window.location.href = `/inquirys`;
     })
     .catch(error => {
-      console.error(`문의 ${inquiryId} 수정 실패:`, error);
+      alert('수정 실패');
     });
 });

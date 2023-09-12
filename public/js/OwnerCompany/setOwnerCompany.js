@@ -36,7 +36,6 @@ document.addEventListener('DOMContentLoaded', () => {
       alert('등록이 완료되었습니다.' + response.data);
       window.location.href = `/getOwnerCompany`;
     } catch (error) {
-      console.log(error);
       alert(error.response.data);
     }
   });

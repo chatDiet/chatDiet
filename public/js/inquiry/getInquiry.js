@@ -7,7 +7,6 @@ async function fetchInquiries() {
       return response.data.data;
     })
     .catch(function (error) {
-      console.log(error);
       return [];
     });
 }
@@ -64,15 +63,11 @@ document.addEventListener('DOMContentLoaded', async () => {
       axios
         .delete(`/api/inquirys/${inquiryId}`)
         .then(response => {
-          console.log(`문의 ${inquiryId} 삭제 성공:`, response.data);
           alert(`문의 ${inquiryId} 삭제 성공:`);
           const row = deleteButton.closest('tr');
           row.remove();
         })
-        .catch(error => {
-          console.error(`문의 ${inquiryId} 삭제 실패:`, error);
-          // 필요한 경우 에러 처리 작업 수행
-        });
+        .catch(error => {});
     });
   });
 

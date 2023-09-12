@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../../css/signup.css" />
+    <link rel="stylesheet" href="../css/signup.css" />
     <link rel="stylesheet" href="../css/default.css" />
 
     <title>Your Project</title>
@@ -101,9 +101,7 @@
                     // 로그인이 완료되었을 때 userMain 페이지로 이동
                     window.location.href = '/';
                   })
-                  .catch(error => {
-                    console.error('Error:', error);
-                  });
+                  .catch(error => {});
               },
             });
           },

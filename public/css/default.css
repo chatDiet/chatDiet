@@ -56,6 +56,10 @@ header {
   height: 20px;
 }
 
+footer {
+  margin-top: 100px;
+}
+
 /* 푸터영역 */
 .footer-list {
   list-style: none;
@@ -87,6 +91,11 @@ footer li {
   color: black;
   text-decoration: none;
 }
+
+footer li:hover {
+  border-bottom: 3px solid #ccc;
+}
+
 footer a {
   text-decoration: none;
 }
@@ -98,4 +107,41 @@ footer img {
 
 #footerBtn {
   cursor: pointer;
+}
+
+.footer:hover {
+  color: darkgray;
+}
+
+footer img {
+  width: 20px;
+  margin-right: 5px;
+}
+
+#calendar {
+  margin-top: 10px;
+  width: 1000px;
+  margin-left: 100px;
+}
+
+#calendar a {
+  font-size: 15px;
+  color: #000;
+  font-weight: lighter;
+}
+
+.fc-toolbar-title {
+  font-size: 55px;
+  color: #3788d8;
+}
+
+.fc-daygrid-day-frame {
+  height: 80px;
+  text-align: start;
+}
+
+.footer {
+  color: black;
+  text-decoration: none;
+  bottom: 0;
 }
