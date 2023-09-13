@@ -12,7 +12,7 @@ class ChatService {
     data.name = user.userName;
     data.imageUrl = imageUrl;
 
-    const result = await this._chatRepository.postChat(data, imageUrl);
+    await this._chatRepository.postChat(data, imageUrl);
 
     return {
       status: 200,

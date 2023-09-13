@@ -20,7 +20,7 @@ axios.get(`api/chat/${roomId}`).then(function (response) {
     const date = formatDate(result[i]['date']);
     const image = result[i]['imageUrl'];
 
-    let imageHtml = ''; // 이미지 HTML 초기화
+    let imageHtml = '';
     if (image !== null) {
       imageHtml = `<div><img class='chatImg' src="${image}"/></div>`;
     }
@@ -85,7 +85,7 @@ const sendMessage = async () => {
     formData.append('image', imageFile);
   }
 
-  const imgResponse = await axios
+  await axios
     .post('/api/chat', formData)
     .then(function (response) {
       socket.emit('message', { data: response.data });
@@ -98,7 +98,6 @@ const sendMessage = async () => {
 };
 
 try {
-  // 소켓으로부터 메시지를 받았을 때 화면에 표시
   socket.on('message', data => {
     const messageDiv = document.createElement('div');
     messageDiv.classList.add('chatList');
@@ -119,51 +118,4 @@ try {
   });
 } catch (err) {
   console.log(err);
-  console.log('실시간 채팅 안되는 중이지롱~');
 }
-
-// // 실시간 채팅
-// socket.on('message', function (data) {
-//   const messageDiv = document.createElement('div');
-//   messageDiv.classList.add('chatList');
-//   messageDiv.innerHTML = `
-//             <div id="chatContent">
-//                <div>이미지:${data.image}</div>
-//                <div>보낸시간 : ${data.data.date}</div>
-//                <div>${data.data.name} : ${data.data.message}</div>
-//             </div>`;
-//   chatMessages.appendChild(messageDiv);
-//   chatMessages.scrollTop = chatMessages.scrollHeight;
-// });
-
-// // 메시지 전송 함수
-// const sendMessage = () => {
-//   const message = document.getElementById('messageInput').value;
-//   document.getElementById('messageInput').value = '';
-
-//   // data 생성
-//   const data = {};
-//   data.date = formatDate(new Date());
-//   data.roomId = roomId;
-//   data.message = message;
-
-//   // chatLog mongodb에 저장 and 보낸 유저 name 찾기
-//   axios
-//     .post('/api/chat', { data: data })
-//     .then(function (response) {
-//       data.name = response.data;
-//       socket.emit('message', { data: data });
-//     })
-//     .catch(function (error) {
-//       const messageDiv = document.createElement('div');
-//       messageDiv.classList.add('chatList');
-//       messageDiv.innerHTML = `
-//                 <div id="chatContent">
-//                   <div>보낸시간 : ${data.date}</div>
-//                   <div>해당 메세지는 전송 실패되었습니다.</div>
-//                 </div>
-//                 `;
-//       chatMessages.appendChild(messageDiv);
-//       chatMessages.scrollTop = chatMessages.scrollHeight;
-//     });
-// };
