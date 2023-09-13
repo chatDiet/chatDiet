@@ -11,6 +11,10 @@ document.addEventListener('DOMContentLoaded', () => {
       // const imageFiles = Array.from(imageInput.files); // Convert FileList to an array
       const images = [];
       const length = document.getElementById('company-photo').files.length;
+      if (length > 6) {
+        alert('헬스장의 사진은 6장까지만 업로드 할 수 있습니다.');
+        return (window.location.href = `/setOwnerCompany`);
+      }
       for (let i = 0; i < length; i++) {
         const imageFile = document.getElementById('company-photo').files[i];
         images.push(imageFile);
