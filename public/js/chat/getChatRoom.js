@@ -91,6 +91,7 @@ const sendMessage = () => {
   data.roomId = roomId;
   data.message = message;
   // chatLog mongodb에 저장 and 보낸 유저 name 찾기
+
   axios
     .post('/api/chat', { data: data })
     .then(function (response) {
