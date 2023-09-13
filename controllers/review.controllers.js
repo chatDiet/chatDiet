@@ -22,7 +22,6 @@ class ReviewController {
     const { targetId } = req.params;
     const userId = res.locals.userId;
     const { content, grade, type } = req.body;
-    console.log('111111111111111111111111111111111', type);
     const createReveiw = await this.reviewService.createReview(userId, targetId, content, grade, type);
     return res.status(createReveiw.status).json(createReveiw.message);
   };

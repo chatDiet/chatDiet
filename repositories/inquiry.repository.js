@@ -14,13 +14,7 @@ class InquiryRepository {
   }
 
   async getAllInquiry() {
-    const getInquirysData = await Inquiry.findAll();
-
-    getInquirysData.sort((a, b) => {
-      return b.createdAt - a.createdAt;
-    });
-
-    return getInquirysData;
+    return await Inquiry.findAll({ order: [['createdAt', 'DESC']] });
   }
 
   async updateInquiry(inquiryId, title, content) {

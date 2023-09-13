@@ -11,18 +11,16 @@ editInquiryForm.addEventListener('submit', async event => {
 
   const title = document.getElementById('title').value;
 
-  console.log(title);
   const content = document.getElementById('content').value;
 
   axios
-    .put(`http://localhost:3000/api/inquirys/${inquiryId}`, { title: title, content: content })
+    .put(`/api/inquirys/${inquiryId}`, { title: title, content: content })
     .then(response => {
-      console.log(`문의 ${inquiryId} 수정 성공:`, response.data);
       alert(`문의 ${inquiryId} 수정 성공:`);
 
-      window.location.href = `http://localhost:3000/inquirys`;
+      window.location.href = `/inquirys`;
     })
     .catch(error => {
-      console.error(`문의 ${inquiryId} 수정 실패:`, error);
+      alert('수정 실패');
     });
 });

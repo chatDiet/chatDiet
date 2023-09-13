@@ -47,9 +47,7 @@ async function detailCalender() {
     detailCalenderElement.appendChild(eventContentElement);
 
     // 필요한 데이터를 적절한 요소에 표시해주세요.
-  } catch (error) {
-    console.error(error);
-  }
+  } catch (error) {}
 }
 function formatDate(dateString) {
   const options = { year: 'numeric', month: 'long', day: 'numeric' };

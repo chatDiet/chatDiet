@@ -18,35 +18,6 @@ body {
   min-height: 100vh;
 }
 
-header {
-  text-align: center;
-  background-color: #f0f0f0;
-  padding: 8px 0;
-}
-
-.header-title {
-  margin: 0;
-}
-
-.navigation {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  background-color: #f0f0f0;
-  padding: 8px 20px;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.navigation-buttons {
-  display: flex;
-  gap: 10px;
-}
-
-.navigation-title {
-  text-align: center;
-  flex: 1; /* 로고와 버튼 사이 간격 조정 */
-}
-
 .icon-button {
   background: none;
   border: none;
@@ -74,71 +45,10 @@ main {
   text-align: center;
 }
 
-.footer-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  background-color: #f0f0f0;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  padding: 20px 0;
-}
-
-footer ul {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-footer li {
-  display: flex;
-  align-items: center;
-  margin: 0 15px;
-  font-size: 14px;
-}
-
-footer img {
-  width: 20px; /* Adjust the width as needed */
-  margin-right: 5px;
-}
-
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   background-color: #f7f7f7;
-}
-
-header {
-  background-color: #fff;
-  padding: 12px 0;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.navigation {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 20px;
-}
-
-.navigation-title {
-  flex: 1;
-}
-
-.header-title {
-  margin: 0;
-  font-size: 24px;
-}
-
-.navigation-buttons {
-  display: flex;
-  gap: 10px;
 }
 
 .icon-button {
@@ -205,39 +115,4 @@ main.centered {
 
 #editReport-form button[type='submit']:hover {
   background-color: #0056b3;
-}
-
-.footer-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  background-color: #fff;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  padding: 20px 0;
-  box-shadow: 0px -2px 4px rgba(0, 0, 0, 0.1);
-}
-
-footer ul {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-footer li {
-  display: flex;
-  align-items: center;
-  font-size: 14px;
-  cursor: pointer;
-}
-
-footer img {
-  width: 20px;
-  margin-right: 5px;
 }

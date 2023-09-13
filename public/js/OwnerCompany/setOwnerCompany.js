@@ -26,7 +26,6 @@ document.addEventListener('DOMContentLoaded', () => {
         map: formData.get('map'),
         image: images,
       };
-      console.log('난 이미지만 콘솔로그 !', data);
       // const response = await axios.post('/api/company', data);
       const response = await axios({
         method: 'post',
@@ -35,9 +34,8 @@ document.addEventListener('DOMContentLoaded', () => {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
       alert('등록이 완료되었습니다.' + response.data);
-      window.location.href = `http://localhost:3000/getOwnerCompany`;
+      window.location.href = `/getOwnerCompany`;
     } catch (error) {
-      console.log(error);
       alert(error.response.data);
     }
   });

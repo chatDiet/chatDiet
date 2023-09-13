@@ -1,0 +1,147 @@
+/* 헤더영역 */
+header {
+  text-align: center;
+  background-color: #f0f0f0;
+  padding: 8px 0;
+}
+
+.header-title {
+  margin-left: 200px;
+}
+
+.navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #f0f0f0;
+  padding: 8px 20px;
+  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.navigation-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.navigation-title {
+  text-align: center;
+  flex: 1; /* 로고와 버튼 사이 간격 조정 */
+}
+.navigation-menu {
+  background-color: #f5f5f5;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navigation-menu ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.navigation-menu li {
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: #3788d8;
+  border-radius: 5px;
+  color: white;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.navigation-menu img {
+  width: 20px;
+  height: 20px;
+}
+
+footer {
+  margin-top: 100px;
+}
+
+/* 푸터영역 */
+.footer-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background-color: #f0f0f0;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  padding: 20px 0;
+}
+
+footer ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+footer li {
+  display: flex;
+  align-items: center;
+  margin: 0 15px;
+  font-size: 20px;
+  color: black;
+  text-decoration: none;
+}
+
+footer li:hover {
+  border-bottom: 3px solid #ccc;
+}
+
+footer a {
+  text-decoration: none;
+}
+
+footer img {
+  width: 20px; /* Adjust the width as needed */
+  margin-right: 5px;
+}
+
+#footerBtn {
+  cursor: pointer;
+}
+
+.footer:hover {
+  color: darkgray;
+}
+
+footer img {
+  width: 20px;
+  margin-right: 5px;
+}
+
+#calendar {
+  margin-top: 10px;
+  width: 1000px;
+  margin-left: 100px;
+}
+
+#calendar a {
+  font-size: 15px;
+  color: #000;
+  font-weight: lighter;
+}
+
+.fc-toolbar-title {
+  font-size: 55px;
+  color: #3788d8;
+}
+
+.fc-daygrid-day-frame {
+  height: 80px;
+  text-align: start;
+}
+
+.footer {
+  color: black;
+  text-decoration: none;
+  bottom: 0;
+}
