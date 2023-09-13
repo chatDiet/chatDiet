@@ -45,9 +45,6 @@ const singleUpload = fieldName => {
 const multipleUpload = fieldName => {
   return function (req, res, next) {
     upload.array(fieldName)(req, res, function (err) {
-      // if (req.body.images === 'undefined') {
-      //   return res.status(400).json({ message: '이미지 없음' });
-      // }
       console.log(req.body);
       if (err instanceof multer.MulterError) {
         // 이미지 필드가 누락된 경우 기본값을 설정
