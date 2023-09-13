@@ -154,5 +154,8 @@ export class ExpressApp {
     this.app.get('/putOwnerCompany', (req, res) => {
       res.sendFile(__dirname + '/public/templates/OwnerCompany/putOwnerCompany.html');
     });
+    this.app.get('/kakaotest', (req, res) => {
+      res.sendFile(__dirname + '/public/templates/test/kakaotest.html');
+    });
   };
 }
