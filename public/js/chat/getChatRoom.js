@@ -12,7 +12,6 @@ const formatDate = date => {
 
 axios.get(`api/chat/${roomId}`).then(function (response) {
   const result = response.data;
-  console.log('result', result);
   $('#chatList').empty();
   for (let i = result.length - 1; i >= 0; i--) {
     const name = result[i]['name'];
@@ -89,7 +88,6 @@ const sendMessage = async () => {
     .post('/api/chat', formData)
     .then(function (response) {
       socket.emit('message', { data: response.data });
-      console.log(response.data);
     })
     .catch(function (error) {
       alert(error.data.message);
