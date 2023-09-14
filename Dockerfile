@@ -4,7 +4,9 @@ WORKDIR /chatdiet
 
 COPY package*.json ./
 
-RUN npm install --production
+RUN npm install --production \
+    && apt-get update \
+    && apt-get install -y procps
 
 COPY . ./
 
