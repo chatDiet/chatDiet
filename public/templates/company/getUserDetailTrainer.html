@@ -11,6 +11,11 @@
 
     <script src="https://code.jquery.com/jquery-3.4.1.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" defer></script>
+    <!-- 포트원 결제 -->
+    <script src="https://cdn.iamport.kr/v1/iamport.js"></script>
+    <!-- iamport.payment.js -->
+    <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.2.0.js"></script>
+    <!-- 포트원 결제 -->
     <title>Your Project</title>
   </head>
   <body>
@@ -30,7 +35,6 @@
       <section class="main-section">
         <div id="trainers"></div>
         <div id="revieZone">
-          리뷰
           <div id="reviews"></div>
         </div>
         <!-- 메인 콘텐츠 -->
@@ -59,9 +63,10 @@
       <div id="createPtModal">
         <div id="ptContent">
           <span id="ptModalClose">&times;</span>
-          <div>리뷰</div>
+          <div>PT계약하기</div>
           <input type="number" id="ptNumber" placeholder="PT횟수" />
-          <button id="savePtModal">저장</button>
+          결제하기 버튼을 클릭하면 테스트 결제가 실행됩니다. 실제로 결제가 실행 되지 않습니다.<br />
+          <button id="savePtModal">결제하기</button>
         </div>
       </div>
     </main>
@@ -92,5 +97,6 @@
     <script src="../js/contract/createUserContract.js" defer></script>
     <script type="module" src="../../js/login/userLogout.js" defer></script>
     <script src="../../js/headerScript.js" defer></script>
+    <script src="../../js/payment/kakaoPayment.js" defer></script>
   </body>
 </html>

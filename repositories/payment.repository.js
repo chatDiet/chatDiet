@@ -1,8 +1,12 @@
 import { Payment } from '../db';
 
 class PaymentRepository {
-  kakaoPayment = async data => {
-    return await Payment.create({ data });
+  kakaoPayment = async (userId, data) => {
+    const method = data.pay_method;
+    const orderNumber = data.merchant_uid;
+    const amountOfPayment = data.paid_amount;
+    console.log(method);
+    return await Payment.create({ userId, method, orderNumber, amountOfPayment });
   };
 }
 

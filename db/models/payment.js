@@ -15,11 +15,18 @@ const Payment = connector.sequelize.define(
       type: DataTypes.INTEGER,
       allowNull: false,
     },
+    orderNumber: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
     method: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    amountOfPayment: {
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-
     createdAt: {
       type: DataTypes.DATE,
       allowNull: false,

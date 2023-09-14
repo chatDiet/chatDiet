@@ -2,6 +2,7 @@ axios
   .get('/api/trainer')
   .then(function (response) {
     const result = response.data.data;
+    console.log('result', result);
     $('.main-section').empty();
     const trainerId = result.trainerId;
     const trainerName = result.trainerName;
@@ -9,6 +10,7 @@ axios
     const companyId = result.companyId;
     const career = result.career;
     const ptContent = result.ptContent;
+    const ptAmount = result.ptAmount;
 
     let temp_html = `
       <div id="myTainerInfo">
@@ -19,6 +21,7 @@ axios
         <div>
           <div id="career">경력 : ${career}</div>
           <div id="ptContent">수업 내용 : ${ptContent}</div>
+          <div id="ptContent">수업료 : ${ptAmount}</div>
         </div>
       </div>
       <button onclick=updateTrainerInfoBtn(${companyId},${trainerId})>정보 수정</button>

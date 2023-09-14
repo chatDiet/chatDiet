@@ -15,6 +15,7 @@ $('#createTrinaerInfo').click(function () {
   const trainerName = $('#trainerName').val();
   const career = $('#career').val();
   const ptContent = $('#ptContent').val();
+  const ptAmount = $('#ptAmount').val();
   const companyId = $('#companyNames option:selected').val();
   // const image = $('#image').files();
   const image = document.getElementById('image').files[0];
@@ -23,6 +24,7 @@ $('#createTrinaerInfo').click(function () {
     trainerName,
     career,
     ptContent,
+    ptAmount,
     companyId,
     image,
   };
