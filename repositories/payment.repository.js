@@ -5,7 +5,6 @@ class PaymentRepository {
     const method = data.pay_method;
     const orderNumber = data.merchant_uid;
     const amountOfPayment = data.paid_amount;
-    console.log(method);
     return await Payment.create({ userId, method, orderNumber, amountOfPayment });
   };
 }
