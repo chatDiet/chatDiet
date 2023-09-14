@@ -3,43 +3,34 @@ import { User, Company } from '../db';
 
 class ReviewRepository {
   findAuth = async userId => {
-    const findAuth = await User.findAll({ where: { userId } });
-    return findAuth;
+    return await User.findOne({ where: { userId } });
   };
 
   findCompany = async companyId => {
-    const findCompany = await Company.findOne({ where: { companyId } });
-
-    return findCompany;
+    return await Company.findOne({ where: { companyId } });
   };
 
   getUserReview = async userId => {
-    const getUserReviewData = await Review.findAll({ where: { userId: userId } });
-
-    getUserReviewData.sort((a, b) => {
-      return b.createdAt - a.createdAt;
+    return await Review.findAll({
+      where: { userId: userId },
+      order: [['createdAt', 'DESC']],
     });
-
-    return getUserReviewData;
   };
 
   getTargetReview = async (targetId, type) => {
-    const getTargetReview = await Review.findAll({ where: { targetId, type } });
-    return getTargetReview;
+    return await Review.findAll({ where: { targetId, type } });
   };
 
   findReview = async reviewId => {
-    const findReview = await Review.findOne({ where: { reviewId } });
-    return findReview;
+    return await Review.findOne({ where: { reviewId } });
   };
 
   createReview = async (userId, targetId, content, grade, type) => {
-    const createReveiw = await Review.create({ userId, targetId, content, grade, type });
-    return createReveiw;
+    return await Review.create({ userId, targetId, content, grade, type });
   };
 
   deleteReview = async reviewId => {
-    await Review.destroy({ where: { reviewId } });
+    return Review.destroy({ where: { reviewId } });
   };
 }
 

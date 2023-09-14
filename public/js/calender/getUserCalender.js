@@ -22,6 +22,8 @@ document.addEventListener('DOMContentLoaded', async function () {
         initialView: 'dayGridMonth',
         displayEventTime: false,
         scrollTime: '08:00:00',
+        dayMaxEvents: true,
+        locale: 'ko',
         events: events,
 
         eventClick: function (info) {
@@ -35,7 +37,6 @@ document.addEventListener('DOMContentLoaded', async function () {
       calendar.render();
     })
     .catch(function (error) {
-      console.log(error);
       alert('로그인이 필요한 서비스입니다.');
       location.href = '/login';
     });

@@ -11,7 +11,6 @@ body {
 }
 
 body {
-  background-image: url('path_to_your_background_image.jpg');
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -24,7 +23,7 @@ body {
   background-color: #f9f9f9; /* Light gray background */
   border-radius: 10px; /* Add rounded corners */
   box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
-  min-height: calc(100vh - 120px); /* Increase the minimum height, accounting for header and footer */
+  min-height: calc(100vh - 120px); /*
   overflow-y: auto; /* Add vertical scrollbar if needed */
 }
 
@@ -51,20 +50,6 @@ body {
   padding: 10px 20px; /* Add padding to the button */
   border-radius: 5px; /* Add rounded corners */
   cursor: pointer; /* Change cursor to pointer on hover */
-}
-
-/* Style the footer */
-footer {
-  background-color: #333; /* Dark background color */
-  color: #fff; /* Text color */
-  padding: 20px 0; /* Add padding to the footer */
-  text-align: center; /* Center align the text */
-}
-
-/* Style the footer links */
-.footer-list a {
-  text-decoration: none; /* Remove underline */
-  margin: 0 10px; /* Add margin between links */
 }
 
 /* Adjust other styles as needed for your specific content and design preferences */

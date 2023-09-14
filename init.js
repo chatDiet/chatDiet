@@ -40,6 +40,7 @@ export class Server {
         socket.trainer = data.trainer;
         socket.roomId = data.roomId;
         socket.join(socket.roomId);
+        console.log('test');
       });
 
       // 전송한 메세지 받기
@@ -83,5 +84,3 @@ connector.testConnectDB();
 connector.connectDB();
 mongdb.mongoDBconnect();
 server.runServer();
-
-// test

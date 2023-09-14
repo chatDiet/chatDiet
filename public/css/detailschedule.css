@@ -9,6 +9,10 @@ body {
   font-family: 'omyu_pretty';
 }
 
+.main-section {
+  margin-bottom: 50px;
+}
+
 .detailSchedule {
   display: flex;
   position: relative;
@@ -43,9 +47,7 @@ button {
   border: none;
   border-radius: 5px;
   padding: 10px 20px;
-
   cursor: pointer;
-
   margin-top: 10px;
 }
 

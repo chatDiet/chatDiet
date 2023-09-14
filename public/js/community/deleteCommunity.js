@@ -1,5 +1,4 @@
 deletePostBtn = postId => {
-  console.log('11111111111111111', postId);
   axios
     .delete(`/api/posts/${postId}`)
     .then(function (res) {
@@ -7,14 +6,12 @@ deletePostBtn = postId => {
       location.href = `/companyMain`;
     })
     .catch(function (error) {
-      alert(error.response.data.message);
+      alert(error.response.data);
       location.reload();
     });
 };
 
 deleteCommentBtn = (postId, commentId) => {
-  console.log('11111111111111111', postId);
-
   axios
     .delete(`/api/posts/${postId}/comments/${commentId}`)
     .then(function (res) {

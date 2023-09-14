@@ -5,10 +5,20 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../css/userMain.css" />
     <link rel="stylesheet" href="../css/common.css" />
-    <link rel="stylesheet" href="../css/chatRoom.css" />
+    <link rel="stylesheet" href="../css/chatroom.css" />
+    <link rel="stylesheet" href="../css/default.css" />
+
     <script src="https://code.jquery.com/jquery-3.4.1.js" defer></script>
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" defer></script>
     <script type="module" src="./socket.io/socket.io.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.2/socket.io.js"
+      integrity="sha512-zoJXRvW2gC8Z0Xo3lBbao5+AS3g6YWr5ztKqaicua11xHo+AvE1b0lT9ODgrHTmNUxeCw0Ry4BGRYZfXu70weg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
     <title>Your Project</title>
   </head>
   <body>
@@ -35,8 +45,12 @@
           </div>
           <div id="chatList">채팅 내용</div>
           <div class="chat-input">
-            <input type="text" id="messageInput" placeholder="메시지를 입력하세요..." />
-            <button id="messageSend" onclick="sendMessage()">전송</button>
+            <form action="javascript://" id="chat-form" method="post" enctype="multipart/form-data">
+              <label for="image">사진 선택</label>
+              <input type="file" id="image" name="image" accept="image/*" />
+              <input type="text" id="messageInput" placeholder="메시지를 입력하세요..." />
+              <button id="messageSend" onclick="sendMessage()">전송</button>
+            </form>
           </div>
         </div>
       </section>
@@ -55,7 +69,7 @@
         <a href="/communityMain">
           <li id="footerBtn"><img src="../img/free-icon-font-world-3916979.png" />커뮤니티</li>
         </a>
-        <a href="/userInfo">
+        <a href="/myUser">
           <li id="footerBtn"><img src="../img/free-icon-font-user-3917688.png" />마이페이지</li>
         </a>
       </ul>
@@ -64,5 +78,6 @@
     <script src="../js/chat/getChatRoom.js" defer></script>
     <script type="module" src="../../js/login/userLogout.js" defer></script>
     <script src="../../js/headerScript.js" defer></script>
+    >
   </body>
 </html>

@@ -2,12 +2,11 @@ import axios from 'https://cdn.jsdelivr.net/npm/axios@1.3.5/+esm';
 
 async function fetchInquiries() {
   return await axios
-    .get('http://localhost:3000/api/inquirys')
+    .get('/api/inquirys')
     .then(function (response) {
       return response.data.data;
     })
     .catch(function (error) {
-      console.log(error);
       return [];
     });
 }
@@ -62,17 +61,13 @@ document.addEventListener('DOMContentLoaded', async () => {
       const inquiryId = deleteButton.getAttribute('data-inquiry-id');
 
       axios
-        .delete(`http://localhost:3000/api/inquirys/${inquiryId}`)
+        .delete(`/api/inquirys/${inquiryId}`)
         .then(response => {
-          console.log(`문의 ${inquiryId} 삭제 성공:`, response.data);
           alert(`문의 ${inquiryId} 삭제 성공:`);
           const row = deleteButton.closest('tr');
           row.remove();
         })
-        .catch(error => {
-          console.error(`문의 ${inquiryId} 삭제 실패:`, error);
-          // 필요한 경우 에러 처리 작업 수행
-        });
+        .catch(error => {});
     });
   });
 
@@ -83,7 +78,7 @@ document.addEventListener('DOMContentLoaded', async () => {
       event.preventDefault();
       const inquiryId = editButton.getAttribute('data-inquiry-id');
 
-      window.location.href = `http://localhost:3000/editInquiry?inquiryId=${inquiryId}`;
+      window.location.href = `/editInquiry?inquiryId=${inquiryId}`;
     });
   });
 });

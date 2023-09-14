@@ -10,8 +10,7 @@ contractList.addEventListener('click', async event => {
 });
 async function deleteContract(contractId) {
   // 서버로 삭제 요청 보내기
-  console.log('@@@@@@@@@@@@@@@@@@@?');
-  const deleteContract = await axios.delete(`http://localhost:3000/api/contract/${contractId}`);
+  const deleteContract = await axios.delete(`/api/contract/${contractId}`);
   if (deleteContract) {
     alert('계약이 취소되었습니다.');
     location.reload();

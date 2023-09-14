@@ -24,10 +24,9 @@ document.getElementById('write-schedule-form').addEventListener('submit', async 
       location.href = '/trainer';
     })
     .catch(function (error) {
-      console.log(error);
+      if (error.response.status === 404) {
+        alert('트레이너 등록이 필요합니다.');
+        location.href = '/createtrainer';
+      }
     });
-
-  for (var value of formData.values()) {
-    console.log(value, 'formDatavalue');
-  }
 });

@@ -46,7 +46,6 @@ axios
         const content = result[i].content;
         const grade = result[i].grade;
         const type = 'review';
-        console.log(result[i]);
 
         let t = `
       <div id="review">
@@ -60,6 +59,4 @@ axios
       }
     }
   })
-  .catch(function (error) {
-    console.log(error);
-  });
+  .catch(function (error) {});

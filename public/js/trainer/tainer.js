@@ -99,7 +99,7 @@ export function showSchedule(dateFormat, date) {
   }
 
   axios
-    .get(`http://localhost:3000/api/schedules`)
+    .get(`/api/schedules`)
     .then(response => {
       const scheduleData = response.data;
       if (!scheduleData.date || scheduleData.length === 0) {
@@ -110,19 +110,9 @@ export function showSchedule(dateFormat, date) {
           if (userResponse) {
             // 사용자가 스케줄을 추가하려는 경우
             axios
-              .post('http://localhost:3000/api/schedules', { date: selectedDate }) // 날짜를 'YYYY-MM-DDTHH:mm:ss.sssZ' 형식으로 보냄
-              .then(response => {
-                // POST 요청 성공 시 처리
-                console.log('스케줄 추가 요청 성공:', response.data);
-
-                // 이후 추가적인 처리를 수행하거나 사용자에게 메시지를 표시할 수 있습니다.
-              })
-              .catch(error => {
-                // POST 요청 실패 시 처리
-                console.error('스케줄 추가 요청 오류:', error);
-
-                // 오류 처리를 수행하거나 사용자에게 오류 메시지를 표시할 수 있습니다.
-              });
+              .post('/api/schedules', { date: selectedDate }) // 날짜를 'YYYY-MM-DDTHH:mm:ss.sssZ' 형식으로 보냄
+              .then(response => {})
+              .catch(error => {});
           }
         }
       } else {
@@ -140,9 +130,7 @@ export function showSchedule(dateFormat, date) {
         }
       }
     })
-    .catch(error => {
-      console.error('스케줄 조회 오류:', error);
-    });
+    .catch(error => {});
 }
 // 선택한 날짜 갱신
 export function choiceDate(newDIV) {

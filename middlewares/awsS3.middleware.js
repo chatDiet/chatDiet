@@ -1,4 +1,3 @@
-// 단일 업로드 / 다중 업로드
 const multer = require('multer');
 const { S3Client, PutObjectCommand } = require('@aws-sdk/client-s3');
 const multerS3 = require('multer-s3');
@@ -17,7 +16,8 @@ const upload = multer({
     acl: 'public-read',
     contentType: multerS3.AUTO_CONTENT_TYPE,
     key: function (req, file, cb) {
-      cb(null, `${Date.now()}_${path.basename(file.originalname)}`);
+      let extension = path.extname(file.originalname);
+      cb(null, Date.now().toString() + extension);
     },
   }),
 });
@@ -25,13 +25,16 @@ const upload = multer({
 const singleUpload = fieldName => {
   return function (req, res, next) {
     upload.single(fieldName)(req, res, function (err) {
+      if (req.body.image === 'undefined') {
+        return res.status(400).json({ message: '이미지 없음' });
+      }
       if (err instanceof multer.MulterError && err.code === 'LIMIT_UNEXPECTED_FILE') {
         // 이미지 필드가 누락된 경우 기본값을 설정
         console.log('이미지 필드 에러 ', err);
         req.file = null;
         next();
       } else if (err) {
-        next(err);
+        next();
       } else {
         next();
       }
@@ -42,6 +45,7 @@ const singleUpload = fieldName => {
 const multipleUpload = fieldName => {
   return function (req, res, next) {
     upload.array(fieldName)(req, res, function (err) {
+      console.log(req.body);
       if (err instanceof multer.MulterError) {
         // 이미지 필드가 누락된 경우 기본값을 설정
         req.files = null;

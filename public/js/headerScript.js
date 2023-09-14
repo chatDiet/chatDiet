@@ -1,13 +1,13 @@
 const gotoSignupButton = document.getElementById('goto-signup-button');
 gotoSignupButton.addEventListener('click', () => {
   // 사용자 메인 페이지로 이동
-  window.location.href = 'http://localhost:3000/signupCategory';
+  window.location.href = '/signupCategory';
 });
 
 const gotoLoginButton = document.getElementById('goto-login-button');
 gotoLoginButton.addEventListener('click', () => {
   // 사용자 메인 페이지로 이동
-  window.location.href = 'http://localhost:3000/login';
+  window.location.href = '/login';
 });
 
 function getCookie() {

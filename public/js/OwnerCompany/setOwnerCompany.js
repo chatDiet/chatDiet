@@ -7,10 +7,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const formData = new FormData(registrationForm);
 
     try {
-      // const imageInput = document.getElementById('company-photo');
-      // const imageFiles = Array.from(imageInput.files); // Convert FileList to an array
       const images = [];
       const length = document.getElementById('company-photo').files.length;
+      if (length > 6) {
+        alert('헬스장의 사진은 6장까지만 업로드 할 수 있습니다.');
+        return (window.location.href = `/setOwnerCompany`);
+      }
       for (let i = 0; i < length; i++) {
         const imageFile = document.getElementById('company-photo').files[i];
         images.push(imageFile);
@@ -26,8 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
         map: formData.get('map'),
         image: images,
       };
-      console.log('난 이미지만 콘솔로그 !', data);
-      // const response = await axios.post('/api/company', data);
       const response = await axios({
         method: 'post',
         url: '/api/company',
@@ -35,9 +35,8 @@ document.addEventListener('DOMContentLoaded', () => {
         headers: { 'Content-Type': 'multipart/form-data' },
       });
       alert('등록이 완료되었습니다.' + response.data);
-      window.location.href = `http://localhost:3000/getOwnerCompany`;
+      window.location.href = `/getOwnerCompany`;
     } catch (error) {
-      console.log(error);
       alert(error.response.data);
     }
   });

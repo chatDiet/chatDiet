@@ -34,7 +34,7 @@ body {
 }
 
 .chat-input {
-  position: fixed;
+  /* position: fixed; */
   margin-top: 20px;
   width: 900px;
 }
@@ -66,45 +66,7 @@ button:hover {
   color: #000;
 }
 
-.footer-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  background-color: #f0f0f0;
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  padding: 20px 0;
-}
-
-footer ul {
-  list-style: none;
-  padding: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-footer li {
-  display: flex;
-  align-items: center;
-  margin: 0 15px;
-  font-size: 14px;
-}
-
-footer img {
-  width: 20px; /* Adjust the width as needed */
-  margin-right: 5px;
-}
-
-.footer {
-  color: black;
-  text-decoration: none;
-}
-
-.footer:hover {
-  color: darkgray;
+.chatImg {
+  width: 150px;
+  height: 150px;
 }
