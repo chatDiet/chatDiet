@@ -76,7 +76,6 @@ const sendMessage = async () => {
 
   const formData = new FormData();
   formData.append('message', messageText);
-  // formData.append('userName', userName);
   formData.append('roomId', roomId);
   formData.append('date', date);
 

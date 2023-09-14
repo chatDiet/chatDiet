@@ -7,8 +7,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const formData = new FormData(registrationForm);
 
     try {
-      // const imageInput = document.getElementById('company-photo');
-      // const imageFiles = Array.from(imageInput.files); // Convert FileList to an array
       const images = [];
       const length = document.getElementById('company-photo').files.length;
       if (length > 6) {
@@ -30,7 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
         map: formData.get('map'),
         image: images,
       };
-      // const response = await axios.post('/api/company', data);
       const response = await axios({
         method: 'post',
         url: '/api/company',
