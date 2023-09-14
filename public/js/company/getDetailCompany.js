@@ -64,7 +64,6 @@ axios.get(`/api/company/${companyId}`).then(function (response) {
         map: map,
         position: coords,
       });
-
       const infowindow = new kakao.maps.InfoWindow({
         content: `<div style="width:150px;text-align:center;padding:6px 0;">${companyName}</div>`,
       });
