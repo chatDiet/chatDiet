@@ -113,3 +113,52 @@ label {
   display: block; /* 라벨을 블록 요소로 변경하여 세로로 배치합니다. */
   margin-bottom: 5px; /* 라벨 아래의 간격을 조절할 수 있습니다. */
 }
+
+.kakaoLogin > img {
+  width: 200px;
+  margin-top: 20px;
+  margin-bottom: -30px;
+}
+
+#login-form {
+  max-width: 300px;
+  margin: 0 auto;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+}
+
+#email {
+  height: 25px;
+  margin-top: 20px;
+}
+
+#password {
+  height: 25px;
+  margin-top: 30px;
+}
+
+input[type='text'],
+input[type='password'] {
+  width: 200px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+/* 포커스 상태일 때 스타일링 */
+input[type='text']:focus,
+input[type='password']:focus {
+  outline: none;
+  border-color: #007bff;
+  /* 포커스시 색상을 변경하거나 다른 스타일을 추가할 수 있습니다. */
+}
+
+label {
+  display: block; /* 라벨을 블록 요소로 변경하여 세로로 배치합니다. */
+  margin-bottom: 5px; /* 라벨 아래의 간격을 조절할 수 있습니다. */
+}

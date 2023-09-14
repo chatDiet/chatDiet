@@ -10,29 +10,29 @@ const formatDate = date => {
   return new Date(date).toLocaleTimeString('en-US', options);
 };
 
-// 대화 내용 조회
-axios
-  .get(`api/chat/${roomId}`)
-  .then(function (response) {
-    const result = response.data;
-    $('#chatList').empty();
-    for (let i = result.length - 1; i >= 0; i--) {
-      const name = result[i]['name'];
-      const content = result[i]['content'];
-      const date = formatDate(result[i]['date']);
-      const temp_html = `
-        <div id="chatContent">
-          <div>보낸시간 : ${date}</div>
-          <div>${name} : ${content}</div>
-        </div>
-        `;
-      $('#chatList').append(temp_html);
+axios.get(`api/chat/${roomId}`).then(function (response) {
+  const result = response.data;
+  $('#chatList').empty();
+  for (let i = result.length - 1; i >= 0; i--) {
+    const name = result[i]['name'];
+    const content = result[i]['content'];
+    const date = formatDate(result[i]['date']);
+    const image = result[i]['imageUrl'];
+
+    let imageHtml = '';
+    if (image !== null) {
+      imageHtml = `<div><img class='chatImg' src="${image}"/></div>`;
     }
-  })
-  .catch(function (error) {
-    alert('로그인이 필요한 서비스 입니다.');
-    location.href = '/login';
-  });
+    const temp_html = `
+      <div id="chatContent">
+      ${imageHtml}
+        <div>보낸시간: ${date}</div>
+        <div>${name}: ${content}</div>
+      </div>
+    `;
+    $('#chatList').append(temp_html);
+  }
+});
 
 const chatMessages = document.querySelector('#chatList');
 
@@ -50,22 +50,10 @@ socket.on('connect', function () {
       socket.emit('newUser', data);
     })
     .catch(function (error) {
+      console.log(error);
       alert(error.data.message);
       location.href = `/companyMain`;
     });
-});
-
-// 실시간 채팅
-socket.on('message', function (data) {
-  const messageDiv = document.createElement('div');
-  messageDiv.classList.add('chatList');
-  messageDiv.innerHTML = `
-            <div id="chatContent">
-              <div>보낸시간 : ${data.data.date}</div>
-              <div>${data.data.name} : ${data.data.message}</div>
-            </div>`;
-  chatMessages.appendChild(messageDiv);
-  chatMessages.scrollTop = chatMessages.scrollHeight;
 });
 
 // 권한 없음 alert
@@ -74,40 +62,57 @@ socket.on('noPermission', function () {
   location.href = '../chatRommList.html';
 });
 
-// 메시지 입력란에서 엔터 키를 눌렀을 때 이벤트 처리
-messageInput.addEventListener('keydown', event => {
-  if (event.key === 'Enter') {
-    sendMessage();
+// 이미지 업로드를 포함한 메세지 전송 함수
+const sendMessage = async () => {
+  const messageInput = document.getElementById('messageInput');
+  const messageText = messageInput.value;
+  messageInput.value = '';
+
+  const imageInput = document.getElementById('image');
+  const imageFile = imageInput.files[0];
+  imageInput.value = '';
+
+  const date = formatDate(new Date());
+
+  const formData = new FormData();
+  formData.append('message', messageText);
+  formData.append('roomId', roomId);
+  formData.append('date', date);
+
+  if (imageFile) {
+    formData.append('image', imageFile);
   }
-});
-// 메시지 전송 함수
-const sendMessage = () => {
-  const message = document.getElementById('messageInput').value;
-  document.getElementById('messageInput').value = '';
 
-  // data 생성
-  const data = {};
-  data.date = formatDate(new Date());
-  data.roomId = roomId;
-  data.message = message;
-  // chatLog mongodb에 저장 and 보낸 유저 name 찾기
-
-  axios
-    .post('/api/chat', { data: data })
+  await axios
+    .post('/api/chat', formData)
     .then(function (response) {
-      data.name = response.data;
-      socket.emit('message', { data: data });
+      socket.emit('message', { data: response.data });
     })
     .catch(function (error) {
-      const messageDiv = document.createElement('div');
-      messageDiv.classList.add('chatList');
-      messageDiv.innerHTML = `
-                <div id="chatContent">
-                  <div>보낸시간 : ${data.date}</div>
-                  <div>해당 메세지는 전송 실패되었습니다.</div>
-                </div>
-                `;
-      chatMessages.appendChild(messageDiv);
-      chatMessages.scrollTop = chatMessages.scrollHeight;
+      alert(error.data.message);
+      location.href = `/companyMain`;
     });
 };
+
+try {
+  socket.on('message', data => {
+    const messageDiv = document.createElement('div');
+    messageDiv.classList.add('chatList');
+    let imageHtml = '';
+    if (data.data.imageUrl !== null) {
+      imageHtml = `<div><img class='chatImg' src="${data.data.imageUrl}"/></div>`;
+    }
+    messageDiv.innerHTML = '';
+
+    messageDiv.innerHTML = `
+        <div id="chatContent">
+          <div>보낸시간 : ${data.data.date}</div>
+         ${imageHtml}
+          <div>${data.data.name} : ${data.data.message}</div>
+        </div>`;
+    chatMessages.appendChild(messageDiv);
+    chatMessages.scrollTop = chatMessages.scrollHeight;
+  });
+} catch (err) {
+  console.log(err);
+}
