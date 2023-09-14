@@ -1,0 +1,16 @@
+{
+  "family": "your-task-family-name",
+  "containerDefinitions": [
+    {
+      "name": "chatdietContainer",
+      "image": "byeongil/chatdiet:latest",
+      "essential": true,
+      "portMappings": [
+        {
+          "containerPort": 3000,
+          "hostPort": 80
+        }
+      ]
+    }
+  ]
+}
