@@ -2,8 +2,6 @@ FROM node:14-slim
 
 WORKDIR /chatdiet
 
-WORKDIR /chatdiet
-
 COPY package*.json ./
 
 RUN npm install --production \
@@ -12,4 +10,4 @@ RUN npm install --production \
 
 COPY . ./
 
-CMD npm run dev
+CMD ["/usr/local/bin/node", "/chatdiet/node_modules/@babel/node/lib/_babel-node", "init.js"]

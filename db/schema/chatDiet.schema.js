@@ -1,5 +1,4 @@
 import mongoose from 'mongoose';
-import test1 from '../../public/js/chat.js';
 const { Schema } = mongoose;
 
 const chatSchema = new Schema(
