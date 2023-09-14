@@ -10,6 +10,7 @@ import ScheduleController from './schedule.controllers';
 import TrainerController from './trainer.controllers';
 import UserController from './user.controllers';
 import ChatController from './chat.controllers';
+import PaymentController from './payment.controller';
 
 export {
   CalenderController,
@@ -24,4 +25,5 @@ export {
   TrainerController,
   UserController,
   ChatController,
+  PaymentController,
 };
