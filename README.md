@@ -4,7 +4,7 @@ JavaScript/Node.js/MySQL/AWS RDS,E3/JWT/mongoDB/Express
 
 # 🦾 [chatDiet] 브로셔
 
-![노션상단이미지-001.png](https://prod-files-secure.s3.us-west-2.amazonaws.com/d9a6688b-60c2-4e9e-ba2d-016089ac7447/23056b69-eaf1-4f98-9fa6-f8248f07ec4e/%EB%85%B8%EC%85%98%EC%83%81%EB%8B%A8%EC%9D%B4%EB%AF%B8%EC%A7%80-001.png)
+![노션상단이미지-001](https://github.com/chatDiet/chatDiet/assets/90279468/d3e95c01-52e3-4485-bc4b-574021bd7e6d)
 
 
 
@@ -43,13 +43,14 @@ http://chatdietv1-env.eba-trj74i4k.ap-northeast-2.elasticbeanstalk.com/
 
 ## ✅ 사용자 가이드
 
-![설명서.JPG](https://prod-files-secure.s3.us-west-2.amazonaws.com/d9a6688b-60c2-4e9e-ba2d-016089ac7447/81c06161-6da8-4a3f-b382-50ed1e3eb6d9/%EC%84%A4%EB%AA%85%EC%84%9C.jpg)
+![진짜 설명서](https://github.com/hyem00/node_realmegosa/assets/90279468/b400278a-7637-434d-b8dc-1e50aee4d3e6)
 
 
 
 ## ⛑️ 서비스 아키텍쳐
 
-![Untitled](https://prod-files-secure.s3.us-west-2.amazonaws.com/d9a6688b-60c2-4e9e-ba2d-016089ac7447/b3f3fda2-ff9f-4f9f-b8b2-daa345ad7000/Untitled.png)
+![image](https://github.com/chatDiet/chatDiet/assets/90279468/a8ad54fd-0054-46e9-9856-a4d61db8dde4)
+
 
 
 
@@ -93,3 +94,4 @@ http://chatdietv1-env.eba-trj74i4k.ap-northeast-2.elasticbeanstalk.com/
 - 1:1 실시간 채팅 (이미지 전송 가능)
 
 ## 📈 연봉 1조
+![우리팀소개-001](https://github.com/hyem00/node_realmegosa/assets/90279468/1cc35925-344a-46c1-953e-896a7e070946)
