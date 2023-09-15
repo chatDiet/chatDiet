@@ -16,7 +16,7 @@ class ChatController {
 
     const userId = res.locals.userId;
     if (req.file) {
-      imageUrl = req.file.location;
+      imageUrl = req.file.transforms[0].location;
     }
 
     const result = await this._chatService.postChat(data, userId, imageUrl);
