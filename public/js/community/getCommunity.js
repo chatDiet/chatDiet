@@ -4,7 +4,6 @@ axios.get('/api/posts').then(function (response) {
   $('#postList').empty();
   for (let i = result.length - 1; i >= 0; i--) {
     const postId = result[i].postId;
-    const userId = result[i].userId;
     const title = result[i].title;
 
     let temp_html = `

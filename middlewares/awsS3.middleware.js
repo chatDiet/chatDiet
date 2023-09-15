@@ -1,27 +1,49 @@
 const multer = require('multer');
-const { S3Client, PutObjectCommand } = require('@aws-sdk/client-s3');
-const multerS3 = require('multer-s3');
+// const { S3Client, PutObjectCommand } = require('@aws-sdk/client-s3');
+// const multerS3 = require('multer-s3');
+const multerS3 = require('multer-s3-transform');
 const path = require('path');
-const s3Client = new S3Client({
+const sharp = require('sharp');
+
+const aws = require('aws-sdk');
+aws.config.update({
   region: process.env.AWS_BUCKET_REGION,
   credentials: {
     accessKeyId: process.env.AWS_ACCESS_KEY,
     secretAccessKey: process.env.AWS_SECRET_KEY,
   },
 });
+const s3 = new aws.S3();
+
+// const s3Client = new S3Client({
+//   region: process.env.AWS_BUCKET_REGION,
+//   credentials: {
+//     accessKeyId: process.env.AWS_ACCESS_KEY,
+//     secretAccessKey: process.env.AWS_SECRET_KEY,
+//   },
+// });
+
 const upload = multer({
   storage: multerS3({
-    s3: s3Client,
+    s3: s3,
     bucket: process.env.AWS_BUCKET_NAME,
-    acl: 'public-read',
     contentType: multerS3.AUTO_CONTENT_TYPE,
-    key: function (req, file, cb) {
-      let extension = path.extname(file.originalname);
-      cb(null, Date.now().toString() + extension);
-    },
+    shouldTransform: true,
+    transforms: [
+      {
+        id: 'resized',
+        key: function (req, file, cb) {
+          let extension = path.extname(file.originalname);
+          cb(null, Date.now().toString() + extension);
+        },
+        transform: function (req, file, cb) {
+          cb(null, sharp().resize(100, 100)); // 이미지를 100x100 으로 리사이징
+        },
+      },
+    ],
+    acl: 'public-read-write',
   }),
 });
-
 const singleUpload = fieldName => {
   return function (req, res, next) {
     upload.single(fieldName)(req, res, function (err) {
@@ -41,11 +63,9 @@ const singleUpload = fieldName => {
     });
   };
 };
-
 const multipleUpload = fieldName => {
   return function (req, res, next) {
     upload.array(fieldName)(req, res, function (err) {
-      console.log(req.body);
       if (err instanceof multer.MulterError) {
         // 이미지 필드가 누락된 경우 기본값을 설정
         req.files = null;
@@ -58,7 +78,6 @@ const multipleUpload = fieldName => {
     });
   };
 };
-
 const deleteImages = async objectArr => {
   const params = {
     Bucket: process.env.AWS_BUCKET_NAME,
@@ -67,7 +86,6 @@ const deleteImages = async objectArr => {
       Quiet: false,
     },
   };
-
   try {
     const result = await s3.deleteObjects(params).promise();
     return result;
@@ -75,5 +93,4 @@ const deleteImages = async objectArr => {
     console.log('미들웨어 삭제 에러', err);
   }
 };
-
 module.exports = { singleUpload, multipleUpload, deleteImages };
