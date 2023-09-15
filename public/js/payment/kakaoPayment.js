@@ -15,11 +15,15 @@ $(document).ready(function () {
 
 async function payment() {
   const response = await axios.get(`/api/companys/${companyId}/trainers/${trainerId}`);
-
   const trainerInfo = response.data.data;
 
   const ptContent = trainerInfo.ptContent;
   const ptAmount = trainerInfo.ptAmount;
+
+  //계약 조회
+  const checkContract = await axios.get(`/api/contract`);
+  const contracts = checkContract.data;
+  const matchingContracts = contracts.filter(contract => contract.trainerId == trainerId);
 
   IMP.init('imp37646573'); // 가맹점 식별코드
   const ptNumber = $('#ptNumber').val();
@@ -35,45 +39,46 @@ async function payment() {
     },
 
     async function (rsp) {
+      //결제 성공시
       if (rsp.success) {
-        //결제 성공시
+        //계약이 있을때
+        if (contracts.length > 0) {
+          const contract = matchingContracts[0]; // 필터링된 계약 중 첫 번째 계약을 가져옴
+          const contractId = contract.contractId;
+          const contractPtNumber = contract.ptNumber;
 
-        axios
-          .post('/api/payment/kakao', rsp, {
-            headers: {
-              'Content-Type': 'application/json',
-            },
-          })
-          .then(function (response) {
-            //결제 성공시 프로젝트 DB저장 요청
+          const insertPtNumber = contractPtNumber + parseInt(ptNumber);
+          const data = insertPtNumber;
 
-            if (response.status == 200) {
-              // DB저장 성공시
-              alert('결제 완료!');
-              window.location.reload();
-            } else {
-              // 결제완료 후 DB저장 실패시
-              alert(`error:[${response.status}]\n결제요청이 승인된 경우 관리자에게 문의바랍니다.`);
-              // DB저장 실패시 status에 따라 추가적인 작업 가능성
-            }
-          })
-          .catch(function (error) {
-            console.log(error);
-            alert('결제에 실패했습니다.');
-          });
-        axios
-          .post('api/contract', { trainerId, ptNumber })
-          .then(function (response) {
-            alert(response.data);
-            location.reload();
-          })
-          .catch(function (error) {
-            alert(error.response.data);
-            location.reload();
-          });
+          axios.patch(`api/contract/${contractId}`, { data });
+          alert('계약이 추가되었습니다.');
+          window.location.reload();
+        } else {
+          axios
+            .post('/api/payment/kakao', rsp, {
+              headers: {
+                'Content-Type': 'application/json',
+              },
+            })
+            .then(function (response) {})
+            .catch(function (error) {
+              console.log(error);
+              alert('결제에 실패했습니다.');
+            });
+          axios
+            .post('api/contract', { trainerId, ptNumber })
+            .then(function (response) {
+              alert('결제 성공, 계약이 완료되었습니다.');
+              location.reload();
+            })
+            .catch(function (error) {
+              alert('결제 중 문제가 발생하였습니다. 고객센터로 문의해주세요.');
+              location.reload();
+            });
+        }
       } else if (rsp.success == false) {
         // 결제 실패시
-        alert(rsp.error_msg);
+        alert('결제에 실패했습니다.');
       }
     }
   );

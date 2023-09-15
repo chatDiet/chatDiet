@@ -2,7 +2,6 @@ axios
   .get('/api/trainer')
   .then(function (response) {
     const result = response.data.data;
-    console.log('result', result);
     $('.main-section').empty();
     const trainerId = result.trainerId;
     const trainerName = result.trainerName;
