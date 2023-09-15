@@ -36,7 +36,9 @@ $('#createTrinaerInfo').click(function () {
       location.href = '/trainerInfo';
     })
     .catch(function (error) {
-      alert('빈칸 없이 입력해주세요.');
+      console.log(error);
+      alert('트레이너 등록 중 에러 발생');
       location.reload();
+      
     });
 });

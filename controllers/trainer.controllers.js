@@ -9,6 +9,7 @@ class TrainerController {
       const imageUrl = req.file.transforms[0].location;
 
       const { trainerName, career, ptContent, ptAmount, companyId } = req.body;
+
       const { code, message, data } = await this._trainerService.create(trainerName, career, ptContent, ptAmount, companyId, userId, imageUrl);
 
       res.status(code).json({ ...(message && { message }), ...(data && { data }) });

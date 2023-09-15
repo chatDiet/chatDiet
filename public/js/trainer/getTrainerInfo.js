@@ -11,6 +11,10 @@ axios
     const ptContent = result.ptContent;
     const ptAmount = result.ptAmount;
 
+    if (ptAmount === 0) {
+      alert('PT수업료가 0원 입니다. 확인이 필요합니다.');
+    }
+
     let temp_html = `
       <div id="myTainerInfo">
         <div>        
