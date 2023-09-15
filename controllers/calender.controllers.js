@@ -27,6 +27,7 @@ class CalenderController {
   createCalender = async (req, res, next) => {
     const userId = res.locals.userId;
     const imageUrl = req.file.transforms[0].location;
+    console.log(req.file.transforms[0]);
     const { date, title, content, type } = req.body;
     const createCalender = await this.calenderService.createCalender(date, title, content, type, userId, imageUrl);
     return res.status(createCalender.status).json(createCalender.message);

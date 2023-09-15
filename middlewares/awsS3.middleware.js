@@ -1,6 +1,4 @@
 const multer = require('multer');
-// const { S3Client, PutObjectCommand } = require('@aws-sdk/client-s3');
-// const multerS3 = require('multer-s3');
 const multerS3 = require('multer-s3-transform');
 const path = require('path');
 const sharp = require('sharp');
@@ -14,14 +12,6 @@ aws.config.update({
   },
 });
 const s3 = new aws.S3();
-
-// const s3Client = new S3Client({
-//   region: process.env.AWS_BUCKET_REGION,
-//   credentials: {
-//     accessKeyId: process.env.AWS_ACCESS_KEY,
-//     secretAccessKey: process.env.AWS_SECRET_KEY,
-//   },
-// });
 
 const upload = multer({
   storage: multerS3({
