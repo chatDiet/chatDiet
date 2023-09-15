@@ -1,12 +1,3 @@
-var IMP = window.IMP;
-
-var today = new Date();
-var hours = today.getHours(); // 시
-var minutes = today.getMinutes(); // 분
-var seconds = today.getSeconds(); // 초
-var milliseconds = today.getMilliseconds();
-var makeMerchantUid = `${hours}` + `${minutes}` + `${seconds}` + `${milliseconds}`;
-
 $(document).ready(function () {
   $('#savePtModal').click(function () {
     payment();
@@ -14,6 +5,15 @@ $(document).ready(function () {
 });
 
 async function payment() {
+  const IMP = window.IMP;
+
+  const today = new Date();
+  const hours = today.getHours(); // 시
+  const minutes = today.getMinutes(); // 분
+  const seconds = today.getSeconds(); // 초
+  const milliseconds = today.getMilliseconds();
+  const makeMerchantUid = `${hours}` + `${minutes}` + `${seconds}` + `${milliseconds}`;
+
   const response = await axios.get(`/api/companys/${companyId}/trainers/${trainerId}`);
   const trainerInfo = response.data.data;
 
@@ -42,7 +42,7 @@ async function payment() {
       //결제 성공시
       if (rsp.success) {
         //계약이 있을때
-        if (contracts.length > 0) {
+        if (matchingContracts.length > 0) {
           const contract = matchingContracts[0]; // 필터링된 계약 중 첫 번째 계약을 가져옴
           const contractId = contract.contractId;
           const contractPtNumber = contract.ptNumber;
