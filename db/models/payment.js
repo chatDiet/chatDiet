@@ -1,11 +1,10 @@
 import { DataTypes } from 'sequelize';
 import connector from '../db.js';
-import Company from './company.js';
 
-const Trainer = connector.sequelize.define(
-  'trainers',
+const Payment = connector.sequelize.define(
+  'payments',
   {
-    trainerId: {
+    paymentId: {
       type: DataTypes.INTEGER,
       allowNull: false,
       primaryKey: true,
@@ -16,33 +15,16 @@ const Trainer = connector.sequelize.define(
       type: DataTypes.INTEGER,
       allowNull: false,
     },
-    companyId: {
+    orderNumber: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    method: {
+      type: DataTypes.STRING,
+      allowNull: false,
+    },
+    amountOfPayment: {
       type: DataTypes.INTEGER,
-      allowNull: false,
-      references: {
-        model: Company,
-        key: 'companyId',
-      },
-      onDelete: 'CASCADE',
-    },
-    trainerName: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    imageUrl: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    career: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    ptContent: {
-      type: DataTypes.STRING,
-      allowNull: false,
-    },
-    ptAmount: {
-      type: DataTypes.STRING,
       allowNull: false,
     },
     createdAt: {
@@ -59,4 +41,4 @@ const Trainer = connector.sequelize.define(
   { timestamps: true }
 );
 
-export default Trainer;
+export default Payment;

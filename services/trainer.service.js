@@ -4,7 +4,7 @@ class TrainerService {
   _trainerRepository = new TrainerRepository();
   _userRepository = new UserRepository();
 
-  create = async (trainerName, career, ptContent, companyId, userId, imageUrl) => {
+  create = async (trainerName, career, ptContent, ptAmount, companyId, userId, imageUrl) => {
     const isOwner = await this._trainerRepository.isOwner(userId);
     if (isOwner.type != 'trainer') {
       return {
@@ -49,7 +49,7 @@ class TrainerService {
     }
     return {
       code: 200,
-      data: await this._trainerRepository.create(trainerName, career, ptContent, companyId, userId, imageUrl),
+      data: await this._trainerRepository.create(trainerName, career, ptContent, ptAmount, companyId, userId, imageUrl),
     };
   };
 
@@ -150,7 +150,7 @@ class TrainerService {
     };
   };
 
-  update = async (companyId, trainerId, trainerName, career, ptContent, userId, imageUrl) => {
+  update = async (companyId, trainerId, trainerName, career, ptContent, ptAmount, userId, imageUrl) => {
     if (!trainerName) {
       return {
         code: 400,
@@ -196,7 +196,7 @@ class TrainerService {
       };
     }
 
-    const result = await this._trainerRepository.update(trainerId, trainerName, career, ptContent, imageUrl);
+    const result = await this._trainerRepository.update(trainerId, trainerName, career, ptContent, ptAmount, imageUrl);
     return {
       code: 200,
       data: result,

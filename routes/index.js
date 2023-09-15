@@ -11,6 +11,7 @@ import TrainerRoute from './trainer.routes';
 import UserRoute from './user.routes';
 import CompanyRoute from './company.routes';
 import ChatRoute from './chat.routes';
+import PaymentRoute from './payment.routes';
 
 const router = express.Router();
 
@@ -27,6 +28,7 @@ router.use('/', [
   UserRoute,
   CompanyRoute,
   ChatRoute,
+  PaymentRoute,
 ]);
 
 module.exports = router;

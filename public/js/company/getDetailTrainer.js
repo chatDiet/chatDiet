@@ -12,6 +12,7 @@ axios.get(`/api/companys/${companyId}/trainers/${trainerId}`).then(function (res
   const trainerName = result.trainerName;
   const career = result.career;
   const ptContent = result.ptContent;
+  const ptAmount = result.ptAmount;
   const type = 'trainer';
 
   let temp_html = `
@@ -20,9 +21,10 @@ axios.get(`/api/companys/${companyId}/trainers/${trainerId}`).then(function (res
         <div>트레이너 이름 : ${trainerName}</div>
         <div>경력 : ${career}</div>
         <div>PT 내용 : ${ptContent}</div>
+        <div>수업료 : ${ptAmount}</div>
       </div>
       <div id="button">
-        <button onclick="createContractBtn(${trainerId})">계약하기</button>
+        <button id = 'createContractBtn' onclick="createContractBtn(${trainerId})">계약하기</button>
         <button id="createReviewBtn" onclick="createReviewBtn(${trainerId}, '${type}')">리뷰 작성</button>
       </div>`;
 

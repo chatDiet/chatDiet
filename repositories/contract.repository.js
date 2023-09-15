@@ -45,6 +45,11 @@ class ContractRepository {
   updateContract = async (contractId, updatePtNumber) => {
     return await Contract.update({ ptNumber: updatePtNumber }, { where: { contractId } });
   };
-}
 
+  duplicateContract = async (contractId, data) => {
+    const ptNumber = data.data;
+
+    return await Contract.update({ ptNumber }, { where: { contractId } });
+  };
+}
 export default ContractRepository;
