@@ -37,5 +37,8 @@ $('#createTrinaerInfo').click(function () {
     })
     .catch(function (error) {
       console.log(error);
+      alert('트레이너 등록 중 에러 발생');
+      location.reload();
+      
     });
 });
