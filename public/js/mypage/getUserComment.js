@@ -33,7 +33,7 @@ axios
   })
   .catch(function (error) {
     if (error.response.data.message) {
-      alert(error.response.data.message);
+      alert('로그인이 필요한 서비스입니다.');
       location.href = '/login';
     } else {
       alert(error.data);

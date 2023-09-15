@@ -145,3 +145,8 @@ footer img {
   text-decoration: none;
   bottom: 0;
 }
+
+a {
+  text-decoration: none;
+  color: black;
+}
