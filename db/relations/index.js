@@ -11,6 +11,7 @@ import trainerRelation from './trainer.relation';
 import userRelation from './user.relation';
 import userInfoRelation from './userInfo.relation';
 import adminRelation from './admin.relation';
+import paymentRelation from './payment.relation';
 
 export default {
   calenderRelation,
@@ -26,4 +27,5 @@ export default {
   userRelation,
   userInfoRelation,
   adminRelation,
+  paymentRelation,
 };

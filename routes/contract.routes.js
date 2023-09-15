@@ -11,5 +11,6 @@ router.get('/contract', isAuth, contractController.getContract);
 router.delete('/contract/:contractId', isAuth, contractController.deleteContract);
 router.patch('/authContract', isAuth, contractController.authContract);
 router.put('/contract/:contractId', isAuth, contractController.updateContract);
+router.patch('/contract/:contractId', isAuth, contractController.duplicateContract);
 
 export default router;

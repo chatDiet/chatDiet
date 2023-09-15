@@ -10,6 +10,7 @@ import TrainerRepository from './trainer.repository';
 import UserRepository from './user.repository';
 import ReportRepository from './report.repository';
 import ChatRepository from './chat.repository';
+import PaymentRepository from './payment.repository';
 
 export {
   CalenderRepository,
@@ -24,4 +25,5 @@ export {
   TrainerRepository,
   UserRepository,
   ChatRepository,
+  PaymentRepository,
 };

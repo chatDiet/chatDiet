@@ -11,7 +11,7 @@
   <header>
     <nav class="navigation">
       <div class="navigation-title">
-        <h1 class="header-title">chat Diet plan</h1>
+        <h1 class="header-title"><a href="/">chat Diet plan</a></h1>
       </div>
       <a href="/signupCategory"><button id="signup">회원가입</button></a>
     </nav>
@@ -67,9 +67,13 @@
                   },
                   body: JSON.stringify({ email: kakao_account.email }),
                 })
-                  .then(() => {
-                    // 로그인이 완료되었을 때 userMain 페이지로 이동
-                    window.location.href = '/';
+                  .then(result => {
+                    if (result.status === 400) {
+                      alert('회원가입 후 이용 가능합니다.');
+                      window.location.href = '/signupCategory';
+                    } else {
+                      window.location.href = '/';
+                    }
                   })
                   .catch(error => {});
               },

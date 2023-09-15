@@ -12,10 +12,11 @@ import Trainer from './models/trainer';
 import User from './models/user';
 import Admin from './models/admin';
 import UserInfo from './models/userInfo';
+import Payment from './models/payment';
 import relations from './relations';
 
 Object.values(relations).forEach(relationsFunction => {
   relationsFunction();
 });
 
-export { sequelize, Calender, Comment, Company, Contract, Inquiry, Post, Report, Review, Schedule, Trainer, User, Admin, UserInfo };
+export { sequelize, Calender, Comment, Company, Contract, Inquiry, Post, Report, Review, Schedule, Trainer, User, Admin, UserInfo, Payment };
