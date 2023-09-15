@@ -9,6 +9,7 @@ import Calender from '../models/calender';
 import Admin from '../models/admin';
 import Company from '../models/company';
 import User from '../models/user';
+import Payment from '../models/payment';
 
 export default () => {
   User.hasMany(Inquiry, {
@@ -48,6 +49,10 @@ export default () => {
     foreignKey: 'userId',
   });
   User.hasMany(Company, {
+    sourceKey: 'userId',
+    foreignKey: 'userId',
+  });
+  User.hasMany(Payment, {
     sourceKey: 'userId',
     foreignKey: 'userId',
   });

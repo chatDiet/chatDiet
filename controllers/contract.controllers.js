@@ -40,6 +40,12 @@ class ContractController {
     const result = await this.contractService.updateContract(contractId, userId);
     return res.status(result.status).json(result.message);
   };
+  duplicateContract = async (req, res) => {
+    const { contractId } = req.params;
+    const data = req.body;
+    const result = await this.contractService.duplicateContract(contractId, data);
+    return res.status(result.status).json(result.message);
+  };
 }
 
 export default ContractController;

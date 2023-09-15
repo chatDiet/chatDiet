@@ -10,13 +10,17 @@
 
     <script src="https://code.jquery.com/jquery-3.4.1.js" defer></script>
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js" defer></script>
+    <script
+      type="text/javascript"
+      src="//dapi.kakao.com/v2/maps/sdk.js?appkey=bbb9f4265c6b412072975dbd35510aba&libraries=services,clusterer,drawing"
+    ></script>
     <title>Your Project</title>
   </head>
   <body>
     <header>
       <nav class="navigation">
         <div class="navigation-title">
-          <h1 class="header-title">우리동네 헬스장</h1>
+          <h1 class="header-title"><a href="/">우리동네 헬스장</a></h1>
         </div>
         <div class="navigation-buttons">
           <button id="goto-signup-button" class="icon-button">회원가입</button>
@@ -27,6 +31,7 @@
     </header>
     <main class="centered">
       <section class="main-section">
+        <div id="map" style="width: 100%; height: 350px"></div>
         <div id="companyList"></div>
         <div id="companyZone"></div>
         <!-- 메인 콘텐츠 -->
@@ -56,5 +61,6 @@
     <!-- <script src="../../js/calender/" defer></script> -->
     <script type="module" src="../js/login/userLogout.js" defer></script>
     <script src="../../js/headerScript.js" defer></script>
+    <script src="../../js/map.js" defer></script>
   </body>
 </html>

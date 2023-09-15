@@ -10,6 +10,7 @@ import ScheduleService from './schedule.service.js';
 import TrainerService from './trainer.service.js';
 import UserService from './user.service.js';
 import ChatService from './chat.service.js';
+import PaymentService from './payment.service.js';
 
 export {
   CalenderService,
@@ -24,4 +25,5 @@ export {
   TrainerService,
   UserService,
   ChatService,
+  PaymentService,
 };

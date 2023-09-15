@@ -9,6 +9,11 @@ axios
     const companyId = result.companyId;
     const career = result.career;
     const ptContent = result.ptContent;
+    const ptAmount = result.ptAmount;
+
+    if (ptAmount === 0) {
+      alert('PT수업료가 0원 입니다. 확인이 필요합니다.');
+    }
 
     let temp_html = `
       <div id="myTainerInfo">
@@ -19,6 +24,7 @@ axios
         <div>
           <div id="career">경력 : ${career}</div>
           <div id="ptContent">수업 내용 : ${ptContent}</div>
+          <div id="ptContent">수업료 : ${ptAmount}</div>
         </div>
       </div>
       <button onclick=updateTrainerInfoBtn(${companyId},${trainerId})>정보 수정</button>

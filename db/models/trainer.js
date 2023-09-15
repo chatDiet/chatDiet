@@ -1,6 +1,6 @@
 import { DataTypes } from 'sequelize';
 import connector from '../db.js';
-import Company from './company.js'
+import Company from './company.js';
 
 const Trainer = connector.sequelize.define(
   'trainers',
@@ -20,7 +20,7 @@ const Trainer = connector.sequelize.define(
       type: DataTypes.INTEGER,
       allowNull: false,
       references: {
-        model: Company, 
+        model: Company,
         key: 'companyId',
       },
       onDelete: 'CASCADE',
@@ -39,6 +39,10 @@ const Trainer = connector.sequelize.define(
     },
     ptContent: {
       type: DataTypes.STRING,
+      allowNull: false,
+    },
+    ptAmount: {
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
     createdAt: {

@@ -15,6 +15,7 @@ $('#createTrinaerInfo').click(function () {
   const trainerName = $('#trainerName').val();
   const career = $('#career').val();
   const ptContent = $('#ptContent').val();
+  const ptAmount = $('#ptAmount').val();
   const companyId = $('#companyNames option:selected').val();
   // const image = $('#image').files();
   const image = document.getElementById('image').files[0];
@@ -23,6 +24,7 @@ $('#createTrinaerInfo').click(function () {
     trainerName,
     career,
     ptContent,
+    ptAmount,
     companyId,
     image,
   };
@@ -34,7 +36,9 @@ $('#createTrinaerInfo').click(function () {
       location.href = '/trainerInfo';
     })
     .catch(function (error) {
-      alert('빈칸 없이 입력해주세요.');
+      console.log(error);
+      alert('트레이너 등록 중 에러 발생');
       location.reload();
+      
     });
 });

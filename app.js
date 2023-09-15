@@ -83,10 +83,10 @@ export class ExpressApp {
       res.sendFile(__dirname + '/public/templates/mypage/getUserReview.html');
     });
     this.app.get('/userInfo', (req, res) => {
-      res.sendFile(__dirname + '/public/templates/mypage/userInfo.html');
+      res.sendFile(__dirname + '/public/templates/myPage/userInfo.html');
     });
     this.app.get('/updateUserInfo', (req, res) => {
-      res.sendFile(__dirname + '/public/templates/mypage/updateUserInfo.html');
+      res.sendFile(__dirname + '/public/templates/myPage/updateUserInfo.html');
     });
     this.app.get('/companyMain', (req, res) => {
       res.sendFile(__dirname + '/public/templates/company/getUserCompanyMain.html');
@@ -153,6 +153,9 @@ export class ExpressApp {
     });
     this.app.get('/putOwnerCompany', (req, res) => {
       res.sendFile(__dirname + '/public/templates/OwnerCompany/putOwnerCompany.html');
+    });
+    this.app.get('/kakaotest', (req, res) => {
+      res.sendFile(__dirname + '/public/templates/test/kakaotest.html');
     });
   };
 }

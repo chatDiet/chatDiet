@@ -64,7 +64,6 @@ axios.get(`/api/company/${companyId}`).then(function (response) {
         map: map,
         position: coords,
       });
-
       const infowindow = new kakao.maps.InfoWindow({
         content: `<div style="width:150px;text-align:center;padding:6px 0;">${companyName}</div>`,
       });
@@ -87,6 +86,7 @@ axios.get(`/api/companys/${companyId}/trainer`).then(function (response) {
     const trainerName = result[i].trainerName;
     const career = result[i].career;
     const ptContent = result[i].ptContent;
+    const ptAmount = result[i].ptAmount;
 
     let temp_html = `
     <button id="trainer" onclick="getDetailTrainerBtn(${companyId}, ${trainerId})">
@@ -94,6 +94,7 @@ axios.get(`/api/companys/${companyId}/trainer`).then(function (response) {
       <div>트레이너 이름 : ${trainerName}</div>
       <div>경력 : ${career}</div>
       <div>PT 내용 : ${ptContent}</div>
+      <div>수업료 :${ptAmount}</div>
     </button>`;
     $('#trainerList').append(temp_html);
   }

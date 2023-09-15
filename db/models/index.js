@@ -8,7 +8,6 @@ import Post from './post.js';
 import Review from './review.js';
 import Schedule from './schedule.js';
 import Trainer from './trainer.js';
+import Payment from './payment.js';
 
-
-
-export { User, Comment, Company, Contract, Report, Inquiry, Post, Review, Schedule, Trainer };
+export { User, Comment, Company, Contract, Report, Inquiry, Post, Review, Schedule, Trainer, Payment };

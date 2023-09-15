@@ -10,4 +10,4 @@ RUN npm install --production \
 
 COPY . ./
 
-CMD npm run dev
+CMD ["/usr/local/bin/node", "/chatdiet/node_modules/@babel/node/lib/_babel-node", "init.js"]

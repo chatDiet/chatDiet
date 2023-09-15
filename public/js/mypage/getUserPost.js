@@ -37,8 +37,8 @@ axios
     });
   })
   .catch(function (error) {
-    if (error.response.data.message) {
-      alert(error.response.data.message);
+    if (error.response.data.message === '토큰이 제공되지 않았습니다.') {
+      alert('로그인이 필요한 서비스입니다.');
       location.href = '/login';
     } else {
       alert(error.data);

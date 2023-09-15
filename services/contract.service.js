@@ -22,7 +22,7 @@ class ContractService {
         };
       }
 
-      if (0 >= ptNumber || ptNumber > 100) {
+      if (0 > ptNumber > 100) {
         return {
           status: 400,
           message: '1회 이상 또는 100회 이하',
@@ -40,7 +40,7 @@ class ContractService {
       const checkContract = await this._contractRepository.getContract(trainerId, userId);
       if (checkContract) {
         return {
-          status: 404,
+          status: 201,
           message: '이미 계약 된 상태',
         };
       }
@@ -215,6 +215,11 @@ class ContractService {
         message: 'Server error',
       };
     }
+  };
+  duplicateContract = async (contractId, data) => {
+    await this._contractRepository.duplicateContract(contractId, data);
+
+    return { status: 200, message: '추가 결제 완료' };
   };
 }
 

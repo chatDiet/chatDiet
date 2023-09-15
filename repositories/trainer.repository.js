@@ -25,8 +25,9 @@ class TrainerRepository {
     return await Trainer.findOne({ where: { userId } });
   };
 
-  create = async (trainerName, career, ptContent, companyId, userId, imageUrl) => {
-    return await Trainer.create({ trainerName, career, ptContent, companyId, userId, imageUrl });
+  create = async (trainerName, career, ptContent, ptAmount, companyId, userId, imageUrl) => {
+    ptAmount = parseInt(ptAmount);
+    return await Trainer.create({ trainerName, career, ptContent, ptAmount, companyId, userId, imageUrl });
   };
 
   read = async companyId => {
@@ -41,8 +42,9 @@ class TrainerRepository {
     await Trainer.destroy({ where: { trainerId } });
   };
 
-  update = async (trainerId, trainerName, career, ptContent, imageUrl) => {
-    return await Trainer.update({ trainerName, career, ptContent, imageUrl }, { where: { trainerId } });
+  update = async (trainerId, trainerName, career, ptContent, ptAmount, imageUrl) => {
+    ptAmount = parseInt(ptAmount);
+    return await Trainer.update({ trainerName, career, ptContent, ptAmount, imageUrl }, { where: { trainerId } });
   };
 }
 
