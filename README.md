@@ -49,7 +49,8 @@ http://chatdietv1-env.eba-trj74i4k.ap-northeast-2.elasticbeanstalk.com/
 
 ## ⛑️ 서비스 아키텍쳐
 
-![image](https://github.com/chatDiet/chatDiet/assets/90279468/f379957d-1636-4c61-a2a8-67d27b7be1b7)
+![image](https://github.com/chatDiet/chatDiet/assets/90279468/53f4b6fb-5953-4d08-a261-796f8b9b68ed)
+
 
 
 
