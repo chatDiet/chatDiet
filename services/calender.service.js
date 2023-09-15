@@ -1,4 +1,5 @@
 import { CalenderRepository, ContractRepository, TrainerRepository, UserRepository } from '../repositories';
+import sharp from 'sharp';
 
 class CalenderService {
   _calenderRepository = new CalenderRepository();

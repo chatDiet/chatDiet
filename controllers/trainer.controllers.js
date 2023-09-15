@@ -6,7 +6,7 @@ class TrainerController {
   create = async (req, res) => {
     try {
       const userId = res.locals.userId;
-      const imageUrl = req.file.location;
+      const imageUrl = req.file.transforms[0].location;
 
       const { trainerName, career, ptContent, companyId } = req.body;
       const { code, message, data } = await this._trainerService.create(trainerName, career, ptContent, companyId, userId, imageUrl);
@@ -70,7 +70,7 @@ class TrainerController {
   update = async (req, res) => {
     try {
       const userId = res.locals.userId;
-      const imageUrl = req.file.location;
+      const imageUrl = req.file.transforms[0].location;
       const { companyId, trainerId } = req.params;
       const { trainerName, career, ptContent } = req.body;
       const { code, message, data } = await this._trainerService.update(companyId, trainerId, trainerName, career, ptContent, userId, imageUrl);
