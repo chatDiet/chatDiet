@@ -24,8 +24,6 @@ async function payment() {
   const checkContract = await axios.get(`/api/contract`);
   const contracts = checkContract.data;
   const matchingContracts = contracts.filter(contract => contract.trainerId == trainerId);
-  console.log(contracts, 'contracts');
-  console.log(matchingContracts, 'matchingContracts');
 
   IMP.init('imp37646573'); // 가맹점 식별코드
   const ptNumber = $('#ptNumber').val();
