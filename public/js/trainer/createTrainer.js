@@ -36,7 +36,6 @@ $('#createTrinaerInfo').click(function () {
       location.href = '/trainerInfo';
     })
     .catch(function (error) {
-      alert('빈칸 없이 입력해주세요.');
-      location.reload();
+      console.log(error);
     });
 });

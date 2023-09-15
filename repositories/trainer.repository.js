@@ -26,6 +26,7 @@ class TrainerRepository {
   };
 
   create = async (trainerName, career, ptContent, ptAmount, companyId, userId, imageUrl) => {
+    ptAmount = parseInt(ptAmount);
     return await Trainer.create({ trainerName, career, ptContent, ptAmount, companyId, userId, imageUrl });
   };
 
@@ -42,6 +43,7 @@ class TrainerRepository {
   };
 
   update = async (trainerId, trainerName, career, ptContent, ptAmount, imageUrl) => {
+    ptAmount = parseInt(ptAmount);
     return await Trainer.update({ trainerName, career, ptContent, ptAmount, imageUrl }, { where: { trainerId } });
   };
 }

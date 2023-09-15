@@ -40,6 +40,7 @@ class TrainerService {
         message: '트레이너의 사진을 입력해주세요',
       };
     }
+
     const Company = await this._trainerRepository.findCompantId(companyId);
     if (!Company) {
       return {
