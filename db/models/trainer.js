@@ -42,7 +42,7 @@ const Trainer = connector.sequelize.define(
       allowNull: false,
     },
     ptAmount: {
-      type: DataTypes.STRING,
+      type: DataTypes.INTEGER,
       allowNull: false,
     },
     createdAt: {
