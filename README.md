@@ -85,10 +85,10 @@ http://chatdietv1-env.eba-trj74i4k.ap-northeast-2.elasticbeanstalk.com/
 - 배포 시간 개선(docker image)
     - 고민사항: 배포하는 시간 단축을 고민, docker image의 크기 축소하는 방향
     - 해결방법: Docker Optimize
-          - 배포 시간 : (대략) 6분 => 3분
-          - Docker Image Compressed Size : (대략) 860MB => 210MB
-          - Docker Container Ram 사용량 : (대략) 150Mb => 110Mb
-          - Dokcer Container 프로세스 수 : 7개 => 1개
+          + 배포 시간 : (대략) 6분 => 3분
+          + Docker Image Compressed Size : (대략) 860MB => 210MB
+          + Docker Container Ram 사용량 : (대략) 150Mb => 110Mb
+          + Dokcer Container 프로세스 수 : 7개 => 1개
     
 
 
