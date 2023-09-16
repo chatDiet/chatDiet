@@ -84,7 +84,11 @@ http://chatdietv1-env.eba-trj74i4k.ap-northeast-2.elasticbeanstalk.com/
     - 해결방법 : 리사이징 후 업로드하는 방식이  서버비용을 아낄 수 있고 , 현재 데이터 전송량이 많지 않기때문에 현 프로젝트에 적합하다고 판단, multer-s3-transform으로 이미지 리사이징 (sharp) 을 구현하기로 결정.
 - 배포 시간 개선(docker image)
     - 고민사항: 배포하는 시간 단축을 고민, docker image의 크기 축소하는 방향
-    - 해결방법: 도커 옵티마이즈 진행. package.json에 devDependencies 와 dependencies로 개발용 패키지와 배포용 패키지를 나눠 종속성을 설치 할 때 배포용 패키지를 설치하도록 설정. COMPRESSED SIZE : 214.91 MB 까지 줄여줌
+    - 해결방법: Docker Optimize
+          - 배포 시간 : (대략) 6분 => 3분
+          - Docker Image Compressed Size : (대략) 860MB => 210MB
+          - Docker Container Ram 사용량 : (대략) 150Mb => 110Mb
+          - Dokcer Container 프로세스 수 : 7개 => 1개
     
 
 
