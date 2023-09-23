@@ -1,4 +1,4 @@
-import { Company, Trainer, Review } from '../db';
+import { Company, Trainer } from '../db';
 
 class CompanyRepository {
   isMe = async companyId => {
