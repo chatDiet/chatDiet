@@ -1,4 +1,4 @@
-import { Company, User } from '../db';
+import { Company, Trainer, Review } from '../db';
 
 class CompanyRepository {
   isMe = async companyId => {
@@ -26,6 +26,11 @@ class CompanyRepository {
   oneGetCompany = async companyId => {
     return await Company.findOne({
       where: { companyId },
+      include: [
+        {
+          model: Trainer,
+        },
+      ],
     });
   };
 

@@ -83,11 +83,14 @@ class CompanyService {
           message: '존재하지 않는 업체 ID',
         };
       }
+      console.log(companyId);
+
       return {
         status: 200,
         message: result,
       };
     } catch (err) {
+      console.log(err);
       return { status: 500, message: 'Server Error' };
     }
   };
