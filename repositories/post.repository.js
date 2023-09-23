@@ -1,4 +1,4 @@
-import Post from '../db/models/post';
+import { Post, Comment, User, UserInfo } from '../db';
 
 class PostRepository {
   // # 게시글 생성
@@ -21,7 +21,27 @@ class PostRepository {
 
   // # 특정 게시글 Id 조회
   getPostId = async postId => {
-    return await Post.findOne({ where: { postId } });
+    return await Post.findOne({
+      where: { postId },
+      include: [
+        {
+          model: Comment,
+          attributes: ['userId', 'content'],
+          include: [
+            {
+              model: User,
+              attributes: ['userId'],
+              include: [
+                {
+                  model: UserInfo,
+                  attributes: ['userName'],
+                },
+              ],
+            },
+          ],
+        },
+      ],
+    });
   };
 
   // # 게시글 수정
