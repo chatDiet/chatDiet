@@ -5,6 +5,8 @@ class CompanyService {
 
   postCompany = async (companyName, time, additional, service, phoneNumber, link, userId, imageUrl, map) => {
     try {
+      await this.isEmpty(companyName, time, additional, service, phoneNumber, link, imageUrl, map);
+
       const existCompany = await this._companyRepository.getOwnerCompany(userId);
       if (existCompany) {
         return {
@@ -12,33 +14,7 @@ class CompanyService {
           message: '이미 업체가 생성되어 있습니다.',
         };
       }
-      if (!companyName) {
-        return {
-          status: 400,
-          message: '업체 이름 미입력',
-        };
-      }
 
-      if (!time) {
-        return {
-          status: 400,
-          message: '운영 시간 미입력',
-        };
-      }
-
-      if (!additional) {
-        return {
-          status: 400,
-          message: '업체 추가 운영 프로그램 미입력',
-        };
-      }
-
-      if (!phoneNumber) {
-        return {
-          status: 400,
-          message: '업체 연락처 미입력',
-        };
-      }
       const result = await this._companyRepository.postCompany(companyName, time, additional, service, phoneNumber, link, userId, imageUrl, map);
       if (!result) {
         return {
@@ -64,27 +40,14 @@ class CompanyService {
         message: result,
       };
     } catch (err) {
+      console.log(err);
       return { status: 500, message: 'Server Error' };
     }
   };
 
   oneGetCompany = async companyId => {
     try {
-      if (!companyId) {
-        return {
-          status: 400,
-          message: '업체 ID 미입력',
-        };
-      }
-      const result = await this._companyRepository.oneGetCompany(companyId);
-      if (!result) {
-        return {
-          status: 400,
-          message: '존재하지 않는 업체 ID',
-        };
-      }
-      console.log(companyId);
-
+      await this.checkCompany(companyId);
       return {
         status: 200,
         message: result,
@@ -97,44 +60,10 @@ class CompanyService {
 
   putCompany = async (companyId, companyName, time, additional, service, phoneNumber, link, userId, imageUrl, map) => {
     try {
-      if (!companyId) {
-        return {
-          status: 400,
-          message: '업체 ID 미입력',
-        };
-      }
-      const company = await this._companyRepository.oneGetCompany(companyId);
-      if (!company) {
-        return {
-          status: 400,
-          message: '존재하지 않는 업체 ID',
-        };
-      } else if (userId !== company.userId) {
-        return {
-          status: 401,
-          message: '수정 권한이 존재하지 않습니다.',
-        };
-      } else if (!companyName) {
-        return {
-          status: 400,
-          message: '업체 이름 미입력',
-        };
-      } else if (!time) {
-        return {
-          status: 400,
-          message: '운영 시간 미입력',
-        };
-      } else if (!phoneNumber) {
-        return {
-          status: 400,
-          message: '업체 연락처 미입력',
-        };
-      } else if (!map) {
-        return {
-          status: 400,
-          message: '주소 미입력',
-        };
-      }
+      await this.isEmpty(companyName, time, additional, service, phoneNumber, link, imageUrl, map);
+
+      await this.isAuth(companyId, userId);
+
       const result = await this._companyRepository.putCompany(companyId, companyName, time, additional, service, phoneNumber, link, imageUrl, map);
       if (!result) {
         return {
@@ -151,21 +80,10 @@ class CompanyService {
       return { status: 500, message: 'Server Error' };
     }
   };
-  deleteCompany = async companyId => {
+  deleteCompany = async (companyId, userId) => {
     try {
-      if (!companyId) {
-        return {
-          status: 400,
-          message: '업체 ID 미입력',
-        };
-      }
-      const company = await this._companyRepository.oneGetCompany(companyId);
-      if (!company) {
-        return {
-          status: 400,
-          message: '존재하지 않는 업체 ID',
-        };
-      }
+      await this.isAuth(companyId, userId);
+
       const result = await this._companyRepository.deleteCompany(companyId);
       if (!result) {
         return {
@@ -193,6 +111,101 @@ class CompanyService {
       console.log(err);
       return { status: 500, message: 'Server Error' };
     }
+  };
+
+  isAuth = async (companyId, userId) => {
+    try {
+      const company = await this.checkCompany(companyId);
+      if (userId !== company.userId) {
+        return {
+          status: 401,
+          message: '권한 없음',
+        };
+      }
+    } catch (err) {
+      console.log(err);
+      return {
+        status: 500,
+        message: 'Server Error',
+      };
+    }
+  };
+
+  isEmpty = async (companyName, time, additional, service, phoneNumber, link, imageUrl, map) => {
+    try {
+      if (!companyName) {
+        return {
+          status: 400,
+          message: '업체 이름 미입력',
+        };
+      }
+      if (!time) {
+        return {
+          status: 400,
+          message: '운영 시간 미입력',
+        };
+      }
+      if (!additional) {
+        return {
+          status: 400,
+          message: '업체 추가 운영 프로그램 미입력',
+        };
+      }
+      if (!service) {
+        return {
+          status: 400,
+          message: '업체 운영 프로그램 미입력',
+        };
+      }
+      if (!phoneNumber) {
+        return {
+          status: 400,
+          message: '업체 연락처 미입력',
+        };
+      }
+      if (!link) {
+        return {
+          status: 400,
+          message: '업체 링크 미입력',
+        };
+      }
+      if (!imageUrl) {
+        return {
+          status: 400,
+          message: '업체 이미지 미입력',
+        };
+      }
+      if (!map) {
+        return {
+          status: 400,
+          message: '주소 미입력',
+        };
+      }
+    } catch (err) {
+      console.log(err);
+      return {
+        status: 500,
+        message: 'Server Error',
+      };
+    }
+  };
+
+  checkCompany = async companyId => {
+    if (!companyId) {
+      return {
+        status: 400,
+        message: '업체 ID 미입력',
+      };
+    }
+
+    const company = await this._companyRepository.oneGetCompany(companyId);
+    if (!company) {
+      return {
+        status: 400,
+        message: '존재하지 않는 업체 ID',
+      };
+    }
+    return company;
   };
 }
 
